@@ -1,0 +1,17 @@
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\RichItems.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\redis\RedisSkuAttributeDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\ItemServiceImpl.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\redis\RedisAttributeIndexDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\search\ItemSearchHelper.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\SearchServiceImpl.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\redis\RedisSpuAttributeDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\redis\RedisAttributeValueDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\redis\RedisSpuDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\Forrest.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\redis\RedisAttributeKeyDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\AttributeServiceImpl.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\mysql\ItemDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\mysql\SkuDao.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\ForrestRefreshJob.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\service\SpuServiceImpl.java
+D:\ChinaSoft\CJSHEN\huateng-aixforce\aixforce-item\src\main\java\com\aixforce\item\dao\mysql\ItemDetailDao.java

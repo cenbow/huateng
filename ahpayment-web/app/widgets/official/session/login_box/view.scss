@@ -1,0 +1,85 @@
+.session-login-box {
+  margin: 5px;
+  width: 300px;
+  min-height: 370px;
+  _height:370px !important;
+  font-size: 12px;
+  border: 1px solid #eee;
+  background-color: #EAF0F7;
+  border-radius: 3px;
+
+  .login-header {
+    .login-header-title {
+      float: left;
+      font-size: 16px;
+      border: 0px;
+      padding: 15px;
+      background-color: #BBB;
+      width: 120px;
+      text-align: left;
+      font-weight: normal;
+      margin-bottom: 15px;
+      cursor:pointer;
+      &.active {
+        cursor:text;
+        background-color: #EAF0F7;
+      }
+    }
+  }
+
+  .ui-form {
+    margin-left: 5px;
+    padding-bottom: 0;
+
+    hr {
+      width: 280px;
+      border-bottom: 0;
+      border-color: #BBB;
+    }
+
+    .ui-form-item {
+      width: 100%;
+    }
+
+    label {
+      font-size: 12px;
+    }
+
+    .division {
+      margin-top: 40px;
+    }
+
+    .login-more label {
+      display: inline-block;
+      margin-top: 5px;
+
+      .forgot-password {
+        color: #bbb;
+      }
+    }
+  }
+
+  .quick-login {
+    padding-left: 200px;
+    padding-top: 6px;
+  }
+
+  .ui-txtinput01 {
+    float: left;
+    height: 28px;
+    border-radius: 0px;
+  }
+
+  .ui-button-large {
+    width: 238px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  .session-after-login {
+    padding: 100px 10px;
+    font-size:16px;
+  }
+}

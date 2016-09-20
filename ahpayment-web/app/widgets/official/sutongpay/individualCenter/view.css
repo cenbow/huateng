@@ -1,0 +1,490 @@
+
+.individualCenter .tc{text-align:center;}
+ .individualCenter .tl{text-align:left;}
+ .individualCenter .tr{text-align:right;}
+.individualCenter  .dis{display:block;}
+.individualCenter .hide{display:none;}
+.individualCenter .fl{float:left;}
+.individualCenter .fr{float:right;}
+.individualCenter .cl{clear:both; height:0;overflow:hidden;font-size:0;line-height:0;}
+
+
+.individualCenter .font-blue{color:#0069ba;}
+
+
+.individualCenter .fund-nav{ background:#fff;  border:1px solid #dcdcdc; overflow:hidden;}
+.individualCenter .fund-nav li{
+    width:140px;
+    height:38px;
+    list-style:none;
+    float:left;
+    line-height:38px;
+    text-align:center;
+    font-size:14px;
+}
+
+.individualCenter a:hover{
+   text-decoration:none; 
+}
+
+.individualCenter .fund-nav li a:hover{
+    text-decoration:none;
+}
+.individualCenter .fund-nav li:hover{
+    background:#f6f6f6;
+}
+.individualCenter .fund-nav li.now{
+    background:#f6f6f6;
+}
+.individualCenter .fund-nav li.now a{
+    font-size:14px;
+    font-weight:bold;
+}
+.individualCenter .fund-nav li a{
+    font-size:14px;
+}
+.individualCenter .fund-nav li.now{
+    background:#f6f6f6;
+}
+.individualCenter .fund-nav li.now a{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.individualCenter .maintab {
+    background:#fff; border:1px solid #dcdcdc; 
+    
+    
+}
+
+.individualCenter .maintab ul{
+    padding:20px;   display:inline-table;width:96%;
+}
+.individualCenter .maintab dl{
+    display:table-row;
+}
+.individualCenter .maintab dd{
+    display:table-cell; 
+    margin:10px;
+    vertical-align:middle;
+}
+.individualCenter .picbox{
+    width:100px;    
+}
+
+.individualCenter .uid{
+    font:24px "微软雅黑", "黑体", "宋体";
+    width:200px;
+}
+
+.individualCenter .unev, .unev a{
+    font:18px "微软雅黑", "黑体", "宋体";
+    color:#0169b8;  
+    width:180px;
+    cursor:pointer;
+    text-align:center;
+
+}
+
+
+.individualCenter .fund-body ul{
+    display:inline-table;
+    width:100%;
+    
+}
+.individualCenter .fund-body dl{
+    display:table-row;
+    width:100%;
+}
+.individualCenter .fund-body dd{
+    display:table-cell;
+    vertical-align:middle;
+    position:relative;
+    table-layout:fixed;
+    border:5px #fff solid;
+    
+}
+.bgbrown{
+    background:#eee;    
+}
+
+.individualCenter .w50{
+    width:50%;
+}   
+
+.individualCenter .inter{
+    background:#eeeeee;
+    border:none;    
+    height:40px;
+    line-height:40px;
+    width:100%;
+    text-indent:80px;
+    padding: 0px 0px;
+    margin-bottom: 0px;
+}
+.individualCenter .inputtt{
+    position: absolute;
+    line-height: 40px;
+    font-size: 14px;
+    font-family:"微软雅黑", "黑体", "宋体";
+    color: #666;
+    text-indent: 10px;
+}
+.individualCenter .col{
+    column-span:all
+}
+.individualCenter .melselect{
+    background:url(/assets/sutongpay/select.png) no-repeat right;
+    }
+
+   .individualCenter  #mxselected{
+    position:absolute;
+    z-index:100;
+    width:100%;
+
+        
+}
+.individualCenter #mxselected li{
+        background:#ccc;
+    line-height:30px;
+    cursor:pointer;
+    width:100%;
+}
+.individualCenter #mxselected li:hover{
+    background:#ddd;
+}
+
+    .individualCenter .fund-base{
+    background:#56abe4;
+    }
+.individualCenter .fund-base .widfl{
+    width:590px;
+}
+.individualCenter .fund-base .widfr{
+    width:410px;
+    background:url(/assets/sutongpay/infobg.png);
+}
+.individualCenter .wm90{
+width:95%;
+margin:0 auto;  
+}
+.individualCenter .fundfontw{
+    color:#e4f0fa;
+    font-size:14px;
+    font-weight:bold;
+    vertical-align:middle;
+    }
+.individualCenter .fundfontw img{
+    vertical-align:middle;
+}
+.individualCenter .mymoney{
+    color:#fff;
+    font:72px Arial bold;
+    }
+  .individualCenter   .butn2{
+    background:#fff;
+    width:150px;
+    height:66px;
+    line-height:66px;
+    float:left;
+    margin-left:10px;
+    border-radius:5px;
+    -moz-border-radius:5px;  
+    -webkit-border-radius:5px;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    color:#56abe4;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    }
+  .individualCenter   .butn2 img{vertical-align:middle;}
+.individualCenter .butn2:hover{
+    background:#9acdef;
+}
+.individualCenter .jif{
+    line-height:52px;
+    color:#fff;
+    padding:0 20px;
+    background:#2383ca;
+    font-size:14px;
+    font-weight:bold;
+}
+.individualCenter .jif ul{
+    display:inline-table;
+    width:100%;
+}
+.individualCenter .jif dl{
+    display:table-row;
+}
+.individualCenter .jif dd{
+    display:table-cell;
+}
+.individualCenter .jif .valu{
+    color:#fff700;
+    font-size:24px;
+    line-height:50px;
+    font-family:"微软雅黑", "黑体", "宋体"; 
+}
+.individualCenter .jif img{vertical-align:middle;}
+.individualCenter .mycard{
+    display:inline-table;
+    width:100%;
+    margin:0 auto;
+    
+}
+.individualCenter .mycard dl{
+    display:table-row;
+}
+.individualCenter .mycard dd{
+    display:table-cell;
+}
+
+.individualCenter .mycard li{
+    width:260px;
+    margin:0 auto;
+    height:165px;
+    border-radius:10px;
+    background:#d2d2d2;
+    display:block;
+    clear:both;
+}
+.individualCenter .mycard li:hover{
+    background:#999;
+}
+.individualCenter .mycard .add{
+    width:260px;
+    margin:0 auto;
+    height:165px;
+    border:2px #a0a0a0 dashed;
+    background:#fff url(/assets/sutongpay/add.png) center center no-repeat;
+}
+.individualCenter .mycard .add:hover{
+    background:#fff url(/assets/sutongpay/add.png) center center no-repeat;
+    border:2px #56abe4 dashed;
+    cursor:pointer;
+}
+.individualCenter .mycard .ar{
+    text-align:right;
+    font:14px "微软雅黑", "黑体", "宋体";
+    color:#fff;
+    font-weight:bold;
+    line-height:35px;
+    height:35px;
+    width:90%;
+    margin:0 auto;
+    display:block;
+}
+.individualCenter .mycard .from{
+    background:#fff;
+    display:block;
+}
+.individualCenter .mycard .numer{
+    line-height:95px;
+    text-align:center;
+    display:block;
+    font-size:24px;
+    font-family:"微软雅黑", "黑体", "宋体";
+    hanging-punctuation:95px;
+    vertical-align:middle;
+    color:#000;
+}
+.individualCenter .mycard .txtfr{
+    text-align:right;   
+    display:block;
+    width:260px;
+    margin:0 auto;
+    clear:both;
+    cursor:pointer;
+    line-height:30px;
+}
+
+.individualCenter .pho2{
+    border-radius:50px;
+    -moz-border-radius:50px;     
+    -webkit-border-radius:50px;
+    width:70px;
+    height:70px;
+    background:#ffffff;
+    border:3px #dcdcdc solid;
+}
+
+.individualCenter #subinfor input{
+    background:#eb4f38;
+    width:200px;
+    line-height:40px;
+    color:#fff;
+    height:40px;
+    border-radius:5px;
+    border:0px;
+    font:18px "微软雅黑", "黑体", "宋体";
+}
+.individualCenter #subinfor input:hover{
+    background:#c30;
+}
+
+.individualCenter .tit{height:30px; line-height:30px; border-bottom:1px solid #e6e4e4; display:block; font-weight:normal; display:block;}
+.individualCenter .tit h2{ width:108px; text-align:center; border-bottom:4px solid #0169b8;font-size:14px; color:#0169b8;}
+
+.individualCenter .carttt {
+    font-size:14px;
+    color:#666;
+    font-weight:bold;
+    width:95%;
+    margin:0 20px;
+    line-height:40px;
+}
+
+.individualCenter .listcard li{
+        width:200px;
+        height:80px;
+        line-height:80px;
+        margin-left:10px;
+        margin-top:10px;
+        border:1px #dcdcdc solid;
+        float:left;
+        text-align:center;
+        display:table-cell;
+        vertical-align:middle;
+}
+.individualCenter .listcard li:hove {
+    border:1px #fff solid;
+}
+.individualCenter .listcard li:hover div{
+    border:3px #ff4400 solid;
+    background:url(/assets/sutongpay/selected.png) no-repeat bottom right; 
+        height:76px;
+    line-height:76px;
+    overflow:hidden;
+}
+.individualCenter .listcard .selected{border:1px #fff solid;}
+.individualCenter .listcard .selected div{
+    border:3px #ff4400 solid;
+    background:url(/assets/sutongpay/selected.png) no-repeat bottom right; 
+    height:76px;
+    line-height:76px;
+    overflow:hidden;
+}
+.individualCenter .listcard img{
+    vertical-align:middle;
+}
+.individualCenter  ul.listcard{margin:0;padding:0;}
+.individualCenter .w50{
+    width:50%;
+}
+
+.individualCenter .subline{
+    line-height:60px;
+    height:60px;
+    overflow:hidden;
+    background:#dcdcdc; 
+}
+.individualCenter .subline{
+    display:table;
+    width:100%;
+    color:#000;
+
+}
+.individualCenter .subline div{
+    display:table-cell;
+    vertical-align:middle;
+        font-size:18px;
+    font-family:"微软雅黑", "黑体", "宋体";
+    }
+.individualCenter .subline img{
+    vertical-align:middle;
+    margin:10px;
+}
+.individualCenter .subline input{
+    width:140px;
+    height:60px;
+    line-height:60px;
+    color:#fff;
+    font-size:24px;
+    font-family:"微软雅黑", "黑体", "宋体";
+    background:#f40;    
+    border:none;
+    margin:0px 0px 0px 10px;
+}
+.individualCenter .subline input:hover{
+    background:#bc3200;
+}
+.individualCenter .subline .imput{
+    width:140px;
+    height:60px;    
+}
+.individualCenter .subline .imagree{
+    width:330px;
+    height:60px;    
+}
+.individualCenter .subline .imagree input{
+    width:330px;
+    height:60px;    
+}
+
+.individualCenter .cardlb{
+    background:#FFF;
+    height:33px;
+    width:300px;
+    line-height:33px;
+    font-size:14px;
+    float:right;
+    vertical-align:central;
+    margin:5px;
+}
+.individualCenter .cardform dd{
+    border:5px #fff solid;
+    }
+.individualCenter .cardform input{
+    text-indent:150px;  
+}
+
+.individualCenter input.geti{
+    width:100px;
+    height:30px;
+    line-height:30px;
+    position:absolute;
+    text-indent:0;
+    background:#fff;
+    color:#f40;
+    border:0;
+    top:5px;
+    right:5px;
+}
+
+.individualCenter .yzm2{position:relative;}
+
+.individualCenter .font-14{
+    font-size:14px;
+}
+
+.individualCenter .sectt{
+    font-size:24px;
+    font-family:"微软雅黑", "黑体", "宋体";
+    color:#666;
+}
+
+.individualCenter .finally{width:300px;
+margin:0 auto;
+color:#666;
+}
+
+.individualCenter .zheight{
+    height: 1227px;
+    z-index: 10000
+}
+
+.individualCenter .modalh{
+    position: absolute;
+}
+
+.individualCenter .unbindkey{
+    z-index: 10003;
+    position: absolute;
+}
+
+.individualCenter .unbindkeytl{ 
+    top:68px;
+    left:362px;
+}

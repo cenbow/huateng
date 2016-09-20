@@ -1,0 +1,189 @@
+@charset "utf-8";
+/* 页面鼠标经过效果 */
+.bz-anniu01 {
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-position: 0 -355px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	padding: 0;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	text-decoration: none!important;
+	vertical-align: middle;
+	overflow: visible;
+	cursor: pointer;
+	border: 0;
+}
+.bz-anniu02 {
+	display: block;
+	cursor: pointer;
+	border: 0;
+	text-decoration: none;
+	overflow: visible;
+	padding: 0px 22px 0px 22px;
+	background-position: right -503px;
+	color: white;
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-color: transparent;
+	line-height: 31px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.bz-anniu01-b {
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-position: 0 -1512px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	padding: 0;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	text-decoration: none!important;
+	vertical-align: middle;
+	overflow: visible;
+	cursor: pointer;
+	border: 0;
+}
+.bz-anniu02-b {
+	display: block;
+	cursor: pointer;
+	border: 0;
+	text-decoration: none;
+	overflow: visible;
+	padding: 0px 22px 0px 22px;
+	background-position: right -1563px;
+	color: #FFF;
+	font-weight: bold;
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-color: transparent;
+	line-height: 31px;
+	font-size: 14px;
+}
+.bz-anniu01-h25 {
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-position: 0 -651px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	padding: 0;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	text-decoration: none!important;
+	vertical-align: middle;
+	overflow: visible;
+	cursor: pointer;
+	border: 0;
+}
+.bz-anniu02-h25 {
+	display: block;
+	cursor: pointer;
+	border: 0;
+	text-decoration: none;
+	overflow: visible;
+	padding: 0px 22px 0px 22px;
+	background-position: right -771px;
+	color: #FFF;
+	font-weight: bold;
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-color: transparent;
+	line-height: 25px;
+	font-size: 12px;
+}
+.my-an01 {
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-position: 0 -711px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	padding: 0;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none!important;
+	overflow: visible;
+	cursor: default;
+	border: 0;
+}
+.my-an02 {
+	display: block;
+	cursor: pointer;
+	border: 0;
+	text-decoration: none;
+	overflow: visible;
+	padding: 0px 17px 0px 17px;
+	background-position: right -831px;
+	color: #51586A;
+	background-image: url(../images/sdm/bdtubiao01.gif);
+	background-color: transparent;
+	line-height: 25px;
+	font-size: 12px;
+	font-weight: bold
+}
+a.ui-button {
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	cursor: pointer;
+	font-family: verdana, Hiragino Sans GB;
+	font-size: 14px;
+	font-weight: 700;
+	border-radius: 3px;
+	padding: 0 20px;
+	background-image: none;
+	overflow: visible;
+	display: inline-block;
+}
+a.ui-button:active {
+	position: relative;
+	top: 2px;
+}
+a.ui-button-morange {
+	border: 1px solid #BA4A06;
+	background-color: #EF9018;
+	color: #fff;
+	line-height: 26px;
+	height: 26px;
+}
+*+html a.ui-button-morange {
+	line-height: 30px;
+}
+a.ui-button-morange-h25 {
+	border: 1px solid #d66500;
+	background-color: #F57403;
+	color: #fff;
+	line-height: 21px;
+	height: 21px;
+	font-size: 12px;
+}
+*+html a.ui-button-morange-h25 {
+	line-height: 26px;
+}
+a.ui-button-mwhite {
+	border: 1px solid #afafaf;
+	color: #777;
+	background-color: #f3f3f3;
+	line-height: 26px;
+	height: 26px;
+}
+*+html a.ui-button-mwhite {
+	line-height: 30px;
+}
+a.ui-button-morange:hover {
+	border: 1px solid #BA4A06;
+	background-color: #F19A2B;
+}
+a.ui-button-mwhite:hover {
+	border: 1px solid #8e8e8e;
+	background-color: #fcfbfb;
+}
+a.ui-button-serOrange{
+	border: 1px solid #BA4A06;
+	background-color: #EE9017;
+	color: #fff;
+	line-height: 21px;
+	height: 21px;
+	font-size: 12px;
+	padding:2px 15px;
+}
+a.ui-button-serOrange:hover{
+	background-color: #F19A2B;
+}

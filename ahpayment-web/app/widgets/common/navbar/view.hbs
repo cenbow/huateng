@@ -1,0 +1,8 @@
+<div id="{{_ID_}}" class="nav-bar js-comp" style="{{_STYLE_}}" data-behavior="{{_BEHAVIOR_}}" data-comp-path="{{_COMP_PATH_}}">
+    <ul class="menu">
+        {{#each _DATA_}}
+        <li
+        {{#equals _PAGE_.path path}}class="active"{{/equals}}><a href="/{{path}}">{{name}}</a></li>
+        {{/each}}
+    </ul>
+</div>

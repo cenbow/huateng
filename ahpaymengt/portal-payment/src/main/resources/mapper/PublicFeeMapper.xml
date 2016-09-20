@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="PublicFee">
+    <resultMap id="BaseResultMap" type="PublicFee">
+        <id column="ORDER_NO" property="orderNo" jdbcType="VARCHAR"/>
+        <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR"/>
+        <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR"/>
+        <result column="TXN_TIME" property="txnTime" jdbcType="TIMESTAMP"/>
+        <result column="MERCHANT_CODE" property="merchantCode" jdbcType="VARCHAR"/>
+        <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR"/>
+        <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR"/>
+        <result column="RECEIPT_ORG" property="receiptOrg" jdbcType="VARCHAR"/>
+        <result column="FEE_PROJECT_TYPE" property="feeProjectType" jdbcType="VARCHAR"/>
+        <result column="FEE_PROJECT" property="feeProject" jdbcType="CHAR"/>
+        <result column="BAR_CODE" property="barCode" jdbcType="VARCHAR"/>
+        <result column="FEE_ACCOUNT" property="feeAccount" jdbcType="VARCHAR"/>
+        <result column="TXN_AMT" property="txnAmt" jdbcType="DECIMAL"/>
+        <result column="STATUS" property="status" jdbcType="CHAR"/>
+        <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP"/>
+        <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR"/>
+        <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR"/>
+        <result column="ACCOUNT_MONTH" property="accountMonth" jdbcType="VARCHAR"/>
+        <result column="BATCH_NO" property="batchNo" jdbcType="VARCHAR"/>
+        <result column="CONTRACT_NO" property="contractNo" jdbcType="VARCHAR"/>
+        <result column="TEXT1" property="text1" jdbcType="VARCHAR"/>
+        <result column="TEXT2" property="text2" jdbcType="VARCHAR"/>
+        <result column="TEXT3" property="text3" jdbcType="VARCHAR"/>
+        <result column="TEXT4" property="text4" jdbcType="VARCHAR"/>
+        <result column="TEXT5" property="text5" jdbcType="VARCHAR"/>
+        <result column="TEXT6" property="text6" jdbcType="VARCHAR"/>
+        <result column="TEXT7" property="text7" jdbcType="VARCHAR"/>
+        <result column="PRODUCTAMT" property="productAmt" jdbcType="DECIMAL"/>
+        <result column="ACTIVITYTYPE" property="activityType" jdbcType="VARCHAR"/>
+        <result column="DELAY_AMT" property="delayAmt" jdbcType="DECIMAL"/>
+        <result column="UNIFYID" property="unifyId" jdbcType="VARCHAR"/>
+        <result column="POROFFSERSAMT" property="poroffsersAmt" jdbcType="DECIMAL"/>
+        <result column="REFOUND_STATUS" property="refoundStatus" jdbcType="CHAR"/>
+        <result column="FEE_MODETYPE" property="feeModeType" jdbcType="CHAR"/>
+        <result column="CASHBACKSTATUS" property="cashBackStatus" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ORDER_NO, CUSTOMER_NO, ACCOUNT_NO, TXN_TIME, MERCHANT_CODE, AREA_CODE, CITY_CODE, 
+    RECEIPT_ORG, FEE_PROJECT_TYPE, FEE_PROJECT, BAR_CODE, FEE_ACCOUNT, TXN_AMT, STATUS, 
+    END_TIME, RESV_FLD1, RESV_FLD2, ACCOUNT_MONTH, BATCH_NO, CONTRACT_NO, TEXT1, TEXT2, 
+    TEXT3, TEXT4, TEXT5, TEXT6, TEXT7, PRODUCTAMT, ACTIVITYTYPE,DELAY_AMT, UNIFYID, POROFFSERSAMT, REFOUND_STATUS,
+    FEE_MODETYPE, CASHBACKSTATUS
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from PORTAL.T_LOG_PUBLIC_FEE
+        where ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+    </select>
+    
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PORTAL.T_LOG_PUBLIC_FEE
+    where ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="PublicFee">
+    insert into PORTAL.T_LOG_PUBLIC_FEE (ORDER_NO, CUSTOMER_NO, ACCOUNT_NO, 
+      TXN_TIME, MERCHANT_CODE, AREA_CODE, 
+      CITY_CODE, RECEIPT_ORG, FEE_PROJECT_TYPE, 
+      FEE_PROJECT, BAR_CODE, FEE_ACCOUNT, 
+      TXN_AMT, STATUS, END_TIME, 
+      RESV_FLD1, RESV_FLD2, ACCOUNT_MONTH, 
+      BATCH_NO, CONTRACT_NO, TEXT1, 
+      TEXT2, TEXT3, TEXT4, 
+      TEXT5, TEXT6, TEXT7,
+       PRODUCTAMT, ACTIVITYTYPE,DELAY_AMT, UNIFYID,
+      POROFFSERSAMT,
+      REFOUND_STATUS, FEE_MODETYPE, CASHBACKSTATUS
+      )
+    values (#{orderNo,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, 
+      #{txnTime,jdbcType=TIMESTAMP}, #{merchantCode,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{receiptOrg,jdbcType=VARCHAR}, #{feeProjectType,jdbcType=VARCHAR}, 
+      #{feeProject,jdbcType=CHAR}, #{barCode,jdbcType=VARCHAR}, #{feeAccount,jdbcType=VARCHAR}, 
+      #{txnAmt,jdbcType=DECIMAL}, #{status,jdbcType=CHAR}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, #{accountMonth,jdbcType=VARCHAR}, 
+      #{batchNo,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, #{text1,jdbcType=VARCHAR}, 
+      #{text2,jdbcType=VARCHAR}, #{text3,jdbcType=VARCHAR}, #{text4,jdbcType=VARCHAR}, 
+      #{text5,jdbcType=VARCHAR},  #{text6,jdbcType=VARCHAR}, #{text7,jdbcType=VARCHAR},
+      #{productAmt,jdbcType=DECIMAL}, #{activityType,jdbcType=VARCHAR},#{delayAmt,jdbcType=DECIMAL},  #{unifyId,jdbcType=VARCHAR},
+      #{poroffsersAmt,jdbcType=DECIMAL},
+      #{refoundStatus,jdbcType=CHAR}, #{feeModeType,jdbcType=CHAR}, #{cashBackStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="PublicFee">
+        insert into PORTAL.T_LOG_PUBLIC_FEE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderNo != null">
+                ORDER_NO,
+            </if>
+            <if test="customerNo != null">
+                CUSTOMER_NO,
+            </if>
+            <if test="accountNo != null">
+                ACCOUNT_NO,
+            </if>
+            <if test="txnTime != null">
+                TXN_TIME,
+            </if>
+            <if test="merchantCode != null">
+                MERCHANT_CODE,
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE,
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE,
+            </if>
+            <if test="receiptOrg != null">
+                RECEIPT_ORG,
+            </if>
+            <if test="feeProjectType != null">
+                FEE_PROJECT_TYPE,
+            </if>
+            <if test="feeProject != null">
+                FEE_PROJECT,
+            </if>
+            <if test="barCode != null">
+                BAR_CODE,
+            </if>
+            <if test="feeAccount != null">
+                FEE_ACCOUNT,
+            </if>
+            <if test="txnAmt != null">
+                TXN_AMT,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="endTime != null">
+                END_TIME,
+            </if>
+            <if test="resvFld1 != null">
+                RESV_FLD1,
+            </if>
+            <if test="resvFld2 != null">
+                RESV_FLD2,
+            </if>
+            <if test="accountMonth != null">
+                ACCOUNT_MONTH,
+            </if>
+            <if test="batchNo != null">
+                BATCH_NO,
+            </if>
+            <if test="contractNo != null">
+                CONTRACT_NO,
+            </if>
+            <if test="text1 != null">
+                TEXT1,
+            </if>
+            <if test="text2 != null">
+                TEXT2,
+            </if>
+            <if test="text3 != null">
+                TEXT3,
+            </if>
+            <if test="text4 != null">
+                TEXT4,
+            </if>
+            <if test="text5 != null">
+                TEXT5,
+            </if>
+            <if test="text6 != null">
+                TEXT6,
+            </if>
+            <if test="text7 != null">
+                TEXT7,
+            </if>
+            <if test="productAmt != null">
+                PRODUCTAMT,
+            </if>
+            <if test="activityType != null">
+                ACTIVITYTYPE,
+            </if>
+            <if test="delayAmt != null">
+                DELAY_AMT,
+            </if>
+            <if test="unifyId != null">
+                UNIFYID,
+            </if>
+            <if test="poroffsersAmt != null">
+                POROFFSERSAMT,
+            </if>
+            <if test="refoundStatus != null">
+                REFOUND_STATUS,
+            </if>
+            <if test="feeModeType != null">
+                FEE_MODETYPE,
+            </if>
+            <if test="cashBackStatus != null">
+                CASHBACKSTATUS,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderNo != null">
+                #{orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="customerNo != null">
+                #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="accountNo != null">
+                #{accountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="txnTime != null">
+                #{txnTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="merchantCode != null">
+                #{merchantCode,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="receiptOrg != null">
+                #{receiptOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="feeProjectType != null">
+                #{feeProjectType,jdbcType=VARCHAR},
+            </if>
+            <if test="feeProject != null">
+                #{feeProject,jdbcType=CHAR},
+            </if>
+            <if test="barCode != null">
+                #{barCode,jdbcType=VARCHAR},
+            </if>
+            <if test="feeAccount != null">
+                #{feeAccount,jdbcType=VARCHAR},
+            </if>
+            <if test="txnAmt != null">
+                #{txnAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="endTime != null">
+                #{endTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="resvFld1 != null">
+                #{resvFld1,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld2 != null">
+                #{resvFld2,jdbcType=VARCHAR},
+            </if>
+            <if test="accountMonth != null">
+                #{accountMonth,jdbcType=VARCHAR},
+            </if>
+            <if test="batchNo != null">
+                #{batchNo,jdbcType=VARCHAR},
+            </if>
+            <if test="contractNo != null">
+                #{contractNo,jdbcType=VARCHAR},
+            </if>
+            <if test="text1 != null">
+                #{text1,jdbcType=VARCHAR},
+            </if>
+            <if test="text2 != null">
+                #{text2,jdbcType=VARCHAR},
+            </if>
+            <if test="text3 != null">
+                #{text3,jdbcType=VARCHAR},
+            </if>
+            <if test="text4 != null">
+                #{text4,jdbcType=VARCHAR},
+            </if>
+            <if test="text5 != null">
+                #{text5,jdbcType=VARCHAR},
+            </if>
+            <if test="text6 != null">
+                #{text6,jdbcType=VARCHAR},
+            </if>
+            <if test="text7 != null">
+                #{text7,jdbcType=VARCHAR},
+            </if>
+            <if test="productAmt != null">
+                #{productAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="activityType != null">
+                #{activityType,jdbcType=VARCHAR},
+            </if>
+            <if test="delayAmt != null">
+                #{delayAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="unifyId != null">
+                #{unifyId,jdbcType=VARCHAR},
+            </if>
+            <if test="poroffsersAmt != null">
+                #{poroffsersAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="refoundStatus != null">
+                #{refoundStatus,jdbcType=CHAR},
+            </if>
+            <if test="feeModeType != null">
+                #{feeModeType,jdbcType=CHAR},
+            </if>
+            <if test="cashBackStatus != null">
+                #{cashBackStatus,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="PublicFee">
+        update PORTAL.T_LOG_PUBLIC_FEE
+        <set>
+            <if test="customerNo != null">
+                CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="accountNo != null">
+                ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="txnTime != null">
+                TXN_TIME = #{txnTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="merchantCode != null">
+                MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="receiptOrg != null">
+                RECEIPT_ORG = #{receiptOrg,jdbcType=VARCHAR},
+            </if>
+            <if test="feeProjectType != null">
+                FEE_PROJECT_TYPE = #{feeProjectType,jdbcType=VARCHAR},
+            </if>
+            <if test="feeProject != null">
+                FEE_PROJECT = #{feeProject,jdbcType=CHAR},
+            </if>
+            <if test="barCode != null">
+                BAR_CODE = #{barCode,jdbcType=VARCHAR},
+            </if>
+            <if test="feeAccount != null">
+                FEE_ACCOUNT = #{feeAccount,jdbcType=VARCHAR},
+            </if>
+            <if test="txnAmt != null">
+                TXN_AMT = #{txnAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="endTime != null">
+                END_TIME = #{endTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="resvFld1 != null">
+                RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld2 != null">
+                RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+            </if>
+            <if test="accountMonth != null">
+                ACCOUNT_MONTH = #{accountMonth,jdbcType=VARCHAR},
+            </if>
+            <if test="batchNo != null">
+                BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+            </if>
+            <if test="contractNo != null">
+                CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+            </if>
+            <if test="text1 != null">
+                TEXT1 = #{text1,jdbcType=VARCHAR},
+            </if>
+            <if test="text2 != null">
+                TEXT2 = #{text2,jdbcType=VARCHAR},
+            </if>
+            <if test="text3 != null">
+                TEXT3 = #{text3,jdbcType=VARCHAR},
+            </if>
+            <if test="text4 != null">
+                TEXT4 = #{text4,jdbcType=VARCHAR},
+            </if>
+            <if test="text5 != null">
+                TEXT5 = #{text5,jdbcType=VARCHAR},
+            </if>
+            <if test="text6 != null">
+                TEXT6 = #{text6,jdbcType=VARCHAR},
+            </if>
+            <if test="text7 != null">
+                TEXT7 = #{text7,jdbcType=VARCHAR},
+            </if>
+            <if test="productAmt != null">
+                PRODUCTAMT = #{productAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="activityType != null">
+                ACTIVITYTYPE = #{activityType,jdbcType=VARCHAR},
+            </if>
+            <if test="delayAmt != null">
+                DELAY_AMT = #{delayAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="unifyId != null">
+                UNIFYID = #{unifyId,jdbcType=VARCHAR},
+            </if>
+            <if test="poroffsersAmt != null">
+                POROFFSERSAMT = #{poroffsersAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="refoundStatus != null">
+                REFOUND_STATUS = #{refoundStatus,jdbcType=CHAR},
+            </if>
+            <if test="feeModeType != null">
+                FEE_MODETYPE = #{feeModeType,jdbcType=CHAR},
+            </if>
+            <if test="cashBackStatus != null">
+                CASHBACKSTATUS = #{cashBackStatus,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="PublicFee">
+    update PORTAL.T_LOG_PUBLIC_FEE
+    set CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      TXN_TIME = #{txnTime,jdbcType=TIMESTAMP},
+      MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      RECEIPT_ORG = #{receiptOrg,jdbcType=VARCHAR},
+      FEE_PROJECT_TYPE = #{feeProjectType,jdbcType=VARCHAR},
+      FEE_PROJECT = #{feeProject,jdbcType=CHAR},
+      BAR_CODE = #{barCode,jdbcType=VARCHAR},
+      FEE_ACCOUNT = #{feeAccount,jdbcType=VARCHAR},
+      TXN_AMT = #{txnAmt,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=CHAR},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      ACCOUNT_MONTH = #{accountMonth,jdbcType=VARCHAR},
+      BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      CONTRACT_NO = #{contractNo,jdbcType=VARCHAR},
+      TEXT1 = #{text1,jdbcType=VARCHAR},
+      TEXT2 = #{text2,jdbcType=VARCHAR},
+      TEXT3 = #{text3,jdbcType=VARCHAR},
+      TEXT4 = #{text4,jdbcType=VARCHAR},
+      TEXT5 = #{text5,jdbcType=VARCHAR},
+      TEXT6 = #{text6,jdbcType=VARCHAR},
+      TEXT7 = #{text7,jdbcType=VARCHAR},
+      PRODUCTAMT = #{productAmt,jdbcType=DECIMAL},
+      ACTIVITYTYPE = #{activityType,jdbcType=VARCHAR},
+      DELAY_AMT = #{delayAmt,jdbcType=DECIMAL},
+      UNIFYID = #{unifyId,jdbcType=VARCHAR},
+      POROFFSERSAMT = #{poroffsersAmt,jdbcType=DECIMAL},
+      REFOUND_STATUS = #{refoundStatus,jdbcType=CHAR},
+      FEE_MODETYPE = #{feeModeType,jdbcType=CHAR},
+      CASHBACKSTATUS = #{cashBackStatus,jdbcType=VARCHAR}
+    where ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

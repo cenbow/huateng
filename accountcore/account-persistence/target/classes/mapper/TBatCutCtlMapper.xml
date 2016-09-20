@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TBatCutCtlMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TBatCutCtl" >
+    <id column="GLOBAL_IDX" property="globalIdx" jdbcType="DECIMAL" />
+    <result column="LAST_DATE" property="lastDate" jdbcType="VARCHAR" />
+    <result column="LAST_CLEARING_ID" property="lastClearingId" jdbcType="CHAR" />
+    <result column="CURR_DATE" property="currDate" jdbcType="VARCHAR" />
+    <result column="CURR_CLEARING_ID" property="currClearingId" jdbcType="CHAR" />
+    <result column="CURR_MON" property="currMon" jdbcType="VARCHAR" />
+    <result column="CURR_YEAR" property="currYear" jdbcType="VARCHAR" />
+    <result column="CUT_FLAG" property="cutFlag" jdbcType="CHAR" />
+    <result column="ORDER_CUT_STAT" property="orderCutStat" jdbcType="CHAR" />
+    <result column="ORDER_CUT_TIME" property="orderCutTime" jdbcType="TIMESTAMP" />
+    <result column="DAY_CUT_STAT" property="dayCutStat" jdbcType="CHAR" />
+    <result column="DAY_CUT_TIME" property="dayCutTime" jdbcType="TIMESTAMP" />
+    <result column="BAT_FLAG" property="batFlag" jdbcType="CHAR" />
+    <result column="BAT_STAT" property="batStat" jdbcType="DECIMAL" />
+    <result column="MON_FLAG" property="monFlag" jdbcType="CHAR" />
+    <result column="YEAR_FLAG" property="yearFlag" jdbcType="CHAR" />
+    <result column="NEW_FLAG" property="newFlag" jdbcType="CHAR" />
+    <result column="DAY_BAT_STEP" property="dayBatStep" jdbcType="VARCHAR" />
+    <result column="MON_BAT_STEP" property="monBatStep" jdbcType="VARCHAR" />
+    <result column="YEAR_BAT_STEP" property="yearBatStep" jdbcType="VARCHAR" />
+    <result column="CUT_NOD_NUM" property="cutNodNum" jdbcType="DECIMAL" />
+    <result column="CUT_INTERVAL" property="cutInterval" jdbcType="DECIMAL" />
+    <result column="RSVD_FLD1" property="rsvdFld1" jdbcType="VARCHAR" />
+    <result column="RSVD_FLD2" property="rsvdFld2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GLOBAL_IDX, LAST_DATE, LAST_CLEARING_ID, CURR_DATE, CURR_CLEARING_ID, CURR_MON, CURR_YEAR, 
+    CUT_FLAG, ORDER_CUT_STAT, ORDER_CUT_TIME, DAY_CUT_STAT, DAY_CUT_TIME, BAT_FLAG, BAT_STAT, 
+    MON_FLAG, YEAR_FLAG, NEW_FLAG, DAY_BAT_STEP, MON_BAT_STEP, YEAR_BAT_STEP, CUT_NOD_NUM, 
+    CUT_INTERVAL, RSVD_FLD1, RSVD_FLD2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from SETTLE.T_BAT_CUT_CTL
+    where GLOBAL_IDX = #{globalIdx,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from SETTLE.T_BAT_CUT_CTL
+    where GLOBAL_IDX = #{globalIdx,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TBatCutCtl" >
+    insert into SETTLE.T_BAT_CUT_CTL (GLOBAL_IDX, LAST_DATE, LAST_CLEARING_ID, 
+      CURR_DATE, CURR_CLEARING_ID, CURR_MON, 
+      CURR_YEAR, CUT_FLAG, ORDER_CUT_STAT, 
+      ORDER_CUT_TIME, DAY_CUT_STAT, DAY_CUT_TIME, 
+      BAT_FLAG, BAT_STAT, MON_FLAG, 
+      YEAR_FLAG, NEW_FLAG, DAY_BAT_STEP, 
+      MON_BAT_STEP, YEAR_BAT_STEP, CUT_NOD_NUM, 
+      CUT_INTERVAL, RSVD_FLD1, RSVD_FLD2
+      )
+    values (#{globalIdx,jdbcType=DECIMAL}, #{lastDate,jdbcType=VARCHAR}, #{lastClearingId,jdbcType=CHAR}, 
+      #{currDate,jdbcType=VARCHAR}, #{currClearingId,jdbcType=CHAR}, #{currMon,jdbcType=VARCHAR}, 
+      #{currYear,jdbcType=VARCHAR}, #{cutFlag,jdbcType=CHAR}, #{orderCutStat,jdbcType=CHAR}, 
+      #{orderCutTime,jdbcType=TIMESTAMP}, #{dayCutStat,jdbcType=CHAR}, #{dayCutTime,jdbcType=TIMESTAMP}, 
+      #{batFlag,jdbcType=CHAR}, #{batStat,jdbcType=DECIMAL}, #{monFlag,jdbcType=CHAR}, 
+      #{yearFlag,jdbcType=CHAR}, #{newFlag,jdbcType=CHAR}, #{dayBatStep,jdbcType=VARCHAR}, 
+      #{monBatStep,jdbcType=VARCHAR}, #{yearBatStep,jdbcType=VARCHAR}, #{cutNodNum,jdbcType=DECIMAL}, 
+      #{cutInterval,jdbcType=DECIMAL}, #{rsvdFld1,jdbcType=VARCHAR}, #{rsvdFld2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TBatCutCtl" >
+    insert into SETTLE.T_BAT_CUT_CTL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="globalIdx != null" >
+        GLOBAL_IDX,
+      </if>
+      <if test="lastDate != null" >
+        LAST_DATE,
+      </if>
+      <if test="lastClearingId != null" >
+        LAST_CLEARING_ID,
+      </if>
+      <if test="currDate != null" >
+        CURR_DATE,
+      </if>
+      <if test="currClearingId != null" >
+        CURR_CLEARING_ID,
+      </if>
+      <if test="currMon != null" >
+        CURR_MON,
+      </if>
+      <if test="currYear != null" >
+        CURR_YEAR,
+      </if>
+      <if test="cutFlag != null" >
+        CUT_FLAG,
+      </if>
+      <if test="orderCutStat != null" >
+        ORDER_CUT_STAT,
+      </if>
+      <if test="orderCutTime != null" >
+        ORDER_CUT_TIME,
+      </if>
+      <if test="dayCutStat != null" >
+        DAY_CUT_STAT,
+      </if>
+      <if test="dayCutTime != null" >
+        DAY_CUT_TIME,
+      </if>
+      <if test="batFlag != null" >
+        BAT_FLAG,
+      </if>
+      <if test="batStat != null" >
+        BAT_STAT,
+      </if>
+      <if test="monFlag != null" >
+        MON_FLAG,
+      </if>
+      <if test="yearFlag != null" >
+        YEAR_FLAG,
+      </if>
+      <if test="newFlag != null" >
+        NEW_FLAG,
+      </if>
+      <if test="dayBatStep != null" >
+        DAY_BAT_STEP,
+      </if>
+      <if test="monBatStep != null" >
+        MON_BAT_STEP,
+      </if>
+      <if test="yearBatStep != null" >
+        YEAR_BAT_STEP,
+      </if>
+      <if test="cutNodNum != null" >
+        CUT_NOD_NUM,
+      </if>
+      <if test="cutInterval != null" >
+        CUT_INTERVAL,
+      </if>
+      <if test="rsvdFld1 != null" >
+        RSVD_FLD1,
+      </if>
+      <if test="rsvdFld2 != null" >
+        RSVD_FLD2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="globalIdx != null" >
+        #{globalIdx,jdbcType=DECIMAL},
+      </if>
+      <if test="lastDate != null" >
+        #{lastDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastClearingId != null" >
+        #{lastClearingId,jdbcType=CHAR},
+      </if>
+      <if test="currDate != null" >
+        #{currDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currClearingId != null" >
+        #{currClearingId,jdbcType=CHAR},
+      </if>
+      <if test="currMon != null" >
+        #{currMon,jdbcType=VARCHAR},
+      </if>
+      <if test="currYear != null" >
+        #{currYear,jdbcType=VARCHAR},
+      </if>
+      <if test="cutFlag != null" >
+        #{cutFlag,jdbcType=CHAR},
+      </if>
+      <if test="orderCutStat != null" >
+        #{orderCutStat,jdbcType=CHAR},
+      </if>
+      <if test="orderCutTime != null" >
+        #{orderCutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dayCutStat != null" >
+        #{dayCutStat,jdbcType=CHAR},
+      </if>
+      <if test="dayCutTime != null" >
+        #{dayCutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batFlag != null" >
+        #{batFlag,jdbcType=CHAR},
+      </if>
+      <if test="batStat != null" >
+        #{batStat,jdbcType=DECIMAL},
+      </if>
+      <if test="monFlag != null" >
+        #{monFlag,jdbcType=CHAR},
+      </if>
+      <if test="yearFlag != null" >
+        #{yearFlag,jdbcType=CHAR},
+      </if>
+      <if test="newFlag != null" >
+        #{newFlag,jdbcType=CHAR},
+      </if>
+      <if test="dayBatStep != null" >
+        #{dayBatStep,jdbcType=VARCHAR},
+      </if>
+      <if test="monBatStep != null" >
+        #{monBatStep,jdbcType=VARCHAR},
+      </if>
+      <if test="yearBatStep != null" >
+        #{yearBatStep,jdbcType=VARCHAR},
+      </if>
+      <if test="cutNodNum != null" >
+        #{cutNodNum,jdbcType=DECIMAL},
+      </if>
+      <if test="cutInterval != null" >
+        #{cutInterval,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdFld1 != null" >
+        #{rsvdFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdFld2 != null" >
+        #{rsvdFld2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TBatCutCtl" >
+    update SETTLE.T_BAT_CUT_CTL
+    <set >
+      <if test="lastDate != null" >
+        LAST_DATE = #{lastDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastClearingId != null" >
+        LAST_CLEARING_ID = #{lastClearingId,jdbcType=CHAR},
+      </if>
+      <if test="currDate != null" >
+        CURR_DATE = #{currDate,jdbcType=VARCHAR},
+      </if>
+      <if test="currClearingId != null" >
+        CURR_CLEARING_ID = #{currClearingId,jdbcType=CHAR},
+      </if>
+      <if test="currMon != null" >
+        CURR_MON = #{currMon,jdbcType=VARCHAR},
+      </if>
+      <if test="currYear != null" >
+        CURR_YEAR = #{currYear,jdbcType=VARCHAR},
+      </if>
+      <if test="cutFlag != null" >
+        CUT_FLAG = #{cutFlag,jdbcType=CHAR},
+      </if>
+      <if test="orderCutStat != null" >
+        ORDER_CUT_STAT = #{orderCutStat,jdbcType=CHAR},
+      </if>
+      <if test="orderCutTime != null" >
+        ORDER_CUT_TIME = #{orderCutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dayCutStat != null" >
+        DAY_CUT_STAT = #{dayCutStat,jdbcType=CHAR},
+      </if>
+      <if test="dayCutTime != null" >
+        DAY_CUT_TIME = #{dayCutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batFlag != null" >
+        BAT_FLAG = #{batFlag,jdbcType=CHAR},
+      </if>
+      <if test="batStat != null" >
+        BAT_STAT = #{batStat,jdbcType=DECIMAL},
+      </if>
+      <if test="monFlag != null" >
+        MON_FLAG = #{monFlag,jdbcType=CHAR},
+      </if>
+      <if test="yearFlag != null" >
+        YEAR_FLAG = #{yearFlag,jdbcType=CHAR},
+      </if>
+      <if test="newFlag != null" >
+        NEW_FLAG = #{newFlag,jdbcType=CHAR},
+      </if>
+      <if test="dayBatStep != null" >
+        DAY_BAT_STEP = #{dayBatStep,jdbcType=VARCHAR},
+      </if>
+      <if test="monBatStep != null" >
+        MON_BAT_STEP = #{monBatStep,jdbcType=VARCHAR},
+      </if>
+      <if test="yearBatStep != null" >
+        YEAR_BAT_STEP = #{yearBatStep,jdbcType=VARCHAR},
+      </if>
+      <if test="cutNodNum != null" >
+        CUT_NOD_NUM = #{cutNodNum,jdbcType=DECIMAL},
+      </if>
+      <if test="cutInterval != null" >
+        CUT_INTERVAL = #{cutInterval,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdFld1 != null" >
+        RSVD_FLD1 = #{rsvdFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdFld2 != null" >
+        RSVD_FLD2 = #{rsvdFld2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GLOBAL_IDX = #{globalIdx,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TBatCutCtl" >
+    update SETTLE.T_BAT_CUT_CTL
+    set LAST_DATE = #{lastDate,jdbcType=VARCHAR},
+      LAST_CLEARING_ID = #{lastClearingId,jdbcType=CHAR},
+      CURR_DATE = #{currDate,jdbcType=VARCHAR},
+      CURR_CLEARING_ID = #{currClearingId,jdbcType=CHAR},
+      CURR_MON = #{currMon,jdbcType=VARCHAR},
+      CURR_YEAR = #{currYear,jdbcType=VARCHAR},
+      CUT_FLAG = #{cutFlag,jdbcType=CHAR},
+      ORDER_CUT_STAT = #{orderCutStat,jdbcType=CHAR},
+      ORDER_CUT_TIME = #{orderCutTime,jdbcType=TIMESTAMP},
+      DAY_CUT_STAT = #{dayCutStat,jdbcType=CHAR},
+      DAY_CUT_TIME = #{dayCutTime,jdbcType=TIMESTAMP},
+      BAT_FLAG = #{batFlag,jdbcType=CHAR},
+      BAT_STAT = #{batStat,jdbcType=DECIMAL},
+      MON_FLAG = #{monFlag,jdbcType=CHAR},
+      YEAR_FLAG = #{yearFlag,jdbcType=CHAR},
+      NEW_FLAG = #{newFlag,jdbcType=CHAR},
+      DAY_BAT_STEP = #{dayBatStep,jdbcType=VARCHAR},
+      MON_BAT_STEP = #{monBatStep,jdbcType=VARCHAR},
+      YEAR_BAT_STEP = #{yearBatStep,jdbcType=VARCHAR},
+      CUT_NOD_NUM = #{cutNodNum,jdbcType=DECIMAL},
+      CUT_INTERVAL = #{cutInterval,jdbcType=DECIMAL},
+      RSVD_FLD1 = #{rsvdFld1,jdbcType=VARCHAR},
+      RSVD_FLD2 = #{rsvdFld2,jdbcType=VARCHAR}
+    where GLOBAL_IDX = #{globalIdx,jdbcType=DECIMAL}
+  </update>
+</mapper>

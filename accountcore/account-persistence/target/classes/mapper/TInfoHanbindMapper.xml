@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huateng.p3.account.persistence.TInfoHanbindMapper">
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoHanbind">
+    <result column="MER_CODE" jdbcType="VARCHAR" property="merCode" />
+    <result column="INT_TXN_TM" jdbcType="VARCHAR" property="intTxnTm" />
+    <result column="PRODUCT_NO" jdbcType="VARCHAR" property="productNo" />
+    <result column="CARD_BIND_ID" jdbcType="VARCHAR" property="cardBindId" />
+    <result column="CARD_TYPE" jdbcType="VARCHAR" property="cardType" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="BINDING_NAME" jdbcType="VARCHAR" property="bindingName" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="TACITLY" jdbcType="VARCHAR" property="tacitly" />
+  </resultMap>
+
+    <sql id="Base_Column_List">
+    t.MER_CODE, t.INT_TXN_TM, t.PRODUCT_NO,
+      t.CARD_BIND_ID, t.CARD_TYPE, t.CARD_NO,
+      t.BINDING_NAME, t.STATUS, t.TACITLY
+  </sql>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoHanbind">
+    insert into T_INFO_HANBIND (MER_CODE, INT_TXN_TM, PRODUCT_NO, 
+      CARD_BIND_ID, CARD_TYPE, CARD_NO, 
+      BINDING_NAME, STATUS, TACITLY
+      )
+    values (#{merCode,jdbcType=VARCHAR}, #{intTxnTm,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, 
+      #{cardBindId,jdbcType=VARCHAR}, #{cardType,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}, 
+      #{bindingName,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{tacitly,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoHanbind">
+    insert into T_INFO_HANBIND
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="merCode != null">
+        MER_CODE,
+      </if>
+      <if test="intTxnTm != null">
+        INT_TXN_TM,
+      </if>
+      <if test="productNo != null">
+        PRODUCT_NO,
+      </if>
+      <if test="cardBindId != null">
+        CARD_BIND_ID,
+      </if>
+      <if test="cardType != null">
+        CARD_TYPE,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="bindingName != null">
+        BINDING_NAME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="tacitly != null">
+        TACITLY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="merCode != null">
+        #{merCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intTxnTm != null">
+        #{intTxnTm,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null">
+        #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardBindId != null">
+        #{cardBindId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null">
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bindingName != null">
+        #{bindingName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="tacitly != null">
+        #{tacitly,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+    <select id="getBankHan" parameterType="java.lang.String"
+            resultMap="BaseResultMap" resultSetType="SCROLL_INSENSITIVE" >
+        select  <include refid="Base_Column_List"/> from t_info_hanbind t JOIN t_info_customer a ON t.PRODUCT_NO=a.customer_no
+        WHERE a.customer_no = #{value,jdbcType=VARCHAR}
+        and t.status = 0
+        <![CDATA[
+              AND a.status!='9'
+            ]]>
+    </select>
+    <update id="debindInfoBankHan" parameterType="java.lang.String">
+    <![CDATA[
+    update T_INFO_HANBIND set status = 1
+    where PRODUCT_NO =  #{pruductNo,jdbcType=VARCHAR}
+            ]]>
+    </update>
+  </mapper>

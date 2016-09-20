@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoAccountBankCardMapper">
+
+    <resultMap id="accountBankCardMode" type="com.huateng.p3.account.persistence.models.TInfoAccountBankCard">
+		 <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL"/>
+        <result property="customerNo" column="CUSTOMER_NO" jdbcType="VARCHAR"/>
+        <result property="offlineAccountNo" column="OFFLINE_ACCOUNT_NO" jdbcType="VARCHAR"/>
+        <result property="fundAccountNo" column="FUND_ACCOUNT_NO" jdbcType="VARCHAR"/>
+        <result property="bankCardNo" column="BANK_CARD_NO" jdbcType="VARCHAR"/>
+        <result property="bankCode" column="BANK_CODE" jdbcType="CHAR"/>
+        <result property="bindingType" column="BINDING_TYPE" jdbcType="CHAR"/>
+        <result property="bindingFlag" column="BINDING_FLAG" jdbcType="CHAR"/>
+        <result property="bindingMehod" column="BINDING_MEHOD" jdbcType="CHAR"/>
+        <result property="bindingTime" column="BINDING_TIME" jdbcType="TIMESTAMP"/>
+        <result property="unbindingTime" column="UNBINDING_TIME" jdbcType="TIMESTAMP"/>
+        <result property="bindingAcceptOrgCode" column="BINDING_ACCEPT_ORG_CODE" jdbcType="VARCHAR"/>
+        <result property="bingdingAcceptUid" column="BINGDING_ACCEPT_UID" jdbcType="VARCHAR"/>
+        <result property="bindingAcceptTime" column="BINDING_ACCEPT_TIME" jdbcType="TIMESTAMP"/>
+        <result property="unbindingAcceptOrgCode" column="UNBINDING_ACCEPT_ORG_CODE" jdbcType="VARCHAR"/>
+        <result property="unbingdingAcceptUid" column="UNBINGDING_ACCEPT_UID" jdbcType="VARCHAR"/>
+        <result property="unbindingAcceptTime" column="UNBINDING_ACCEPT_TIME" jdbcType="TIMESTAMP"/>  
+        <result property="resvFld1" column="RESV_FLD1" jdbcType="VARCHAR"/>
+        <result property="resvFld2" column="RESV_FLD2" jdbcType="VARCHAR"/>
+        <result property="resvFld3" column="RESV_FLD3" jdbcType="VARCHAR"/>
+        <result property="bankName" column="BANK_NAME" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountBankCard">
+        insert into CORE.T_INFO_ACCOUNT_BANKCARD(
+        RECORD_NO ,
+        CUSTOMER_NO ,
+        OFFLINE_ACCOUNT_NO ,
+        FUND_ACCOUNT_NO ,
+        BANK_CARD_NO ,
+        BANK_CODE ,
+        BINDING_TYPE ,
+        BINDING_FLAG ,
+        BINDING_MEHOD ,
+        BINDING_TIME ,
+        UNBINDING_TIME ,
+        BINDING_ACCEPT_ORG_CODE ,
+        BINGDING_ACCEPT_UID ,
+        BINDING_ACCEPT_TIME ,
+        UNBINDING_ACCEPT_ORG_CODE ,
+        UNBINGDING_ACCEPT_UID ,
+        UNBINDING_ACCEPT_TIME ,
+        RESV_FLD1 ,
+        RESV_FLD2 ,
+        RESV_FLD3,
+        BANK_NAME
+        )
+        values
+        (
+        CORE.S_ACCOUNT_BANK_CARD.Nextval,
+        #{customerNo,jdbcType=VARCHAR},
+        #{offlineAccountNo,jdbcType=VARCHAR},
+        #{fundAccountNo,jdbcType=VARCHAR}, 
+        #{bankCardNo,jdbcType=VARCHAR},
+        #{bankCode,jdbcType=CHAR},
+        #{bindingType,jdbcType=CHAR},
+        #{bindingFlag,jdbcType=CHAR},
+        #{bindingMehod,jdbcType=CHAR},
+        #{bindingTime,jdbcType=TIMESTAMP},
+        #{unbindingTime,jdbcType=TIMESTAMP},
+        #{bindingAcceptOrgCode,jdbcType=VARCHAR},
+        #{bingdingAcceptUid,jdbcType=VARCHAR},
+        #{bindingAcceptTime,jdbcType=TIMESTAMP},
+       	#{unbindingAcceptOrgCode,jdbcType=VARCHAR},
+        #{unbingdingAcceptUid,jdbcType=VARCHAR},
+        #{unbindingAcceptTime,jdbcType=TIMESTAMP},
+        #{resvFld1,jdbcType=VARCHAR},
+        #{resvFld2,jdbcType=VARCHAR},
+        #{resvFld3,jdbcType=VARCHAR},
+        #{bankName,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="checkClosedBankCardNo" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(*)
+        from
+        CORE.T_INFO_ACCOUNT_BANKCARD bc
+        where
+        bc.BANK_CARD_NO='X_'|| #{bankCardNo,jdbcType=VARCHAR}||'_'||to_char(sysdate,'yyyyMMdd')
+    </select>
+
+    <select id="findBankCardByBankCardNo" resultMap="accountBankCardMode" parameterType="java.lang.String">
+        select * from
+        CORE.T_INFO_ACCOUNT_BANKCARD where
+        BANK_CARD_NO=#{bankCardNo,jdbcType=VARCHAR} and
+        BINDING_FLAG='1'
+    </select>
+
+
+    <select id="findBankListCardByAccountNo" resultMap="accountBankCardMode"
+        resultSetType="SCROLL_INSENSITIVE">
+        select * from
+        CORE.T_INFO_ACCOUNT_BANKCARD where
+        FUND_ACCOUNT_NO=#{fundAccountNo,jdbcType=VARCHAR} and
+        BINDING_FLAG='1'
+
+    </select>
+    
+    <update id="unbindBankCardByBankCardNo" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountBankCard">
+     update CORE.T_INFO_ACCOUNT_BANKCARD set
+        BANK_CARD_NO='X_'||BANK_CARD_NO||'_'||to_char(sysdate,'yyyyMMdd'),
+        BINDING_FLAG='2',
+        UNBINDING_ACCEPT_ORG_CODE=#{unbindingAcceptOrgCode,jdbcType=VARCHAR},
+        UNBINGDING_ACCEPT_UID=#{unbingdingAcceptUid,jdbcType=VARCHAR},
+        UNBINDING_ACCEPT_TIME=#{unbindingAcceptTime,jdbcType=TIMESTAMP},
+        UNBINDING_TIME=#{unbindingTime,jdbcType=TIMESTAMP}
+        where
+        BANK_CARD_NO=#{bankCardNo,jdbcType=VARCHAR} and
+        BINDING_FLAG='1'
+    </update>
+    
+    <update id="updateBankCardBingdingMethod" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountBankCard">
+     update CORE.T_INFO_ACCOUNT_BANKCARD set
+        BANK_CARD_NO='X_'||BANK_CARD_NO||'_'||to_char(sysdate,'yyyyMMdd'),
+        BINDING_FLAG='2',
+        BINDING_MEHOD=#{bindingMehod,jdbcType=CHAR},
+        UNBINDING_ACCEPT_ORG_CODE=#{unbindingAcceptOrgCode,jdbcType=VARCHAR},
+        UNBINGDING_ACCEPT_UID=#{unbingdingAcceptUid,jdbcType=VARCHAR},
+        UNBINDING_ACCEPT_TIME=#{unbindingAcceptTime,jdbcType=TIMESTAMP},
+        UNBINDING_TIME=#{unbindingTime,jdbcType=TIMESTAMP}
+        where
+        BANK_CARD_NO=#{bankCardNo,jdbcType=VARCHAR} and
+        BINDING_FLAG='1'
+    </update>
+    
+</mapper>
+

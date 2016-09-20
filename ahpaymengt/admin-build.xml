@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<project name="portal-admin" basedir="." default="package">
+    <target name="clean">
+        <delete dir="${basedir}/portal-admin/target"/>
+    </target>
+    <target name="package">
+        <exec executable="${basedir}/admin-package.bat"
+              failonerror="true"
+              osfamily="dos"/>
+    </target>
+</project>

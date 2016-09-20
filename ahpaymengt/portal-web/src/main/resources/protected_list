@@ -1,0 +1,11 @@
+/images/user       :ADMIN,BUYER,SELLER,DESIGNER,SITE_OWNER
+/design/.*         :ADMIN
+/merchant/product/.*     :ADMIN
+/safeCenter/.*     :BUYER,ADMIN
+/mypay/.*          :BUYER,ADMIN
+/api/mypay/myinfo/.*   :BUYER,ADMIN
+/order/.*          :BUYER,ADMIN
+/api/tradeinfo/.*  :BUYER,ADMIN
+/api/webGatePay/recharge  :BUYER,ADMIN
+/api/user/realName   :BUYER,ADMIN
+/account/.*     :BUYER,ADMIN

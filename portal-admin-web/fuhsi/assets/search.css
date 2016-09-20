@@ -1,0 +1,94 @@
+.search-body {
+  width: 960px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-header {
+  padding-top: 36px;
+}
+
+.search-header .logo {
+  float: left;
+  width: 120px;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.search-header .bar {
+  float: left;
+  padding-left: 20px;
+}
+
+.search-header input[type=text]{
+  width: 500px;
+}
+
+.search-selector li {
+  float: left;
+}
+
+.search-box {
+  float: left;
+  text-align: left;
+  width: 100%;
+}
+
+.search-content {
+  float: left;
+  text-align: center;
+  width: 780px;
+}
+
+.search-content .item-list {
+  padding-left: 20px;
+  height: 96px;
+}
+
+.search-content li {
+  float: left;
+  text-align: center;
+}
+
+.search-content .item-list .photo{
+  float: left;
+  width: 96px;
+}
+
+.search-content .item-list .props {
+  float: left;
+  width: 644px;
+  padding-top: 36px;
+}
+
+.search-content .item-list .props .title{
+  float: left;
+  width: 288px;
+}
+
+.search-content .item-list .props .sale{
+  float: left;
+  width: 72px;
+}
+
+.search-content .item-list .props .place{
+  float: left;
+  width: 144px;
+}
+
+.search-content .item-list .props .trade{
+  float: left;
+  width: 96px;
+}
+
+.search-sidebar {
+  float: left;
+  width: 180px;
+}
+
+.search-footer {
+  float: left;
+  width: 100%;
+  text-align: center;
+}

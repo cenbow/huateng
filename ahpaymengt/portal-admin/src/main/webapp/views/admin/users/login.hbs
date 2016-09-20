@@ -1,0 +1,29 @@
+{{#partial "main"}}
+<div class="login offset1" >
+    <div class="login-screen" style="width:359px;">
+        <div class="login-icon">
+            <img src="/assets/login/icon.png" alt="Welcome to SuTongPay">
+            <h4>Welcome to <small>SuTongPay</small></h4>
+        </div>
+
+        <form accept-charset="UTF-8" action="/users/login" class="form-horizontal" id="login" method="post">
+            <div>{{message}}</div>
+            <div class="login-form" style="width:313px;">
+                <div class="control-group">
+                    <input type="text" name="email" class="login-field" value="{{email}}" placeholder="Enter your name" id="login-name">
+                    <label class="login-field-icon fui-man-16" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input type="password" name="password" class="login-field" value="" placeholder="Password" id="login-pass">
+                    <label class="login-field-icon fui-lock-16" for="login-pass"></label>
+                </div>
+
+                <input class="btn btn-primary btn-large btn-block" type="submit" value="Login">
+                <a href="/users/signup" class="login-link"><span>注册</span></a>
+            </div>
+        </form>
+    </div>
+</div>
+{{/partial}}
+{{> admin/layout}}

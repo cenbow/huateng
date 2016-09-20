@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:annotation/>
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+    <dubbo:application name="hub-accountcore" logger="slf4j"/>
+
+    <!-- 使用zookeeper注册中心暴露发现服务地址 -->
+    <dubbo:registry protocol="zookeeper" address="${dubbo.zookeeper.url}"/>
+
+    <!-- 用dubbo协议在03880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.protocolservice.port}"  threadpool="fixed" threads="500"/>
+
+
+    <!--  声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubAccountManagerService"
+                   ref="hubAccountManagerServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubAccountQueryService"
+                   ref="hubAccountQueryServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubCustomerManagerService"
+                   ref="hubCustomerManagerServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubCustomerQueryService"
+                   ref="hubCustomerQueryServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubSmsNoticeService"
+                   ref="hubSmsNoticeServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubRiskQueryService"
+                   ref="hubRiskQueryServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubRiskCheckService"
+                   ref="hubRiskCheckServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubBankCardManagerService"
+                   ref="hubBankCardManagerServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubAccountTransferService"
+                   ref="hubAccountTransferServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubPortalAdService"
+                   ref="hubPortalAdServiceImpl" timeout="5000"/>
+
+    <dubbo:service interface="com.huateng.p3.hub.accountcore.service.HubCommonGoodsService"
+                   ref="hubCommonGoodsServiceImpl" timeout="5000"/>
+    <!-- 需要关联的服务-->
+    <!-- url="dubbo://130.233.1.134:20111"   指定调用哪里的duboo服务    ---cjshen -->
+    <dubbo:reference interface="com.huateng.p3.account.manager.AccountManagerService"
+                     id="accountManagerService" retries="0" lazy="true" timeout="5000" />
+                 
+
+    <dubbo:reference interface="com.huateng.p3.account.manager.AccountQueryService"
+                     id="accountQueryService" lazy="true" retries="0" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.manager.CustomerManagerService"
+                     id="customerManagerService" retries="0" lazy="true" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.manager.CustomerQueryService"
+                     id="customerQueryService" lazy="true" retries="0" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.manager.SmsNoticeService"
+                     id="smsNoticeService" retries="0" lazy="true" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.risk.RiskCheckService"
+                     id="riskCheckService" retries="0" lazy="true" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.risk.RiskQueryService"
+                     id="riskQueryService" lazy="true" retries="0" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.manager.BankCardManagerService"
+                     id="bankCardManagerService" lazy="true" retries="0" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.service.AccountIntegralService"
+                     id="accountIntegralService" lazy="true" retries="0" timeout="5000"/>
+
+    <dubbo:reference interface="com.huateng.p3.account.service.AccountTransferService"
+                     id="accountTransferService" lazy="true" retries="0" timeout="5000"/>
+
+</beans>

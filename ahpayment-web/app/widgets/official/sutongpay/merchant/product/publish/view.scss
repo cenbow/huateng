@@ -1,0 +1,191 @@
+.item-publish-box {
+  min-height: 400px;
+  _height: 400px !important;
+
+  .sleft {
+    width: 310px;
+    float: left;
+    display: inline;
+  }
+  .sright {
+    float: left;
+    padding-top: 20px;
+    border-left: 1px dotted #ddd;
+
+    .control-label {
+      float: left;
+      font-size: 12px;
+      width: 100px;
+      text-align: right;
+      color: #666;
+    }
+    .controls {
+      margin-left: 100px;
+      *margin-left: 0;
+      text-align: left;
+      .long-text {
+        width: 570px;
+      }
+      .short-text {
+        width: 154px;
+      }
+    }
+    .main-attr {
+      width: 580px;
+      background: #f6f6f6;
+      border: 1px solid #ddd;
+      .base-attr {
+        .attr-item {
+          width: 280px;
+          float: left;
+          display: inline;
+          padding-top: 12px;
+          padding-bottom: 12px;
+
+          .attr-label {
+            display: inline-block;
+            width: 75px;
+            text-align: right;
+            color: #666;
+          }
+
+          .attr-input {
+            width: 150px;
+          }
+        }
+      }
+
+      .attr-full {
+        margin-top: 20px;
+        .attr-label {
+          width: 75px;
+          text-align: right;
+          color: #666;
+          float: left;
+          font-size: 12px;
+        }
+        .attr-box {
+          float: left;
+          width: 490px;
+          .sku-list {
+            margin: 0;
+          }
+          .sku-item {
+            float: left;
+            width: 120px;
+            height: 25px;
+            overflow: hidden;
+            vertical-align: middle;
+          }
+          input {
+            float: left;
+            display: inline;
+
+          }
+          .color-lump {
+            float: left;
+            display: inline;
+            background: url(/assets/images/color-bg.gif) no-repeat -999em -999em transparent;
+            overflow: hidden;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #e4e4e4;
+            vertical-align: middle;
+            margin-top: 2px;
+            margin-left: 5px;
+          }
+          .labelname {
+            float: left;
+            display: inline;
+            font-size: 12px;
+            color: #666;
+            padding-left: 3px;
+          }
+          .editbox {
+            width: 40px;
+            height: 12px;
+            font-size: 12px;
+            border-radius: 0;
+            border: 1px solid #ddd;
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  .skus-table {
+    font-size: 12px;
+    margin-left: 100px;
+    width: 582px;
+  }
+
+  .image-manage {
+    margin: 10px;
+    margin-top: 20px;
+    .main-image {
+      width: 280px;
+      height: 280px;
+      border: 1px solid #ddd;
+    }
+    .images {
+      margin: 0;
+      padding: 0;
+      margin-top: 10px;
+      li {
+        list-style: none;
+        width: 46px;
+        height: 46px;
+        padding-left: 8px;
+        padding-top: 8px;
+        float: left;
+        display: inline;
+        text-align: center;
+        img {
+          width: 44px;
+          height: 44px;
+          border: 1px solid #ddd;
+          cursor: pointer;
+          display: block;
+        }
+        a {
+          font-size: 12px;
+        }
+      }
+      .selected {
+        img {
+          border: none;
+        }
+      }
+    }
+    .submit {
+      margin-top: 20px;
+      text-align: center;
+      line-height: 30px;
+      color: #666;
+      a {
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+        line-height: 40px;
+        font-weight: normal;
+      }
+    }
+  }
+  .publish-item-button {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 20px;
+    height: 100px;
+
+    .ui-button-morange {
+      width: 150px;
+      height: 50px;
+      overflow: hidden;
+      line-height: 50px;
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+}

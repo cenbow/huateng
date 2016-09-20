@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogMerchantDayTxnMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogMerchantDayTxn" >
+    <id column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
+    <id column="MERCHANT_CODE" property="merchantCode" jdbcType="VARCHAR" />
+    <id column="TXN_CHANNEL" property="txnChannel" jdbcType="VARCHAR" />
+    <result column="LAST_TXN_DATE" property="lastTxnDate" jdbcType="VARCHAR" />
+    <result column="SUM_TXN_AMT" property="sumTxnAmt" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BUSINESS_TYPE, MERCHANT_CODE, TXN_CHANNEL, LAST_TXN_DATE, SUM_TXN_AMT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.p3.account.persistence.models.TLogMerchantDayTxnKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOG_MERCHANT_DAY_TXN
+    where BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR}
+      and MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogMerchantDayTxnKey" >
+    delete from T_LOG_MERCHANT_DAY_TXN
+    where BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR}
+      and MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogMerchantDayTxn" >
+    insert into T_LOG_MERCHANT_DAY_TXN (BUSINESS_TYPE, MERCHANT_CODE, TXN_CHANNEL, 
+      LAST_TXN_DATE, SUM_TXN_AMT)
+    values (#{businessType,jdbcType=VARCHAR}, #{merchantCode,jdbcType=VARCHAR}, #{txnChannel,jdbcType=VARCHAR}, 
+      #{lastTxnDate,jdbcType=VARCHAR}, #{sumTxnAmt,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogMerchantDayTxn" >
+    insert into T_LOG_MERCHANT_DAY_TXN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="businessType != null" >
+        BUSINESS_TYPE,
+      </if>
+      <if test="merchantCode != null" >
+        MERCHANT_CODE,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="lastTxnDate != null" >
+        LAST_TXN_DATE,
+      </if>
+      <if test="sumTxnAmt != null" >
+        SUM_TXN_AMT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantCode != null" >
+        #{merchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTxnDate != null" >
+        #{lastTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sumTxnAmt != null" >
+        #{sumTxnAmt,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogMerchantDayTxn" >
+    update T_LOG_MERCHANT_DAY_TXN
+    <set >
+      <if test="lastTxnDate != null" >
+        LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sumTxnAmt != null" >
+        SUM_TXN_AMT = #{sumTxnAmt,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR}
+      and MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogMerchantDayTxn" >
+    update T_LOG_MERCHANT_DAY_TXN
+    set LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+      SUM_TXN_AMT = #{sumTxnAmt,jdbcType=DECIMAL}
+    where BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR}
+      and MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateMerchantDayTxnAmt" parameterType="java.util.Map">
+        update
+        T_LOG_MERCHANT_DAY_TXN set
+        LAST_TXN_DATE=#{lastTxnDate,jdbcType=VARCHAR},
+        SUM_TXN_AMT= SUM_TXN_AMT+ #{txnAmt,jdbcType=DECIMAL}
+        where
+        MERCHANT_CODE= #{merchantCode,jdbcType=VARCHAR}
+       and  TXN_CHANNEL= #{txnChannel,jdbcType=VARCHAR}
+       and  BUSINESS_TYPE= #{businessType,jdbcType=VARCHAR}
+       and  LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR}
+  </update>
+   <update id="updateMerchantDayTxnAmtChgDate"
+            parameterType="java.util.Map">
+        update T_LOG_MERCHANT_DAY_TXN
+        set LAST_TXN_DATE=#{lastTxnDate,jdbcType=VARCHAR},
+         SUM_TXN_AMT=SUM_TXN_AMT+#{txnAmt,jdbcType=DECIMAL}
+        where
+        MERCHANT_CODE= #{merchantCode,jdbcType=VARCHAR}
+        and  TXN_CHANNEL= #{txnChannel,jdbcType=VARCHAR}
+        and  BUSINESS_TYPE= #{businessType,jdbcType=VARCHAR}
+    </update>
+</mapper>

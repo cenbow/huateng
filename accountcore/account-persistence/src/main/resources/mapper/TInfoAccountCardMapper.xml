@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoAccountCardMapper">
+    <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoAccountCard">
+        <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL"/>
+        <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR"/>
+        <result column="OFFLINE_ACCOUNT_NO" property="offlineAccountNo" jdbcType="VARCHAR"/>
+        <result column="FUND_ACCOUNT_NO" property="fundAccountNo" jdbcType="VARCHAR"/>
+        <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR"/>
+        <result column="CARD_TYPE" property="cardType" jdbcType="CHAR"/>
+        <result column="BINDING_FLAG" property="bindingFlag" jdbcType="CHAR"/>
+        <result column="BINDING_MEHOD" property="bindingMehod" jdbcType="CHAR"/>
+        <result column="BINDING_TIME" property="bindingTime" jdbcType="TIMESTAMP"/>
+        <result column="UNBINDING_TIME" property="unbindingTime" jdbcType="TIMESTAMP"/>
+        <result column="BINDING_ACCEPT_ORG_CODE" property="bindingAcceptOrgCode" jdbcType="VARCHAR"/>
+        <result column="BINGDING_ACCEPT_UID" property="bingdingAcceptUid" jdbcType="VARCHAR"/>
+        <result column="BINDING_ACCEPT_TIME" property="bindingAcceptTime" jdbcType="TIMESTAMP"/>
+        <result column="UNBINDING_ACCEPT_ORG_CODE" property="unbindingAcceptOrgCode" jdbcType="VARCHAR"/>
+        <result column="UNBINGDING_ACCEPT_UID" property="unbingdingAcceptUid" jdbcType="VARCHAR"/>
+        <result column="UNBINDING_ACCEPT_TIME" property="unbindingAcceptTime" jdbcType="TIMESTAMP"/>
+        <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR"/>
+        <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    RECORD_NO, CUSTOMER_NO, OFFLINE_ACCOUNT_NO, FUND_ACCOUNT_NO, CARD_NO, CARD_TYPE, 
+    BINDING_FLAG, BINDING_MEHOD, BINDING_TIME, UNBINDING_TIME, BINDING_ACCEPT_ORG_CODE, 
+    BINGDING_ACCEPT_UID, BINDING_ACCEPT_TIME, UNBINDING_ACCEPT_ORG_CODE, UNBINGDING_ACCEPT_UID, 
+    UNBINDING_ACCEPT_TIME, AREA_CODE, CITY_CODE
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from T_INFO_ACCOUNT_CARD
+        where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+    </select>
+    <select id="findAccountCardByCardNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select  <include refid="Base_Column_List" />
+        from T_INFO_ACCOUNT_CARD where
+        card_no=#{cardNo,jdbcType=VARCHAR} and
+        BINDING_FLAG='1'
+    </select>
+    <select id="checkClosedCustomerByCardNo" resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count(1)
+		from
+		T_INFO_ACCOUNT_CARD ac
+		where
+		ac.card_no='X_'||#{cardNo,jdbcType=VARCHAR}||'_'||to_char(sysdate,'yyyyMMdd')
+	</select>
+    <select id="findLinkCardNo" resultType="java.lang.String" parameterType="java.lang.String" >
+		select distinct card_no
+		from
+		 T_INFO_ACCOUNT_CARD
+		  where  fund_account_no=  #{value,jdbcType=VARCHAR}
+		  and BINDING_FLAG='1'
+	</select>
+
+
+    <select id="findAccountCardByAccountNo" parameterType="java.lang.String"
+            resultMap="BaseResultMap">
+		select
+        <include refid="Base_Column_List" />
+		 from T_INFO_ACCOUNT_CARD  where
+        OFFLINE_ACCOUNT_NO =  #{accountNo,jdbcType=VARCHAR}
+	</select>
+
+
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_INFO_ACCOUNT_CARD
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+    <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountCard">
+    insert into T_INFO_ACCOUNT_CARD (RECORD_NO, CUSTOMER_NO, OFFLINE_ACCOUNT_NO, 
+      FUND_ACCOUNT_NO, CARD_NO, CARD_TYPE, 
+      BINDING_FLAG, BINDING_MEHOD, BINDING_TIME, 
+      UNBINDING_TIME, BINDING_ACCEPT_ORG_CODE, 
+      BINGDING_ACCEPT_UID, BINDING_ACCEPT_TIME, 
+      UNBINDING_ACCEPT_ORG_CODE, UNBINGDING_ACCEPT_UID, 
+      UNBINDING_ACCEPT_TIME, AREA_CODE, CITY_CODE
+      )
+    values (s_account_card.nextval, #{customerNo,jdbcType=VARCHAR}, #{offlineAccountNo,jdbcType=VARCHAR},
+      #{fundAccountNo,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}, #{cardType,jdbcType=CHAR}, 
+      #{bindingFlag,jdbcType=CHAR}, #{bindingMehod,jdbcType=CHAR}, #{bindingTime,jdbcType=TIMESTAMP}, 
+      #{unbindingTime,jdbcType=TIMESTAMP}, #{bindingAcceptOrgCode,jdbcType=VARCHAR}, 
+      #{bingdingAcceptUid,jdbcType=VARCHAR}, #{bindingAcceptTime,jdbcType=TIMESTAMP}, 
+      #{unbindingAcceptOrgCode,jdbcType=VARCHAR}, #{unbingdingAcceptUid,jdbcType=VARCHAR}, 
+      #{unbindingAcceptTime,jdbcType=TIMESTAMP}, #{areaCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountCard">
+        insert into T_INFO_ACCOUNT_CARD
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="recordNo != null">
+                RECORD_NO,
+            </if>
+            <if test="customerNo != null">
+                CUSTOMER_NO,
+            </if>
+            <if test="offlineAccountNo != null">
+                OFFLINE_ACCOUNT_NO,
+            </if>
+            <if test="fundAccountNo != null">
+                FUND_ACCOUNT_NO,
+            </if>
+            <if test="cardNo != null">
+                CARD_NO,
+            </if>
+            <if test="cardType != null">
+                CARD_TYPE,
+            </if>
+            <if test="bindingFlag != null">
+                BINDING_FLAG,
+            </if>
+            <if test="bindingMehod != null">
+                BINDING_MEHOD,
+            </if>
+            <if test="bindingTime != null">
+                BINDING_TIME,
+            </if>
+            <if test="unbindingTime != null">
+                UNBINDING_TIME,
+            </if>
+            <if test="bindingAcceptOrgCode != null">
+                BINDING_ACCEPT_ORG_CODE,
+            </if>
+            <if test="bingdingAcceptUid != null">
+                BINGDING_ACCEPT_UID,
+            </if>
+            <if test="bindingAcceptTime != null">
+                BINDING_ACCEPT_TIME,
+            </if>
+            <if test="unbindingAcceptOrgCode != null">
+                UNBINDING_ACCEPT_ORG_CODE,
+            </if>
+            <if test="unbingdingAcceptUid != null">
+                UNBINGDING_ACCEPT_UID,
+            </if>
+            <if test="unbindingAcceptTime != null">
+                UNBINDING_ACCEPT_TIME,
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE,
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="recordNo != null">
+                #{recordNo,jdbcType=DECIMAL},
+            </if>
+            <if test="customerNo != null">
+                #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="offlineAccountNo != null">
+                #{offlineAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="fundAccountNo != null">
+                #{fundAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="cardNo != null">
+                #{cardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="cardType != null">
+                #{cardType,jdbcType=CHAR},
+            </if>
+            <if test="bindingFlag != null">
+                #{bindingFlag,jdbcType=CHAR},
+            </if>
+            <if test="bindingMehod != null">
+                #{bindingMehod,jdbcType=CHAR},
+            </if>
+            <if test="bindingTime != null">
+                #{bindingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="unbindingTime != null">
+                #{unbindingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="bindingAcceptOrgCode != null">
+                #{bindingAcceptOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="bingdingAcceptUid != null">
+                #{bingdingAcceptUid,jdbcType=VARCHAR},
+            </if>
+            <if test="bindingAcceptTime != null">
+                #{bindingAcceptTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="unbindingAcceptOrgCode != null">
+                #{unbindingAcceptOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="unbingdingAcceptUid != null">
+                #{unbingdingAcceptUid,jdbcType=VARCHAR},
+            </if>
+            <if test="unbindingAcceptTime != null">
+                #{unbindingAcceptTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="areaCode != null">
+                #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                #{cityCode,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.huateng.p3.account.persistence.models.TInfoAccountCard">
+        update T_INFO_ACCOUNT_CARD
+        <set>
+            <if test="customerNo != null">
+                CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="offlineAccountNo != null">
+                OFFLINE_ACCOUNT_NO = #{offlineAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="fundAccountNo != null">
+                FUND_ACCOUNT_NO = #{fundAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="cardNo != null">
+                CARD_NO = #{cardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="cardType != null">
+                CARD_TYPE = #{cardType,jdbcType=CHAR},
+            </if>
+            <if test="bindingFlag != null">
+                BINDING_FLAG = #{bindingFlag,jdbcType=CHAR},
+            </if>
+            <if test="bindingMehod != null">
+                BINDING_MEHOD = #{bindingMehod,jdbcType=CHAR},
+            </if>
+            <if test="bindingTime != null">
+                BINDING_TIME = #{bindingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="unbindingTime != null">
+                UNBINDING_TIME = #{unbindingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="bindingAcceptOrgCode != null">
+                BINDING_ACCEPT_ORG_CODE = #{bindingAcceptOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="bingdingAcceptUid != null">
+                BINGDING_ACCEPT_UID = #{bingdingAcceptUid,jdbcType=VARCHAR},
+            </if>
+            <if test="bindingAcceptTime != null">
+                BINDING_ACCEPT_TIME = #{bindingAcceptTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="unbindingAcceptOrgCode != null">
+                UNBINDING_ACCEPT_ORG_CODE = #{unbindingAcceptOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="unbingdingAcceptUid != null">
+                UNBINGDING_ACCEPT_UID = #{unbingdingAcceptUid,jdbcType=VARCHAR},
+            </if>
+            <if test="unbindingAcceptTime != null">
+                UNBINDING_ACCEPT_TIME = #{unbindingAcceptTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountCard">
+    update T_INFO_ACCOUNT_CARD
+    set CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      OFFLINE_ACCOUNT_NO = #{offlineAccountNo,jdbcType=VARCHAR},
+      FUND_ACCOUNT_NO = #{fundAccountNo,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      CARD_TYPE = #{cardType,jdbcType=CHAR},
+      BINDING_FLAG = #{bindingFlag,jdbcType=CHAR},
+      BINDING_MEHOD = #{bindingMehod,jdbcType=CHAR},
+      BINDING_TIME = #{bindingTime,jdbcType=TIMESTAMP},
+      UNBINDING_TIME = #{unbindingTime,jdbcType=TIMESTAMP},
+      BINDING_ACCEPT_ORG_CODE = #{bindingAcceptOrgCode,jdbcType=VARCHAR},
+      BINGDING_ACCEPT_UID = #{bingdingAcceptUid,jdbcType=VARCHAR},
+      BINDING_ACCEPT_TIME = #{bindingAcceptTime,jdbcType=TIMESTAMP},
+      UNBINDING_ACCEPT_ORG_CODE = #{unbindingAcceptOrgCode,jdbcType=VARCHAR},
+      UNBINGDING_ACCEPT_UID = #{unbingdingAcceptUid,jdbcType=VARCHAR},
+      UNBINDING_ACCEPT_TIME = #{unbindingAcceptTime,jdbcType=TIMESTAMP},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+    <update id="unbindingCardByOfflineAccountNo" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountCard" >
+        update T_INFO_ACCOUNT_CARD set
+        CARD_NO='X_'||CARD_NO||'_'||to_char(sysdate,'yyyyMMdd'),
+        BINDING_FLAG='2',
+        UNBINDING_ACCEPT_ORG_CODE=#{unbindingAcceptOrgCode,jdbcType=VARCHAR},
+        UNBINGDING_ACCEPT_UID=#{unbingdingAcceptUid,jdbcType=VARCHAR},
+        UNBINDING_ACCEPT_TIME=#{unbindingAcceptTime,jdbcType=TIMESTAMP},
+        UNBINDING_TIME=#{unbindingTime,jdbcType=TIMESTAMP}
+        where
+        OFFLINE_ACCOUNT_NO= #{offlineAccountNo,jdbcType=VARCHAR}
+    </update>
+
+</mapper>

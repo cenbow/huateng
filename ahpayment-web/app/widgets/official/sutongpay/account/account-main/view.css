@@ -1,0 +1,193 @@
+
+.account-main .tc{text-align:center;}
+ .account-main .tl{text-align:left;}
+ .account-main .tr{text-align:right;}
+.account-main  .dis{display:block;}
+.account-main .hide{display:none;}
+.account-main .fl{float:left;}
+.account-main .fr{float:right;}
+.account-main .cl{clear:both; height:0;overflow:hidden;font-size:0;line-height:0;}
+
+
+.account-main .fund-nav{ background:#fff;  border:1px solid #dcdcdc; overflow:hidden;}
+.account-main .fund-nav li{
+    width:140px;
+    height:38px;
+    list-style:none;
+    float:left;
+    line-height:38px;
+    text-align:center;
+    font-size:14px;
+}
+
+.account-main a:hover{
+   text-decoration:none; 
+}
+
+.account-main .fund-nav li a:hover{
+    text-decoration:none;
+}
+.account-main .fund-nav li:hover{
+    background:#f6f6f6;
+}
+.account-main .fund-nav li.now{
+    background:#f6f6f6;
+}
+.account-main .fund-nav li.now a{
+    font-size:14px;
+    font-weight:bold;
+}
+.account-main .fund-nav li a{
+    font-size:14px;
+}
+.account-main .fund-nav li.now{
+    background:#f6f6f6;
+}
+.account-main .fund-nav li.now a{
+    font-size:14px;
+    font-weight:bold;
+}
+.account-main .fund-base{
+    background:#56abe4;
+    }
+.account-main .fund-base .widfl{
+    width:590px;
+}
+.account-main .fund-base .widfr{
+    width:410px;
+    background:url(/assets/sutongpay/infobg.png);
+}
+.account-main .fund-flcon{width:550px; margin:0 auto;}
+
+.account-main .fundfontw{
+    color:#e4f0fa;
+    font-size:14px;
+    font-weight:bold;
+    vertical-align:middle;
+    }
+.account-main .fundfontw img{
+    vertical-align:middle;
+}
+
+.account-main .mymoney{
+    color:#fff;
+    font:72px Arial bold;
+    }
+
+    .account-main .butn{
+    background:#fff;
+    width:80px;
+    height:100px;
+    float:left;
+    margin-left:10px;
+    border-radius:5px;
+    -moz-border-radius:5px;  
+    -webkit-border-radius:5px;
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    color:#56abe4;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    }
+.account-main .butn:hover{
+    background:#9acdef;
+}
+
+.account-main .jif{
+    line-height:52px;
+    color:#fff;
+    padding:0 20px;
+    background:#2383ca;
+    font-size:14px;
+    font-weight:bold;
+}
+.account-main .jif img{
+    max-width: none;
+
+}
+.account-main .ac{
+    text-align:center;
+}
+.account-main .jif .fr{
+    color:#fff700;
+    font-size:24px;
+    font-family:"微软雅黑", "黑体", "宋体";
+}
+.account-main .jif img{vertical-align:middle;}
+
+.account-main .pho{
+    border-radius:50px;
+    -moz-border-radius:50px;     
+    -webkit-border-radius:50px;
+    width:70px;
+    height:70px;
+    background:#ffffff;
+}
+.account-main .pho2{
+    border-radius:50px;
+    -moz-border-radius:50px;     
+    -webkit-border-radius:50px;
+    width:70px;
+    height:70px;
+    background:#ffffff;
+    border:3px #dcdcdc solid;
+}
+
+.account-main .w19{
+    color:#fff;
+    font-size:18px;
+    font-family:"微软雅黑", "黑体", "宋体";
+}
+
+.account-main .newsadvioce {
+    float:left;
+    width:25px;
+    height:25px;
+    line-height:25px;
+    border-radius:50px;
+    -moz-border-radius:50px;     
+    -webkit-border-radius:50px;
+    background:#ffffff;
+    margin:7px 7px;
+    color:#0169b8;
+
+}
+
+.account-main .infnews{
+    width:95%;
+    margin:0px auto;
+    display:inline-table;
+    text-align:left;
+    color:#fff;
+    font-size:14px;
+}
+.account-main .infnews img{
+    max-width: none;
+}
+.account-main .infnews .li{
+    width:49.5%;
+    height:43px;
+    line-height:40px;
+    background:#56abe4;
+    display:table-cell;
+    text-indent:10px;
+    cursor:pointer;
+    vertical-align:middle;
+}
+.account-main .infnews .li:hover{
+    background:#0169b8;
+}
+
+.account-main .infnews .dl{
+        display:table-cell;
+        vertical-align:middle;
+        width:49.5%;
+        height:43px;
+        line-height:40px;
+        text-align:center;
+}
+
+.account-main .infnews  img{vertical-align:middle;}
+

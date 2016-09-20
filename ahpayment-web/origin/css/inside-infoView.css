@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* 灰色标题栏 */
+.ui-infoview-title{ width:100%; height:37px; line-height:37px; background-color:#F0EFEF; display:inline-block; margin-top:10px;}
+.ui-infoview-title .ui-tit01{ position:relative; left:20px; font-size:14px; font-weight:bold;}
+.ui-infoview-title .ui-txt01{ color:#EF9018; margin-left:35px; font-size:14px;}
+/* 主体信息栏 */
+.ui-infoview-main{ width:100%; position:relative; display:inline-block; margin-top:10px; margin-bottom:20px; padding-bottom:5px;}
+/* 个人邮箱地址相关信息 */
+.ui-infoview-main .ui-infoview-inf li{ float:left; line-height:35px; display:block; width:90%;}
+.ui-infoview-main .ui-infoview-inf span{ display:inline-block; float:left;  font-size:14px;}
+.ui-infoview-main .ui-infoview-inf .ui-span01{ width:85px; text-align:right;}
+.ui-infoview-main .ui-infoview-inf .ui-span02{ width:180px; text-align:left; padding-left:15px;}
+.ui-infoview-main .ui-infoview-inf .ui-span03{ width:70px; text-align:right;}
+.ui-infoview-main .ui-infoview-inf .ui-span04{  text-align:left; padding-left:15px;}
+.ui-infoview-main .ui-infoview-peoimg{ position:absolute; float:right; right:5px; top:10px;}
+/* 个人在线账户*/ 
+.ui-infoview-main .ui-Balancetxt{ display:inline-block; float:left; font-size:14px; margin-left:19px; margin-right:15px; margin-top:15px; }
+.ui-infoview-main .ui-Balancetxt02{ display:block; font-size:14px; margin-left:21px; margin-right:15px; margin-top:15px;}
+.ui-infoview-main .ui-Balancetxt font{	font-size: 28px; font-weight: bold; margin-right: 10px;}
+.ui-infoview-main .ui-Balance-next{ margin-left:15px; margin-top:43px; display:inline-block;}
+.ui-infoview-main .ui-Balance-next a{ margin-right:10px;}
+.ui-lastspace{ margin-bottom:105px;}
+.ui-bankinfo{display:inline-block; margin-top:25px; }
+.ui-bankinfo .ui-bankstyle{ width:750px;}

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huateng.p3.account.persistence.TInfoCardBindingMapper">
+	<resultMap id="BaseResultMap"
+		type="com.huateng.p3.account.persistence.models.TInfoCardBinding">
+		<id column="CARDBINDID" jdbcType="VARCHAR" property="cardbindid" />
+		<result column="PACTNO" jdbcType="VARCHAR" property="pactno" />
+		<result column="BINDINGTYPE" jdbcType="VARCHAR" property="bindingtype" />
+		<result column="CARTYPE" jdbcType="VARCHAR" property="cartype" />
+		<result column="ACCOUNTID" jdbcType="VARCHAR" property="accountid" />
+		<result column="MERCHANTNO" jdbcType="VARCHAR" property="merchantno" />
+		<result column="PRODUCTNO" jdbcType="VARCHAR" property="productno" />
+		<result column="INTTXNTM" jdbcType="VARCHAR" property="inttxntm" />
+		<result column="USERNAME" jdbcType="VARCHAR" property="username" />
+		<result column="IDS" jdbcType="VARCHAR" property="ids" />
+		<result column="CARDNO" jdbcType="VARCHAR" property="cardno" />
+		<result column="CVV2" jdbcType="VARCHAR" property="cvv2" />
+		<result column="CARDVALIDITY" jdbcType="VARCHAR" property="cardvalidity" />
+		<result column="BINGDINGNAME" jdbcType="VARCHAR" property="bingdingname" />
+		<result column="CARDSTATUS" jdbcType="VARCHAR" property="cardstatus" />
+		<result column="TACITLY" jdbcType="VARCHAR" property="tacitly" />
+		<result column="CHANNEL" jdbcType="VARCHAR" property="channel" />
+		<result column="OPENCUSSTATUS" jdbcType="VARCHAR" property="opencusstatus" />
+		<result column="PRODUCT_NO" jdbcType="VARCHAR" property="productNo" />
+		<result column="BANK_CODE" jdbcType="VARCHAR" property="bankCode" />
+		<result column="SUPPLY_ORG_CODE" jdbcType="VARCHAR" property="supplyOrgCode" />
+		<result column="DAY_AMT" jdbcType="DECIMAL" property="dayAmt" />
+		<result column="MONTH_AMT" jdbcType="DECIMAL" property="monthAmt" />
+		<result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP"
+			property="lastUpdateTime" />
+		<result column="BANK_PRODUCT_NO" jdbcType="VARCHAR" property="bankProductNo" />
+		<result column="ORG_BANK_CODE" jdbcType="VARCHAR" property="orgBankCode" />
+		<result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+		<result column="CITY" jdbcType="VARCHAR" property="city" />
+		<result column="SUB_BANK" jdbcType="VARCHAR" property="subBank" />
+		<result column="SUB_BANK_CODE" jdbcType="VARCHAR" property="subBankCode" />
+		<result column="PP_FLAG" jdbcType="VARCHAR" property="ppFlag" />
+		<result column="CARD_FLAG" jdbcType="VARCHAR" property="cardFlag" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		CARDBINDID, PACTNO, BINDINGTYPE, CARTYPE, ACCOUNTID, MERCHANTNO, PRODUCTNO,
+		INTTXNTM,
+		USERNAME, IDS, CARDNO, CVV2, CARDVALIDITY, BINGDINGNAME, CARDSTATUS, TACITLY,
+		CHANNEL,
+		OPENCUSSTATUS, PRODUCT_NO, BANK_CODE, SUPPLY_ORG_CODE, DAY_AMT, MONTH_AMT,
+		LAST_UPDATE_TIME,
+		BANK_PRODUCT_NO, ORG_BANK_CODE, PROVINCE, CITY, SUB_BANK, SUB_BANK_CODE, PP_FLAG,
+		CARD_FLAG
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from T_INFO_CARD_BINDING
+		where CARDBINDID = #{cardbindid,jdbcType=VARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from T_INFO_CARD_BINDING
+		where CARDBINDID = #{cardbindid,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert"
+		parameterType="com.huateng.p3.account.persistence.models.TInfoCardBinding">
+		insert into T_INFO_CARD_BINDING (CARDBINDID, PACTNO, BINDINGTYPE,
+		CARTYPE, ACCOUNTID, MERCHANTNO,
+		PRODUCTNO, INTTXNTM, USERNAME,
+		IDS, CARDNO, CVV2,
+		CARDVALIDITY, BINGDINGNAME, CARDSTATUS,
+		TACITLY, CHANNEL, OPENCUSSTATUS,
+		PRODUCT_NO, BANK_CODE, SUPPLY_ORG_CODE,
+		DAY_AMT, MONTH_AMT, LAST_UPDATE_TIME,
+		BANK_PRODUCT_NO, ORG_BANK_CODE, PROVINCE,
+		CITY, SUB_BANK, SUB_BANK_CODE,
+		PP_FLAG, CARD_FLAG)
+		values (#{cardbindid,jdbcType=VARCHAR}, #{pactno,jdbcType=VARCHAR},
+		#{bindingtype,jdbcType=VARCHAR},
+		#{cartype,jdbcType=VARCHAR}, #{accountid,jdbcType=VARCHAR}, #{merchantno,jdbcType=VARCHAR},
+		#{productno,jdbcType=VARCHAR}, #{inttxntm,jdbcType=VARCHAR},
+		#{username,jdbcType=VARCHAR},
+		#{ids,jdbcType=VARCHAR}, #{cardno,jdbcType=VARCHAR}, #{cvv2,jdbcType=VARCHAR},
+		#{cardvalidity,jdbcType=VARCHAR}, #{bingdingname,jdbcType=VARCHAR},
+		#{cardstatus,jdbcType=VARCHAR},
+		#{tacitly,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, #{opencusstatus,jdbcType=VARCHAR},
+		#{productNo,jdbcType=VARCHAR}, #{bankCode,jdbcType=VARCHAR},
+		#{supplyOrgCode,jdbcType=VARCHAR},
+		#{dayAmt,jdbcType=DECIMAL}, #{monthAmt,jdbcType=DECIMAL}, #{lastUpdateTime,jdbcType=TIMESTAMP},
+		#{bankProductNo,jdbcType=VARCHAR}, #{orgBankCode,jdbcType=VARCHAR},
+		#{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR}, #{subBank,jdbcType=VARCHAR}, #{subBankCode,jdbcType=VARCHAR},
+		#{ppFlag,jdbcType=VARCHAR}, #{cardFlag,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.huateng.p3.account.persistence.models.TInfoCardBinding">
+		insert into T_INFO_CARD_BINDING
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="cardbindid != null">
+				CARDBINDID,
+			</if>
+			<if test="pactno != null">
+				PACTNO,
+			</if>
+			<if test="bindingtype != null">
+				BINDINGTYPE,
+			</if>
+			<if test="cartype != null">
+				CARTYPE,
+			</if>
+			<if test="accountid != null">
+				ACCOUNTID,
+			</if>
+			<if test="merchantno != null">
+				MERCHANTNO,
+			</if>
+			<if test="productno != null">
+				PRODUCTNO,
+			</if>
+			<if test="inttxntm != null">
+				INTTXNTM,
+			</if>
+			<if test="username != null">
+				USERNAME,
+			</if>
+			<if test="ids != null">
+				IDS,
+			</if>
+			<if test="cardno != null">
+				CARDNO,
+			</if>
+			<if test="cvv2 != null">
+				CVV2,
+			</if>
+			<if test="cardvalidity != null">
+				CARDVALIDITY,
+			</if>
+			<if test="bingdingname != null">
+				BINGDINGNAME,
+			</if>
+			<if test="cardstatus != null">
+				CARDSTATUS,
+			</if>
+			<if test="tacitly != null">
+				TACITLY,
+			</if>
+			<if test="channel != null">
+				CHANNEL,
+			</if>
+			<if test="opencusstatus != null">
+				OPENCUSSTATUS,
+			</if>
+			<if test="productNo != null">
+				PRODUCT_NO,
+			</if>
+			<if test="bankCode != null">
+				BANK_CODE,
+			</if>
+			<if test="supplyOrgCode != null">
+				SUPPLY_ORG_CODE,
+			</if>
+			<if test="dayAmt != null">
+				DAY_AMT,
+			</if>
+			<if test="monthAmt != null">
+				MONTH_AMT,
+			</if>
+			<if test="lastUpdateTime != null">
+				LAST_UPDATE_TIME,
+			</if>
+			<if test="bankProductNo != null">
+				BANK_PRODUCT_NO,
+			</if>
+			<if test="orgBankCode != null">
+				ORG_BANK_CODE,
+			</if>
+			<if test="province != null">
+				PROVINCE,
+			</if>
+			<if test="city != null">
+				CITY,
+			</if>
+			<if test="subBank != null">
+				SUB_BANK,
+			</if>
+			<if test="subBankCode != null">
+				SUB_BANK_CODE,
+			</if>
+			<if test="ppFlag != null">
+				PP_FLAG,
+			</if>
+			<if test="cardFlag != null">
+				CARD_FLAG,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="cardbindid != null">
+				#{cardbindid,jdbcType=VARCHAR},
+			</if>
+			<if test="pactno != null">
+				#{pactno,jdbcType=VARCHAR},
+			</if>
+			<if test="bindingtype != null">
+				#{bindingtype,jdbcType=VARCHAR},
+			</if>
+			<if test="cartype != null">
+				#{cartype,jdbcType=VARCHAR},
+			</if>
+			<if test="accountid != null">
+				#{accountid,jdbcType=VARCHAR},
+			</if>
+			<if test="merchantno != null">
+				#{merchantno,jdbcType=VARCHAR},
+			</if>
+			<if test="productno != null">
+				#{productno,jdbcType=VARCHAR},
+			</if>
+			<if test="inttxntm != null">
+				#{inttxntm,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="ids != null">
+				#{ids,jdbcType=VARCHAR},
+			</if>
+			<if test="cardno != null">
+				#{cardno,jdbcType=VARCHAR},
+			</if>
+			<if test="cvv2 != null">
+				#{cvv2,jdbcType=VARCHAR},
+			</if>
+			<if test="cardvalidity != null">
+				#{cardvalidity,jdbcType=VARCHAR},
+			</if>
+			<if test="bingdingname != null">
+				#{bingdingname,jdbcType=VARCHAR},
+			</if>
+			<if test="cardstatus != null">
+				#{cardstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="tacitly != null">
+				#{tacitly,jdbcType=VARCHAR},
+			</if>
+			<if test="channel != null">
+				#{channel,jdbcType=VARCHAR},
+			</if>
+			<if test="opencusstatus != null">
+				#{opencusstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="productNo != null">
+				#{productNo,jdbcType=VARCHAR},
+			</if>
+			<if test="bankCode != null">
+				#{bankCode,jdbcType=VARCHAR},
+			</if>
+			<if test="supplyOrgCode != null">
+				#{supplyOrgCode,jdbcType=VARCHAR},
+			</if>
+			<if test="dayAmt != null">
+				#{dayAmt,jdbcType=DECIMAL},
+			</if>
+			<if test="monthAmt != null">
+				#{monthAmt,jdbcType=DECIMAL},
+			</if>
+			<if test="lastUpdateTime != null">
+				#{lastUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bankProductNo != null">
+				#{bankProductNo,jdbcType=VARCHAR},
+			</if>
+			<if test="orgBankCode != null">
+				#{orgBankCode,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="subBank != null">
+				#{subBank,jdbcType=VARCHAR},
+			</if>
+			<if test="subBankCode != null">
+				#{subBankCode,jdbcType=VARCHAR},
+			</if>
+			<if test="ppFlag != null">
+				#{ppFlag,jdbcType=VARCHAR},
+			</if>
+			<if test="cardFlag != null">
+				#{cardFlag,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.huateng.p3.account.persistence.models.TInfoCardBinding">
+		update T_INFO_CARD_BINDING
+		<set>
+			<if test="pactno != null">
+				PACTNO = #{pactno,jdbcType=VARCHAR},
+			</if>
+			<if test="bindingtype != null">
+				BINDINGTYPE = #{bindingtype,jdbcType=VARCHAR},
+			</if>
+			<if test="cartype != null">
+				CARTYPE = #{cartype,jdbcType=VARCHAR},
+			</if>
+			<if test="accountid != null">
+				ACCOUNTID = #{accountid,jdbcType=VARCHAR},
+			</if>
+			<if test="merchantno != null">
+				MERCHANTNO = #{merchantno,jdbcType=VARCHAR},
+			</if>
+			<if test="productno != null">
+				PRODUCTNO = #{productno,jdbcType=VARCHAR},
+			</if>
+			<if test="inttxntm != null">
+				INTTXNTM = #{inttxntm,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				USERNAME = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="ids != null">
+				IDS = #{ids,jdbcType=VARCHAR},
+			</if>
+			<if test="cardno != null">
+				CARDNO = #{cardno,jdbcType=VARCHAR},
+			</if>
+			<if test="cvv2 != null">
+				CVV2 = #{cvv2,jdbcType=VARCHAR},
+			</if>
+			<if test="cardvalidity != null">
+				CARDVALIDITY = #{cardvalidity,jdbcType=VARCHAR},
+			</if>
+			<if test="bingdingname != null">
+				BINGDINGNAME = #{bingdingname,jdbcType=VARCHAR},
+			</if>
+			<if test="cardstatus != null">
+				CARDSTATUS = #{cardstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="tacitly != null">
+				TACITLY = #{tacitly,jdbcType=VARCHAR},
+			</if>
+			<if test="channel != null">
+				CHANNEL = #{channel,jdbcType=VARCHAR},
+			</if>
+			<if test="opencusstatus != null">
+				OPENCUSSTATUS = #{opencusstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="productNo != null">
+				PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+			</if>
+			<if test="bankCode != null">
+				BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+			</if>
+			<if test="supplyOrgCode != null">
+				SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+			</if>
+			<if test="dayAmt != null">
+				DAY_AMT = #{dayAmt,jdbcType=DECIMAL},
+			</if>
+			<if test="monthAmt != null">
+				MONTH_AMT = #{monthAmt,jdbcType=DECIMAL},
+			</if>
+			<if test="lastUpdateTime != null">
+				LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="bankProductNo != null">
+				BANK_PRODUCT_NO = #{bankProductNo,jdbcType=VARCHAR},
+			</if>
+			<if test="orgBankCode != null">
+				ORG_BANK_CODE = #{orgBankCode,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				PROVINCE = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				CITY = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="subBank != null">
+				SUB_BANK = #{subBank,jdbcType=VARCHAR},
+			</if>
+			<if test="subBankCode != null">
+				SUB_BANK_CODE = #{subBankCode,jdbcType=VARCHAR},
+			</if>
+			<if test="ppFlag != null">
+				PP_FLAG = #{ppFlag,jdbcType=VARCHAR},
+			</if>
+			<if test="cardFlag != null">
+				CARD_FLAG = #{cardFlag,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where CARDBINDID = #{cardbindid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.huateng.p3.account.persistence.models.TInfoCardBinding">
+		update T_INFO_CARD_BINDING
+		set PACTNO = #{pactno,jdbcType=VARCHAR},
+		BINDINGTYPE = #{bindingtype,jdbcType=VARCHAR},
+		CARTYPE = #{cartype,jdbcType=VARCHAR},
+		ACCOUNTID = #{accountid,jdbcType=VARCHAR},
+		MERCHANTNO = #{merchantno,jdbcType=VARCHAR},
+		PRODUCTNO = #{productno,jdbcType=VARCHAR},
+		INTTXNTM = #{inttxntm,jdbcType=VARCHAR},
+		USERNAME = #{username,jdbcType=VARCHAR},
+		IDS = #{ids,jdbcType=VARCHAR},
+		CARDNO = #{cardno,jdbcType=VARCHAR},
+		CVV2 = #{cvv2,jdbcType=VARCHAR},
+		CARDVALIDITY = #{cardvalidity,jdbcType=VARCHAR},
+		BINGDINGNAME = #{bingdingname,jdbcType=VARCHAR},
+		CARDSTATUS = #{cardstatus,jdbcType=VARCHAR},
+		TACITLY = #{tacitly,jdbcType=VARCHAR},
+		CHANNEL = #{channel,jdbcType=VARCHAR},
+		OPENCUSSTATUS = #{opencusstatus,jdbcType=VARCHAR},
+		PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+		BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+		SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+		DAY_AMT = #{dayAmt,jdbcType=DECIMAL},
+		MONTH_AMT = #{monthAmt,jdbcType=DECIMAL},
+		LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+		BANK_PRODUCT_NO = #{bankProductNo,jdbcType=VARCHAR},
+		ORG_BANK_CODE = #{orgBankCode,jdbcType=VARCHAR},
+		PROVINCE = #{province,jdbcType=VARCHAR},
+		CITY = #{city,jdbcType=VARCHAR},
+		SUB_BANK = #{subBank,jdbcType=VARCHAR},
+		SUB_BANK_CODE = #{subBankCode,jdbcType=VARCHAR},
+		PP_FLAG = #{ppFlag,jdbcType=VARCHAR},
+		CARD_FLAG = #{cardFlag,jdbcType=VARCHAR}
+		where CARDBINDID = #{cardbindid,jdbcType=VARCHAR}
+	</update>
+
+	<update id="updateCardBinding" parameterType="java.util.HashMap">
+		UPDATE T_INFO_CARD_BINDING SET
+		CARDSTATUS = '01' , TACITLY = 'N',
+		PRODUCTNO =#{newProductNo,jdbcType=VARCHAR}
+		WHERE
+		PRODUCTNO = #{oldProductNo,jdbcType=VARCHAR}
+	</update>
+
+
+	<update id="updateAllCardNoDefault" parameterType="java.util.HashMap">
+		UPDATE T_INFO_CARD_BINDING SET
+		TACITLY = 'N'
+		WHERE
+		CARDSTATUS = '00' AND
+		PRODUCTNO = #{productno,jdbcType=VARCHAR} AND
+		CHANNEL = #{channel,jdbcType=VARCHAR}
+	</update>
+
+
+	<update id="updateNewDefaultCard" parameterType="java.util.HashMap">
+		UPDATE T_INFO_CARD_BINDING SET
+		TACITLY = 'Y'
+		WHERE
+		CARDSTATUS = '00' AND
+		PRODUCTNO = #{productno,jdbcType=VARCHAR} AND
+		CHANNEL = #{channel,jdbcType=VARCHAR}
+		AND ROWNUM = '1'
+	</update>
+
+
+
+	<select id="findCardBinding" parameterType="java.util.HashMap"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from T_INFO_CARD_BINDING
+		where  1=1 AND
+		<if test="channel != null">
+		INSTR(',' ||
+		#{channel,jdbcType=VARCHAR} || ',' , ',' || CHANNEL|| ',') &gt;0
+		</if>
+		<if test="cardstatus != null">
+			and CARDSTATUS = #{cardstatus,jdbcType=VARCHAR}
+		</if>
+		<if test="pactno != null">
+			and PACTNO = #{pactno,jdbcType=VARCHAR}
+		</if>
+		<if test="merchantno != null">
+			and MERCHANTNO = #{merchantno,jdbcType=VARCHAR}
+		</if>
+		<if test="cvv2 != null">
+			and CVV2 = #{cvv2,jdbcType=VARCHAR}
+		</if>
+		<if test="bankCode != null">
+			and BANK_CODE = #{bankCode,jdbcType=VARCHAR}
+		</if>
+		<if test="cardno != null">
+			and CARDNO = #{cardno,jdbcType=VARCHAR}
+		</if>
+		<if test="productno != null">
+			and PRODUCTNO = #{productno,jdbcType=VARCHAR}
+		</if>
+		ORDER BY INTTXNTM
+	</select>
+
+</mapper>

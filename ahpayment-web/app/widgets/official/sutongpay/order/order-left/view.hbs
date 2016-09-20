@@ -1,0 +1,29 @@
+{{#component "order-left"}}
+<div class="left">
+               <ul class="menuo">
+                  <h2><em>订单管理<span class="font-grey16">(4)</span></em><i></i></h2>
+                  <li class="m1 {{#match "order" _PAGE_.path}}
+                                {{#match "orderList" _PAGE_.path}}current
+                                {{/match}}
+                                {{#match "orderDetail" _PAGE_.path}}current
+                                {{/match}}{{/match}}">
+                     <a href="/order/orderList"><i></i>订单查询</a>
+                  </li>
+                  <li class="m2 {{#match "trade" _PAGE_.path}}
+                                {{#match "tradedetail" _PAGE_.path}}current
+                                {{/match}}{{/match}}">
+                     <a href="/trade/tradedetail"><i></i>收支明细</a>
+                  </li>
+                  <li class="m3 {{#match "order" _PAGE_.path}}
+                                {{#match "rechargeLog" _PAGE_.path}}current
+                                {{/match}}{{/match}}">
+                     <a href="/order/rechargeLog"><i></i>充值记录</a>
+                  </li>
+                    <li class="m4 {{#match "order" _PAGE_.path}}
+                                {{#match "suggestionsSearch" _PAGE_.path}}current
+                                {{/match}}{{/match}}">
+                     <a href="/order/suggestionsSearch"><i></i>投诉查询</a>
+                  </li>
+               </ul>
+</div><!--left结束 -->
+{{/component}}

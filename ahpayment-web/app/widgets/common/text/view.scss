@@ -1,0 +1,10 @@
+.text {
+    width: 480px;
+    height: 80px;
+    position: absolute;
+    z-index: 20;
+
+    .text-content {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}

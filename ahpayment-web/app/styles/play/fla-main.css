@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* login */
+.fla-bg{ width:100%; height:400px; display:block; text-align:center;}
+.fla-m{ width:980px; height:400px; margin:0 auto;}
+
+.fla-login{ width:272px; height:335px;    background:url(/assets/sutongpay/play/login-bg01.png) left;z-index:2000; top:0px; position:absolute; float:right; right:0px; top:20px;}
+
+
+
+.log-title{ width:265px; position:relative; top:15px; margin:0 auto;}
+.log-title li{ float:left;  text-align:center; height:30px; display:block; text-align:center; }
+.log-title  .tit-dTel{ color:#172A88; font-size:14px; width:125px; font-weight:bold; cursor:pointer;}
+.log-title  .tit-fTel{ color:#172A88; font-size:14px; width:140px; font-weight:bold; cursor:pointer;}
+.log-main{ display:block; width:230px; position:relative; left:15px; top:35px; float:left;}
+
+.t-account { font-size:12px; color:#3E3A39; line-height:34px; }
+.txtbg-account{ width:184px; height:34px; line-height:34px; display:block; background-image:url(/assets/sutongpay/play/txt-acc01.png); float:left;}
+.txtbg-account02{ width:142px; height:34px; line-height:34px; display:block; background:url(/assets/sutongpay/play/txt-acc02.png); float:left;}
+.txtbg-account03{  height:34px; line-height:34px; display:block; background:url(/assets/sutongpay/play/txt-acc03.png) left no-repeat; float:left;}
+.log-account{ border: 0px ; background-color:transparent; width:145px; height:20px; line-height:20px; font-size:12px; color:#999; margin-top:6px; position:relative; left:10px;}
+*html .log-account {margin-top:5px; } /* ie6 fixed */
+*+html .log-account { margin-top:1px; } /* ie7 fixed */
+.log-account02{border: 0px ; background-color:transparent; width:110px; height:20px; line-height:20px; font-size:12px; color:#999; float:left; position:relative; left:10px; margin-top:5px;  }
+*html .log-account02 {margin-top:0px; } /* ie6 fixed */
+*+html .log-account02 { margin-top:0px; } /* ie7 fixed */
+.log-account03{border: 0px ; background-color:transparent; width:70px; height:20px; line-height:20px; font-size:12px; color:#999; float:left; position:relative; left:10px; margin-top:5px;  }
+*html .log-account03 {margin-top:0px; } /* ie6 fixed */
+*+html .log-account03 { margin-top:0px; } /* ie7 fixed */
+
+.passwordbg-account{  width:184px; height:34px; line-height:34px; display:block; background-image:url(/assets/sutongpay/play/passw-acc01.png)}
+*html .passwordbg-account {margin-top:5px; } /* ie6 fixed */
+*+html .passwordbg-account { margin-top:1px; } /* ie7 fixed */
+.k-account{line-height:14px;}
+.f-password{  color:#172A88; padding-left:125px;}
+.f-password02{  color:#172A88; padding-left:76px; }
+.log-button01{ width:230px; height:42px; float:left; border:0px; background:url(/assets/sutongpay/play/login-buttom.png); display:block; cursor:pointer;}
+.log-Register{  width:400px; height:35px; line-height:35px; position:absolute; float:left; left:0px; top:40px; z-index:15; display:inline-block;}
+.re01{ font-weight:bold; font-size:16px; color:#FF7F00;}
+.re02{ font-weight:bold; font-size:12px; color:#2A3496;}
+.txt-yan01{ position:relative; left:15px; top:3px;}
+*html .txt-yan01 {top:0px; } /* ie6 fixed */
+*+html .txt-yan01 { top:0px; } /* ie7 fixed */
+
+.login-zhuce01{ position:absolute;top:210px; float:left; left:37px;}
+
+
+
+
+/* 用户登陆后 */
+.fla-login-user{ width:272px; height:335px; background:url(/assets/sutongpay/play/kda.png) left;z-index:2000; top:0px; position:absolute; float:right; right:0px; top:20px; text-align:left;}
+.user-name{ width:200px; height:25px; line-height:25px;  left:30px; top:40px; position:relative;}
+.user-img{ position:relative; height:25px; width:10px; background:url(/assets/sutongpay/play/ren.png) no-repeat center; display:block; float:left;}
+.user-txt{ margin-left:5px; font-size:15px; font-weight:bold; color:#444;}
+.user-out{ color:#666; font-size:12px;}
+.user-out a{ color:#666;}
+.user-out a:hover{ text-decoration:underline;}
+.user-news{ width:231px; height:146px; display:block; background:url(/assets/sutongpay/play/kxiao.png); position:relative; top:55px; left:22px; text-align:center;}
+.user-Balance{ width:200px; margin:0 auto; height:65px;  line-height:25px; border-bottom:1px solid #CCC; top:5px; position:relative;}
+.user-Balance span{ font-size:14px; position:relative; top:5px; color:#413F40;}
+.user-Balance .font01{ color:#F00; font-weight:bold; font-size:16px;}
+.user-links{ width:200px; margin:0 auto;}
+.user-links span{ width:100px; height:25px; line-height:25px; float:left; display:block; position:relative; top:10px; color:#1B298C;}
+.user-links span a{ color:#1B298C;}
+.user-links span a:hover{ text-decoration:underline;}
+.user-login{ width:230px; height:43px; background:url(/assets/sutongpay/play/anniu.png) top; display:block; position:relative; top:75px; left:23px;}
+.user-login:hover{ background-position:bottom;}

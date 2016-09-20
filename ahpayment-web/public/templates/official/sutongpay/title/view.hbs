@@ -1,0 +1,130 @@
+{{#component "title"}}
+<span class="tit">
+                  {{#match "news" _PAGE_.path}}
+                  {{#match "announce" _PAGE_.path}}
+                     <h2>{{data.title}}</h2>
+                  {{/match}}
+                  {{/match}}
+
+                   {{#match "reChargeCard" _PAGE_.path}}
+                     <h2>充值卡</h2>
+                     <span class="ex">充值便利</span>
+                   {{/match}}
+                  
+                   {{#match "accountRecharge" _PAGE_.path}}
+	                   <h2>账户充值</h2>
+                   {{/match}}
+                   
+                   {{#match "order" _PAGE_.path}}
+                        {{#match "orderList" _PAGE_.path}}
+                     <h2>订单查询</h2>
+                       <span class="ex">订单查询起止日期的时间跨度不可超过三个月</span>
+                        {{/match}}
+                        {{#match "orderDetail" _PAGE_.path}}
+                     <h2>订单明细</h2>
+                       <span class="ex">详细展示订单</span>
+                        {{/match}}
+                        {{#match "suggestionsDetail" _PAGE_.path}}
+                     <h2>投诉建议明细</h2>
+                       <span class="ex">详细展示投诉建议</span>
+                        {{/match}}
+                  {{/match}}
+                  {{#match "order" _PAGE_.path}}
+                        {{#match "rechargeLog" _PAGE_.path}}
+                     <h2>充值记录</h2>
+                        <span class="ex">充值记录查询起止日期的时间跨度不可超过三个月。</span>
+                </span><!--tit结束 -->
+                        {{/match}}
+                  {{/match}}
+                  {{#match "paypwd" _PAGE_.path}}
+                  {{#match "payPwdModify" _PAGE_.path}}
+                     <h2>支付密码修改</h2>
+                     <span class="ex">修改支付密码，交易有保障</span>
+                   {{/match}}
+                    {{/match}}
+                    {{#match "paypwd" _PAGE_.path}}
+                  {{#match "reset" _PAGE_.path}}
+                  {{#match "sms" _PAGE_.path}}
+                     <h2>支付密码重置</h2>
+                     <span class="ex">重置支付密码，交易有保障</span>
+                     {{/match}}
+                   {{/match}}
+                    {{/match}}
+                    {{#match "paypwd" _PAGE_.path}}
+                  {{#match "reset" _PAGE_.path}}
+                  {{#match "question" _PAGE_.path}}
+                     <h2>支付密码重置</h2>
+                     <span class="ex">重置支付密码，交易有保障</span>
+                     {{/match}}
+                   {{/match}}
+                    {{/match}}
+
+                     
+                  {{#match "giveSuggestions" _PAGE_.path}}
+                     <h2>投诉建议</h2>
+                     <span class="ex">投诉建议</span>
+                   {{/match}}
+
+                   {{#match "order" _PAGE_.path}}
+                  {{#match "suggestionsSearch" _PAGE_.path}}
+                     <h2>投诉查询</h2>
+                     <span class="ex">投诉查询</span>
+                   {{/match}}
+                    {{/match}}
+                    
+
+                    {{#match "question" _PAGE_.path}}
+                  {{#match "resetQuestion" _PAGE_.path}}
+                     <h2>密保问题重置</h2>
+                     <span class="ex">密保问题重置，交易有保障</span>
+                   {{/match}}
+                    {{/match}}
+
+
+                    {{#match "realName" _PAGE_.path}}
+                  
+                     <h2>实名认证</h2>
+                     <span class="ex">赶快来实名认证，月交易额大大的提高哦</span>
+                   
+                    {{/match}}
+
+                    {{#match "re_LoginPassword" _PAGE_.path}}
+                     <h2>登录密码修改</h2>
+                     <span class="ex">登录密码修改，交易有保障</span>
+                   {{/match}}
+
+                   {{#match "safeCenter" _PAGE_.path}}
+                  {{#match "home" _PAGE_.path}}
+                     <h2>{{_USER_.principal}}</h2>
+                     <span class="ex">你好！</span>
+                     <span class="time">您上次登录时间：{{_USER_.lastLoginTime}}</span></span>
+                   {{/match}}
+                    {{/match}}
+                    {{#match "payment" _PAGE_.path}}
+                  {{#match "transfer" _PAGE_.path}}
+                     <h2>转账</h2>
+                     <span class="ex"></span></span>
+                   {{/match}}
+                    {{/match}}
+                    {{#match "payment" _PAGE_.path}}
+                  {{#match "transConfirmation" _PAGE_.path}}
+                     <h2>转账确认</h2>
+                     <span class="ex"></span></span>
+                   {{/match}}
+                    {{/match}}
+                    {{#match "limit" _PAGE_.path}}
+                  {{#match "limitModify" _PAGE_.path}}
+                     <h2>交易限额设置</h2>
+                     <span class="ex"></span></span>
+                   {{/match}}
+                    {{/match}}
+                    {{#match "trade" _PAGE_.path}}
+                    {{#match "tradedetail" _PAGE_.path}}
+      
+                     <h2>收支明细</h2>
+                     <span class="ex"></span></span>
+          
+                    {{/match}}
+                    {{/match}}
+</span><!--tit结束 -->
+{{/component}}

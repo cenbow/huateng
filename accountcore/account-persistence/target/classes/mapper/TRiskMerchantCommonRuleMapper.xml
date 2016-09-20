@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TRiskMerchantCommonRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TRiskMerchantCommonRule" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="RULE_TYPE" property="ruleType" jdbcType="CHAR" />
+    <result column="MERCHANT_TYPE" property="merchantType" jdbcType="VARCHAR" />
+    <result column="MERCHANT_CODE" property="merchantCode" jdbcType="VARCHAR" />
+    <result column="TXN_CHANNEL" property="txnChannel" jdbcType="VARCHAR" />
+    <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
+    <result column="TERMINAL_NO" property="terminalNo" jdbcType="VARCHAR" />
+    <result column="MAX_TXN_AMT" property="maxTxnAmt" jdbcType="DECIMAL" />
+    <result column="MAX_SUM_TXN_AMT" property="maxSumTxnAmt" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT1" property="rsvdAmt1" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT2" property="rsvdAmt2" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT3" property="rsvdAmt3" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT4" property="rsvdAmt4" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT5" property="rsvdAmt5" jdbcType="DECIMAL" />
+    <result column="USE_FLAG" property="useFlag" jdbcType="CHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="TIMESTAMP" />
+    <result column="VALID_DATE" property="validDate" jdbcType="TIMESTAMP" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_FLAG" property="checkFlag" jdbcType="CHAR" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="CHAR" />
+    <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, RULE_TYPE, MERCHANT_TYPE, MERCHANT_CODE, TXN_CHANNEL, BUSINESS_TYPE, TERMINAL_NO, 
+    MAX_TXN_AMT, MAX_SUM_TXN_AMT, RSVD_AMT1, RSVD_AMT2, RSVD_AMT3, RSVD_AMT4, RSVD_AMT5, 
+    USE_FLAG, EFFECTIVE_DATE, VALID_DATE, CREATE_UID, CREATE_TIME, CHECK_FLAG, CHECK_UID, 
+    CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, RESV_FLD1, RESV_FLD2, ARCHIVE_TIME, 
+    ARCHIVED_FLAG, L_RECORD_NO, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_RISK_MERCHANT_COMMON_RULE
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+
+    <select id="findMerchantRisk" resultMap="BaseResultMap"
+            parameterType="java.util.Map">
+		select
+		dt.merchant_code,dt.LAST_TXN_DATE,
+		(case when dt.SUM_TXN_AMT is
+		not null then dt.SUM_TXN_AMT else 0 end)
+		as SUM_TXN_AMT,
+		(case when
+		cr.record_no is not null then 1 else 0 end)
+		as EXIST_RISK_RULE,
+		(case
+		when cr.record_no is not null then
+		cr.MAX_SUM_TXN_AMT else 0 end) as
+		MAX_SUM_TXN_AMT,
+		(case when
+		cr.record_no is not null then cr.MAX_TXN_AMT
+		else 0 end) as
+		MAX_TXN_AMT,
+		(case when cr.record_no is not null then 1
+		else 0 end) as
+		EXIST_RISK_RULE
+		from T_LOG_MERCHANT_DAY_TXN dt,
+		(
+		select
+		min(record_no) as record_no,min(MAX_TXN_AMT) as MAX_TXN_AMT
+		,min(MAX_SUM_TXN_AMT) as MAX_SUM_TXN_AMT from
+		T_RISK_MERCHANT_COMMON_RULE where
+		USE_FLAG='1' and
+		ARCHIVED_FLAG='1' and
+		CHECK_FLAG='2'
+		and
+			<![CDATA[
+				EFFECTIVE_DATE<=#{currentDate,jdbcType=TIMESTAMP,jdbcType=TIMESTAMP} and
+				VALID_DATE>=#{currentDate,jdbcType=TIMESTAMP} and
+			]]>
+		(
+		(
+		RULE_TYPE='3' and
+		TERMINAL_NO=#{terminalNo,jdbcType=VARCHAR} and
+		MERCHANT_CODE=#{merchantCode,jdbcType=VARCHAR} and
+		TXN_CHANNEL=#{txnChannel,jdbcType=VARCHAR} and
+		BUSINESS_TYPE=#{businessType,jdbcType=VARCHAR}
+		)
+		or
+		(
+		RULE_TYPE='2' and
+		MERCHANT_CODE=#{merchantCode,jdbcType=VARCHAR} and
+		TXN_CHANNEL=#{txnChannel,jdbcType=VARCHAR} and
+		BUSINESS_TYPE=#{businessType,jdbcType=VARCHAR}
+		)
+		or
+		(
+		RULE_TYPE='1' and
+		MERCHANT_TYPE=#{merchantType,jdbcType=VARCHAR} and
+		TXN_CHANNEL=#{txnChannel,jdbcType=VARCHAR} and
+		BUSINESS_TYPE=#{businessType,jdbcType=VARCHAR}
+		)
+		)
+		) cr
+		where
+		dt.merchant_code=#{merchantCode,jdbcType=VARCHAR} and
+		dt.TXN_CHANNEL=#{txnChannel,jdbcType=VARCHAR} and
+		dt.BUSINESS_TYPE=#{businessType,jdbcType=VARCHAR}
+	</select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from T_RISK_MERCHANT_COMMON_RULE
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TRiskMerchantCommonRule" >
+    insert into T_RISK_MERCHANT_COMMON_RULE (RECORD_NO, RULE_TYPE, MERCHANT_TYPE, 
+      MERCHANT_CODE, TXN_CHANNEL, BUSINESS_TYPE, 
+      TERMINAL_NO, MAX_TXN_AMT, MAX_SUM_TXN_AMT, 
+      RSVD_AMT1, RSVD_AMT2, RSVD_AMT3, 
+      RSVD_AMT4, RSVD_AMT5, USE_FLAG, 
+      EFFECTIVE_DATE, VALID_DATE, CREATE_UID, 
+      CREATE_TIME, CHECK_FLAG, CHECK_UID, 
+      CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, 
+      RESV_FLD1, RESV_FLD2, ARCHIVE_TIME, 
+      ARCHIVED_FLAG, L_RECORD_NO, REMARK
+      )
+    values (#{recordNo,jdbcType=DECIMAL}, #{ruleType,jdbcType=CHAR}, #{merchantType,jdbcType=VARCHAR}, 
+      #{merchantCode,jdbcType=VARCHAR}, #{txnChannel,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, 
+      #{terminalNo,jdbcType=VARCHAR}, #{maxTxnAmt,jdbcType=DECIMAL}, #{maxSumTxnAmt,jdbcType=DECIMAL}, 
+      #{rsvdAmt1,jdbcType=DECIMAL}, #{rsvdAmt2,jdbcType=DECIMAL}, #{rsvdAmt3,jdbcType=DECIMAL}, 
+      #{rsvdAmt4,jdbcType=DECIMAL}, #{rsvdAmt5,jdbcType=DECIMAL}, #{useFlag,jdbcType=CHAR}, 
+      #{effectiveDate,jdbcType=TIMESTAMP}, #{validDate,jdbcType=TIMESTAMP}, #{createUid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{checkFlag,jdbcType=CHAR}, #{checkUid,jdbcType=VARCHAR}, 
+      #{checkTime,jdbcType=TIMESTAMP}, #{lastModifyUid,jdbcType=VARCHAR}, #{lastModifyTime,jdbcType=TIMESTAMP}, 
+      #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, #{archiveTime,jdbcType=TIMESTAMP}, 
+      #{archivedFlag,jdbcType=CHAR}, #{lRecordNo,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TRiskMerchantCommonRule" >
+    insert into T_RISK_MERCHANT_COMMON_RULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="ruleType != null" >
+        RULE_TYPE,
+      </if>
+      <if test="merchantType != null" >
+        MERCHANT_TYPE,
+      </if>
+      <if test="merchantCode != null" >
+        MERCHANT_CODE,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE,
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO,
+      </if>
+      <if test="maxTxnAmt != null" >
+        MAX_TXN_AMT,
+      </if>
+      <if test="maxSumTxnAmt != null" >
+        MAX_SUM_TXN_AMT,
+      </if>
+      <if test="rsvdAmt1 != null" >
+        RSVD_AMT1,
+      </if>
+      <if test="rsvdAmt2 != null" >
+        RSVD_AMT2,
+      </if>
+      <if test="rsvdAmt3 != null" >
+        RSVD_AMT3,
+      </if>
+      <if test="rsvdAmt4 != null" >
+        RSVD_AMT4,
+      </if>
+      <if test="rsvdAmt5 != null" >
+        RSVD_AMT5,
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG,
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG,
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="ruleType != null" >
+        #{ruleType,jdbcType=CHAR},
+      </if>
+      <if test="merchantType != null" >
+        #{merchantType,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantCode != null" >
+        #{merchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="maxTxnAmt != null" >
+        #{maxTxnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSumTxnAmt != null" >
+        #{maxSumTxnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt1 != null" >
+        #{rsvdAmt1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt2 != null" >
+        #{rsvdAmt2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt3 != null" >
+        #{rsvdAmt3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt4 != null" >
+        #{rsvdAmt4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt5 != null" >
+        #{rsvdAmt5,jdbcType=DECIMAL},
+      </if>
+      <if test="useFlag != null" >
+        #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TRiskMerchantCommonRule" >
+    update T_RISK_MERCHANT_COMMON_RULE
+    <set >
+      <if test="ruleType != null" >
+        RULE_TYPE = #{ruleType,jdbcType=CHAR},
+      </if>
+      <if test="merchantType != null" >
+        MERCHANT_TYPE = #{merchantType,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantCode != null" >
+        MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="maxTxnAmt != null" >
+        MAX_TXN_AMT = #{maxTxnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSumTxnAmt != null" >
+        MAX_SUM_TXN_AMT = #{maxSumTxnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt1 != null" >
+        RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt2 != null" >
+        RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt3 != null" >
+        RSVD_AMT3 = #{rsvdAmt3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt4 != null" >
+        RSVD_AMT4 = #{rsvdAmt4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt5 != null" >
+        RSVD_AMT5 = #{rsvdAmt5,jdbcType=DECIMAL},
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG = #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TRiskMerchantCommonRule" >
+    update T_RISK_MERCHANT_COMMON_RULE
+    set RULE_TYPE = #{ruleType,jdbcType=CHAR},
+      MERCHANT_TYPE = #{merchantType,jdbcType=VARCHAR},
+      MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR},
+      TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      MAX_TXN_AMT = #{maxTxnAmt,jdbcType=DECIMAL},
+      MAX_SUM_TXN_AMT = #{maxSumTxnAmt,jdbcType=DECIMAL},
+      RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+      RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+      RSVD_AMT3 = #{rsvdAmt3,jdbcType=DECIMAL},
+      RSVD_AMT4 = #{rsvdAmt4,jdbcType=DECIMAL},
+      RSVD_AMT5 = #{rsvdAmt5,jdbcType=DECIMAL},
+      USE_FLAG = #{useFlag,jdbcType=CHAR},
+      EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

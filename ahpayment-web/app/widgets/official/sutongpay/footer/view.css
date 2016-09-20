@@ -1,0 +1,14 @@
+.footer .footerbg{ width:100%; position: absolute;* z-index: -1; height:102px; display:block; background-color:#ededed}
+.footer .footer-main{ width:980px; height:92px;  margin:0 auto; text-align:center;}
+.footer .footer-link{ margin:0 auto; height:70px; position:relative; display:inline-block; *display:inline;  top:20px; text-align:center;}
+.footer .elselink{ text-align:center; margin:0 auto; width:560px; display:inline-block; height:70px;}
+.footer .elsetitlink{ height:28px; display:inline-block; *display:inline; margin:0 auto;}
+.footer .elsetitlink a{ float:left; margin-right:2px;}
+.footer .elsetitlink a:hover{ text-decoration:none;}
+.footer .elsebotlink{  margin:0 auto; margin-top:5px; text-align:left; display:inline-block; line-height:35px;}
+.footer .elsebotlink {*display:inline}
+.footer .elsebotlink .txt01{ float:left; color:#666; }
+.footer .elsebotlink a{ float:left;  position:relative; top:4px; margin-right:10px;}
+.footer .elsebotlink a:hover{ text-decoration:none;}
+.footer .elsebotlink .elink01{ color:#036EB8; position:relative; top:5px; }
+.footer .elsebotlink .elink02{ color:#727171; position:relative; top:5px;  margin-left:15px;}

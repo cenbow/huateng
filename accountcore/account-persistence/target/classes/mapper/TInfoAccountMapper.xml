@@ -1,0 +1,1161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoAccountMapper">
+    <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoAccount">
+        <id column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR"/>
+        <result column="ACCOUNT_NAME" property="accountName" jdbcType="VARCHAR"/>
+        <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR"/>
+        <result column="OPEN_DATE" property="openDate" jdbcType="TIMESTAMP"/>
+        <result column="CLOSE_DATE" property="closeDate" jdbcType="TIMESTAMP"/>
+        <result column="EXPIRED_DATE" property="expiredDate" jdbcType="TIMESTAMP"/>
+        <result column="PAY_PASSWD" property="payPasswd" jdbcType="VARCHAR"/>
+        <result column="INIT_PASSWD" property="initPasswd" jdbcType="VARCHAR"/>
+        <result column="INIT_PASSWD_MODIFIED" property="initPasswdModified" jdbcType="CHAR"/>
+        <result column="PASSWD_ERR_NUM" property="passwdErrNum" jdbcType="DECIMAL"/>
+        <result column="PASSWD_ERR_LOCK_TIME" property="passwdErrLockTime" jdbcType="TIMESTAMP"/>
+        <result column="STATUS" property="status" jdbcType="CHAR"/>
+        <result column="COMM_STATUS" property="commStatus" jdbcType="CHAR"/>
+        <result column="TYPE" property="type" jdbcType="CHAR"/>
+        <result column="GRADE" property="grade" jdbcType="CHAR"/>
+        <result column="IS_REALNAME" property="isRealname" jdbcType="CHAR"/>
+        <result column="APANAGE" property="apanage" jdbcType="VARCHAR"/>
+        <result column="ORGANIZATION_CODE" property="organizationCode" jdbcType="VARCHAR"/>
+        <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR"/>
+        <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR"/>
+        <result column="OPEN_CHANNEL" property="openChannel" jdbcType="VARCHAR"/>
+        <result column="BALANCE" property="balance" jdbcType="DECIMAL"/>
+        <result column="LAST_DAY_BAL" property="lastDayBal" jdbcType="DECIMAL"/>
+        <result column="LAST_MONTH_BAL" property="lastMonthBal" jdbcType="DECIMAL"/>
+        <result column="AVAILABLE_BALANCE" property="availableBalance" jdbcType="DECIMAL"/>
+        <result column="UNAVAILABLE_BALANCE" property="unavailableBalance" jdbcType="DECIMAL"/>
+        <result column="WITHDRAW_BALANCE" property="withdrawBalance" jdbcType="DECIMAL"/>
+        <result column="FROZEN_AMOUNT" property="frozenAmount" jdbcType="DECIMAL"/>
+        <result column="PREAUTHORIZED_AMT" property="preauthorizedAmt" jdbcType="DECIMAL"/>
+        <result column="LAST_TXN_DATE" property="lastTxnDate" jdbcType="VARCHAR"/>
+        <result column="DAY_SUM_CONS_AMT" property="daySumConsAmt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_CONS_CNT" property="daySumConsCnt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_OUT_AMT" property="daySumOutAmt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_OUT_CNT" property="daySumOutCnt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_IN_AMT" property="daySumInAmt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_IN_CNT" property="daySumInCnt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_CASH_AMT" property="daySumCashAmt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_CASH_CNT" property="daySumCashCnt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_DEPOSIT_AMT" property="daySumDepositAmt" jdbcType="DECIMAL"/>
+        <result column="DAY_SUM_DEPOSIT_CNT" property="daySumDepositCnt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_CONS_AMT" property="monthSumConsAmt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_OUT_AMT" property="monthSumOutAmt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_IN_AMT" property="monthSumInAmt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_CASH_AMT" property="monthSumCashAmt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_CHG_AMT" property="monthSumChgAmt" jdbcType="DECIMAL"/>
+        <result column="IS_ALLOWED_CLOSE" property="isAllowedClose" jdbcType="CHAR"/>
+        <result column="IS_CLOSE_RTN_CASH" property="isCloseRtnCash" jdbcType="CHAR"/>
+        <result column="ENCRYPTED_MSG" property="encryptedMsg" jdbcType="VARCHAR"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_TXN_TIME" property="lastTxnTime" jdbcType="TIMESTAMP"/>
+        <result column="RSVD_AMT1" property="rsvdAmt1" jdbcType="DECIMAL"/>
+        <result column="RSVD_AMT2" property="rsvdAmt2" jdbcType="DECIMAL"/>
+        <result column="RSVD_TEXT1" property="rsvdText1" jdbcType="VARCHAR"/>
+        <result column="RSVD_TEXT2" property="rsvdText2" jdbcType="VARCHAR"/>
+        <result column="MONTH_SUM_CONS_CNT" property="monthSumConsCnt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_OUT_CNT" property="monthSumOutCnt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_IN_CNT" property="monthSumInCnt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_CASH_CNT" property="monthSumCashCnt" jdbcType="DECIMAL"/>
+        <result column="MONTH_SUM_CHG_CNT" property="monthSumChgCnt" jdbcType="DECIMAL"/>
+        <result column="MASTER_ACCOUNT_NO" property="masterAccountNo" jdbcType="VARCHAR"/>
+        <result column="FORBIDDEN_TXN" property="forbiddenTxn" jdbcType="VARCHAR"/>
+        <result column="EXTEND_COUNT" property="extendCount" jdbcType="DECIMAL"/>
+        <result column="FORBIDDEN_CHANNEL" property="forbiddenChannel" jdbcType="VARCHAR"/>
+        <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR"/>
+        <result column="CARD_TYPE" property="cardType" jdbcType="CHAR"/>
+        <result column="BINDING_MEHOD" property="cardBindingMethod" jdbcType="CHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ACCOUNT_NO, ACCOUNT_NAME, CUSTOMER_NO, OPEN_DATE, CLOSE_DATE, EXPIRED_DATE, PAY_PASSWD, 
+    INIT_PASSWD, INIT_PASSWD_MODIFIED, PASSWD_ERR_NUM, PASSWD_ERR_LOCK_TIME, STATUS, 
+    COMM_STATUS, TYPE, GRADE, IS_REALNAME, APANAGE, ORGANIZATION_CODE, AREA_CODE, CITY_CODE, OPEN_CHANNEL, 
+    BALANCE, LAST_DAY_BAL, LAST_MONTH_BAL, AVAILABLE_BALANCE, UNAVAILABLE_BALANCE, WITHDRAW_BALANCE, 
+    FROZEN_AMOUNT, PREAUTHORIZED_AMT, LAST_TXN_DATE, DAY_SUM_CONS_AMT, DAY_SUM_CONS_CNT, 
+    DAY_SUM_OUT_AMT, DAY_SUM_OUT_CNT, DAY_SUM_IN_AMT, DAY_SUM_IN_CNT, DAY_SUM_CASH_AMT, 
+    DAY_SUM_CASH_CNT, DAY_SUM_DEPOSIT_AMT, DAY_SUM_DEPOSIT_CNT, MONTH_SUM_CONS_AMT, MONTH_SUM_OUT_AMT, 
+    MONTH_SUM_IN_AMT, MONTH_SUM_CASH_AMT, MONTH_SUM_CHG_AMT, IS_ALLOWED_CLOSE, IS_CLOSE_RTN_CASH, 
+    ENCRYPTED_MSG, LAST_UPDATE_TIME, LAST_TXN_TIME, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, 
+    RSVD_TEXT2, MONTH_SUM_CONS_CNT, MONTH_SUM_OUT_CNT, MONTH_SUM_IN_CNT, MONTH_SUM_CASH_CNT, 
+    MONTH_SUM_CHG_CNT, MASTER_ACCOUNT_NO, FORBIDDEN_TXN, EXTEND_COUNT, FORBIDDEN_CHANNEL
+    </sql>
+    <sql id="Base_Column_List_A">
+    a.ACCOUNT_NO, a.ACCOUNT_NAME, a.CUSTOMER_NO, a.OPEN_DATE, a.CLOSE_DATE, a.EXPIRED_DATE, a.PAY_PASSWD, 
+    a.INIT_PASSWD, a.INIT_PASSWD_MODIFIED, a.PASSWD_ERR_NUM, a.PASSWD_ERR_LOCK_TIME, a.STATUS, 
+    a.COMM_STATUS, a.TYPE, a.GRADE, a.IS_REALNAME, a.APANAGE, a.ORGANIZATION_CODE, a.AREA_CODE, a.CITY_CODE, a.OPEN_CHANNEL, 
+    a.BALANCE, a.LAST_DAY_BAL, a.LAST_MONTH_BAL, a.AVAILABLE_BALANCE, a.UNAVAILABLE_BALANCE, a.WITHDRAW_BALANCE, 
+    a.FROZEN_AMOUNT, a.PREAUTHORIZED_AMT, a.LAST_TXN_DATE, a.DAY_SUM_CONS_AMT, a.DAY_SUM_CONS_CNT, 
+    a.DAY_SUM_OUT_AMT, a.DAY_SUM_OUT_CNT, a.DAY_SUM_IN_AMT, a.DAY_SUM_IN_CNT, a.DAY_SUM_CASH_AMT, 
+    a.DAY_SUM_CASH_CNT, a.DAY_SUM_DEPOSIT_AMT, a.DAY_SUM_DEPOSIT_CNT, a.MONTH_SUM_CONS_AMT, a.MONTH_SUM_OUT_AMT, 
+    a.MONTH_SUM_IN_AMT, a.MONTH_SUM_CASH_AMT, a.MONTH_SUM_CHG_AMT, a.IS_ALLOWED_CLOSE, a.IS_CLOSE_RTN_CASH, 
+    a.ENCRYPTED_MSG, a.LAST_UPDATE_TIME, a.LAST_TXN_TIME, a.RSVD_AMT1, a.RSVD_AMT2, a.RSVD_TEXT1, 
+    a.RSVD_TEXT2, a.MONTH_SUM_CONS_CNT, a.MONTH_SUM_OUT_CNT, a.MONTH_SUM_IN_CNT, a.MONTH_SUM_CASH_CNT, 
+    a.MONTH_SUM_CHG_CNT, a.MASTER_ACCOUNT_NO, a.FORBIDDEN_TXN, a.EXTEND_COUNT, a.FORBIDDEN_CHANNEL
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_ACCOUNT
+        where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+    </select>
+
+    <select id="findAccountsAsListByCustomerNo" resultMap="BaseResultMap" parameterType="java.util.Map"
+            resultSetType="SCROLL_INSENSITIVE">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_ACCOUNT
+        where  customer_no= #{customerNo,jdbcType=VARCHAR}
+        <if test="type != null">
+            AND type= #{type,jdbcType=VARCHAR}
+        </if>
+        AND STATUS!='9'
+    </select>
+    <select id="findFundAccountByAccountNo"  resultMap="BaseResultMap" parameterType="java.util.Map"
+            resultSetType="SCROLL_INSENSITIVE">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_ACCOUNT
+        where  account_no= #{accountNo,jdbcType=VARCHAR}
+        AND  STATUS!='9'
+    </select>
+
+    <select id="findAccountsAsListByCardNo"  resultMap="BaseResultMap" parameterType="java.util.Map"
+            resultSetType="SCROLL_INSENSITIVE">
+        select 
+        <include refid="Base_Column_List_A"/>
+        from CORE.T_INFO_ACCOUNT a
+        inner join CORE.T_INFO_ACCOUNT_CARD c
+        on a.account_no=c.offline_account_no or a.account_no=c.fund_account_no
+        where c.card_no=#{cardNo,jdbcType=VARCHAR}
+        and c.BINDING_FLAG='1'
+        and a.STATUS!='9'
+        <if test="type != null">
+            AND type= #{type,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <select id="findFundAccountByCustomerNo" resultMap="BaseResultMap"
+            parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        CORE.T_INFO_ACCOUNT a
+        where
+        a.customer_no= #{customerNo,jdbcType=VARCHAR}
+        and (a.type='1')
+        and
+        a.STATUS!='9'
+    </select>
+    <select id="findFundAccountByCustomerNoForUpdate" resultMap="BaseResultMap"
+            parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        CORE.T_INFO_ACCOUNT a
+        where
+        a.customer_no= #{customerNo,jdbcType=VARCHAR}
+        and (a.type='1')
+        and
+        a.STATUS!='9' 
+        
+        
+    </select>
+    <select id="findIntegralAccountByCustomerNo" resultMap="BaseResultMap"
+            parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        CORE.T_INFO_ACCOUNT a
+        where
+        a.customer_no= #{customerNo,jdbcType=VARCHAR}
+        and (a.type='2')
+        and
+        a.STATUS!='9'
+    </select>
+    <select id="findOfflineAccountByCardNoWithClosedForUpdate" resultMap="BaseResultMap"
+            parameterType="java.util.Map">
+		select * from
+		CORE.T_INFO_ACCOUNT a
+		join CORE.T_INFO_ACCOUNT_CARD c on
+		a.account_no=c.offline_account_no where
+		(c.card_no= #{cardNo,jdbcType=VARCHAR} or
+		substr(c.card_no,3,16)=#{cardNo,jdbcType=VARCHAR} ) and
+		<![CDATA[
+		(to_char(c.unbinding_time,'yyyyMMdd')>=#{acceptTransDate,jdbcType=VARCHAR}||#{acceptTransTime,jdbcType=VARCHAR} or
+		c.unbinding_time is null) and
+		to_char(c.binding_time,'yyyyMMdd')<=#{acceptTransDate,jdbcType=VARCHAR}||#{acceptTransTime,jdbcType=VARCHAR}
+		]]> 
+		
+	</select>
+
+
+    <select id="findIncludeClosedByAccountNoForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        CORE.T_INFO_ACCOUNT a
+        where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR} 
+        
+    </select>
+    <select id="findFundAccountByAccountNoForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_ACCOUNT a
+        where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+        and a.STATUS!='9' 
+        
+    </select>
+    <select id="findFundAccountByCardNoForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select 
+		<include refid="Base_Column_List_A"/>
+		,c.card_no,c.card_type,c.binding_mehod from
+		CORE.T_INFO_ACCOUNT a join
+		CORE.T_INFO_ACCOUNT_CARD c on
+		a.account_no=c.fund_account_no where
+		c.card_no= #{cardNo,jdbcType=VARCHAR} and
+		c.BINDING_FLAG='1' and a.STATUS!='9' 
+		
+	</select>
+    <select id="findFundAccountByCardNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select 
+		<include refid="Base_Column_List_A"/>
+		,c.card_no,c.card_type,c.binding_mehod from
+		CORE.T_INFO_ACCOUNT a join
+		CORE.T_INFO_ACCOUNT_CARD c on
+		a.account_no=c.fund_account_no where
+		c.card_no= #{value,jdbcType=VARCHAR} and
+		c.BINDING_FLAG='1' and a.STATUS!='9'
+	</select>
+    <select id="findFundAccountByUnifyIdForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List_A"/>
+		from
+		CORE.T_INFO_ACCOUNT a join CORE.T_INFO_CUSTOMER c on
+		a.customer_no=c.customer_no
+		where c.unify_id= #{unifyId,jdbcType=VARCHAR}
+		and (a.type='1')
+		and a.STATUS!='9' 
+		
+	</select>
+    <select id="findFundAccountByUnifyId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List_A"/>
+		from
+		CORE.T_INFO_ACCOUNT a join CORE.T_INFO_CUSTOMER c on
+		a.customer_no=c.customer_no where c.unify_id= #{unifyId,jdbcType=VARCHAR}
+		and (a.type='1')
+		and a.STATUS!='9'
+	</select>
+	
+	 <select id="findFundAccountByOrgCode" resultMap="BaseResultMap"
+            parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        CORE.T_INFO_ACCOUNT S
+        where
+        S.customer_no= (SELECT
+		A.ENTERPRISE_CUSTOMERNO
+		FROM CORE.T_INFO_ACCOUNTENTERPRISE A,
+		CORE.T_INFO_ACCOUNTENTERPRISE_ORG B
+		WHERE A.ENTERPRISE_CUSTOMERNO =
+		B.ENTERPRISE_CUSTOMERNO
+		AND B.ORG_CODE = #{orgcode,jdbcType=VARCHAR})
+		AND
+		S.TYPE='1'
+		and S.STATUS!='9'
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CORE.T_INFO_ACCOUNT
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+    insert into CORE.T_INFO_ACCOUNT (ACCOUNT_NO, ACCOUNT_NAME, CUSTOMER_NO, 
+      OPEN_DATE, CLOSE_DATE, EXPIRED_DATE, 
+      PAY_PASSWD, INIT_PASSWD, INIT_PASSWD_MODIFIED, 
+      PASSWD_ERR_NUM, PASSWD_ERR_LOCK_TIME, STATUS, 
+      COMM_STATUS, TYPE, GRADE, IS_REALNAME, 
+      APANAGE, ORGANIZATION_CODE, AREA_CODE, 
+      CITY_CODE, OPEN_CHANNEL, BALANCE, 
+      LAST_DAY_BAL, LAST_MONTH_BAL, AVAILABLE_BALANCE, 
+      UNAVAILABLE_BALANCE, WITHDRAW_BALANCE, FROZEN_AMOUNT, 
+      PREAUTHORIZED_AMT, LAST_TXN_DATE, DAY_SUM_CONS_AMT, 
+      DAY_SUM_CONS_CNT, DAY_SUM_OUT_AMT, DAY_SUM_OUT_CNT, 
+      DAY_SUM_IN_AMT, DAY_SUM_IN_CNT, DAY_SUM_CASH_AMT, 
+      DAY_SUM_CASH_CNT, DAY_SUM_DEPOSIT_AMT, DAY_SUM_DEPOSIT_CNT, 
+      MONTH_SUM_CONS_AMT, MONTH_SUM_OUT_AMT, MONTH_SUM_IN_AMT, 
+      MONTH_SUM_CASH_AMT, MONTH_SUM_CHG_AMT, IS_ALLOWED_CLOSE, 
+      IS_CLOSE_RTN_CASH, ENCRYPTED_MSG, LAST_UPDATE_TIME, 
+      LAST_TXN_TIME, RSVD_AMT1, RSVD_AMT2, 
+      RSVD_TEXT1, RSVD_TEXT2, MONTH_SUM_CONS_CNT, 
+      MONTH_SUM_OUT_CNT, MONTH_SUM_IN_CNT, MONTH_SUM_CASH_CNT, 
+      MONTH_SUM_CHG_CNT, MASTER_ACCOUNT_NO, FORBIDDEN_TXN, 
+      EXTEND_COUNT, FORBIDDEN_CHANNEL)
+    values (#{accountNo,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, 
+      #{openDate,jdbcType=TIMESTAMP}, #{closeDate,jdbcType=TIMESTAMP}, #{expiredDate,jdbcType=TIMESTAMP}, 
+      #{payPasswd,jdbcType=VARCHAR},'', #{initPasswdModified,jdbcType=CHAR}, 
+      #{passwdErrNum,jdbcType=DECIMAL}, #{passwdErrLockTime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, 
+      #{commStatus,jdbcType=CHAR}, #{type,jdbcType=CHAR}, #{grade,jdbcType=CHAR}, #{isRealname,jdbcType=CHAR}, 
+      #{apanage,jdbcType=VARCHAR}, #{organizationCode,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{openChannel,jdbcType=VARCHAR}, #{balance,jdbcType=DECIMAL}, 
+      #{lastDayBal,jdbcType=DECIMAL}, #{lastMonthBal,jdbcType=DECIMAL}, #{availableBalance,jdbcType=DECIMAL}, 
+      #{unavailableBalance,jdbcType=DECIMAL}, #{withdrawBalance,jdbcType=DECIMAL}, #{frozenAmount,jdbcType=DECIMAL}, 
+      #{preauthorizedAmt,jdbcType=DECIMAL}, #{lastTxnDate,jdbcType=VARCHAR}, #{daySumConsAmt,jdbcType=DECIMAL}, 
+      #{daySumConsCnt,jdbcType=DECIMAL}, #{daySumOutAmt,jdbcType=DECIMAL}, #{daySumOutCnt,jdbcType=DECIMAL}, 
+      #{daySumInAmt,jdbcType=DECIMAL}, #{daySumInCnt,jdbcType=DECIMAL}, #{daySumCashAmt,jdbcType=DECIMAL}, 
+      #{daySumCashCnt,jdbcType=DECIMAL}, #{daySumDepositAmt,jdbcType=DECIMAL}, #{daySumDepositCnt,jdbcType=DECIMAL}, 
+      #{monthSumConsAmt,jdbcType=DECIMAL}, #{monthSumOutAmt,jdbcType=DECIMAL}, #{monthSumInAmt,jdbcType=DECIMAL}, 
+      #{monthSumCashAmt,jdbcType=DECIMAL}, #{monthSumChgAmt,jdbcType=DECIMAL}, #{isAllowedClose,jdbcType=CHAR}, 
+      #{isCloseRtnCash,jdbcType=CHAR}, #{encryptedMsg,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
+      #{lastTxnTime,jdbcType=TIMESTAMP}, #{rsvdAmt1,jdbcType=DECIMAL}, #{rsvdAmt2,jdbcType=DECIMAL}, 
+      #{rsvdText1,jdbcType=VARCHAR}, #{rsvdText2,jdbcType=VARCHAR}, #{monthSumConsCnt,jdbcType=DECIMAL}, 
+      #{monthSumOutCnt,jdbcType=DECIMAL}, #{monthSumInCnt,jdbcType=DECIMAL}, #{monthSumCashCnt,jdbcType=DECIMAL}, 
+      #{monthSumChgCnt,jdbcType=DECIMAL}, #{masterAccountNo,jdbcType=VARCHAR}, #{forbiddenTxn,jdbcType=VARCHAR}, 
+      #{extendCount,jdbcType=DECIMAL}, #{forbiddenChannel,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+        insert into CORE.T_INFO_ACCOUNT
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="accountNo != null">
+                ACCOUNT_NO,
+            </if>
+            <if test="accountName != null">
+                ACCOUNT_NAME,
+            </if>
+            <if test="customerNo != null">
+                CUSTOMER_NO,
+            </if>
+            <if test="openDate != null">
+                OPEN_DATE,
+            </if>
+            <if test="closeDate != null">
+                CLOSE_DATE,
+            </if>
+            <if test="expiredDate != null">
+                EXPIRED_DATE,
+            </if>
+            <if test="payPasswd != null">
+                PAY_PASSWD,
+            </if>
+            <if test="initPasswd != null">
+                INIT_PASSWD,
+            </if>
+            <if test="initPasswdModified != null">
+                INIT_PASSWD_MODIFIED,
+            </if>
+            <if test="passwdErrNum != null">
+                PASSWD_ERR_NUM,
+            </if>
+            <if test="passwdErrLockTime != null">
+                PASSWD_ERR_LOCK_TIME,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="commStatus != null">
+                COMM_STATUS,
+            </if>
+            <if test="type != null">
+                TYPE,
+            </if>
+            <if test="grade != null">
+                GRADE,
+            </if>
+            <if test="isRealname != null">
+                IS_REALNAME,
+            </if>
+            <if test="apanage != null">
+                APANAGE,
+            </if>
+            <if test="organizationCode != null">
+                ORGANIZATION_CODE,
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE,
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE,
+            </if>
+            <if test="openChannel != null">
+                OPEN_CHANNEL,
+            </if>
+            <if test="balance != null">
+                BALANCE,
+            </if>
+            <if test="lastDayBal != null">
+                LAST_DAY_BAL,
+            </if>
+            <if test="lastMonthBal != null">
+                LAST_MONTH_BAL,
+            </if>
+            <if test="availableBalance != null">
+                AVAILABLE_BALANCE,
+            </if>
+            <if test="unavailableBalance != null">
+                UNAVAILABLE_BALANCE,
+            </if>
+            <if test="withdrawBalance != null">
+                WITHDRAW_BALANCE,
+            </if>
+            <if test="frozenAmount != null">
+                FROZEN_AMOUNT,
+            </if>
+            <if test="preauthorizedAmt != null">
+                PREAUTHORIZED_AMT,
+            </if>
+            <if test="lastTxnDate != null">
+                LAST_TXN_DATE,
+            </if>
+            <if test="daySumConsAmt != null">
+                DAY_SUM_CONS_AMT,
+            </if>
+            <if test="daySumConsCnt != null">
+                DAY_SUM_CONS_CNT,
+            </if>
+            <if test="daySumOutAmt != null">
+                DAY_SUM_OUT_AMT,
+            </if>
+            <if test="daySumOutCnt != null">
+                DAY_SUM_OUT_CNT,
+            </if>
+            <if test="daySumInAmt != null">
+                DAY_SUM_IN_AMT,
+            </if>
+            <if test="daySumInCnt != null">
+                DAY_SUM_IN_CNT,
+            </if>
+            <if test="daySumCashAmt != null">
+                DAY_SUM_CASH_AMT,
+            </if>
+            <if test="daySumCashCnt != null">
+                DAY_SUM_CASH_CNT,
+            </if>
+            <if test="daySumDepositAmt != null">
+                DAY_SUM_DEPOSIT_AMT,
+            </if>
+            <if test="daySumDepositCnt != null">
+                DAY_SUM_DEPOSIT_CNT,
+            </if>
+            <if test="monthSumConsAmt != null">
+                MONTH_SUM_CONS_AMT,
+            </if>
+            <if test="monthSumOutAmt != null">
+                MONTH_SUM_OUT_AMT,
+            </if>
+            <if test="monthSumInAmt != null">
+                MONTH_SUM_IN_AMT,
+            </if>
+            <if test="monthSumCashAmt != null">
+                MONTH_SUM_CASH_AMT,
+            </if>
+            <if test="monthSumChgAmt != null">
+                MONTH_SUM_CHG_AMT,
+            </if>
+            <if test="isAllowedClose != null">
+                IS_ALLOWED_CLOSE,
+            </if>
+            <if test="isCloseRtnCash != null">
+                IS_CLOSE_RTN_CASH,
+            </if>
+            <if test="encryptedMsg != null">
+                ENCRYPTED_MSG,
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME,
+            </if>
+            <if test="lastTxnTime != null">
+                LAST_TXN_TIME,
+            </if>
+            <if test="rsvdAmt1 != null">
+                RSVD_AMT1,
+            </if>
+            <if test="rsvdAmt2 != null">
+                RSVD_AMT2,
+            </if>
+            <if test="rsvdText1 != null">
+                RSVD_TEXT1,
+            </if>
+            <if test="rsvdText2 != null">
+                RSVD_TEXT2,
+            </if>
+            <if test="monthSumConsCnt != null">
+                MONTH_SUM_CONS_CNT,
+            </if>
+            <if test="monthSumOutCnt != null">
+                MONTH_SUM_OUT_CNT,
+            </if>
+            <if test="monthSumInCnt != null">
+                MONTH_SUM_IN_CNT,
+            </if>
+            <if test="monthSumCashCnt != null">
+                MONTH_SUM_CASH_CNT,
+            </if>
+            <if test="monthSumChgCnt != null">
+                MONTH_SUM_CHG_CNT,
+            </if>
+            <if test="masterAccountNo != null">
+                MASTER_ACCOUNT_NO,
+            </if>
+            <if test="forbiddenTxn != null">
+                FORBIDDEN_TXN,
+            </if>
+            <if test="extendCount != null">
+                EXTEND_COUNT,
+            </if>
+            <if test="forbiddenChannel != null">
+                FORBIDDEN_CHANNEL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="accountNo != null">
+                #{accountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="accountName != null">
+                #{accountName,jdbcType=VARCHAR},
+            </if>
+            <if test="customerNo != null">
+                #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="openDate != null">
+                #{openDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="closeDate != null">
+                #{closeDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="expiredDate != null">
+                #{expiredDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payPasswd != null">
+                #{payPasswd,jdbcType=VARCHAR},
+            </if>
+            <if test="initPasswd != null">
+                #{initPasswd,jdbcType=VARCHAR},
+            </if>
+            <if test="initPasswdModified != null">
+                #{initPasswdModified,jdbcType=CHAR},
+            </if>
+            <if test="passwdErrNum != null">
+                #{passwdErrNum,jdbcType=DECIMAL},
+            </if>
+            <if test="passwdErrLockTime != null">
+                #{passwdErrLockTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="commStatus != null">
+                #{commStatus,jdbcType=CHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=CHAR},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=CHAR},
+            </if>
+            <if test="isRealname != null">
+                #{isRealname,jdbcType=CHAR},
+            </if>
+            <if test="apanage != null">
+                #{apanage,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationCode != null">
+                #{organizationCode,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="openChannel != null">
+                #{openChannel,jdbcType=VARCHAR},
+            </if>
+            <if test="balance != null">
+                #{balance,jdbcType=DECIMAL},
+            </if>
+            <if test="lastDayBal != null">
+                #{lastDayBal,jdbcType=DECIMAL},
+            </if>
+            <if test="lastMonthBal != null">
+                #{lastMonthBal,jdbcType=DECIMAL},
+            </if>
+            <if test="availableBalance != null">
+                #{availableBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="unavailableBalance != null">
+                #{unavailableBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="withdrawBalance != null">
+                #{withdrawBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="frozenAmount != null">
+                #{frozenAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="preauthorizedAmt != null">
+                #{preauthorizedAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="lastTxnDate != null">
+                #{lastTxnDate,jdbcType=VARCHAR},
+            </if>
+            <if test="daySumConsAmt != null">
+                #{daySumConsAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumConsCnt != null">
+                #{daySumConsCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumOutAmt != null">
+                #{daySumOutAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumOutCnt != null">
+                #{daySumOutCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumInAmt != null">
+                #{daySumInAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumInCnt != null">
+                #{daySumInCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumCashAmt != null">
+                #{daySumCashAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumCashCnt != null">
+                #{daySumCashCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumDepositAmt != null">
+                #{daySumDepositAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumDepositCnt != null">
+                #{daySumDepositCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumConsAmt != null">
+                #{monthSumConsAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumOutAmt != null">
+                #{monthSumOutAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumInAmt != null">
+                #{monthSumInAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumCashAmt != null">
+                #{monthSumCashAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumChgAmt != null">
+                #{monthSumChgAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="isAllowedClose != null">
+                #{isAllowedClose,jdbcType=CHAR},
+            </if>
+            <if test="isCloseRtnCash != null">
+                #{isCloseRtnCash,jdbcType=CHAR},
+            </if>
+            <if test="encryptedMsg != null">
+                #{encryptedMsg,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastTxnTime != null">
+                #{lastTxnTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rsvdAmt1 != null">
+                #{rsvdAmt1,jdbcType=DECIMAL},
+            </if>
+            <if test="rsvdAmt2 != null">
+                #{rsvdAmt2,jdbcType=DECIMAL},
+            </if>
+            <if test="rsvdText1 != null">
+                #{rsvdText1,jdbcType=VARCHAR},
+            </if>
+            <if test="rsvdText2 != null">
+                #{rsvdText2,jdbcType=VARCHAR},
+            </if>
+            <if test="monthSumConsCnt != null">
+                #{monthSumConsCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumOutCnt != null">
+                #{monthSumOutCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumInCnt != null">
+                #{monthSumInCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumCashCnt != null">
+                #{monthSumCashCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumChgCnt != null">
+                #{monthSumChgCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="masterAccountNo != null">
+                #{masterAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="forbiddenTxn != null">
+                #{forbiddenTxn,jdbcType=VARCHAR},
+            </if>
+            <if test="extendCount != null">
+                #{extendCount,jdbcType=DECIMAL},
+            </if>
+            <if test="forbiddenChannel != null">
+                #{forbiddenChannel,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+        update CORE.T_INFO_ACCOUNT
+        <set>
+            <if test="accountName != null">
+                ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+            </if>
+            <if test="customerNo != null">
+                CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="openDate != null">
+                OPEN_DATE = #{openDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="closeDate != null">
+                CLOSE_DATE = #{closeDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="expiredDate != null">
+                EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payPasswd != null">
+                PAY_PASSWD = #{payPasswd,jdbcType=VARCHAR},
+            </if>
+            <if test="initPasswd != null">
+                INIT_PASSWD = #{initPasswd,jdbcType=VARCHAR},
+            </if>
+            <if test="initPasswdModified != null">
+                INIT_PASSWD_MODIFIED = #{initPasswdModified,jdbcType=CHAR},
+            </if>
+            <if test="passwdErrNum != null">
+                PASSWD_ERR_NUM = #{passwdErrNum,jdbcType=DECIMAL},
+            </if>
+            <if test="passwdErrLockTime != null">
+                PASSWD_ERR_LOCK_TIME = #{passwdErrLockTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="commStatus != null">
+                COMM_STATUS = #{commStatus,jdbcType=CHAR},
+            </if>
+            <if test="type != null">
+                TYPE = #{type,jdbcType=CHAR},
+            </if>
+            <if test="grade != null">
+                GRADE = #{grade,jdbcType=CHAR},
+            </if>
+            <if test="isRealname != null">
+                IS_REALNAME = #{isRealname,jdbcType=CHAR},
+            </if>
+            <if test="apanage != null">
+                APANAGE = #{apanage,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationCode != null">
+                ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="openChannel != null">
+                OPEN_CHANNEL = #{openChannel,jdbcType=VARCHAR},
+            </if>
+            <if test="balance != null">
+                BALANCE = #{balance,jdbcType=DECIMAL},
+            </if>
+            <if test="lastDayBal != null">
+                LAST_DAY_BAL = #{lastDayBal,jdbcType=DECIMAL},
+            </if>
+            <if test="lastMonthBal != null">
+                LAST_MONTH_BAL = #{lastMonthBal,jdbcType=DECIMAL},
+            </if>
+            <if test="availableBalance != null">
+                AVAILABLE_BALANCE = #{availableBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="unavailableBalance != null">
+                UNAVAILABLE_BALANCE = #{unavailableBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="withdrawBalance != null">
+                WITHDRAW_BALANCE = #{withdrawBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="frozenAmount != null">
+                FROZEN_AMOUNT = #{frozenAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="preauthorizedAmt != null">
+                PREAUTHORIZED_AMT = #{preauthorizedAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="lastTxnDate != null">
+                LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+            </if>
+            <if test="daySumConsAmt != null">
+                DAY_SUM_CONS_AMT = #{daySumConsAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumConsCnt != null">
+                DAY_SUM_CONS_CNT = #{daySumConsCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumOutAmt != null">
+                DAY_SUM_OUT_AMT = #{daySumOutAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumOutCnt != null">
+                DAY_SUM_OUT_CNT = #{daySumOutCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumInAmt != null">
+                DAY_SUM_IN_AMT = #{daySumInAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumInCnt != null">
+                DAY_SUM_IN_CNT = #{daySumInCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumCashAmt != null">
+                DAY_SUM_CASH_AMT = #{daySumCashAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumCashCnt != null">
+                DAY_SUM_CASH_CNT = #{daySumCashCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumDepositAmt != null">
+                DAY_SUM_DEPOSIT_AMT = #{daySumDepositAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumDepositCnt != null">
+                DAY_SUM_DEPOSIT_CNT = #{daySumDepositCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumConsAmt != null">
+                MONTH_SUM_CONS_AMT = #{monthSumConsAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumOutAmt != null">
+                MONTH_SUM_OUT_AMT = #{monthSumOutAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumInAmt != null">
+                MONTH_SUM_IN_AMT = #{monthSumInAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumCashAmt != null">
+                MONTH_SUM_CASH_AMT = #{monthSumCashAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumChgAmt != null">
+                MONTH_SUM_CHG_AMT = #{monthSumChgAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="isAllowedClose != null">
+                IS_ALLOWED_CLOSE = #{isAllowedClose,jdbcType=CHAR},
+            </if>
+            <if test="isCloseRtnCash != null">
+                IS_CLOSE_RTN_CASH = #{isCloseRtnCash,jdbcType=CHAR},
+            </if>
+            <if test="encryptedMsg != null">
+                ENCRYPTED_MSG = #{encryptedMsg,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastTxnTime != null">
+                LAST_TXN_TIME = #{lastTxnTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rsvdAmt1 != null">
+                RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+            </if>
+            <if test="rsvdAmt2 != null">
+                RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+            </if>
+            <if test="rsvdText1 != null">
+                RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+            </if>
+            <if test="rsvdText2 != null">
+                RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR},
+            </if>
+            <if test="monthSumConsCnt != null">
+                MONTH_SUM_CONS_CNT = #{monthSumConsCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumOutCnt != null">
+                MONTH_SUM_OUT_CNT = #{monthSumOutCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumInCnt != null">
+                MONTH_SUM_IN_CNT = #{monthSumInCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumCashCnt != null">
+                MONTH_SUM_CASH_CNT = #{monthSumCashCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumChgCnt != null">
+                MONTH_SUM_CHG_CNT = #{monthSumChgCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="masterAccountNo != null">
+                MASTER_ACCOUNT_NO = #{masterAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="forbiddenTxn != null">
+                FORBIDDEN_TXN = #{forbiddenTxn,jdbcType=VARCHAR},
+            </if>
+            <if test="extendCount != null">
+                EXTEND_COUNT = #{extendCount,jdbcType=DECIMAL},
+            </if>
+            <if test="forbiddenChannel != null">
+                FORBIDDEN_CHANNEL = #{forbiddenChannel,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+           and  TYPE = #{type,jdbcType=VARCHAR}
+    </update>
+    
+    
+    <update id="updateAccountRealnameInfo" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+        update CORE.T_INFO_ACCOUNT
+        <set>         
+            <if test="grade != null">
+                GRADE = #{grade,jdbcType=CHAR},
+            </if>
+            <if test="isRealname != null">
+                IS_REALNAME = #{isRealname,jdbcType=CHAR},
+            </if>                     
+            <if test="areaCode != null">
+                AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+            </if>           
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>         
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+    </update>
+    
+    
+    <update id="updateBalanceAndPwdErr" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+        update CORE.T_INFO_ACCOUNT
+        <set>
+            <if test="balance != null">
+                BALANCE = #{balance,jdbcType=DECIMAL},
+            </if>
+            <if test="lastDayBal != null">
+                LAST_DAY_BAL = #{lastDayBal,jdbcType=DECIMAL},
+            </if>
+            <if test="lastMonthBal != null">
+                LAST_MONTH_BAL = #{lastMonthBal,jdbcType=DECIMAL},
+            </if>
+            <if test="availableBalance != null">
+                AVAILABLE_BALANCE = #{availableBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="unavailableBalance != null">
+                UNAVAILABLE_BALANCE = #{unavailableBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="withdrawBalance != null">
+                WITHDRAW_BALANCE = #{withdrawBalance,jdbcType=DECIMAL},
+            </if>
+            <if test="frozenAmount != null">
+                FROZEN_AMOUNT = #{frozenAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="preauthorizedAmt != null">
+                PREAUTHORIZED_AMT = #{preauthorizedAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="lastTxnDate != null">
+                LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+            </if>
+            <if test="daySumConsAmt != null">
+                DAY_SUM_CONS_AMT = #{daySumConsAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumConsCnt != null">
+                DAY_SUM_CONS_CNT = #{daySumConsCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumOutAmt != null">
+                DAY_SUM_OUT_AMT = #{daySumOutAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumOutCnt != null">
+                DAY_SUM_OUT_CNT = #{daySumOutCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumInAmt != null">
+                DAY_SUM_IN_AMT = #{daySumInAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumInCnt != null">
+                DAY_SUM_IN_CNT = #{daySumInCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumCashAmt != null">
+                DAY_SUM_CASH_AMT = #{daySumCashAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumCashCnt != null">
+                DAY_SUM_CASH_CNT = #{daySumCashCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumDepositAmt != null">
+                DAY_SUM_DEPOSIT_AMT = #{daySumDepositAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="daySumDepositCnt != null">
+                DAY_SUM_DEPOSIT_CNT = #{daySumDepositCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumConsAmt != null">
+                MONTH_SUM_CONS_AMT = #{monthSumConsAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumOutAmt != null">
+                MONTH_SUM_OUT_AMT = #{monthSumOutAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumInAmt != null">
+                MONTH_SUM_IN_AMT = #{monthSumInAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumCashAmt != null">
+                MONTH_SUM_CASH_AMT = #{monthSumCashAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumChgAmt != null">
+                MONTH_SUM_CHG_AMT = #{monthSumChgAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="isAllowedClose != null">
+                IS_ALLOWED_CLOSE = #{isAllowedClose,jdbcType=CHAR},
+            </if>
+            <if test="isCloseRtnCash != null">
+                IS_CLOSE_RTN_CASH = #{isCloseRtnCash,jdbcType=CHAR},
+            </if>
+            <if test="encryptedMsg != null">
+                ENCRYPTED_MSG = #{encryptedMsg,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+
+            <if test="monthSumConsCnt != null">
+                MONTH_SUM_CONS_CNT = #{monthSumConsCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumOutCnt != null">
+                MONTH_SUM_OUT_CNT = #{monthSumOutCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumInCnt != null">
+                MONTH_SUM_IN_CNT = #{monthSumInCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumCashCnt != null">
+                MONTH_SUM_CASH_CNT = #{monthSumCashCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="monthSumChgCnt != null">
+                MONTH_SUM_CHG_CNT = #{monthSumChgCnt,jdbcType=DECIMAL},
+            </if>
+            PASSWD_ERR_NUM=0,
+            PASSWD_ERR_LOCK_TIME=null
+        </set>
+        where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+        and STATUS!='9'
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+    update CORE.T_INFO_ACCOUNT
+    set ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      OPEN_DATE = #{openDate,jdbcType=TIMESTAMP},
+      CLOSE_DATE = #{closeDate,jdbcType=TIMESTAMP},
+      EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      PAY_PASSWD = #{payPasswd,jdbcType=VARCHAR},
+      INIT_PASSWD = #{initPasswd,jdbcType=VARCHAR},
+      INIT_PASSWD_MODIFIED = #{initPasswdModified,jdbcType=CHAR},
+      PASSWD_ERR_NUM = #{passwdErrNum,jdbcType=DECIMAL},
+      PASSWD_ERR_LOCK_TIME = #{passwdErrLockTime,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=CHAR},
+      COMM_STATUS = #{commStatus,jdbcType=CHAR},
+      TYPE = #{type,jdbcType=CHAR},
+      GRADE = #{grade,jdbcType=CHAR},
+      IS_REALNAME = #{isRealname,jdbcType=CHAR},
+      APANAGE = #{apanage,jdbcType=VARCHAR},
+      ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      OPEN_CHANNEL = #{openChannel,jdbcType=VARCHAR},
+      BALANCE = #{balance,jdbcType=DECIMAL},
+      LAST_DAY_BAL = #{lastDayBal,jdbcType=DECIMAL},
+      LAST_MONTH_BAL = #{lastMonthBal,jdbcType=DECIMAL},
+      AVAILABLE_BALANCE = #{availableBalance,jdbcType=DECIMAL},
+      UNAVAILABLE_BALANCE = #{unavailableBalance,jdbcType=DECIMAL},
+      WITHDRAW_BALANCE = #{withdrawBalance,jdbcType=DECIMAL},
+      FROZEN_AMOUNT = #{frozenAmount,jdbcType=DECIMAL},
+      PREAUTHORIZED_AMT = #{preauthorizedAmt,jdbcType=DECIMAL},
+      LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+      DAY_SUM_CONS_AMT = #{daySumConsAmt,jdbcType=DECIMAL},
+      DAY_SUM_CONS_CNT = #{daySumConsCnt,jdbcType=DECIMAL},
+      DAY_SUM_OUT_AMT = #{daySumOutAmt,jdbcType=DECIMAL},
+      DAY_SUM_OUT_CNT = #{daySumOutCnt,jdbcType=DECIMAL},
+      DAY_SUM_IN_AMT = #{daySumInAmt,jdbcType=DECIMAL},
+      DAY_SUM_IN_CNT = #{daySumInCnt,jdbcType=DECIMAL},
+      DAY_SUM_CASH_AMT = #{daySumCashAmt,jdbcType=DECIMAL},
+      DAY_SUM_CASH_CNT = #{daySumCashCnt,jdbcType=DECIMAL},
+      DAY_SUM_DEPOSIT_AMT = #{daySumDepositAmt,jdbcType=DECIMAL},
+      DAY_SUM_DEPOSIT_CNT = #{daySumDepositCnt,jdbcType=DECIMAL},
+      MONTH_SUM_CONS_AMT = #{monthSumConsAmt,jdbcType=DECIMAL},
+      MONTH_SUM_OUT_AMT = #{monthSumOutAmt,jdbcType=DECIMAL},
+      MONTH_SUM_IN_AMT = #{monthSumInAmt,jdbcType=DECIMAL},
+      MONTH_SUM_CASH_AMT = #{monthSumCashAmt,jdbcType=DECIMAL},
+      MONTH_SUM_CHG_AMT = #{monthSumChgAmt,jdbcType=DECIMAL},
+      IS_ALLOWED_CLOSE = #{isAllowedClose,jdbcType=CHAR},
+      IS_CLOSE_RTN_CASH = #{isCloseRtnCash,jdbcType=CHAR},
+      ENCRYPTED_MSG = #{encryptedMsg,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      LAST_TXN_TIME = #{lastTxnTime,jdbcType=TIMESTAMP},
+      RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+      RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+      RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+      RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR},
+      MONTH_SUM_CONS_CNT = #{monthSumConsCnt,jdbcType=DECIMAL},
+      MONTH_SUM_OUT_CNT = #{monthSumOutCnt,jdbcType=DECIMAL},
+      MONTH_SUM_IN_CNT = #{monthSumInCnt,jdbcType=DECIMAL},
+      MONTH_SUM_CASH_CNT = #{monthSumCashCnt,jdbcType=DECIMAL},
+      MONTH_SUM_CHG_CNT = #{monthSumChgCnt,jdbcType=DECIMAL},
+      MASTER_ACCOUNT_NO = #{masterAccountNo,jdbcType=VARCHAR},
+      FORBIDDEN_TXN = #{forbiddenTxn,jdbcType=VARCHAR},
+      EXTEND_COUNT = #{extendCount,jdbcType=DECIMAL},
+      FORBIDDEN_CHANNEL = #{forbiddenChannel,jdbcType=VARCHAR}
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </update>
+    <update id="increaseTxnPasswdErrorNum" parameterType="java.util.Map">
+        update CORE.T_INFO_ACCOUNT set
+        PASSWD_ERR_NUM=#{passwdErrNum,jdbcType=VARCHAR}
+        <if test="passwdErrLockTime != null">
+            , PASSWD_ERR_LOCK_TIME= #{passwdErrLockTime,jdbcType=TIMESTAMP}
+        </if>
+        where
+        ACCOUNT_NO=#{accountNo,jdbcType=VARCHAR}
+    </update>
+    <update id="updateAccountBalance" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+        update CORE.T_INFO_ACCOUNT set
+        BALANCE = #{balance,jdbcType=DECIMAL},
+        LAST_DAY_BAL = #{lastDayBal,jdbcType=DECIMAL},
+        LAST_MONTH_BAL = #{lastMonthBal,jdbcType=DECIMAL},
+        AVAILABLE_BALANCE = #{availableBalance,jdbcType=DECIMAL},
+        UNAVAILABLE_BALANCE = #{unavailableBalance,jdbcType=DECIMAL},
+        WITHDRAW_BALANCE = #{withdrawBalance,jdbcType=DECIMAL},
+        FROZEN_AMOUNT = #{frozenAmount,jdbcType=DECIMAL},
+        PREAUTHORIZED_AMT = #{preauthorizedAmt,jdbcType=DECIMAL},
+        LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+        DAY_SUM_CONS_AMT = #{daySumConsAmt,jdbcType=DECIMAL},
+        DAY_SUM_CONS_CNT = #{daySumConsCnt,jdbcType=DECIMAL},
+        DAY_SUM_OUT_AMT = #{daySumOutAmt,jdbcType=DECIMAL},
+        DAY_SUM_OUT_CNT = #{daySumOutCnt,jdbcType=DECIMAL},
+        DAY_SUM_IN_AMT = #{daySumInAmt,jdbcType=DECIMAL},
+        DAY_SUM_IN_CNT = #{daySumInCnt,jdbcType=DECIMAL},
+        DAY_SUM_CASH_AMT = #{daySumCashAmt,jdbcType=DECIMAL},
+        DAY_SUM_CASH_CNT = #{daySumCashCnt,jdbcType=DECIMAL},
+        DAY_SUM_DEPOSIT_AMT = #{daySumDepositAmt,jdbcType=DECIMAL},
+        DAY_SUM_DEPOSIT_CNT = #{daySumDepositCnt,jdbcType=DECIMAL},
+        MONTH_SUM_CONS_AMT = #{monthSumConsAmt,jdbcType=DECIMAL},
+        MONTH_SUM_OUT_AMT = #{monthSumOutAmt,jdbcType=DECIMAL},
+        MONTH_SUM_IN_AMT = #{monthSumInAmt,jdbcType=DECIMAL},
+        MONTH_SUM_CASH_AMT = #{monthSumCashAmt,jdbcType=DECIMAL},
+        MONTH_SUM_CHG_AMT = #{monthSumChgAmt,jdbcType=DECIMAL},
+        IS_ALLOWED_CLOSE = #{isAllowedClose,jdbcType=CHAR},
+        IS_CLOSE_RTN_CASH = #{isCloseRtnCash,jdbcType=CHAR},
+        ENCRYPTED_MSG = #{encryptedMsg,jdbcType=VARCHAR},
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+        LAST_TXN_TIME = #{lastTxnTime,jdbcType=TIMESTAMP},
+        PASSWD_ERR_NUM=0,
+        PASSWD_ERR_LOCK_TIME=null
+        where
+        ACCOUNT_NO=#{accountNo,jdbcType=VARCHAR}
+    </update>
+    <update id="resetPasswdLockInfo" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+        update CORE.T_INFO_ACCOUNT set
+        LAST_UPDATE_TIME
+        =#{lastUpdateTime,jdbcType=TIMESTAMP},
+        PASSWD_ERR_NUM=0,
+        PASSWD_ERR_LOCK_TIME=null
+        where
+        ACCOUNT_NO=#{accountNo,jdbcType=VARCHAR}
+        and STATUS!='9'
+    </update>
+    <update id="updateAccountStatus" parameterType="com.huateng.p3.account.persistence.models.TInfoAccount">
+       	update CORE.T_INFO_ACCOUNT set
+		STATUS =#{status,jdbcType=VARCHAR},
+		LAST_UPDATE_TIME =#{lastUpdateTime,jdbcType=TIMESTAMP},
+		PASSWD_ERR_NUM=0,
+		PASSWD_ERR_LOCK_TIME=null
+		where
+		ACCOUNT_NO=#{accountNo,jdbcType=VARCHAR}
+    </update>
+</mapper>

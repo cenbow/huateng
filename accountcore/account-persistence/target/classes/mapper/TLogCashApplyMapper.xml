@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogCashApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogCashApply" >
+    <id column="TRANS_DATE" property="txnDate" jdbcType="VARCHAR" />
+    <id column="TRANS_SERIAL_NO" property="txnSeqNo" jdbcType="VARCHAR" />
+    <result column="INTERIOR_TRANS_TYPE" property="txnType" jdbcType="VARCHAR" />
+    <result column="TRANS_MEMO" property="txnDscpt" jdbcType="VARCHAR" />
+    <result column="ACCEPT_APPLY_TIME" property="txnTime" jdbcType="TIMESTAMP" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="APPLY_CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="FUND_ACCOUNT_NO" property="fundAccountNo" jdbcType="VARCHAR" />
+    <result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" />
+    <result column="BRANCH_BANK_NAME" property="branchBankName" jdbcType="VARCHAR" />
+    <result column="BANK_PROV_CODE" property="provCode" jdbcType="VARCHAR" />
+    <result column="BANK_CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="REAL_NAME" property="realName" jdbcType="VARCHAR" />
+    <result column="BANK_ACCOUNT_NO" property="bankAccountNo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_CHANNEL" property="txnChannel" jdbcType="VARCHAR" />
+    <result column="TRANS_ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_TYPE" property="acceptOrgType" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_SERIAL_NO" property="acceptSeqNo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_TRANS_DATE" property="acceptDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_TRANS_TIME" property="acceptTime" jdbcType="VARCHAR" />
+    <result column="DRAW_AMOUNT" property="drawAmt" jdbcType="DECIMAL" />
+    <result column="DEAL_STATUS" property="status" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_CODE" property="payOrgCode" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_CODE" property="supplyOrgCode" jdbcType="VARCHAR" />
+    <result column="FEE_AMOUNT" property="feeAmt" jdbcType="DECIMAL" />
+    <result column="FAIL_FLAG" property="failFlag" jdbcType="CHAR" />
+    <result column="FAIL_TIME" property="failTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRANS_DATE, TRANS_SERIAL_NO, INTERIOR_TRANS_TYPE, TRANS_MEMO, ACCEPT_APPLY_TIME, END_TIME, APPLY_CUSTOMER_NO, FUND_ACCOUNT_NO, 
+    BANK_NAME, BRANCH_BANK_NAME, BANK_PROV_CODE, BANK_CITY_CODE, REAL_NAME, BANK_ACCOUNT_NO, ACCEPT_CHANNEL, 
+    TRANS_ACCEPT_ORG_CODE, ACCEPT_ORG_TYPE, ACCEPT_ORG_SERIAL_NO, ACCEPT_ORG_TRANS_DATE, ACCEPT_ORG_TRANS_TIME, DRAW_AMOUNT, 
+    DEAL_STATUS, REMARK, RESV_FLD1, RESV_FLD2, PAY_ORG_CODE, SUPPLY_ORG_CODE, FEE_AMOUNT, FAIL_FLAG, 
+    FAIL_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.p3.account.persistence.models.TLogCashApplyKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from core.T_LOG_CASH_APPLY 
+    where TRANS_DATE = #{txnDate,jdbcType=VARCHAR}
+      and TRANS_SERIAL_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </select>
+   <select id="selectByTxnseqNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from core.T_LOG_CASH_APPLY 
+        where TRANS_SERIAL_NO = #{txnSeqNo,jdbcType=VARCHAR}
+   </select>
+   <select id="selectTLogCashApplyByPk" parameterType="string" resultMap="BaseResultMap">
+         select * from  core.T_LOG_CASH_APPLY  where  TRANS_SERIAL_NO = #{transSeqNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogCashApplyKey" >
+    delete from core.T_LOG_CASH_APPLY 
+    where TRANS_DATE = #{txnDate,jdbcType=VARCHAR}
+      and TRANS_SERIAL_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogCashApply" >
+    insert into core.T_LOG_CASH_APPLY  (TRANS_DATE, TRANS_SERIAL_NO, INTERIOR_TRANS_TYPE, 
+      TRANS_MEMO, ACCEPT_APPLY_TIME, END_TIME, 
+      APPLY_CUSTOMER_NO, FUND_ACCOUNT_NO, BANK_NAME, 
+      BRANCH_BANK_NAME, BANK_PROV_CODE, BANK_CITY_CODE, 
+      REAL_NAME, BANK_ACCOUNT_NO, ACCEPT_CHANNEL, 
+      TRANS_ACCEPT_ORG_CODE, ACCEPT_ORG_TYPE, ACCEPT_ORG_SERIAL_NO, 
+      ACCEPT_ORG_TRANS_DATE, ACCEPT_ORG_TRANS_TIME, DRAW_AMOUNT, 
+      DEAL_STATUS, REMARK, RESV_FLD1, 
+      RESV_FLD2, PAY_ORG_CODE, SUPPLY_ORG_CODE, 
+      FEE_AMOUNT, FAIL_FLAG, FAIL_TIME
+      )
+    values (#{txnDate,jdbcType=VARCHAR}, #{txnSeqNo,jdbcType=VARCHAR}, #{txnType,jdbcType=VARCHAR}, 
+      #{txnDscpt,jdbcType=VARCHAR}, #{txnTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{customerNo,jdbcType=VARCHAR}, #{fundAccountNo,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, 
+      #{branchBankName,jdbcType=VARCHAR}, #{provCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{bankAccountNo,jdbcType=VARCHAR}, #{txnChannel,jdbcType=VARCHAR}, 
+      #{acceptOrgCode,jdbcType=VARCHAR}, #{acceptOrgType,jdbcType=VARCHAR}, #{acceptSeqNo,jdbcType=VARCHAR}, 
+      #{acceptDate,jdbcType=VARCHAR}, #{acceptTime,jdbcType=VARCHAR}, #{drawAmt,jdbcType=DECIMAL}, 
+      #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{resvFld1,jdbcType=VARCHAR}, 
+      #{resvFld2,jdbcType=VARCHAR}, #{payOrgCode,jdbcType=VARCHAR}, #{supplyOrgCode,jdbcType=VARCHAR}, 
+      #{feeAmt,jdbcType=DECIMAL}, #{failFlag,jdbcType=CHAR}, #{failTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogCashApply" >
+    insert into core.T_LOG_CASH_APPLY 
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="txnDate != null" >
+        TRANS_DATE,
+      </if>
+      <if test="txnSeqNo != null" >
+        TRANS_SERIAL_NO,
+      </if>
+      <if test="txnType != null" >
+        INTERIOR_TRANS_TYPE,
+      </if>
+      <if test="txnDscpt != null" >
+        TRANS_MEMO,
+      </if>
+      <if test="txnTime != null" >
+        ACCEPT_APPLY_TIME,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="customerNo != null" >
+        APPLY_CUSTOMER_NO,
+      </if>
+      <if test="fundAccountNo != null" >
+        FUND_ACCOUNT_NO,
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME,
+      </if>
+      <if test="branchBankName != null" >
+        BRANCH_BANK_NAME,
+      </if>
+      <if test="provCode != null" >
+        BANK_PROV_CODE,
+      </if>
+      <if test="cityCode != null" >
+        BANK_CITY_CODE,
+      </if>
+      <if test="realName != null" >
+        REAL_NAME,
+      </if>
+      <if test="bankAccountNo != null" >
+        BANK_ACCOUNT_NO,
+      </if>
+      <if test="txnChannel != null" >
+        ACCEPT_CHANNEL,
+      </if>
+      <if test="acceptOrgCode != null" >
+        TRANS_ACCEPT_ORG_CODE,
+      </if>
+      <if test="acceptOrgType != null" >
+        ACCEPT_ORG_TYPE,
+      </if>
+      <if test="acceptSeqNo != null" >
+        ACCEPT_ORG_SERIAL_NO,
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_ORG_TRANS_DATE,
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_ORG_TRANS_TIME,
+      </if>
+      <if test="drawAmt != null" >
+        DRAW_AMOUNT,
+      </if>
+      <if test="status != null" >
+        DEAL_STATUS,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE,
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE,
+      </if>
+      <if test="feeAmt != null" >
+        FEE_AMOUNT,
+      </if>
+      <if test="failFlag != null" >
+        FAIL_FLAG,
+      </if>
+      <if test="failTime != null" >
+        FAIL_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="txnDate != null" >
+        #{txnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="txnSeqNo != null" >
+        #{txnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null" >
+        #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnDscpt != null" >
+        #{txnDscpt,jdbcType=VARCHAR},
+      </if>
+      <if test="txnTime != null" >
+        #{txnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fundAccountNo != null" >
+        #{fundAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="branchBankName != null" >
+        #{branchBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="provCode != null" >
+        #{provCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccountNo != null" >
+        #{bankAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgType != null" >
+        #{acceptOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptSeqNo != null" >
+        #{acceptSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptDate != null" >
+        #{acceptDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="drawAmt != null" >
+        #{drawAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feeAmt != null" >
+        #{feeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="failFlag != null" >
+        #{failFlag,jdbcType=CHAR},
+      </if>
+      <if test="failTime != null" >
+        #{failTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogCashApply" >
+    update core.T_LOG_CASH_APPLY 
+    <set >
+      <if test="txnType != null" >
+        INTERIOR_TRANS_TYPE = #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnDscpt != null" >
+        TRANS_MEMO = #{txnDscpt,jdbcType=VARCHAR},
+      </if>
+      <if test="txnTime != null" >
+        ACCEPT_APPLY_TIME = #{txnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerNo != null" >
+        APPLY_CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fundAccountNo != null" >
+        FUND_ACCOUNT_NO = #{fundAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="branchBankName != null" >
+        BRANCH_BANK_NAME = #{branchBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="provCode != null" >
+        BANK_PROV_CODE = #{provCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        BANK_CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        REAL_NAME = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccountNo != null" >
+        BANK_ACCOUNT_NO = #{bankAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        ACCEPT_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        TRANS_ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgType != null" >
+        ACCEPT_ORG_TYPE = #{acceptOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptSeqNo != null" >
+        ACCEPT_ORG_SERIAL_NO = #{acceptSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_ORG_TRANS_DATE = #{acceptDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_ORG_TRANS_TIME = #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="drawAmt != null" >
+        DRAW_AMOUNT = #{drawAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        DEAL_STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE = #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feeAmt != null" >
+        FEE_AMOUNT = #{feeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="failFlag != null" >
+        FAIL_FLAG = #{failFlag,jdbcType=CHAR},
+      </if>
+      <if test="failTime != null" >
+        FAIL_TIME = #{failTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where TRANS_DATE = #{txnDate,jdbcType=VARCHAR}
+      and TRANS_SERIAL_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogCashApply" >
+    update core.T_LOG_CASH_APPLY 
+    set INTERIOR_TRANS_TYPE = #{txnType,jdbcType=VARCHAR},
+      TRANS_MEMO = #{txnDscpt,jdbcType=VARCHAR},
+      ACCEPT_APPLY_TIME = #{txnTime,jdbcType=TIMESTAMP},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      APPLY_CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      FUND_ACCOUNT_NO = #{fundAccountNo,jdbcType=VARCHAR},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      BRANCH_BANK_NAME = #{branchBankName,jdbcType=VARCHAR},
+      BANK_PROV_CODE = #{provCode,jdbcType=VARCHAR},
+      BANK_CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      REAL_NAME = #{realName,jdbcType=VARCHAR},
+      BANK_ACCOUNT_NO = #{bankAccountNo,jdbcType=VARCHAR},
+      ACCEPT_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      TRANS_ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      ACCEPT_ORG_TYPE = #{acceptOrgType,jdbcType=VARCHAR},
+      ACCEPT_ORG_SERIAL_NO = #{acceptSeqNo,jdbcType=VARCHAR},
+      ACCEPT_ORG_TRANS_DATE = #{acceptDate,jdbcType=VARCHAR},
+      ACCEPT_ORG_TRANS_TIME = #{acceptTime,jdbcType=VARCHAR},
+      DRAW_AMOUNT = #{drawAmt,jdbcType=DECIMAL},
+      DEAL_STATUS = #{status,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      PAY_ORG_CODE = #{payOrgCode,jdbcType=VARCHAR},
+      SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      FEE_AMOUNT = #{feeAmt,jdbcType=DECIMAL},
+      FAIL_FLAG = #{failFlag,jdbcType=CHAR},
+      FAIL_TIME = #{failTime,jdbcType=TIMESTAMP}
+    where TRANS_DATE = #{txnDate,jdbcType=VARCHAR}
+      and TRANS_SERIAL_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

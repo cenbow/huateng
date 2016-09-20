@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.RiskLogacnttxnPaymentMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.RiskLogacnttxnPayment" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="TRANS_BIGTYPE" property="transBigtype" jdbcType="VARCHAR" />
+    <result column="DAY_SUM_AMT" property="daySumAmt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_TIMES" property="daySumTimes" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_AMT" property="monthSumAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_TIMES" property="monthSumTimes" jdbcType="DECIMAL" />
+    <result column="LAST_TRANS_DATE" property="lastTransDate" jdbcType="VARCHAR" />
+    <result column="LAST_TRANS_MONTH" property="lastTransMonth" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, ACCOUNT_NO, TRANS_BIGTYPE, DAY_SUM_AMT, DAY_SUM_TIMES, MONTH_SUM_AMT, MONTH_SUM_TIMES, 
+    LAST_TRANS_DATE, LAST_TRANS_MONTH
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RISK.RISK_LOGACNTTXN_PAYMENT
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTxnKey" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select
+        <include refid="Base_Column_List" />
+        from RISK.RISK_LOGACNTTXN_PAYMENT
+        where  ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+        AND TRANS_BIGTYPE =#{transBigtype,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTxnKeyForUpdate" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select
+        <include refid="Base_Column_List" />
+        from RISK.RISK_LOGACNTTXN_PAYMENT
+        where  ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+        AND TRANS_BIGTYPE =#{transBigtype,jdbcType=VARCHAR}    WITH RS USE AND KEEP UPDATE LOCKS
+
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RISK.RISK_LOGACNTTXN_PAYMENT
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.RiskLogacnttxnPayment" >
+    insert into RISK.RISK_LOGACNTTXN_PAYMENT (RECORD_NO, ACCOUNT_NO, TRANS_BIGTYPE, 
+      DAY_SUM_AMT, DAY_SUM_TIMES, MONTH_SUM_AMT, 
+      MONTH_SUM_TIMES, LAST_TRANS_DATE, LAST_TRANS_MONTH
+      )
+    values ( nextval for RISK.S_RISK_TXNRECORD, #{accountNo,jdbcType=VARCHAR}, #{transBigtype,jdbcType=VARCHAR}, 
+      #{daySumAmt,jdbcType=DECIMAL}, #{daySumTimes,jdbcType=DECIMAL}, #{monthSumAmt,jdbcType=DECIMAL}, 
+      #{monthSumTimes,jdbcType=DECIMAL}, #{lastTransDate,jdbcType=VARCHAR}, #{lastTransMonth,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.RiskLogacnttxnPayment" >
+    insert into RISK.RISK_LOGACNTTXN_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+        RECORD_NO,
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="transBigtype != null" >
+        TRANS_BIGTYPE,
+      </if>
+      <if test="daySumAmt != null" >
+        DAY_SUM_AMT,
+      </if>
+      <if test="daySumTimes != null" >
+        DAY_SUM_TIMES,
+      </if>
+      <if test="monthSumAmt != null" >
+        MONTH_SUM_AMT,
+      </if>
+      <if test="monthSumTimes != null" >
+        MONTH_SUM_TIMES,
+      </if>
+      <if test="lastTransDate != null" >
+        LAST_TRANS_DATE,
+      </if>
+      <if test="lastTransMonth != null" >
+        LAST_TRANS_MONTH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+       values nextval for RISK.S_RISK_TXNRECORD,
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transBigtype != null" >
+        #{transBigtype,jdbcType=VARCHAR},
+      </if>
+      <if test="daySumAmt != null" >
+        #{daySumAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumTimes != null" >
+        #{daySumTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumAmt != null" >
+        #{monthSumAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumTimes != null" >
+        #{monthSumTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="lastTransDate != null" >
+        #{lastTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTransMonth != null" >
+        #{lastTransMonth,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.RiskLogacnttxnPayment" >
+    update RISK.RISK_LOGACNTTXN_PAYMENT
+    <set >
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transBigtype != null" >
+        TRANS_BIGTYPE = #{transBigtype,jdbcType=VARCHAR},
+      </if>
+      <if test="daySumAmt != null" >
+        DAY_SUM_AMT = #{daySumAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumTimes != null" >
+        DAY_SUM_TIMES = #{daySumTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumAmt != null" >
+        MONTH_SUM_AMT = #{monthSumAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumTimes != null" >
+        MONTH_SUM_TIMES = #{monthSumTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="lastTransDate != null" >
+        LAST_TRANS_DATE = #{lastTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastTransMonth != null" >
+        LAST_TRANS_MONTH = #{lastTransMonth,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.RiskLogacnttxnPayment" >
+    update RISK.RISK_LOGACNTTXN_PAYMENT
+    set ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      TRANS_BIGTYPE = #{transBigtype,jdbcType=VARCHAR},
+      DAY_SUM_AMT = #{daySumAmt,jdbcType=DECIMAL},
+      DAY_SUM_TIMES = #{daySumTimes,jdbcType=DECIMAL},
+      MONTH_SUM_AMT = #{monthSumAmt,jdbcType=DECIMAL},
+      MONTH_SUM_TIMES = #{monthSumTimes,jdbcType=DECIMAL},
+      LAST_TRANS_DATE = #{lastTransDate,jdbcType=VARCHAR},
+      LAST_TRANS_MONTH = #{lastTransMonth,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

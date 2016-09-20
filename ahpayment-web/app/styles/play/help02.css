@@ -1,0 +1,415 @@
+@charset "utf-8";
+html {
+	color: #969696;
+	background: #fff
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button {
+	margin: 0;
+	padding: 0
+}
+body, button, input, select, textarea {
+	font: .75em/1.5 tahoma, arial, \5b8b\4f53
+}
+input, select, textarea {
+	font-size: 100%
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+th {
+	text-align: inherit
+}
+fieldset, img, a img {
+	border: 0
+}
+iframe {
+	display: block
+}
+abbr, acronym {
+	border: 0;
+	font-variant: normal
+}
+del {
+	text-decoration: line-through
+}
+address, caption, cite, code, dfn, em, th, var {
+	font-style: normal;
+	font-weight: 500
+}
+ol, ul {
+	list-style: none
+}
+caption, th {
+	text-align: left
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+h2 {
+	color: #4d4d4d
+}
+h3 {
+	color: #969696;
+	margin: 10px 0 0 0
+}
+.imgTitle {
+	text-indent: -9999em
+}
+q:before, q:after {
+	content: ''
+}
+sup {
+	vertical-align: text-top
+}
+sub {
+	vertical-align: text-bottom
+}
+a:hover {
+	text-decoration: underline
+}
+ins, a {
+	text-decoration: none;
+	color: #08c
+}
+.fn-clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0
+}
+.fn-clear {
+*zoom:1
+}
+.fn-hide {
+	display: none
+}
+.fn-left, .fn-right {
+	display: inline
+}
+.fn-left {
+	float: left
+}
+.fn-right {
+	float: right
+}
+.fn-font14 {
+	font-size: 14px
+}
+.fn_bnt {
+	cursor: pointer
+}
+.link {
+	color: #08c
+}
+.orange {
+	color: #ff8400
+}
+.ConColor {
+	color: #4d4d4d
+}
+body {
+	font-family: \5b8b\4f53
+}
+.tiphead {
+	min-width: 990px;
+	background-color: #f7f7f7;
+	border-bottom: solid 1px #ebebeb;
+	z-index: 9999;
+	position: relative
+}
+.tiphead .content {
+	margin: auto;
+	width: 990px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	color: #6c6c6c
+}
+.tiphead em {
+	color: #b3b3b3
+}
+.tiphead a {
+	color: #6c6c6c
+}
+
+.site-links {
+	margin-bottom: 15px;
+	padding-top: 20px;
+	text-align: center
+}
+.site-links .first {
+	border: medium none
+}
+.site-links li {
+	color: #bbb;
+	display: inline
+}
+.site-links li a {
+	color: #09c
+}
+.vip-ri-f .site-links li a, .vip-ri-f .smalipay a, .vip-ri-f .smalipay {
+	color: #946e4b
+}
+.smalipay a, .smalipay {
+	color: #999
+}
+.smalipay {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	padding-bottom: 30px;
+	text-align: center
+}
+.smalipay a {
+	padding-left: 15px
+}
+#loadeBg {
+	width: 185px;
+	height: 97px;
+	display: inline-block;
+	float: left;
+	background:url(/assets/sutongpay/play/tiao01.png) no-repeat left bottom
+}
+.loadron {
+	border-radius: 5px!important;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	webkit-border-radius: 5px
+}
+.loadsolid {
+	border: #dff2f6 solid 1px
+}
+#loadeTxt {
+	color: #fff;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	float: left;
+	line-height: 20px;
+	-moz-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-o-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-webkit-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	text-shadow: 0 1px 2px rgba(0,0,0,0.3)
+}
+.main {
+	width: 100%;
+	overflow: hidden;
+	z-index: 0
+}
+.main-body {
+	margin: auto;
+	width: 990px
+}
+.bg {
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	height: 720px
+}
+.Cloud {
+	background-image:url(/assets/sutongpay/play/yun01.png);
+	background-repeat: no-repeat;
+	background-position: right 5px;
+	display: inline-block;
+	width: 165px;
+	height: 80px;
+	position: absolute
+}
+
+.topContent {
+	width: 100%;
+	overflow: hidden
+}
+.logo {
+	background-image:url(/assets/sutongpay/play/logo.png);
+	width: 166px;
+	height: 59px;
+	z-index: 2;
+	margin: 30px auto auto auto;
+	position: relative;
+	cursor: pointer
+}
+.news {
+	position: relative;
+	float: left;
+	left: 580px;
+	margin-top: -50px;
+	cursor: pointer
+}
+.newsImg {
+	position: relative;
+	float: left
+}
+.newsTxt {
+	height: 20px;
+	line-height: 20px;
+	background-color: #fff;
+	position: relative;
+	margin-top: 20px;
+	margin-left: -25px;
+	float: left;
+	padding: 0 10px 0 10px;
+	-moz-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-o-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-webkit-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1)
+}
+.main-index, .main-index-nav {
+	text-align: center;
+	margin: auto;
+	width: 990px;
+	float: left;
+	position: relative
+}
+.main-index {
+	bottom: 10px
+}
+.content-main {
+	background-color: #fff;
+	border: 1px solid #CCC;
+	float: left;
+	margin: auto;
+	bottom: 30px;
+	position: relative
+}
+.main-index-nav {
+	margin-top: 30px;
+	height: 240px;
+	float: left;
+	z-index: 99;
+	position: relative;
+}
+.main-index-nav ul li {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/biaoti01-bg.png);
+	width: 235px;
+	height: 235px;
+	position: absolute;
+	float: left;
+	right: 0
+}
+.main-index-nav ul li span {
+	margin: 10px 15px 15px 10px;
+	display: inline-block;
+	width: 210px;
+	height: 210px;
+	cursor: pointer
+}
+.main-index-nav ul li em {
+	display: inline-block;
+	width: 52px;
+	height: 53px;
+	cursor: pointer;
+	background-image:url(/assets/sutongpay/play/btqiehuan01.png);
+	position: relative;
+}
+.t0 {
+	background-image:url(/assets/sutongpay/play/wenhao01.jpg)
+}
+.t1 {
+	background-image:url(/assets/sutongpay/play/chuan01.jpg)
+}
+
+.tt1 {
+	background-position: 0 -63px
+}
+.ttover1 {
+	background-position: 50px -63px
+}
+.tt2 {
+	background-position: 0 -126px
+}
+.ttover2 {
+	background-position: 50px -126px
+}
+.main-index-nav-name {
+	margin-top: 30px;
+	margin-left:135px;
+}
+.main-index-nav-name ul li {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/biaoti01.png);
+	background-repeat: no-repeat;
+	width: 260px;
+	height: 70px;
+	float: left
+}
+.n0 {
+	margin-left: 112px;
+	background-position: 0 0
+}
+.n1 {
+	margin-left: 0;
+	background-position: 0 -106px
+}
+.n2 {
+	margin-left: 0;
+	background-position: 0 -226px
+}
+.main-index-dow ul {
+	width: 660px;
+	position: relative;
+	overflow: hidden;
+	left: 165px;
+	float: left
+}
+.main-index-dow ul li {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/fenye01.png);
+	width: 220px;
+	height: 75px;
+	float: left;
+	cursor:pointer;
+}
+.do1 {
+	background-position: -220px 0
+}
+.do2 {
+	background-position: -440px 0
+}
+.Daojiao {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	float: right;
+	top: -1px;
+	right: -1px;
+	z-index: 999
+}
+.conRigYY {
+	position: absolute;
+	float: right;
+	top: 0;
+	right: -28px;
+	height: 100%;
+	overflow: hidden
+}
+.YYdow {
+	background-image:url(/assets/sutongpay/play/bglef01.png);
+	display: inline-block;
+	width: 28px;
+	height: 100%
+}
+.conDowYY {
+	position: absolute;
+	float: right;
+	bottom: -30px;
+	height: 30px;
+	width: 930px;
+	background-image:url(/assets/sutongpay/play/botbg01.png);
+	display: inline-block
+}
+#J-Content {
+*zoom:1
+}
+a img {border:none}
+img{border:0; vertical-align:top;}

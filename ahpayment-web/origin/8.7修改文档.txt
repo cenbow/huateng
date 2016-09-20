@@ -1,0 +1,7 @@
+我的翼支付-安全中心-子页面（修改支付密码）.html
+页面制作
+修改inside-SecurityCenter.css内
+.ui-Security-maindiv .ui-securityimg{ position:absolute; left:25px; top:0px;}
+
+增加了组件页面index.css内大量修改
+组件页面继续制作中index.css会继续大量增加修改

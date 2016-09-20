@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2013 杭州端点网络科技有限公司
+   -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Address">
+    <resultMap id="addressMap" type="Address">
+        <id property="id" column="id"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="name" column="name"/>
+        <result property="level" column="level"/>
+    </resultMap>
+    <sql id="columns">
+        parent_id,name,level<!-- level 为oracle中的保留字，使用时应加上双引号，且大小写跟数据库保持一致 -->
+    </sql>
+    <select id="findById" parameterType="long" resultMap="addressMap">
+        SELECT id,
+        <include refid="columns"/>
+        FROM PORTAL.addresses WHERE id=#{id}
+    </select>
+
+    <select id="findByParentId" resultMap="addressMap">
+        SELECT id, <include refid="columns"/> FROM PORTAL.addresses WHERE parent_id=#{parentId} order by id asc
+    </select>
+
+    <select id="findByLevel" resultMap="addressMap">
+        SELECT id, <include refid="columns"/> FROM PORTAL.addresses WHERE "LEVEL"=#{level} order by id asc
+    </select>
+</mapper>

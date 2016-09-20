@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TTransferRecord">
+    <resultMap id="BaseResultMap" type="TTransferRecord">
+        <id column="ORDERSEQ" property="orderseq" jdbcType="VARCHAR"/>
+        <result column="PAYEE" property="payee" jdbcType="VARCHAR"/>
+        <result column="AMOUNT" property="amount" jdbcType="DECIMAL"/>
+        <result column="REMARK1" property="remark1" jdbcType="VARCHAR"/>
+        <result column="REMARK2" property="remark2" jdbcType="VARCHAR"/>
+        <result column="REMARK3" property="remark3" jdbcType="VARCHAR"/>
+        <result column="REMARK4" property="remark4" jdbcType="DECIMAL"/>
+        <result column="REMARK5" property="remark5" jdbcType="TIMESTAMP"/>
+        <result column="ID" property="id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    ORDERSEQ,PAYEE,AMOUNT,REMARK1,REMARK2,REMARK3,REMARK4,REMARK5,ID
+    </sql>
+
+    <insert id="insertTransferRecord" parameterType="TTransferRecord">
+        insert into CORE.T_TRANSFER_RECORD
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderseq != null">
+                ORDERSEQ,
+            </if>
+            <if test="payee != null">
+                PAYEE,
+            </if>
+            <if test="amount != null">
+                AMOUNT,
+            </if>
+            <if test="remark1 != null">
+                REMARK1,
+            </if>
+            <if test="remark2 != null">
+                REMARK2,
+            </if>
+            <if test="remark3 != null">
+                REMARK3,
+            </if>
+            <if test="remark4 != null">
+                REMARK4,
+            </if>
+            <if test="remark5 != null">
+                REMARK5,
+            </if>
+            <if test="id != null">
+                ID,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+
+            <if test="orderseq != null">
+                #{orderseq,jdbcType=VARCHAR},
+            </if>
+            <if test="payee != null">
+                #{payee,jdbcType=VARCHAR},
+            </if>
+            <if test="amount != null">
+                #{amount,jdbcType=VARCHAR},
+            </if>
+            <if test="remark1 != null">
+                #{remark1,jdbcType=VARCHAR},
+            </if>
+            <if test="remark2 != null">
+                #{remark2,jdbcType=VARCHAR},
+            </if>
+            <if test="remark3 != null">
+                #{remark3,jdbcType=VARCHAR},
+            </if>
+            <if test="remark4 != null">
+                #{remark4,jdbcType=VARCHAR},
+            </if>
+            <if test="remark5 != null">
+                #{remark5,jdbcType=VARCHAR},
+            </if>
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.ui-my-info {
+	float: left;
+	line-height: 45px;
+	height: 45px;
+	color: #CCC;
+	display:block;
+	width:100%;
+}
+.ui-my-info span {
+	float: left;
+}
+.ui-my-info .ui-myinfo-time {
+	float: right;
+
+}
+.ui-my-news {
+	width: 780px;
+	height: 95px;
+	background-color: #fff7e7;
+	display: inline-block;
+	position: relative;
+	clear: both;
+}
+.ui-my-news .ui-mynews-bal {
+	font-size: 14px;
+	display:inline-block;
+	float:left;
+	margin-top:15px;
+	margin-left:20px;
+}
+.ui-my-news .ui-mynews-bal .ui-mynews-t1 {
+	font-size: 28px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+.ui-my-news .ui-mynews-txt {
+	position: absolute;
+	width: 260px;
+	float: left;
+	left: 480px;
+	top: 15px;
+}
+.ui-my-news .ui-mynews-txt li {
+	margin-bottom: 5px;
+}
+.ui-my-news .ui-mynews-cimg {
+	width: 18px;
+	height: 16px;
+	display: block;
+	background-image: url(../images/inside-main/myAuthenticate-img01.jpg);
+	float: left;
+	margin-top: 2px;
+	margin-right: 5px;
+}
+.ui-my-news .ui-mynews-next {
+	display:inline-block;
+	margin-left:10px;
+	margin-top:45px;
+	
+}
+.ui-my-news .ui-mynews-next a {
+	margin-right: 5px;
+}
+/*****添加链接*****/
+.ui-acctitle01{ display:inline-block; margin-left:25px; font-weight:100;}
+.ui-acctitle01 .ui-txt-a{ margin-left:5px; margin-right:5px;}
+.ui-inside-tab01 td{ padding-left:15px;}

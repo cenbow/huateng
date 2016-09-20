@@ -1,0 +1,1 @@
+mvn clean package  -am -U -pl portal-admin -Dmaven.test.skip

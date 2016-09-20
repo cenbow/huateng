@@ -1,0 +1,36 @@
+{{#component "payment-webgate"}}
+<div class="ui-Promptdiv ui-Note">
+  <font style="float:left;font: bold;margin-left: 480px;">正在连接支付网关,请稍候...</font>
+</div>
+<form action="{{payInfo.payUrl}}" id="pay-form" method="post">
+    <div class="account_div_2" style="display:none">
+        <div id="tab1">
+            <form action="/" method="post">
+                <input type="text" name="VERSION" id="VERSION" value="1.0.0"/>
+                <input type="text" name="MERCHANTID" id="MERCHANTID" value="{{payInfo.merchantId}}"/>
+                <input type="text" name="ORDERID" id="ORDERID" value="{{payInfo.orderId}}"/>
+               <input type="text" name="TRACESEQNO" id="TRACESEQNO" value="{{payInfo.traceSeqNo}}"/>
+                <input type="text" name="TRANSCODE" id="TRANSCODE" value="{{payInfo.transCode}}"/>
+                <input type="text" name="TRACETIME" id="TRACETIME" value="{{payInfo.traceTime}}"/>
+
+                <input type="text" name="ORDERAMT" id="ORDERAMT" value="{{payInfo.orderAmt}}"/>
+                <input type="text" name="REALAMT" id="REALAMT" value="{{payInfo.realAmt}}"/>
+                <input type="text" name="ATTACHAMT" id="ATTACHAMT" value="{{payInfo.attachAmt}}"/>
+                <input type="text" name="CURTYPE" id="CURTYPE" value="{{payInfo.curType}}"/>
+                <input type="text" name="ENCMODE" id="ENCMODE" value="{{payInfo.encMode}}"/>
+                <input type="text" name="PGURL" id="PGURL" value="{{payInfo.pgUrl}}"/>
+                <input type="text" name="BGURL" id="BGURL" value="{{payInfo.bgUrl}}"/>
+                <input type="text" name="ATTACH" id="ATTACH" value="{{payInfo.attach}}"/>
+                <input type="text" name="BUSITYPE" id="BUSITYPE" value="{{payInfo.busiType}}"/>
+                <input type="text" name="BUSICODE" id="BUSICODE" value="{{payInfo.busiCode}}"/>
+                <input type="text" name="UNIFYID" id="UNIFYID" value="{{payInfo.unifyId}}"/>
+                <input type="text" name="TMNUM" id="TMNUM" value="{{payInfo.tmNum}}"/>
+                <input type="text" name="CUSTOMERID" id="CUSTOMERID" value="{{payInfo.customerId}}"/>
+                <input type="text" name="MAC" id="MAC" value="{{payInfo.mac}}"/>
+                <input type="text" name="CLIENTIP" id="CLIENTIP" value="{{payInfo.clientIp}}"/>
+                <input type="text" name="ACCORGCODE" id="ACCORGCODE" value="{{payInfo.acCorGCode}}"/>
+            </form>
+        </div>
+    </div>
+</form>
+{{/component}}

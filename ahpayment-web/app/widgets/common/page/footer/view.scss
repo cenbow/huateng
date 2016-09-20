@@ -1,0 +1,14 @@
+.page_footer {
+    display: block;
+    min-height: 80px;
+    height: 160px;
+    position: relative;
+    z-index: 1;
+    #foot_inner {
+        position: relative;
+        margin-left:auto;
+        margin-right: auto;
+        width: 1000px;
+        height: 100%;
+    }
+}

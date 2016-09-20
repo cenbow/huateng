@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TDictAreaCity" >
+  <resultMap id="BaseResultMap" type="TDictAreaCity" >
+    <result column="CURRENT_CODE" property="currentCode" jdbcType="VARCHAR" />
+    <result column="TELE_CODE" property="teleCode" jdbcType="VARCHAR" />
+    <result column="CURRENT_NAME" property="currentName" jdbcType="VARCHAR" />
+    <result column="PARENET_CODE" property="parenetCode" jdbcType="VARCHAR" />
+    <result column="CODE_FLAG" property="codeFlag" jdbcType="CHAR" />
+    <result column="MOBILE_H_CITY" property="mobileHCity" jdbcType="VARCHAR" />
+  </resultMap>
+  
+   <resultMap id="AreaNameMap" type="TDictAreaCity" >
+    <result column="MOBILE_H_CITY" property="currentName" jdbcType="VARCHAR" />
+ 
+    <result column="CURRENT_NAME" property="parenetName" jdbcType="VARCHAR" />
+   
+  </resultMap>
+  
+   <sql id="Base_Column_List" >
+    CURRENT_CODE, TELE_CODE, CURRENT_NAME,PARENET_CODE,CODE_FLAG,MOBILE_H_CITY
+  </sql>
+  <insert id="insert" parameterType="TDictAreaCity" >
+    insert into COMMON.T_DICT_AREA_CITY (CURRENT_CODE, TELE_CODE, CURRENT_NAME, 
+      PARENET_CODE, CODE_FLAG, MOBILE_H_CITY
+      )
+    values (#{currentCode,jdbcType=VARCHAR}, #{teleCode,jdbcType=VARCHAR}, #{currentName,jdbcType=VARCHAR}, 
+      #{parenetCode,jdbcType=VARCHAR}, #{codeFlag,jdbcType=CHAR}, #{mobileHCity,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="TDictAreaCity" >
+    insert into COMMON.T_DICT_AREA_CITY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="currentCode != null" >
+        CURRENT_CODE,
+      </if>
+      <if test="teleCode != null" >
+        TELE_CODE,
+      </if>
+      <if test="currentName != null" >
+        CURRENT_NAME,
+      </if>
+      <if test="parenetCode != null" >
+        PARENET_CODE,
+      </if>
+      <if test="codeFlag != null" >
+        CODE_FLAG,
+      </if>
+      <if test="mobileHCity != null" >
+        MOBILE_H_CITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="currentCode != null" >
+        #{currentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="teleCode != null" >
+        #{teleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="currentName != null" >
+        #{currentName,jdbcType=VARCHAR},
+      </if>
+      <if test="parenetCode != null" >
+        #{parenetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="codeFlag != null" >
+        #{codeFlag,jdbcType=CHAR},
+      </if>
+      <if test="mobileHCity != null" >
+        #{mobileHCity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  
+   <select id="selectAllDictAreaCity" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COMMON.T_DICT_AREA_CITY
+   </select>
+   
+   <select id="selectAllDictCity" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COMMON.T_DICT_AREA_CITY
+    <![CDATA[
+    where code_flag>=2
+    ]]>
+   </select>
+   
+   
+    <select id="findAreaNameByCode" resultMap="AreaNameMap" parameterType="java.lang.String">
+    	select c.mobile_h_city,d.current_name from COMMON.T_DICT_AREA_CITY c,COMMON.t_dict_area d 
+    	where c.parenet_code = d.current_code and c.current_code =  #{cityCode,jdbcType=VARCHAR}
+   </select>
+   
+   
+   
+</mapper>

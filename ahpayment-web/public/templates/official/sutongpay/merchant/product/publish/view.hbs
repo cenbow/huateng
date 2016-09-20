@@ -1,0 +1,62 @@
+{{#component "item-publish-box"}}
+<form method="POST">
+  {{#if _DATA_.item}}
+    <input type="hidden" name="itemId" value="{{_DATA_.item.id}}" />
+    <input type="hidden" name="spuId" value="{{_DATA_.item.spuId}}" />
+  {{/if}}
+  <div class="sleft">
+    <div class="image-manage">
+      <div class="main-image">
+        <img  id="itemMainImage" alt="{{_DATA_.item.mainImage}}" src="{{_DATA_.item.mainImage}}" style="width:280px;height:280px;"/>
+      </div>
+      <div class="submit">
+        <a id="replace-image-button" class="ui-button ui-button-morange">上&nbsp;传</a>
+        <div>请上传小于1MB的PNG或JPG的图片</div>
+      </div>
+    </div>
+  </div>
+  <div class="sright item">
+    <div class="control-group">
+      <label class="control-label" for="input-name"><b style="color:red;">*</b>商品标题：</label>
+
+      <div class="controls">
+        <input type="text" id="input-name" class="input-text long-text" name="name" value="{{_DATA_.item.name}}" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input-price"><b style="color:red;">*</b>一口价：</label>
+
+      <div class="controls">
+        <input type="text" id="input-price" class="input-text short-text" name="price" value="{{_DATA_.item.price}}" />
+      </div>
+    </div>
+
+    
+
+    <div class="control-group">
+      <label class="control-label" for="">商品属性：</label>
+      <div class="controls">
+        <div class="main-attr">
+          <div class="skus attr-full clearfix" data-skus="{{_DATA_.skus}}">
+            {{! sku_properties.hbs}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skus-table">
+    </div>
+    <div id="content">
+      <textarea id="noise" name="noise" class="widgEditor nothing">
+          {{_DATA_.detail.strDetail}}
+      </textarea>
+    </div>
+
+    <div class="control-group">
+      <div class="controls publish-item-button">
+        <a id="publish-item-button" class="ui-button ui-button-morange" data-url="/merchant/product/list">提交商品</a>
+      </div>
+    </div>
+  </div>
+</form>
+{{/component}}

@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* 表格 */
+
+table.ui-TraLim-Tab {
+	width: 100%;
+	line-height: 40px;
+	background-color: #CCC;
+	margin-top: 20px;
+	border-spacing:1;
+	border-collapse:separate;
+}
+.ui-TraLim-Tab td {
+	background-color: #FFF;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 14px;
+	vertical-align:middle;
+	padding-top:5px;
+}
+.ui-TraLim-Tab td .ui-txtinput01{
+	vertical-align:top;}
+.ui-TraLim-Tab .ui-tab01 {
+	width: 40%;
+	background-color: #f4f4f4;
+}
+/* 按钮定位 */
+.ui-tralim-span01 {
+	float: right;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	display: block;
+}
+/* 修改成功 */
+.ui-tralin-Resultdiv {
+	width: 435px;
+	clear: both;
+	height: 155px;
+	margin: 0 auto;
+	background-color: #FFFBE0;
+	border: 1px solid #CCB352;
+	border-radius: 5px;
+	text-align: center;
+}
+.ui-tralin-Resultdiv .ui-res {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 50px auto;
+	display: inline-block;
+}
+.ui-tralin-Resultdiv .ui-res span {
+	position: relative;
+	top: 10px;
+	margin-left: 5px;
+}
+.ui-tralin-Resultdiv .ui-ture {
+	color: #63873B;
+}

@@ -1,0 +1,39 @@
+{{#component "findLoginPwd"}}
+
+<div class="sub-l fl sp-mtop30">
+  <form id="findLoginPwd" name="findLoginPwd">
+    <input id="unifyId" type="hidden" value="{{unifyId}}">
+   <div class="cl"></div>
+   <span class="col-wa cola fl sp-mtop12">新密码:</span>
+   <div class="fl sp-mtop12">
+     <input type="password" name="setnewPasswd" maxlength="20" id="setnewPasswd" class="input-w3">
+  
+     <br>
+     <div id="newPwdMsg" name="newPwdMsg" class="ui-txtred"></div>
+   </div>
+   <div class="cl"></div>
+   <span class="col-wa cola fl sp-mtop12">确认密码:</span>
+   <div class="fl sp-mtop12">
+     <input type="password" name="confirmPasswd" maxlength="20" id="confirmPasswd" class="input-w3" >
+     <br>
+     <div id="comPwdMsg" name="comPwdMsg" class="ui-txtred"></div>
+   </div>  
+
+<div class="cl"></div>
+
+
+
+
+<span class="colcenterForget">
+<div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="modifyBtn" name="modifyBtn" class="ui-button ui-button-morange" title="确定">确定</a> 
+        <a id="rn" name="rn" class="ui-button ui-button-mwhite" title="返回">返回</a>
+      </div>
+    </div>
+</span>
+
+</form>
+</div>
+{{/component}}

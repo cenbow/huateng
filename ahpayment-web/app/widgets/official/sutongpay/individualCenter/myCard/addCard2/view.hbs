@@ -1,0 +1,64 @@
+{{#component "individualCenter"}}
+<div class="fund-nav">
+
+    <input id="bankCode" name="bankCode" type="hidden" value="{{bankCode}}">
+    <input id="cardType" name="cardType" type="hidden" value="{{cardType}}">
+       <li><a href="/account">账户首页</a></li>
+       <li class="now"><a href="/individualCenter">个人中心</a></li>
+       </div>
+       <div class="cl"></div>
+       <img src="/assets/sutongpay/air.png" width="1" height="23">
+       
+       <div class="maintab">
+       <div class="wm90">
+          <img src="/assets/sutongpay/air.png" width="1" height="15">
+		<span class="tit">				   
+				   <h2>添加银行卡</h2></span>
+      
+       <img src="/assets/sutongpay/air.png" width="1" height="20">
+       <center>
+         <img src="/assets/sutongpay/addcardstep2.png" width="700" height="79">
+       </center>
+       <img src="/assets/sutongpay/air.png" width="1" height="20">
+      
+        
+      <ul class="cardform">
+      <dl>
+      <dd class="w50 bgbrown"><div class="inputtt">银行：</div><div class="cardlb">&nbsp;&nbsp;<img src="/assets/sutongpay/{{bankType}}.png"  width="110" height="30"><div class="fr">{{#equals cardType 1}} 信用卡{{/equals}}{{#equals cardType 2}}储蓄卡{{/equals}}&nbsp;&nbsp;</div></div>
+      </dd>
+      <dd class="w50 bgbrown"><div class="inputtt">卡号：</div><input name="" id="cardNo" maxLength="19" class="inter" type="text">
+      </dd>
+       
+      </dl> 
+       <dl>
+      <dd class="w50 bgbrown"><div class="inputtt">持卡人：</div><input name="" id="name" class="inter" maxLength="10" type="text" value="{{name}}" >
+      </dd>
+      <dd  class="w50 bgbrown">
+        <div class="inputtt">身份证号码：</div><input name="" id="idNo" class="inter" type="text" value="{{idNo}}"></dd>
+      </dl>
+       <dl>
+      <dd class="w50 bgbrown"><div class="inputtt">银行预留手机号码：</div><input name="" id="mobileNo" class="inter" type="text" value="{{mobileNo}}" >
+      </dd>
+      <dd  class="w50 bgbrown">
+        <div class="inputtt">银行卡短信验证码：</div><input name="" class="inter" type="text" value=""><div class="fr yzm2"><input name="" type="button"  class="geti" value="获取验证码"></div></dd>
+      </dl>
+      </ul>
+      <ul id="subinfor" style="display:none;"><dl><dd><input name="" type="button" value="提交"></dd></dl></ul>
+      </div>
+        
+        
+          <div class="cl"></div>
+       
+     
+       
+       <div class="subline">
+       <div class="fr">
+         <div class="fl"><span id="errMsg" style="margin-right:50px;color:red"></span><span class="font-14">我已阅读并同意<a class="font-blue">《 速通快捷支付服务协议》</a></span><div class="fr imagree"><input type="button" id="subBtn" value="同意协议并绑定"></div><div class="cl"></div></div>
+       </div>
+</div>
+       
+       </div>
+
+
+
+{{/component}}

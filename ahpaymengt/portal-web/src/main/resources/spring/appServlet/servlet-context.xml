@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:util="http://www.springframework.org/schema/util"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+    <annotation-driven>
+        <message-converters>
+            <beans:bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <beans:property name="supportedMediaTypes">
+                    <util:list>
+                        <beans:value>text/plain;charset=UTF-8</beans:value>
+                    </util:list>
+                </beans:property>
+            </beans:bean>
+            <beans:bean class="com.aixforce.web.misc.JsonMessageConverter"/>
+        </message-converters>
+    </annotation-driven>
+
+    <beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <beans:property name="basenames">
+            <beans:list>
+                <beans:value>classpath:messages</beans:value>
+                <beans:value>classpath:exceptions</beans:value>
+            </beans:list>
+        </beans:property>
+        <beans:property name="cacheSeconds" value="60">
+        </beans:property>
+        <beans:property name="useCodeAsDefaultMessage" value="true"/>
+        <beans:property name="defaultEncoding" value="UTF-8"/>
+    </beans:bean>
+
+    <interceptors>
+        <beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <beans:property name="paramName" value="lang"/>
+        </beans:bean>
+        <beans:bean class="cn.com.huateng.web.interceptor.LoginInterceptor">
+            <beans:constructor-arg index="0" ref="userCache"/>
+        </beans:bean>
+        <beans:bean class="cn.com.huateng.web.interceptor.AuthInterceptor">
+            <beans:constructor-arg index="0" ref="commonConstants"/>
+        </beans:bean>
+        <!--<beans:bean class="com.aixforce.com.aixforce.web.interceptors.CSRFHandlerInterceptor"/>-->
+    </interceptors>
+    <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <beans:property name="defaultLocale" value="cn"/>
+    </beans:bean>
+
+    <beans:bean class="com.aixforce.web.misc.AixForceExceptionResolver">
+        <beans:property name="order" value="0"/>
+        <!-- 定义默认的异常处理页面，当该异常类型的注册时使用 -->
+        <beans:property name="defaultErrorView" value="resource:error"/>
+        <!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->
+        <beans:property name="exceptionAttribute" value="ex"/>
+        <!-- 定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 -->
+        <beans:property name="exceptionMappings">
+            <util:map>
+                <beans:entry key="com.aixforce.exception.JsonResponseException" value="resource:error"/>
+                <beans:entry key="org.springframework.validation.BindException" value="resource:error"/>
+            </util:map>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="viewResolver" class="com.aixforce.site.handlebars.HandlebarsViewResolver">
+        <beans:constructor-arg ref="handlebarEngine"/>
+        <beans:property name="contentType" value="text/html;charset=UTF-8"/>
+        <beans:property name="cache" value="false"/>
+    </beans:bean>
+
+    <!-- Only needed because we require fileupload in the com.aixforce.com.aixforce.web.fileupload package -->
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <beans:property name="maxUploadSize" value="10485760"/>
+    </beans:bean>
+
+    <beans:import resource="controllers.xml"/>
+    <beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <beans:property name="defaultHandler" ref="fallbackView"/>
+    </beans:bean>
+
+</beans:beans>

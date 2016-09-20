@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="hub-common/src/main/java"/>
+	<classpathentry kind="src" path="hub-dataprocess/src/main/java"/>
+	<classpathentry kind="src" path="hub-dataprocess-api/src/main/java"/>
+	<classpathentry kind="src" path="hub-inner/src/main/java"/>
+	<classpathentry kind="src" path="hub-persistence/src/main/java"/>
+	<classpathentry kind="src" path="hub-txnengine/src/main/java"/>
+	<classpathentry kind="src" path="hub-txnengine-api/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

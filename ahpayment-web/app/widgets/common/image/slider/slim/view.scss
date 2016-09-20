@@ -1,0 +1,29 @@
+.image-slider.img-slider-slim {
+  border: 1px solid transparent;
+
+  .able-switchable-nav {
+    margin-bottom: 24px;
+
+    li {
+      float: left;
+      width: 12px;
+      height: 12px;
+      color: black;
+      display: block;
+      background: black;
+      margin-right: 4px;
+      cursor: pointer;
+      border: 0;
+      text-indent: -9999px;
+      border-radius: 999px;
+
+      &.active{
+        width: 12px;
+        height: 12px;
+        margin-top: 0;
+        color: #76ae00;
+        background: #76ae00;
+      }
+    }
+  }
+}

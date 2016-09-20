@@ -1,0 +1,44 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<h1>Components</h1>
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Category</th>
+        <th>Name</th>
+        <th>path</th>
+        <th>api</th>
+        <th>cachedBy</th>
+        <th>cachedTime</th>
+        <th><span>Actions</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each components}}
+    <tr>
+        <td><a href="/components/{{id}}">{{id}}</a></td>
+        <td>{{compCategoryId}}</td>
+        <td>{{name}}</td>
+        <td>{{path}}</td>
+        <td class="api">{{api}}</td>
+        <td>{{cachedBy}}</td>
+        <td>{{cachedTime}}</td>
+        <td>
+            <a href="/components/{{id}}/edit" class="btn btn-mini btn-primary"><span>Edit</span></a>
+            <a href="/components/{{id}}" class="btn btn-mini btn-danger delete"><span>Delete</span></a>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+<!--<div id="dialog" title="Confirmation Required">-->
+    <!--Are you sure about delete this?-->
+<!--</div>-->
+<a href="/components/new" class="btn btn-primary"><span>Add</span></a>
+{{/partial}}
+{{> admin/layout}}

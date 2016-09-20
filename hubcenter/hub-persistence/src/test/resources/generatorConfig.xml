@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- <properties resource="db.properties" /> -->
+	<classPathEntry location="C:\Users\Administrator.PC-20120319QAMX\.m2\repository\ojdbc\ojdbc\6\ojdbc-6.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 删除代码中带有 代码生成器的注释信息 -->
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.0.52:1521:orcl" userId="btupayprod"
+			password="1234" />
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.huateng.p3.risk.persistence.models"
+			targetProject="risk-persistence/src/main/java" />
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="risk-persistence/src/main/resources" />
+		<javaClientGenerator targetPackage="com.huateng.p3.risk.persistence"
+			targetProject="risk-persistence/src/main/java" type="XMLMAPPER" />
+
+			 <table schema="btupayprod" tableName="t_info_mobile_h"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			
+		</table>
+	</context>
+</generatorConfiguration>

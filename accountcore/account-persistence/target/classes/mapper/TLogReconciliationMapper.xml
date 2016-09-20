@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogReconciliationMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogReconciliation" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="VARCHAR" />
+    <result column="APPLY_ORG_CODE" property="applyOrgCode" jdbcType="VARCHAR" />
+    <result column="REASON" property="reason" jdbcType="CHAR" />
+    <result column="ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR" />
+    <result column="TRANSFER_ORG_CODE" property="transferOrgCode" jdbcType="VARCHAR" />
+    <result column="IN_PAY_ORG_CODE" property="inPayOrgCode" jdbcType="VARCHAR" />
+    <result column="OUT_PAY_ORG_CODE" property="outPayOrgCode" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_CODE" property="supplyOrgCode" jdbcType="VARCHAR" />
+    <result column="TERMINAL_NO" property="terminalNo" jdbcType="VARCHAR" />
+    <result column="TERMINAL_SEQ_NO" property="terminalSeqNo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TXN_DATE" property="acceptTxnDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TXN_TIME" property="acceptTxnTime" jdbcType="VARCHAR" />
+    <result column="TXN_AMOUNT" property="txnAmount" jdbcType="DECIMAL" />
+    <result column="IN_ACCOUNT_NO" property="inAccountNo" jdbcType="VARCHAR" />
+    <result column="IN_SEQ_NO" property="inSeqNo" jdbcType="VARCHAR" />
+    <result column="OUT_ACCOUNT_NO" property="outAccountNo" jdbcType="VARCHAR" />
+    <result column="OUT_SEQ_NO" property="outSeqNo" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="L_IN_SEQ_NO" property="lInSeqNo" jdbcType="VARCHAR" />
+    <result column="L_OUT_SEQ_NO" property="lOutSeqNo" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RESEND_NUM" property="resendNum" jdbcType="DECIMAL" />
+    <result column="APPLY_UID" property="applyUid" jdbcType="VARCHAR" />
+    <result column="APPLY_TIME" property="applyTime" jdbcType="TIMESTAMP" />
+    <result column="ORG_CHECK_UID" property="orgCheckUid" jdbcType="VARCHAR" />
+    <result column="ORG_CHECK_TIME" property="orgCheckTime" jdbcType="TIMESTAMP" />
+    <result column="CORE_CHECK_UID" property="coreCheckUid" jdbcType="VARCHAR" />
+    <result column="CORE_CHECK_TIME" property="coreCheckTime" jdbcType="TIMESTAMP" />
+    <result column="TXN_CHANNEL" property="txnChannel" jdbcType="CHAR" />
+    <result column="IN_TXN_TYPE" property="inTxnType" jdbcType="VARCHAR" />
+    <result column="OUT_TXN_TYPE" property="outTxnType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, APPLY_ORG_CODE, REASON, ACCEPT_ORG_CODE, TRANSFER_ORG_CODE, IN_PAY_ORG_CODE, 
+    OUT_PAY_ORG_CODE, SUPPLY_ORG_CODE, TERMINAL_NO, TERMINAL_SEQ_NO, ACCEPT_TXN_DATE, 
+    ACCEPT_TXN_TIME, TXN_AMOUNT, IN_ACCOUNT_NO, IN_SEQ_NO, OUT_ACCOUNT_NO, OUT_SEQ_NO, 
+    STATUS, L_IN_SEQ_NO, L_OUT_SEQ_NO, REMARK, RESEND_NUM, APPLY_UID, APPLY_TIME, ORG_CHECK_UID, 
+    ORG_CHECK_TIME, CORE_CHECK_UID, CORE_CHECK_TIME, TXN_CHANNEL, IN_TXN_TYPE, OUT_TXN_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOG_RECONCILIATION
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_LOG_RECONCILIATION
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogReconciliation" >
+    insert into T_LOG_RECONCILIATION (RECORD_NO, APPLY_ORG_CODE, REASON, 
+      ACCEPT_ORG_CODE, TRANSFER_ORG_CODE, IN_PAY_ORG_CODE, 
+      OUT_PAY_ORG_CODE, SUPPLY_ORG_CODE, TERMINAL_NO, 
+      TERMINAL_SEQ_NO, ACCEPT_TXN_DATE, ACCEPT_TXN_TIME, 
+      TXN_AMOUNT, IN_ACCOUNT_NO, IN_SEQ_NO, 
+      OUT_ACCOUNT_NO, OUT_SEQ_NO, STATUS, 
+      L_IN_SEQ_NO, L_OUT_SEQ_NO, REMARK, 
+      RESEND_NUM, APPLY_UID, APPLY_TIME, 
+      ORG_CHECK_UID, ORG_CHECK_TIME, CORE_CHECK_UID, 
+      CORE_CHECK_TIME, TXN_CHANNEL, IN_TXN_TYPE, 
+      OUT_TXN_TYPE)
+    values (#{recordNo,jdbcType=VARCHAR}, #{applyOrgCode,jdbcType=VARCHAR}, #{reason,jdbcType=CHAR}, 
+      #{acceptOrgCode,jdbcType=VARCHAR}, #{transferOrgCode,jdbcType=VARCHAR}, #{inPayOrgCode,jdbcType=VARCHAR}, 
+      #{outPayOrgCode,jdbcType=VARCHAR}, #{supplyOrgCode,jdbcType=VARCHAR}, #{terminalNo,jdbcType=VARCHAR}, 
+      #{terminalSeqNo,jdbcType=VARCHAR}, #{acceptTxnDate,jdbcType=VARCHAR}, #{acceptTxnTime,jdbcType=VARCHAR}, 
+      #{txnAmount,jdbcType=DECIMAL}, #{inAccountNo,jdbcType=VARCHAR}, #{inSeqNo,jdbcType=VARCHAR}, 
+      #{outAccountNo,jdbcType=VARCHAR}, #{outSeqNo,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, 
+      #{lInSeqNo,jdbcType=VARCHAR}, #{lOutSeqNo,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{resendNum,jdbcType=DECIMAL}, #{applyUid,jdbcType=VARCHAR}, #{applyTime,jdbcType=TIMESTAMP}, 
+      #{orgCheckUid,jdbcType=VARCHAR}, #{orgCheckTime,jdbcType=TIMESTAMP}, #{coreCheckUid,jdbcType=VARCHAR}, 
+      #{coreCheckTime,jdbcType=TIMESTAMP}, #{txnChannel,jdbcType=CHAR}, #{inTxnType,jdbcType=VARCHAR}, 
+      #{outTxnType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogReconciliation" >
+    insert into T_LOG_RECONCILIATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="applyOrgCode != null" >
+        APPLY_ORG_CODE,
+      </if>
+      <if test="reason != null" >
+        REASON,
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE,
+      </if>
+      <if test="transferOrgCode != null" >
+        TRANSFER_ORG_CODE,
+      </if>
+      <if test="inPayOrgCode != null" >
+        IN_PAY_ORG_CODE,
+      </if>
+      <if test="outPayOrgCode != null" >
+        OUT_PAY_ORG_CODE,
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE,
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO,
+      </if>
+      <if test="terminalSeqNo != null" >
+        TERMINAL_SEQ_NO,
+      </if>
+      <if test="acceptTxnDate != null" >
+        ACCEPT_TXN_DATE,
+      </if>
+      <if test="acceptTxnTime != null" >
+        ACCEPT_TXN_TIME,
+      </if>
+      <if test="txnAmount != null" >
+        TXN_AMOUNT,
+      </if>
+      <if test="inAccountNo != null" >
+        IN_ACCOUNT_NO,
+      </if>
+      <if test="inSeqNo != null" >
+        IN_SEQ_NO,
+      </if>
+      <if test="outAccountNo != null" >
+        OUT_ACCOUNT_NO,
+      </if>
+      <if test="outSeqNo != null" >
+        OUT_SEQ_NO,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="lInSeqNo != null" >
+        L_IN_SEQ_NO,
+      </if>
+      <if test="lOutSeqNo != null" >
+        L_OUT_SEQ_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="resendNum != null" >
+        RESEND_NUM,
+      </if>
+      <if test="applyUid != null" >
+        APPLY_UID,
+      </if>
+      <if test="applyTime != null" >
+        APPLY_TIME,
+      </if>
+      <if test="orgCheckUid != null" >
+        ORG_CHECK_UID,
+      </if>
+      <if test="orgCheckTime != null" >
+        ORG_CHECK_TIME,
+      </if>
+      <if test="coreCheckUid != null" >
+        CORE_CHECK_UID,
+      </if>
+      <if test="coreCheckTime != null" >
+        CORE_CHECK_TIME,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="inTxnType != null" >
+        IN_TXN_TYPE,
+      </if>
+      <if test="outTxnType != null" >
+        OUT_TXN_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyOrgCode != null" >
+        #{applyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=CHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgCode != null" >
+        #{transferOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="inPayOrgCode != null" >
+        #{inPayOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outPayOrgCode != null" >
+        #{outPayOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSeqNo != null" >
+        #{terminalSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnDate != null" >
+        #{acceptTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnTime != null" >
+        #{acceptTxnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmount != null" >
+        #{txnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="inAccountNo != null" >
+        #{inAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inSeqNo != null" >
+        #{inSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outAccountNo != null" >
+        #{outAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outSeqNo != null" >
+        #{outSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="lInSeqNo != null" >
+        #{lInSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lOutSeqNo != null" >
+        #{lOutSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resendNum != null" >
+        #{resendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="applyUid != null" >
+        #{applyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgCheckUid != null" >
+        #{orgCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCheckTime != null" >
+        #{orgCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="coreCheckUid != null" >
+        #{coreCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="coreCheckTime != null" >
+        #{coreCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=CHAR},
+      </if>
+      <if test="inTxnType != null" >
+        #{inTxnType,jdbcType=VARCHAR},
+      </if>
+      <if test="outTxnType != null" >
+        #{outTxnType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogReconciliation" >
+    update T_LOG_RECONCILIATION
+    <set >
+      <if test="applyOrgCode != null" >
+        APPLY_ORG_CODE = #{applyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        REASON = #{reason,jdbcType=CHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgCode != null" >
+        TRANSFER_ORG_CODE = #{transferOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="inPayOrgCode != null" >
+        IN_PAY_ORG_CODE = #{inPayOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outPayOrgCode != null" >
+        OUT_PAY_ORG_CODE = #{outPayOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSeqNo != null" >
+        TERMINAL_SEQ_NO = #{terminalSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnDate != null" >
+        ACCEPT_TXN_DATE = #{acceptTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnTime != null" >
+        ACCEPT_TXN_TIME = #{acceptTxnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmount != null" >
+        TXN_AMOUNT = #{txnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="inAccountNo != null" >
+        IN_ACCOUNT_NO = #{inAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="inSeqNo != null" >
+        IN_SEQ_NO = #{inSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outAccountNo != null" >
+        OUT_ACCOUNT_NO = #{outAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outSeqNo != null" >
+        OUT_SEQ_NO = #{outSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="lInSeqNo != null" >
+        L_IN_SEQ_NO = #{lInSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lOutSeqNo != null" >
+        L_OUT_SEQ_NO = #{lOutSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resendNum != null" >
+        RESEND_NUM = #{resendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="applyUid != null" >
+        APPLY_UID = #{applyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        APPLY_TIME = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgCheckUid != null" >
+        ORG_CHECK_UID = #{orgCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCheckTime != null" >
+        ORG_CHECK_TIME = #{orgCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="coreCheckUid != null" >
+        CORE_CHECK_UID = #{coreCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="coreCheckTime != null" >
+        CORE_CHECK_TIME = #{coreCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL = #{txnChannel,jdbcType=CHAR},
+      </if>
+      <if test="inTxnType != null" >
+        IN_TXN_TYPE = #{inTxnType,jdbcType=VARCHAR},
+      </if>
+      <if test="outTxnType != null" >
+        OUT_TXN_TYPE = #{outTxnType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogReconciliation" >
+    update T_LOG_RECONCILIATION
+    set APPLY_ORG_CODE = #{applyOrgCode,jdbcType=VARCHAR},
+      REASON = #{reason,jdbcType=CHAR},
+      ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      TRANSFER_ORG_CODE = #{transferOrgCode,jdbcType=VARCHAR},
+      IN_PAY_ORG_CODE = #{inPayOrgCode,jdbcType=VARCHAR},
+      OUT_PAY_ORG_CODE = #{outPayOrgCode,jdbcType=VARCHAR},
+      SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      TERMINAL_SEQ_NO = #{terminalSeqNo,jdbcType=VARCHAR},
+      ACCEPT_TXN_DATE = #{acceptTxnDate,jdbcType=VARCHAR},
+      ACCEPT_TXN_TIME = #{acceptTxnTime,jdbcType=VARCHAR},
+      TXN_AMOUNT = #{txnAmount,jdbcType=DECIMAL},
+      IN_ACCOUNT_NO = #{inAccountNo,jdbcType=VARCHAR},
+      IN_SEQ_NO = #{inSeqNo,jdbcType=VARCHAR},
+      OUT_ACCOUNT_NO = #{outAccountNo,jdbcType=VARCHAR},
+      OUT_SEQ_NO = #{outSeqNo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      L_IN_SEQ_NO = #{lInSeqNo,jdbcType=VARCHAR},
+      L_OUT_SEQ_NO = #{lOutSeqNo,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RESEND_NUM = #{resendNum,jdbcType=DECIMAL},
+      APPLY_UID = #{applyUid,jdbcType=VARCHAR},
+      APPLY_TIME = #{applyTime,jdbcType=TIMESTAMP},
+      ORG_CHECK_UID = #{orgCheckUid,jdbcType=VARCHAR},
+      ORG_CHECK_TIME = #{orgCheckTime,jdbcType=TIMESTAMP},
+      CORE_CHECK_UID = #{coreCheckUid,jdbcType=VARCHAR},
+      CORE_CHECK_TIME = #{coreCheckTime,jdbcType=TIMESTAMP},
+      TXN_CHANNEL = #{txnChannel,jdbcType=CHAR},
+      IN_TXN_TYPE = #{inTxnType,jdbcType=VARCHAR},
+      OUT_TXN_TYPE = #{outTxnType,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

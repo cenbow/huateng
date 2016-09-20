@@ -1,0 +1,143 @@
+/* 选择城市模块CSS */
+.ui-lifepay {
+	width: 100%;
+	height: 40px;
+	text-align: left;
+	background-color: #FFF7E7;
+	display: block;
+	float: left;
+}
+.ui-lifepay .ui-lifeselect {
+	position: relative;
+	float: left;
+	margin-left: 65px;
+	line-height: 40px;
+}
+.ui-lifepay .ui-citytxt {
+	float: left;
+	font-size: 14px;
+}
+.ui-lifepay .payl-txtxs01 {
+	position: relative;
+	text-align: right;
+	margin-top: 6px;
+	width: 80px;
+	height: 20px;
+	line-height: 20px;
+	float: left;
+	color: #505050;
+	display: inline;
+}
+.ui-lifepay .life-payl02 {
+	width: 119px;
+	height: 30px;
+	float: left;
+	position: relative;
+	top: 5px;
+	left: 5px;
+	background-image: url(../images/sdm/jflb01.jpg);
+	background-position: top;
+	cursor: pointer;
+}
+.ui-lifepay .life-payl03 {
+	width: 119px;
+	height: 30px;
+	float: left;
+	position: relative;
+	top: 5px;
+	margin-left: 15px;
+	background-image: url(../images/sdm/jflb01.jpg);
+	background-position: top;
+	cursor: pointer;
+}
+.ui-lifepay .lifetcdiv {
+	position: absolute;
+	width: 117px;
+	line-height: 30px;
+	left: 0px;
+	top: 29px;
+	background-color: #FFF;
+	z-index: 999;
+	Max-Height: 220px;
+	Min-Height: 30px;
+_height:expression(this.scrollHeight > 220 ? "220px" : (this.scrollHeight < 30 ? "30px" : "auto"));
+	overflow: auto;
+	overflow-x: hidden;
+	border: 1px solid #EEE0BD;
+}
+.ui-lifepay .lifetcdiv ul li {
+	color: #505050;
+	cursor: pointer;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	background-color: #FFF;
+}
+.ui-lifepay .lifetcdiv ul li:hover {
+	color: #fff;
+	background-color: #CFB77B;
+}
+.ui-lifepay .jftc02 {
+	left: 65px;
+	top: 35px;
+}
+.ui-lifepay .jftc02 ul li span {
+	position: relative;
+	width: 80px;
+	text-align: right;
+	float: left;
+}
+.ui-lifepay .jftc03 {
+	left: 194px;
+	top: 35px;
+}
+.ui-lifepay .jftc03 ul li span {
+	position: relative;
+	width: 80px;
+	text-align: right;
+	float: left;
+}
+/* 表单分布CSS */
+
+.ui-lifeform {
+	width: 100%;
+	float: left;
+	margin-top: 35px;
+	padding-bottom: 35px;
+}
+.ui-lifeform .ui-lifeformleft {
+	width: 540px;
+	float: left;
+	display: inline-block;
+}
+/* 选择样单图片 */
+
+.ui-lifeform .ui-lifeformright {
+	width: 220px;
+	float: left;
+	display: inline-block;
+}
+.ui-lifeform .ui-lifeformright .ckimg01 {
+	width: 190px;
+	text-align: center;
+	margin-top: 15px;
+}
+.ui-lifeform .ui-lifeformright .ckimg01 a {
+	width: 138px;
+	margin: 0 auto;
+	height: 102px;
+	background-image: url(../images/sdm/ckyd01.jpg);
+	background-position: top;
+	display: block;
+}
+.ui-lifeform .ui-lifeformright .ckimg01 a:hover {
+	background-position: bottom;
+}
+.ui-lifeform .ui-lifeformright .cktxt01 {
+	width: 190px;
+	text-align: center;
+	color: #515151;
+	line-height: 18px;
+	margin-top: 10px;
+}

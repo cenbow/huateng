@@ -1,0 +1,45 @@
+{{#component "safeCenter-left"}}
+<div class="left">
+	<ul class="menus">
+		<h2><em>安全中心<span class="font-grey16">(6)</span></em><i></i></h2>
+
+		 		  <li class="m1  {{#match "payPwdModify" _PAGE_.path}}current
+                        {{/match}}">
+                     <a href="/safeCenter/paypwd/payPwdModify"><i></i>支付密码修改</a>
+                  </li>
+
+                  <li class="m2 {{#match "reset" _PAGE_.path}}
+                                {{#match "way" _PAGE_.path}}current
+                                {{/match}}{{/match}}">
+                     <a href="/safeCenter/paypwd/reset/way"><i></i>支付密码重置</a>
+                  </li>
+
+
+                  <li class="m3 
+                                {{#match "re_LoginPassword" _PAGE_.path}}current
+                                {{/match}}">
+                     <a href="/safeCenter/loginPwd/re_LoginPassword"><i></i>登录密码修改</a>
+                  </li>
+
+                  <li class="m4 {{#match "question" _PAGE_.path}}
+                                {{#match "resetQuestion" _PAGE_.path}}current
+                                {{/match}}{{/match}}">
+                     <a href="/safeCenter/question/resetQuestion"><i></i>密保问题重置</a>
+                  </li>
+
+                  <li class="m5 {{#match "realName" _PAGE_.path}}
+                                current
+                                {{/match}}">
+                     <a href="/api/security/result"><i></i>实名认证</a>
+                  </li>
+
+                  <li class="m6 {{#match "limit" _PAGE_.path}}
+                                {{#match "limitModify" _PAGE_.path}}current
+                                {{/match}}{{/match}}">
+                     <a href="/safeCenter/limit/limitModify"><i></i>交易限额</a>
+                  </li>
+
+
+	</ul>
+</div><!--left结束 -->
+{{/component}}

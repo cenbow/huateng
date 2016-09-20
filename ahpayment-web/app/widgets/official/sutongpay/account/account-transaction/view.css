@@ -1,0 +1,30 @@
+
+
+.account-transaction .tit{height:30px; line-height:30px; border-bottom:1px solid #e6e4e4; display:block; font-weight:normal; display:block;}
+.account-transaction .tit h2 a{width:90px;color:#666; text-align:center;text-decoration:none; float:left;}
+.account-transaction .tit h2{ width:90px; text-align:center;font-size:14px; color:#666; float:left;}
+.account-transaction .tit h2{border-bottom:0px solid #0169b8}
+.account-transaction .tit h2.active a{width:90px; color:#0169b8;border-bottom:4px solid #0169b8; display:block;}
+
+.account-transaction .time{color:#b5b5b5; font-size:12px; float:right;}
+.account-transaction .time a{ color:#0269b8; padding:0 8px; text-decoration:underline;}
+
+.account-transaction .tabcontent{ clear:both; padding-top:28px; overflow:hidden;}
+
+.account-transaction .colb{color:#555; font-size:14px;height:32px; line-height:32px; display:block;}
+.account-transaction .colb a{padding:0 16px; color:#0269b8; text-decoration:underline;}
+.account-transaction .colb a:hover{text-decoration:none;}
+.account-transaction .colb-wa{width:800px;}
+.account-transaction .sel-inqu{ border:2px solid #ff7f00; color:#ff6100;position: relative;}
+.account-transaction .sel-inqu i{ background-image:url(/assets/sutongpay/common.png); background-position:-528px 0; float:left; overflow:hidden; display:block; width:13px; height:13px;position:absolute; right:0;bottom: 0;}
+.account-transaction .inqu{color:#555;padding:0 12px; margin:0 6px; height:28px; font-size:14px; display:block;}
+.account-transaction .inqu a{color:#555; text-decoration:none;}
+.account-transaction .tabcontent table{width:100%;}
+.account-transaction .tabcontent table th{ color:#666; font-size:14px; background:#f6f6f6; border-bottom:2px solid #dcdcdc; height:40px; line-height:40px;}
+.account-transaction .tabcontent table td.first{border-left:1px solid #dcdcdc;}
+.account-transaction .tabcontent table td.last{border-right:1px solid #dcdcdc;}
+.account-transaction .tabcontent table tr.white td{ color:#666;font-size:14px; background:#fff;border-bottom:1px solid #efefef; text-align:center; height:44px; line-height:44px;}
+.account-transaction .tabcontent table tr.grey td{ color:#666;font-size:14px; background:#f9f9f9;border-bottom:1px solid #efefef; text-align:center; height:44px; line-height:44px;}
+
+.account-transaction .fund-detail{ background:#fff; margin-top:8px; padding:6px 16px 80px 16px; border:1px solid #dcdcdc; overflow:hidden;}
+

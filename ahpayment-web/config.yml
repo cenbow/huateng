@@ -1,0 +1,62 @@
+paths:
+  public: "public"
+groups:
+  scripts:
+    paths:
+      - "app/scripts"
+      - "app/widgets"
+    concat:
+      "assets/play.js": "{vendor/play/*.{js,coffee}}"
+      "assets/gray.js": "{vendor/gray/*.{js,coffee}}"
+      "assets/common.js": "{vendor/scripts/**/*.{js,coffee},app/scripts/common/**/*.{js,coffee},app/widgets/**/view.{js,coffee}}"
+      "assets/design.js": "{app/scripts/design/**/*.{js,coffee},app/widgets/**/config.{js,coffee}}"
+    order:
+      - "vendor/scripts/commonjs.js"
+      - "vendor/scripts/underscore.js"
+      - "vendor/scripts/jquery/jquery-1.10.2.js"
+      - "vendor/scripts/jquery/jquery-migrate-1.2.1.js"
+      - "vendor/scripts/jquery/jquery-ui-1.10.3.custom.js"
+      - "vendor/scripts/parsley/parsley.custom.js"
+      - "vendor/scripts/bootstrap/bootstrap-tooltip.js"
+      - "vendor/scripts/moment/moment.js"
+      - "vendor/scripts/moment/moment.local.zh-cn.js"
+      - "vendor/scripts/spin/spin.js"
+      - "vendor/scripts/spin/jquery.spin.js"
+      - "vendor/play/jquery-1.3.2.min.js"
+      - "vendor/play/help-js01.js"
+      - "vendor/play/help-js02.js"
+      - "vendor/play/help-js03.js"
+      - "vendor/play/help-js04.js"
+      - "vendor/play/help-js05.js"
+      - "vendor/play/help-js06.js"
+      - "vendor/play/play01.js"
+      - "vendor/play/help-js07.js"
+      - "vendor/play/help-js08.js"
+      - "vendor/play/help-js09.js"
+      - "vendor/play/help-js10.js"
+      - "vendor/play/help-js11.js"
+  styles:
+    paths:
+      - "app/styles"
+      - "app/widgets"
+    concat:
+      "assets/common.css": "{vendor/**/[a-z]*.{css,scss,sass},app/styles/common/**/[a-z]*.{css,scss,sass},app/widgets/**/view.{css,scss,sass}}"
+      "assets/design.css": "{app/styles/design/**/[a-z]*.{css,scss,sass},app/widgets/**/config.{css,scss,sass}}"
+      "assets/app.css": "{app/styles/app.{css,scss,sass}}"
+      "assets/bootstrap.css": "{app/styles/boot/bootstrap.{css,scss,sass}}"
+      "assets/smallBootstrap.css": "{app/styles/boot/smallBootstrap.{css,scss,sass}}"
+      "assets/play.css": "{app/styles/play/*.{css,scss,sass}}"
+  images:
+    copy:
+      "assets/": "{app/images/**/*.{png,gif,jpg,ico},app/static/**/*.{htm,html}}"
+
+  views:
+    copy:
+      "templates/layout": "app/views/**/*.{html,hbs}"
+      "templates/": "app/widgets/**/*.{html,hbs}"
+  
+      
+modules:
+  wrapper: "cmd"
+  definition: "assets/common.js"
+notifications: true

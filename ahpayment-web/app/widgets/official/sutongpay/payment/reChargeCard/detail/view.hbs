@@ -1,0 +1,71 @@
+{{#component "payment-reChargeCard-detail"}}
+<form action="/api/payment/createOrder" method="POST" id="reChargeForm">
+    <input type="hidden" name="skuId"  />
+    <input type="hidden" name="count"  />
+</form>
+ {{#if _DATA_.item}}
+    <input type="hidden" name="itemId" value="{{_DATA_.item.id}}" />
+    <input type="hidden" name="spuId" value="{{_DATA_.item.spuId}}" />
+  {{/if}}
+      <div class="spxx_box">
+        <div class="spxq_card">
+          <img src="{{_DATA_.item.mainImage}}" width="206" height="131">
+        </div>
+        <div class="spxq_con">
+          <ul>
+            <li>
+              <h1>{{_DATA_.item.name}}</h1>
+            </li>
+            <li>库存 : 有货</li>
+            <li>
+              价格 : 
+              <span class="jg_r">
+                {{formatPrice _DATA_.item.price}}
+              </span> 元
+            </li>
+            <li>
+              <div class="xx"></div>
+            </li>
+          </ul>
+          <ul id="choose" data-skus="{{_DATA_.skus}}" data-skusdd="{{_DATA_.skuGroup}}">
+            {{#each _DATA_.skuGroup}}
+                <li class="sku-choose" id="choose-version">
+                    <div class="dt">{{@key}}：</div>
+                    <input id="skuDetail" type="hidden" value="{{this}}"/>
+                    <div class="smdd1" >
+
+                    </div>
+                </li>
+            {{/each}}
+            <li id="choose-amount">
+                    <div class="dt">购买数量：</div>
+                    <div class="smdd">
+                        <div class="wrap-input">
+                            <input class="text" id="buy-num" maxlength="3" value="1"/>
+                            <a class="btn-add"></a>
+                            <a class="btn-reduce"></a>
+                        </div>
+                    </div>
+            </li>
+          </ul>
+          <span class="clr"></span>
+
+            <div id="choose-btn-append" class="">
+                {{#equals _DATA_.item.status 1}}
+                <a href="javascript:void(0)" id="js-fast-buy" class="ui-button ui-button-morange" data-url="confirm">立即购买</a>
+                <a href="javascript:void(0)" id="js-fast-addcart" class="ui-button ui-button-primary" >加入购物车</a>
+                {{else}}
+                <a href="javascript:void(0)" class="btn btn-large disabled" style="font-size:20px;">商品已下架</a>
+                {{/equals}}
+            </div>
+            <span class="clr"></span>
+        </div>
+      </div>
+      <input type="hidden" value="{{_DATA_.detail.strDetail}}" name="detailText" id="detailText"/>
+      <div class="spxq_tit">商品详情</div>
+      <div class="spxq_tex">
+        
+      </div>
+  </div>
+
+{{/component}}

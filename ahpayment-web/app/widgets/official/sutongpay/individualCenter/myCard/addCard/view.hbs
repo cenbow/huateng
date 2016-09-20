@@ -1,0 +1,58 @@
+{{#component "individualCenter"}}
+<form id="formCard" method="post" action="/api/user/getAddCard2" AUTOCOMPLETE="OFF"/>
+<input id="bankType" name="bankType" type="hidden" value="_yinhang">
+<input id="bankCode" name="bankCode" type="hidden" value="60">
+<input id="cardType" name="cardType" type="hidden" value="0">
+<div class="fund-nav">
+       <li><a href="/account">账户首页</a></li>
+       <li class="now"><a href="/individualCenter">个人中心</a></li>
+       </div>
+       <div class="cl"></div>
+       <img src="/assets/sutongpay/air.png" width="1" height="23">
+       
+       <div class="maintab">
+       <div class="wm90">
+          <img src="/assets/sutongpay/air.png" width="1" height="15">
+		<span class="tit">				   
+				   <h2>添加银行卡</h2></span>
+      
+       <img src="/assets/sutongpay/air.png" width="1" height="20">
+       <center>
+         <img src="/assets/sutongpay/addcardstep1.png" width="700" height="79">
+       </center>
+       <img src="/assets/sutongpay/air.png" width="1" height="20">
+        <div class="maintab">
+        <div class="fl w50">
+        <div class="wm90">
+       <div class="carttt"> 信用卡</div>
+        <ul class="listcard" id="xy">
+          <input type="hidden" value="1"/>
+        <li title="建设银行" class="selected" id="_yinhang"><input type="hidden" value="60"/><div><img src="/assets/sutongpay/_yinhang.png" width="110" height="30"></div></li>
+        <li title="招商银行" id="zhaoshang"><input type="hidden" value="70"/><div><img src="/assets/sutongpay/zhaoshang.png" width="110"  height="30"></div></li>
+        </ul>
+        <div class="cl"></div>
+        </div>
+        </div>
+        <div class="fr w50"> <div class="wm90">
+        <div class="carttt">储蓄卡</div>
+        <ul class="listcard" id="cx">
+          <input type="hidden" value="2"/>
+        <li title="建设银行" id="_yinhang"><input type="hidden" value="60"/><div><img src="/assets/sutongpay/_yinhang.png" width="110" height="30"></div></li>
+        <li title="招商银行" id="zhaoshang"><input type="hidden" value="70"/><div><img src="/assets/sutongpay/zhaoshang.png" width="110"  height="30"></div></li>
+        </ul>
+        <div class="cl"></div>
+        </div></div>
+         <div class="cl"></div>
+          <img src="/assets/sutongpay/air.png" width="1" height="20">
+        </div>
+        <img src="/assets/sutongpay/air.png" width="1" height="20">
+        </div>
+       <div class="subline">
+       <div class="fr">
+         <div class="fl">已选择<img src="/assets/sutongpay/_yinhang.png" title="建设银行" width="110" height="30" id="seln"><span id="scardType">信用卡</span></div><div class="fr imput"><input type="button" value="提交" id="subBtn"></div><div class="cl"></div></div>
+       </div>
+</div>
+
+</form>
+
+{{/component}}

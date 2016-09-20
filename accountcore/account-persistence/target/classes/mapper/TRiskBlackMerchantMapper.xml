@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TRiskBlackMerchantMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TRiskBlackMerchant" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="MERCHANT_CODE" property="merchantCode" jdbcType="VARCHAR" />
+    <result column="BLACK_TIME" property="blackTime" jdbcType="TIMESTAMP" />
+    <result column="USE_FLAG" property="useFlag" jdbcType="CHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="TIMESTAMP" />
+    <result column="VALID_DATE" property="validDate" jdbcType="TIMESTAMP" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_FLAG" property="checkFlag" jdbcType="CHAR" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="CHAR" />
+    <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, MERCHANT_CODE, BLACK_TIME, USE_FLAG, EFFECTIVE_DATE, VALID_DATE, CREATE_UID, 
+    CREATE_TIME, CHECK_FLAG, CHECK_UID, CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, 
+    RESV_FLD1, RESV_FLD2, ARCHIVE_TIME, ARCHIVED_FLAG, L_RECORD_NO, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_RISK_BLACK_MERCHANT
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from T_RISK_BLACK_MERCHANT
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TRiskBlackMerchant" >
+    insert into T_RISK_BLACK_MERCHANT (RECORD_NO, MERCHANT_CODE, BLACK_TIME, 
+      USE_FLAG, EFFECTIVE_DATE, VALID_DATE, 
+      CREATE_UID, CREATE_TIME, CHECK_FLAG, 
+      CHECK_UID, CHECK_TIME, LAST_MODIFY_UID, 
+      LAST_MODIFY_TIME, RESV_FLD1, RESV_FLD2, 
+      ARCHIVE_TIME, ARCHIVED_FLAG, L_RECORD_NO, 
+      REMARK)
+    values (#{recordNo,jdbcType=DECIMAL}, #{merchantCode,jdbcType=VARCHAR}, #{blackTime,jdbcType=TIMESTAMP}, 
+      #{useFlag,jdbcType=CHAR}, #{effectiveDate,jdbcType=TIMESTAMP}, #{validDate,jdbcType=TIMESTAMP}, 
+      #{createUid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{checkFlag,jdbcType=CHAR}, 
+      #{checkUid,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{lastModifyUid,jdbcType=VARCHAR}, 
+      #{lastModifyTime,jdbcType=TIMESTAMP}, #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, 
+      #{archiveTime,jdbcType=TIMESTAMP}, #{archivedFlag,jdbcType=CHAR}, #{lRecordNo,jdbcType=DECIMAL}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TRiskBlackMerchant" >
+    insert into T_RISK_BLACK_MERCHANT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="merchantCode != null" >
+        MERCHANT_CODE,
+      </if>
+      <if test="blackTime != null" >
+        BLACK_TIME,
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG,
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG,
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="merchantCode != null" >
+        #{merchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="blackTime != null" >
+        #{blackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useFlag != null" >
+        #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TRiskBlackMerchant" >
+    update T_RISK_BLACK_MERCHANT
+    <set >
+      <if test="merchantCode != null" >
+        MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="blackTime != null" >
+        BLACK_TIME = #{blackTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG = #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TRiskBlackMerchant" >
+    update T_RISK_BLACK_MERCHANT
+    set MERCHANT_CODE = #{merchantCode,jdbcType=VARCHAR},
+      BLACK_TIME = #{blackTime,jdbcType=TIMESTAMP},
+      USE_FLAG = #{useFlag,jdbcType=CHAR},
+      EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

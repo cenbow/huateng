@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TRuleCapitalFeeMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TRuleCapitalFee" >
+    <result column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="SETTLE_LV" property="settleLv" jdbcType="CHAR" />
+    <result column="FEE_TYPE" property="feeType" jdbcType="CHAR" />
+    <result column="SUPPLY_ORG_CODE" property="supplyOrgCode" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_CODE" property="payOrgCode" jdbcType="VARCHAR" />
+    <result column="FEE_PAY_ORG_FLAG" property="feePayOrgFlag" jdbcType="CHAR" />
+    <result column="REAL_CALC_FLAG" property="realCalcFlag" jdbcType="CHAR" />
+    <result column="REAL_SETTLE_FLAG" property="realSettleFlag" jdbcType="CHAR" />
+    <result column="CALC_TYPE" property="calcType" jdbcType="CHAR" />
+    <result column="DC_FLAG_CORPUS" property="dcFlagCorpus" jdbcType="CHAR" />
+    <result column="DC_FLAG_FEE" property="dcFlagFee" jdbcType="CHAR" />
+    <result column="ORG_TYPE" property="orgType" jdbcType="VARCHAR" />
+    <result column="INDUSTRY" property="industry" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
+    <result column="TXN_TYPE" property="txnType" jdbcType="VARCHAR" />
+    <result column="TXN_CHANNEL" property="txnChannel" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TYPE" property="accountType" jdbcType="CHAR" />
+    <result column="MCHNT_TYPE" property="mchntType" jdbcType="VARCHAR" />
+    <result column="CARD_MEDIA_TYPE" property="cardMediaType" jdbcType="CHAR" />
+    <result column="CARD_BRAND_TYPE" property="cardBrandType" jdbcType="VARCHAR" />
+    <result column="TERMINAL_NO" property="terminalNo" jdbcType="VARCHAR" />
+    <result column="FEE_CODE" property="feeCode" jdbcType="DECIMAL" />
+    <result column="SHARED_CODE" property="sharedCode" jdbcType="VARCHAR" />
+    <result column="USE_FLAG" property="useFlag" jdbcType="CHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="CHAR" />
+    <result column="VALID_DATE" property="validDate" jdbcType="CHAR" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_FLAG" property="checkFlag" jdbcType="CHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="CHAR" />
+    <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+    <sql id="Base_Column_List">
+        RECORD_NO,SETTLE_LV,FEE_TYPE,SUPPLY_ORG_CODE,ACCEPT_ORG_CODE,PAY_ORG_CODE,FEE_PAY_ORG_FLAG,REAL_CALC_FLAG,
+        REAL_SETTLE_FLAG,CALC_TYPE,DC_FLAG_CORPUS,DC_FLAG_FEE,ORG_TYPE,INDUSTRY,AREA_CODE,CITY_CODE,BUSINESS_TYPE,
+        TXN_TYPE,TXN_CHANNEL,ACCOUNT_TYPE,MCHNT_TYPE,CARD_MEDIA_TYPE,CARD_BRAND_TYPE,TERMINAL_NO,FEE_CODE,
+        SHARED_CODE,USE_FLAG,EFFECTIVE_DATE,VALID_DATE,CREATE_UID,CREATE_TIME,CHECK_UID,CHECK_FLAG,CHECK_TIME,
+        LAST_MODIFY_UID,LAST_MODIFY_TIME,RESV_FLD1,RESV_FLD2,ARCHIVE_TIME,ARCHIVED_FLAG,L_RECORD_NO,REMARK
+    </sql>
+
+    <select id="findRuleCapitalFee" resultMap="BaseResultMap"  parameterType="java.util.HashMap">
+    select
+    <include refid="Base_Column_List"/>
+    from  t_rule_capital_fee R_rule_cap where USE_FLAG='1'
+        and ARCHIVED_FLAG='1'
+        and CHECK_FLAG='2'
+        and SETTLE_LV  =#{settlelv,jdbcType=VARCHAR}
+
+        <if test="supplyOrgCode != null" >
+            and SUPPLY_ORG_CODE= #{supplyOrgCode,jdbcType=VARCHAR}
+        </if>
+        <if test="acceptOrgCode != null" >
+            and ACCEPT_ORG_CODE= #{acceptOrgCode,jdbcType=VARCHAR}
+        </if>
+        and PAY_ORG_CODE= #{payOrgCode,jdbcType=VARCHAR}
+        and TXN_TYPE= #{txnType,jdbcType=VARCHAR}
+        and TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR}
+        and ACCOUNT_TYPE= #{accountType,jdbcType=VARCHAR}
+        and MCHNT_TYPE= #{mchntCode,jdbcType=VARCHAR}
+    <![CDATA[
+        and EFFECTIVE_DATE <= #{lastDate,jdbcType=VARCHAR}
+        and VALID_DATE >= #{lastDate,jdbcType=VARCHAR}
+         ]]>
+    </select>
+
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TRuleCapitalFee" >
+    insert into T_RULE_CAPITAL_FEE (RECORD_NO, SETTLE_LV, FEE_TYPE, 
+      SUPPLY_ORG_CODE, ACCEPT_ORG_CODE, PAY_ORG_CODE, 
+      FEE_PAY_ORG_FLAG, REAL_CALC_FLAG, REAL_SETTLE_FLAG, 
+      CALC_TYPE, DC_FLAG_CORPUS, DC_FLAG_FEE, 
+      ORG_TYPE, INDUSTRY, AREA_CODE, 
+      CITY_CODE, BUSINESS_TYPE, TXN_TYPE, 
+      TXN_CHANNEL, ACCOUNT_TYPE, MCHNT_TYPE, 
+      CARD_MEDIA_TYPE, CARD_BRAND_TYPE, TERMINAL_NO, 
+      FEE_CODE, SHARED_CODE, USE_FLAG, 
+      EFFECTIVE_DATE, VALID_DATE, CREATE_UID, 
+      CREATE_TIME, CHECK_UID, CHECK_FLAG, 
+      CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, 
+      RESV_FLD1, RESV_FLD2, ARCHIVE_TIME, 
+      ARCHIVED_FLAG, L_RECORD_NO, REMARK
+      )
+    values (#{recordNo,jdbcType=DECIMAL}, #{settleLv,jdbcType=CHAR}, #{feeType,jdbcType=CHAR}, 
+      #{supplyOrgCode,jdbcType=VARCHAR}, #{acceptOrgCode,jdbcType=VARCHAR}, #{payOrgCode,jdbcType=VARCHAR}, 
+      #{feePayOrgFlag,jdbcType=CHAR}, #{realCalcFlag,jdbcType=CHAR}, #{realSettleFlag,jdbcType=CHAR}, 
+      #{calcType,jdbcType=CHAR}, #{dcFlagCorpus,jdbcType=CHAR}, #{dcFlagFee,jdbcType=CHAR}, 
+      #{orgType,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{txnType,jdbcType=VARCHAR}, 
+      #{txnChannel,jdbcType=VARCHAR}, #{accountType,jdbcType=CHAR}, #{mchntType,jdbcType=VARCHAR}, 
+      #{cardMediaType,jdbcType=CHAR}, #{cardBrandType,jdbcType=VARCHAR}, #{terminalNo,jdbcType=VARCHAR}, 
+      #{feeCode,jdbcType=DECIMAL}, #{sharedCode,jdbcType=VARCHAR}, #{useFlag,jdbcType=CHAR}, 
+      #{effectiveDate,jdbcType=CHAR}, #{validDate,jdbcType=CHAR}, #{createUid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{checkUid,jdbcType=VARCHAR}, #{checkFlag,jdbcType=CHAR}, 
+      #{checkTime,jdbcType=TIMESTAMP}, #{lastModifyUid,jdbcType=VARCHAR}, #{lastModifyTime,jdbcType=TIMESTAMP}, 
+      #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, #{archiveTime,jdbcType=TIMESTAMP}, 
+      #{archivedFlag,jdbcType=CHAR}, #{lRecordNo,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TRuleCapitalFee" >
+    insert into T_RULE_CAPITAL_FEE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="settleLv != null" >
+        SETTLE_LV,
+      </if>
+      <if test="feeType != null" >
+        FEE_TYPE,
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE,
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE,
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE,
+      </if>
+      <if test="feePayOrgFlag != null" >
+        FEE_PAY_ORG_FLAG,
+      </if>
+      <if test="realCalcFlag != null" >
+        REAL_CALC_FLAG,
+      </if>
+      <if test="realSettleFlag != null" >
+        REAL_SETTLE_FLAG,
+      </if>
+      <if test="calcType != null" >
+        CALC_TYPE,
+      </if>
+      <if test="dcFlagCorpus != null" >
+        DC_FLAG_CORPUS,
+      </if>
+      <if test="dcFlagFee != null" >
+        DC_FLAG_FEE,
+      </if>
+      <if test="orgType != null" >
+        ORG_TYPE,
+      </if>
+      <if test="industry != null" >
+        INDUSTRY,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE,
+      </if>
+      <if test="txnType != null" >
+        TXN_TYPE,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="mchntType != null" >
+        MCHNT_TYPE,
+      </if>
+      <if test="cardMediaType != null" >
+        CARD_MEDIA_TYPE,
+      </if>
+      <if test="cardBrandType != null" >
+        CARD_BRAND_TYPE,
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO,
+      </if>
+      <if test="feeCode != null" >
+        FEE_CODE,
+      </if>
+      <if test="sharedCode != null" >
+        SHARED_CODE,
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG,
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG,
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="settleLv != null" >
+        #{settleLv,jdbcType=CHAR},
+      </if>
+      <if test="feeType != null" >
+        #{feeType,jdbcType=CHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feePayOrgFlag != null" >
+        #{feePayOrgFlag,jdbcType=CHAR},
+      </if>
+      <if test="realCalcFlag != null" >
+        #{realCalcFlag,jdbcType=CHAR},
+      </if>
+      <if test="realSettleFlag != null" >
+        #{realSettleFlag,jdbcType=CHAR},
+      </if>
+      <if test="calcType != null" >
+        #{calcType,jdbcType=CHAR},
+      </if>
+      <if test="dcFlagCorpus != null" >
+        #{dcFlagCorpus,jdbcType=CHAR},
+      </if>
+      <if test="dcFlagFee != null" >
+        #{dcFlagFee,jdbcType=CHAR},
+      </if>
+      <if test="orgType != null" >
+        #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null" >
+        #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=CHAR},
+      </if>
+      <if test="mchntType != null" >
+        #{mchntType,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMediaType != null" >
+        #{cardMediaType,jdbcType=CHAR},
+      </if>
+      <if test="cardBrandType != null" >
+        #{cardBrandType,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="feeCode != null" >
+        #{feeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="sharedCode != null" >
+        #{sharedCode,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null" >
+        #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        #{effectiveDate,jdbcType=CHAR},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=CHAR},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

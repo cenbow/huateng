@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogRefundApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogRefundApply" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="TERMINAL_NO" property="terminalNo" jdbcType="VARCHAR" />
+    <result column="TERMINAL_SEQ_NO" property="terminalSeqNo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TXN_DATE" property="acceptTxnDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TXN_TIME" property="acceptTxnTime" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="TXN_AMOUNT" property="txnAmount" jdbcType="DECIMAL" />
+    <result column="L_TXN_SEQ_NO" property="lTxnSeqNo" jdbcType="VARCHAR" />
+    <result column="REFUND_SEQ_NO" property="refundSeqNo" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RESEND_NUM" property="resendNum" jdbcType="DECIMAL" />
+    <result column="APPLY_UID" property="applyUid" jdbcType="VARCHAR" />
+    <result column="APPLY_TIME" property="applyTime" jdbcType="TIMESTAMP" />
+    <result column="ORG_CHECK_UID" property="orgCheckUid" jdbcType="VARCHAR" />
+    <result column="ORG_CHECK_TIME" property="orgCheckTime" jdbcType="TIMESTAMP" />
+    <result column="CORE_CHECK_UID" property="coreCheckUid" jdbcType="VARCHAR" />
+    <result column="CORE_CHECK_TIME" property="coreCheckTime" jdbcType="TIMESTAMP" />
+    <result column="ACCEPT_SEQ_NO" property="acceptSeqNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, ORG_CODE, TERMINAL_NO, TERMINAL_SEQ_NO, ACCEPT_TXN_DATE, ACCEPT_TXN_TIME, 
+    ACCOUNT_NO, TXN_AMOUNT, L_TXN_SEQ_NO, REFUND_SEQ_NO, STATUS, REMARK, RESEND_NUM, 
+    APPLY_UID, APPLY_TIME, ORG_CHECK_UID, ORG_CHECK_TIME, CORE_CHECK_UID, CORE_CHECK_TIME, 
+    ACCEPT_SEQ_NO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_LOG_REFUND_APPLY
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+    <select id="selectByrefundapplySeq" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from CORE.T_LOG_REFUND_APPLY
+        where REFUND_SEQ_NO = #{refundSeqNo,jdbcType=VARCHAR}
+
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_LOG_REFUND_APPLY
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogRefundApply" >
+    insert into CORE.T_LOG_REFUND_APPLY (RECORD_NO, ORG_CODE, TERMINAL_NO, 
+      TERMINAL_SEQ_NO, ACCEPT_TXN_DATE, ACCEPT_TXN_TIME, 
+      ACCOUNT_NO, TXN_AMOUNT, L_TXN_SEQ_NO, 
+      REFUND_SEQ_NO, STATUS, REMARK, 
+      RESEND_NUM, APPLY_UID, APPLY_TIME, 
+      ORG_CHECK_UID, ORG_CHECK_TIME, CORE_CHECK_UID, 
+      CORE_CHECK_TIME, ACCEPT_SEQ_NO)
+    values (#{recordNo,jdbcType=DECIMAL}, #{orgCode,jdbcType=VARCHAR}, #{terminalNo,jdbcType=VARCHAR},
+      #{terminalSeqNo,jdbcType=VARCHAR}, #{acceptTxnDate,jdbcType=VARCHAR}, #{acceptTxnTime,jdbcType=VARCHAR}, 
+      #{accountNo,jdbcType=VARCHAR}, #{txnAmount,jdbcType=DECIMAL}, #{lTxnSeqNo,jdbcType=VARCHAR}, 
+      #{refundSeqNo,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{resendNum,jdbcType=DECIMAL}, #{applyUid,jdbcType=VARCHAR}, #{applyTime,jdbcType=TIMESTAMP}, 
+      #{orgCheckUid,jdbcType=VARCHAR}, #{orgCheckTime,jdbcType=TIMESTAMP}, #{coreCheckUid,jdbcType=VARCHAR}, 
+      #{coreCheckTime,jdbcType=TIMESTAMP}, #{acceptSeqNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogRefundApply" >
+    insert into CORE.T_LOG_REFUND_APPLY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO,
+      </if>
+      <if test="terminalSeqNo != null" >
+        TERMINAL_SEQ_NO,
+      </if>
+      <if test="acceptTxnDate != null" >
+        ACCEPT_TXN_DATE,
+      </if>
+      <if test="acceptTxnTime != null" >
+        ACCEPT_TXN_TIME,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="txnAmount != null" >
+        TXN_AMOUNT,
+      </if>
+      <if test="lTxnSeqNo != null" >
+        L_TXN_SEQ_NO,
+      </if>
+      <if test="refundSeqNo != null" >
+        REFUND_SEQ_NO,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="resendNum != null" >
+        RESEND_NUM,
+      </if>
+      <if test="applyUid != null" >
+        APPLY_UID,
+      </if>
+      <if test="applyTime != null" >
+        APPLY_TIME,
+      </if>
+      <if test="orgCheckUid != null" >
+        ORG_CHECK_UID,
+      </if>
+      <if test="orgCheckTime != null" >
+        ORG_CHECK_TIME,
+      </if>
+      <if test="coreCheckUid != null" >
+        CORE_CHECK_UID,
+      </if>
+      <if test="coreCheckTime != null" >
+        CORE_CHECK_TIME,
+      </if>
+      <if test="acceptSeqNo != null" >
+        ACCEPT_SEQ_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSeqNo != null" >
+        #{terminalSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnDate != null" >
+        #{acceptTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnTime != null" >
+        #{acceptTxnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmount != null" >
+        #{txnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="lTxnSeqNo != null" >
+        #{lTxnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundSeqNo != null" >
+        #{refundSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resendNum != null" >
+        #{resendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="applyUid != null" >
+        #{applyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgCheckUid != null" >
+        #{orgCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCheckTime != null" >
+        #{orgCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="coreCheckUid != null" >
+        #{coreCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="coreCheckTime != null" >
+        #{coreCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptSeqNo != null" >
+        #{acceptSeqNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogRefundApply" >
+    update CORE.T_LOG_REFUND_APPLY
+    <set >
+      <if test="orgCode != null" >
+        ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSeqNo != null" >
+        TERMINAL_SEQ_NO = #{terminalSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnDate != null" >
+        ACCEPT_TXN_DATE = #{acceptTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxnTime != null" >
+        ACCEPT_TXN_TIME = #{acceptTxnTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmount != null" >
+        TXN_AMOUNT = #{txnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="lTxnSeqNo != null" >
+        L_TXN_SEQ_NO = #{lTxnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundSeqNo != null" >
+        REFUND_SEQ_NO = #{refundSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resendNum != null" >
+        RESEND_NUM = #{resendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="applyUid != null" >
+        APPLY_UID = #{applyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        APPLY_TIME = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgCheckUid != null" >
+        ORG_CHECK_UID = #{orgCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCheckTime != null" >
+        ORG_CHECK_TIME = #{orgCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="coreCheckUid != null" >
+        CORE_CHECK_UID = #{coreCheckUid,jdbcType=VARCHAR},
+      </if>
+      <if test="coreCheckTime != null" >
+        CORE_CHECK_TIME = #{coreCheckTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptSeqNo != null" >
+        ACCEPT_SEQ_NO = #{acceptSeqNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogRefundApply" >
+    update CORE.T_LOG_REFUND_APPLY
+    set ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      TERMINAL_SEQ_NO = #{terminalSeqNo,jdbcType=VARCHAR},
+      ACCEPT_TXN_DATE = #{acceptTxnDate,jdbcType=VARCHAR},
+      ACCEPT_TXN_TIME = #{acceptTxnTime,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      TXN_AMOUNT = #{txnAmount,jdbcType=DECIMAL},
+      L_TXN_SEQ_NO = #{lTxnSeqNo,jdbcType=VARCHAR},
+      REFUND_SEQ_NO = #{refundSeqNo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RESEND_NUM = #{resendNum,jdbcType=DECIMAL},
+      APPLY_UID = #{applyUid,jdbcType=VARCHAR},
+      APPLY_TIME = #{applyTime,jdbcType=TIMESTAMP},
+      ORG_CHECK_UID = #{orgCheckUid,jdbcType=VARCHAR},
+      ORG_CHECK_TIME = #{orgCheckTime,jdbcType=TIMESTAMP},
+      CORE_CHECK_UID = #{coreCheckUid,jdbcType=VARCHAR},
+      CORE_CHECK_TIME = #{coreCheckTime,jdbcType=TIMESTAMP},
+      ACCEPT_SEQ_NO = #{acceptSeqNo,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

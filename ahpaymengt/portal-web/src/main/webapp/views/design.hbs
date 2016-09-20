@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>
+        {{title}}
+    </title>
+    <link rel="stylesheet" href="/assets/common.css?t=${build.number}">
+    <link rel="stylesheet" href="/assets/design.css?t=${build.number}">
+    <!--[if IE 6]>
+    <link href="/assets/ie.css" rel="stylesheet">
+    <![endif]-->
+    <script src="/assets/common.js?t=${build.number}"></script>
+    <script src="/assets/design.js?t=${build.number}"></script>
+</head>
+
+<body id="body" style="{{style}}">
+<div class="toolbar">
+    <ul class="toolbar-menu unstyled">
+        <li class="page-menu"></li>
+        <li class="design-menu"></li>
+        <li class="comp-menu"></li>
+    </ul>
+</div>
+
+<div class="top-bar-container">
+    <div class="row-fluid top-bar">
+        <div class="span2">
+            <div class="logo"></div>
+        </div>
+        <div class="span6">
+        </div>
+        <div class="span4">
+            <div class="f-r">
+                <span>
+                     <button class="btn" id="js-page-structure-save">保存</button>
+                     <button class="btn" id="js-site-deploy">发布</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page">
+    {{{header}}}
+    {{{body}}}
+    {{{footer}}}
+</div>
+<input id="siteId" type="hidden" value="{{siteId}}">
+<input id="siteInstanceId" type="hidden" value="{{siteInstanceId}}">
+<input id="headFootData" type="hidden" value='{{{_HEAD_FOOT_DATA_}}}'>
+<script type="text/javascript">
+    require("design/init")
+</script>
+</body>
+
+</html>

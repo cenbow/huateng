@@ -1,0 +1,14 @@
+/***商品列表***/
+.payment-reChargeCard .sph_box{ height:auto; width:715px; border-bottom:1px dotted #DCDCDC; padding:20px 0; overflow:hidden; margin:10px 20px 10px 23px;}
+.payment-reChargeCard .sp_pic{ border:1px solid #dcdcdc; padding:15px; height:auto; width:auto; float:left;} 
+.payment-reChargeCard .sp_md_jz { height: 114px; width: 178px;}
+.payment-reChargeCard .sp_con{ height:auto; width:485px; float:left;margin:0 0 0 20px;}
+.payment-reChargeCard .splb_tit{ height:35px; line-height:35px; width:485px; font-weight:bold; font-size:14px; border-bottom:1px solid #dcdcdc;}
+.payment-reChargeCard .spxx_tex{ margin:10px 0 10px 0; height:75px;overflow:hidden;line-height:25px}
+.payment-reChargeCard .lb_but{ width:auto; height:auto;float:left;overflow:hidden;}
+.payment-reChargeCard .spxx_tex li span{ color:#0169B8}
+.payment-reChargeCard .m_l{ margin-right:22px;}
+
+/*按纽*/
+.payment-reChargeCard .inqu-btn{background:#fff; background-image:url(/assets/sutongpay/common.png); background-position: -238px -180px; width:97px; height:36px; border:0; font-size:14px; font-weight:bold; color:#666; display:block; margin-left:12px;}
+.payment-reChargeCard .funds-org{background:#f6f6f6;background-image:url(/assets/sutongpay/common.png); background-position:-369px -182px; float:left; display:block; width:98px; height:35px; text-align:center;font-size:14px; font-weight:bold; color:#fff; line-height:35px; border:0; cursor:pointer;margin-right:8px;}

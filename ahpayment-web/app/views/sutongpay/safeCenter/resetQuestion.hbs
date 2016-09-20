@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="description" content='{{#block "desc"}}速通支付{{/block}}'>
+  <title>
+    速通支付-重置密保问题
+  </title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/common.css">
+</head>
+<body>
+  <div id="wrapper">
+    {{inject "official/sutongpay/index-header"}}
+  <div class="index-main">
+    <div class="p-main-bg">
+       <div class="p-main">
+     
+  <div class="right">
+     {{inject "official/sutongpay/title"}}
+     {{inject "official/sutongpay/safeCenter/question/reset/payPwd"}}
+  <div>
+    </div>
+      </div>
+  </div>
+ {{inject "official/sutongpay/footer"}}
+    <script src="/assets/common.js"></script>
+    <script>require("common/init")</script>
+  </div>
+</body>
+</html>

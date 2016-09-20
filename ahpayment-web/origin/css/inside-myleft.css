@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ui-my-left .ui-my-nav {
+	width: 100%;
+	float: left;
+}
+.ui-my-left .ui-my-nav ul li {
+	height: 48px;
+	width: 100%;
+	text-align: left;
+	font-size: 14px;
+	position: relative;
+	right: 1px;
+}
+.ui-my-left .ui-my-nav ul li:hover {
+	background-color: #E1EEEE;
+}
+.ui-my-left .ui-my-nav .my-nav-sel {
+	border-bottom: 1px solid #c2ccde;
+	border-top: 1px solid #c2ccde;
+	border-left: 3px solid #F77700;
+	background-color: #FFF;
+	position: relative;
+	right: 0px;
+	width: 177px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel:hover {
+	background-color: #FFF;
+}
+.ui-my-left .ui-my-nav .my-nav-sel a {
+	color: #666;
+	font-weight: bold;
+}
+.ui-my-left .ui-my-nav a {
+	color: #666;
+	display: inline-block;
+	width: 100%;
+}
+.ui-my-left .ui-my-nav .icon-myleft-nav {
+	width: 24px;
+	height:24px;
+	float: left;
+	margin: 10px;
+	background-image:url(../images/inside-main/allicon.png);
+	background-position-x:-24px;
+	background-repeat:no-repeat;
+	margin-left:20px;
+}
+.ui-my-left .ui-my-nav .my-nav-angle {
+	width: 5px;
+	height: 16px;
+	background-image:url(../images/inside-main/allicon.png);
+	float: right;
+	margin: 15px 12px 15px 10px;
+	background-position: -54px -67px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-myleft-nav {
+	background-position-x:0px;
+	margin-left: 15px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .my-nav-angle {
+	background-position: -48px -67px;
+}
+.ui-my-left .ui-my-nav p {
+	float: left;
+	margin: 13px auto;
+}
+.ui-my-left .ui-my-nav .icon-Account {
+	background-position-y:0px;
+}
+.ui-my-left .ui-my-nav .icon-PersonalCenter {
+	background-position-y:-24px;
+}
+.ui-my-left .ui-my-nav .icon-SecurityCenter {
+	background-position-y:-48px;
+}
+.ui-my-left .ui-my-nav .icon-BillingCenter {
+	background-position-y:-72px;
+}
+.ui-my-left .ui-my-nav .icon-TransactionInquiries {
+	background-position-y:-96px;
+}
+.ui-my-left .ui-my-nav .icon-Details {
+	background-position-y:-120px;
+}
+.ui-my-left .ui-my-nav .icon-RechargeRecord {
+	background-position-y:-144px;
+}
+.ui-my-left .ui-my-nav .icon-WithdrawRecord {
+	background-position-y:-168px;
+}
+.ui-my-left .ui-my-nav .icon-PurchasedCard {
+	background-position-y:-192px;
+}
+.ui-my-left .ui-my-nav .icon-ModifyPassword {
+	background-position-y:-264px;
+}
+.ui-my-left .ui-my-nav .icon-TradingLimit {
+	background-position-y:-216px;
+}
+.ui-my-left .ui-my-nav .icon-InformationInquiry {
+	background-position-y:-240px;
+}
+.ui-my-left .ui-my-line {
+	width: 100%;
+	height: 2px;
+	background: url(../images/inside-main/insidemyleft-line.jpg) center no-repeat;
+	font-size: 2px;
+	line-height: 2px;
+	margin: 10px auto 15px auto;
+	display: block;
+	float: left;
+}
+.ui-my-left .ui-my-App {
+	width: 100%;
+	text-align: left;
+	float: left;
+	padding-bottom: 25px;
+}
+.ui-my-left .ui-my-App .ui-app-mytitle {
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+	padding-left: 20px;
+}
+.ui-my-left .ui-my-App .ui-app-mytitle:hover {
+	text-decoration: none;
+}
+.ui-my-left .ui-my-App .ui-myappul {
+	margin-top: 25px;
+	display: inline-block;
+	width:96%;
+}
+.ui-my-left .ui-myappul li {
+	float: left;
+	text-align: center;
+	margin-bottom: 10px;
+	display:block;
+	height:60px;
+	width:48%;
+}
+.ui-my-left .ui-myappul span {
+	width: 100%;
+	float: left;
+	text-align: center;
+	line-height: 21px;
+	color:#666;
+}
+.ui-my-left .ui-my-App span:hover {
+	text-decoration: underline;
+}
+.ui-my-left .ui-my-App .ui-myappul i{ width:38px;  height:40px; display:block; background-image:url(../images/inside-main/appicon40.png); margin:0 auto;}
+i.ui-myappicon-water{ background-position-x:-232px;}
+i.ui-myappicon-3G{ background-position-x:-1px;}
+i.ui-myappicon-yccard{ background-position-x:-78px;}
+i.ui-myappicon-telephone{ background-position-x:-117px;}
+i.ui-myappicon-heater{ background-position-x:-155px;}
+i.ui-myappicon-TV{ background-position-x:-193px;}
+i.ui-myappicon-Gas{ background-position-x:-272px;}
+i.ui-myappicon-QQ{ background-position-x:-314px;}
+i.ui-myappicon-LotteryTicket{ background-position-x:-360px;}
+i.ui-myappicon-Game{ background-position-x:-400px;}
+i.ui-myappicon-Traffic{ background-position-x:-438px;}
+i.ui-myappicon-Safety{ background-position-x:-478px;}
+i.ui-myappicon-Number{ background-position-x:-516px;}
+i.ui-myappicon-Electricity{ background-position-x:-556px;}
+i.ui-myappicon-mob{ background-position-x:-594px;}
+i.ui-myappicon-11888card{ background-position-x:-673px;}

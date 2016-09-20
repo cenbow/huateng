@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		 http://code.alibabatech.com/schema/dubbo
+		 http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="huateng-provider" logger="slf4j"/>
+
+    <import resource="classpath*:spring/account-context.xml"/>
+    <!-- 使用zookeeper广播注册中心暴露服务地址 -->
+    <dubbo:registry address="#{app.dubboRegistry}"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="#{app.dubboPort}"/>
+    <!-- 声明需要暴露的服务接口-->
+
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.UserService"
+                   ref="userServiceImpl"/>
+                   
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.PasswordMgmService"
+                   ref="passwordMgmServiceImpl"/>
+                   
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.SeqGeneratorService"
+                  
+                   ref="seqGeneratorService"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.SuggestionsService"
+
+                   ref="suggestionsService"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.QueryQuestionsService"
+
+                   ref="queryQuestionsServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.SecuritySysDataService"
+
+                   ref="securitySysDataServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.RegisterUserService"
+
+                   ref="registerUserServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.AccountTranMgmService"
+
+                   ref="accountTranMgmServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.account.service.RealNameService"
+
+                   ref="realNameServiceImpl"/>
+                  
+    <dubbo:reference id="hubCustomerManagerService" lazy="true" timeout="10000"
+                     interface="com.huateng.p3.hub.accountcore.service.HubCustomerManagerService">
+    </dubbo:reference>
+    <dubbo:reference id="hubCustomerQueryService" lazy="true" timeout="10000"
+                     interface="com.huateng.p3.hub.accountcore.service.HubCustomerQueryService">
+    </dubbo:reference>
+    <dubbo:reference id="hubAccountManagerService" lazy="true" timeout="10000"
+                     interface="com.huateng.p3.hub.accountcore.service.HubAccountManagerService">
+    </dubbo:reference>
+    <dubbo:reference id="hubRiskCheckService" lazy="true" timeout="10000"
+                     interface="com.huateng.p3.hub.accountcore.service.HubRiskCheckService">
+    </dubbo:reference>
+    <dubbo:reference id="hubAccountQueryService" lazy="true" timeout="10000"
+                     interface="com.huateng.p3.hub.accountcore.service.HubAccountQueryService">
+    </dubbo:reference>
+    <dubbo:reference id="hubBankCardManagerService" lazy="true" timeout="10000"
+                     interface="com.huateng.p3.hub.accountcore.service.HubBankCardManagerService">
+    </dubbo:reference>
+
+</beans>

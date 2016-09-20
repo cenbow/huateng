@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* CSS Document */
+
+.footerbg {
+	width: 100%;
+	position: relative;
+	height: 92px;
+	display: block;
+	background-color: #e7e7e7
+}
+.footer-main {
+	width: 980px;
+	height: 92px;
+	margin: 0 auto;
+	text-align: center;
+}
+.footer-link {
+	margin: 0 auto;
+	height: 70px;
+	position: relative;
+	display: inline-block;
+*display:inline;
+	top: 20px;
+	text-align: center;
+}
+.elselink {
+	text-align: center;
+	margin: 0 auto;
+	width: 560px;
+	display: inline-block;
+	height: 70px;
+}
+.elsetitlink {
+	height: 28px;
+	display: inline-block;
+*display:inline;
+	margin: 0 auto;
+}
+.elsetitlink a {
+	float: left;
+	margin-right: 10px;
+}
+.elsetitlink a:hover {
+	text-decoration: none;
+}
+.elsebotlink {
+	margin: 0 auto;
+	margin-top: 5px;
+	text-align: left;
+	display: inline-block;
+	line-height: 35px;
+}
+.elsebotlink {
+*display:inline
+}
+.elsebotlink .txt01 {
+	float: left;
+	color: #666;
+}
+.elsebotlink a {
+	float: left;
+	position: relative;
+	top: 4px;
+	margin-right: 10px;
+}
+.elsebotlink a:hover {
+	text-decoration: none;
+}
+.elsebotlink .elink01 {
+	color: #036EB8;
+	position: relative;
+	top: 5px;
+}
+.elsebotlink .elink02 {
+	color: #727171;
+	position: relative;
+	top: 5px;
+	margin-left: 15px;
+}
+.bot-fd01 {
+	width: 153px;
+	height: 150px;
+	background: url(../images/fudongim00.png);
+	display: block;
+	position: absolute;
+	left: 45px;
+	z-index: 9999;
+	float: left;
+	top: 100px;
+}
+.bot-fd01 .fotwz01 {
+	width: 65px;
+	height: 40px;
+	display: block;
+	margin-top: 50px;
+	margin-left: 48px;
+	float: left;
+}
+.bot-fd01 .fotjy01 {
+	width: 52px;
+	height: 35px;
+	display: block;
+	float: left;
+	margin-left: 25px;
+	margin-top: 5px;
+}
+.bot-fd01 .fotzx01 {
+	width: 52px;
+	height: 35px;
+	display: block;
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+.t01 {
+	position: relative;
+	top: 2px;
+	left: 2px;
+	color: #036EB8;
+}
+*html .t01 {
+	position: relative;
+	top: 4px;
+}
+*+html .t01 {
+	position: relative;
+	top: 5px;
+}
+.img01 {
+	position: relative;
+	left: 10px;
+}

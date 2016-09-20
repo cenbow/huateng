@@ -1,0 +1,8 @@
+/*卡*/
+.payment-center .hg{ height:20px; width:100%;}
+.payment-center .card {width: 207px;margin:23px; overflow:hidden; float:left; }
+.payment-center .card_p{margin-top: 140px}
+.payment-center .card_p li{ line-height:25px;}
+.payment-center .card span{ color:#F00; font-weight:bold;}
+.payment-center .image {height: 132px; width: 207px; margin:0 0 10px 0;cursor: pointer;}
+

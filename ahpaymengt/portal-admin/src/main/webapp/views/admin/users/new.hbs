@@ -1,0 +1,52 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<form accept-charset="UTF-8" action="/users" class="form-horizontal" id="new_component" method="post">
+    <div style="margin:0;padding:0;display:inline">
+        <input name="utf8" type="hidden" value="✓">
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="name">name</label>
+
+        <div class="controls">
+            <input class="text_field" id="name" name="name" size="30" type="text">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="email">email</label>
+
+        <div class="controls">
+            <input class="text_field" id="email" name="email" size="30" type="text">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="password">password</label>
+
+        <div class="controls">
+            <input class="text_field" id="password" name="encryptedPassword" size="30" type="password">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="type">type</label>
+
+        <div class="controls">
+            <input class="text_field" id="type" name="type" size="30" type="text">  (0:管理员 1:买家 2:卖家 4:设计师)
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="status">status</label>
+
+        <div class="controls">
+            <input class="text_field" id="status" name="status" type="text"> (0:未激活 1:正常)
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input class="btn btn-primary" name="commit" type="submit" value="New User">
+        <a href="/users" class="btn"><span>Cancel</span></a>
+    </div>
+</form>
+{{/partial}}
+{{> admin/layout}}

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TDictTxnCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TDictTxnCode" >
+    <id column="TRANS_CODE" property="txnCode" jdbcType="VARCHAR" />
+    <result column="TRANS_SERIAL_TYPE" property="transType" jdbcType="VARCHAR" />
+    <result column="REVERSE_TRANS_CODE" property="revCode" jdbcType="VARCHAR" />
+    <result column="CANCEL_TRANS_CODE" property="cancelCode" jdbcType="VARCHAR" />
+    <result column="TRANS_NAME" property="txnName" jdbcType="VARCHAR" />
+    <result column="TRANS_PRINT_NAME" property="printName" jdbcType="VARCHAR" />
+    <result column="TRANS_FLAG" property="txnFlag" jdbcType="CHAR" />
+    <result column="FEE_TYPE" property="feeType" jdbcType="CHAR" />
+    <result column="FEE_FIX_AMOUNT" property="feeFixAmt" jdbcType="DECIMAL" />
+    <result column="FEE_RATIO" property="feeRatio" jdbcType="DECIMAL" />
+    <result column="FEE_MIN" property="feeMin" jdbcType="DECIMAL" />
+    <result column="FEE_MAX" property="feeMax" jdbcType="DECIMAL" />
+    <result column="TRANS_MEMO" property="txnAbstract" jdbcType="VARCHAR" />
+    <result column="DC_FLAG" property="dcFlag" jdbcType="CHAR" />
+    <result column="PROFIT_DC_FLAG" property="profitDcFlag" jdbcType="CHAR" />
+    <result column="DC_FLAG2" property="dcFlag2" jdbcType="CHAR" />
+    <result column="PROFIT_DC_FLAG2" property="profitDcFlag2" jdbcType="CHAR" />
+    <result column="IS_CLEARING_FLAG" property="clearingFlag" jdbcType="CHAR" />
+    <result column="ACCESS_MAP" property="allowMap" jdbcType="VARCHAR" />
+    <result column="DEFAULT_ACCESS_MAP" property="defaultAllowMap" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRANS_CODE, TRANS_SERIAL_TYPE, REVERSE_TRANS_CODE, CANCEL_TRANS_CODE, TRANS_NAME, TRANS_PRINT_NAME, TRANS_FLAG, FEE_TYPE, 
+    FEE_FIX_AMOUNT, FEE_RATIO, FEE_MIN, FEE_MAX, TRANS_MEMO, DC_FLAG, PROFIT_DC_FLAG, 
+    DC_FLAG2, PROFIT_DC_FLAG2, IS_CLEARING_FLAG, ACCESS_MAP, DEFAULT_ACCESS_MAP
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_DICT_TXN_CODE
+    where TRANS_CODE = #{txnCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_DICT_TXN_CODE
+    where TRANS_CODE = #{txnCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TDictTxnCode" >
+    insert into CORE.T_DICT_TXN_CODE (TRANS_CODE, TRANS_SERIAL_TYPE, REVERSE_TRANS_CODE, 
+      CANCEL_TRANS_CODE, TRANS_NAME, TRANS_PRINT_NAME, 
+      TRANS_FLAG, FEE_TYPE, FEE_FIX_AMOUNT, 
+      FEE_RATIO, FEE_MIN, FEE_MAX, 
+      TRANS_MEMO, DC_FLAG, PROFIT_DC_FLAG, 
+      DC_FLAG2, PROFIT_DC_FLAG2, IS_CLEARING_FLAG, 
+      ACCESS_MAP, DEFAULT_ACCESS_MAP)
+    values (#{txnCode,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, #{revCode,jdbcType=VARCHAR}, 
+      #{cancelCode,jdbcType=VARCHAR}, #{txnName,jdbcType=VARCHAR}, #{printName,jdbcType=VARCHAR}, 
+      #{txnFlag,jdbcType=CHAR}, #{feeType,jdbcType=CHAR}, #{feeFixAmt,jdbcType=DECIMAL}, 
+      #{feeRatio,jdbcType=DECIMAL}, #{feeMin,jdbcType=DECIMAL}, #{feeMax,jdbcType=DECIMAL}, 
+      #{txnAbstract,jdbcType=VARCHAR}, #{dcFlag,jdbcType=CHAR}, #{profitDcFlag,jdbcType=CHAR}, 
+      #{dcFlag2,jdbcType=CHAR}, #{profitDcFlag2,jdbcType=CHAR}, #{clearingFlag,jdbcType=CHAR}, 
+      #{allowMap,jdbcType=VARCHAR}, #{defaultAllowMap,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TDictTxnCode" >
+    insert into CORE.T_DICT_TXN_CODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="txnCode != null" >
+        TRANS_CODE,
+      </if>
+      <if test="transType != null" >
+        TRANS_SERIAL_TYPE,
+      </if>
+      <if test="revCode != null" >
+        REVERSE_TRANS_CODE,
+      </if>
+      <if test="cancelCode != null" >
+        CANCEL_TRANS_CODE,
+      </if>
+      <if test="txnName != null" >
+        TRANS_NAME,
+      </if>
+      <if test="printName != null" >
+        TRANS_PRINT_NAME,
+      </if>
+      <if test="txnFlag != null" >
+        TRANS_FLAG,
+      </if>
+      <if test="feeType != null" >
+        FEE_TYPE,
+      </if>
+      <if test="feeFixAmt != null" >
+        FEE_FIX_AMOUNT,
+      </if>
+      <if test="feeRatio != null" >
+        FEE_RATIO,
+      </if>
+      <if test="feeMin != null" >
+        FEE_MIN,
+      </if>
+      <if test="feeMax != null" >
+        FEE_MAX,
+      </if>
+      <if test="txnAbstract != null" >
+        TRANS_MEMO,
+      </if>
+      <if test="dcFlag != null" >
+        DC_FLAG,
+      </if>
+      <if test="profitDcFlag != null" >
+        PROFIT_DC_FLAG,
+      </if>
+      <if test="dcFlag2 != null" >
+        DC_FLAG2,
+      </if>
+      <if test="profitDcFlag2 != null" >
+        PROFIT_DC_FLAG2,
+      </if>
+      <if test="clearingFlag != null" >
+        IS_CLEARING_FLAG,
+      </if>
+      <if test="allowMap != null" >
+        ACCESS_MAP,
+      </if>
+      <if test="defaultAllowMap != null" >
+        DEFAULT_ACCESS_MAP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="txnCode != null" >
+        #{txnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="revCode != null" >
+        #{revCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelCode != null" >
+        #{cancelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txnName != null" >
+        #{txnName,jdbcType=VARCHAR},
+      </if>
+      <if test="printName != null" >
+        #{printName,jdbcType=VARCHAR},
+      </if>
+      <if test="txnFlag != null" >
+        #{txnFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeType != null" >
+        #{feeType,jdbcType=CHAR},
+      </if>
+      <if test="feeFixAmt != null" >
+        #{feeFixAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="feeRatio != null" >
+        #{feeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="feeMin != null" >
+        #{feeMin,jdbcType=DECIMAL},
+      </if>
+      <if test="feeMax != null" >
+        #{feeMax,jdbcType=DECIMAL},
+      </if>
+      <if test="txnAbstract != null" >
+        #{txnAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="dcFlag != null" >
+        #{dcFlag,jdbcType=CHAR},
+      </if>
+      <if test="profitDcFlag != null" >
+        #{profitDcFlag,jdbcType=CHAR},
+      </if>
+      <if test="dcFlag2 != null" >
+        #{dcFlag2,jdbcType=CHAR},
+      </if>
+      <if test="profitDcFlag2 != null" >
+        #{profitDcFlag2,jdbcType=CHAR},
+      </if>
+      <if test="clearingFlag != null" >
+        #{clearingFlag,jdbcType=CHAR},
+      </if>
+      <if test="allowMap != null" >
+        #{allowMap,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultAllowMap != null" >
+        #{defaultAllowMap,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TDictTxnCode" >
+    update CORE.T_DICT_TXN_CODE
+    <set >
+      <if test="transType != null" >
+        TRANS_SERIAL_TYPE = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="revCode != null" >
+        REVERSE_TRANS_CODE = #{revCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelCode != null" >
+        CANCEL_TRANS_CODE = #{cancelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="txnName != null" >
+        TRANS_NAME = #{txnName,jdbcType=VARCHAR},
+      </if>
+      <if test="printName != null" >
+        TRANS_PRINT_NAME = #{printName,jdbcType=VARCHAR},
+      </if>
+      <if test="txnFlag != null" >
+        TRANS_FLAG = #{txnFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeType != null" >
+        FEE_TYPE = #{feeType,jdbcType=CHAR},
+      </if>
+      <if test="feeFixAmt != null" >
+        FEE_FIX_AMOUNT = #{feeFixAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="feeRatio != null" >
+        FEE_RATIO = #{feeRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="feeMin != null" >
+        FEE_MIN = #{feeMin,jdbcType=DECIMAL},
+      </if>
+      <if test="feeMax != null" >
+        FEE_MAX = #{feeMax,jdbcType=DECIMAL},
+      </if>
+      <if test="txnAbstract != null" >
+        TRANS_MEMO = #{txnAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="dcFlag != null" >
+        DC_FLAG = #{dcFlag,jdbcType=CHAR},
+      </if>
+      <if test="profitDcFlag != null" >
+        PROFIT_DC_FLAG = #{profitDcFlag,jdbcType=CHAR},
+      </if>
+      <if test="dcFlag2 != null" >
+        DC_FLAG2 = #{dcFlag2,jdbcType=CHAR},
+      </if>
+      <if test="profitDcFlag2 != null" >
+        PROFIT_DC_FLAG2 = #{profitDcFlag2,jdbcType=CHAR},
+      </if>
+      <if test="clearingFlag != null" >
+        IS_CLEARING_FLAG = #{clearingFlag,jdbcType=CHAR},
+      </if>
+      <if test="allowMap != null" >
+        ACCESS_MAP = #{allowMap,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultAllowMap != null" >
+        DEFAULT_ACCESS_MAP = #{defaultAllowMap,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRANS_CODE = #{txnCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TDictTxnCode" >
+    update CORE.T_DICT_TXN_CODE
+    set TRANS_SERIAL_TYPE = #{transType,jdbcType=VARCHAR},
+      REVERSE_TRANS_CODE = #{revCode,jdbcType=VARCHAR},
+      CANCEL_TRANS_CODE = #{cancelCode,jdbcType=VARCHAR},
+      TRANS_NAME = #{txnName,jdbcType=VARCHAR},
+      TRANS_PRINT_NAME = #{printName,jdbcType=VARCHAR},
+      TRANS_FLAG = #{txnFlag,jdbcType=CHAR},
+      FEE_TYPE = #{feeType,jdbcType=CHAR},
+      FEE_FIX_AMOUNT = #{feeFixAmt,jdbcType=DECIMAL},
+      FEE_RATIO = #{feeRatio,jdbcType=DECIMAL},
+      FEE_MIN = #{feeMin,jdbcType=DECIMAL},
+      FEE_MAX = #{feeMax,jdbcType=DECIMAL},
+      TRANS_MEMO = #{txnAbstract,jdbcType=VARCHAR},
+      DC_FLAG = #{dcFlag,jdbcType=CHAR},
+      PROFIT_DC_FLAG = #{profitDcFlag,jdbcType=CHAR},
+      DC_FLAG2 = #{dcFlag2,jdbcType=CHAR},
+      PROFIT_DC_FLAG2 = #{profitDcFlag2,jdbcType=CHAR},
+      IS_CLEARING_FLAG = #{clearingFlag,jdbcType=CHAR},
+      ACCESS_MAP = #{allowMap,jdbcType=VARCHAR},
+      DEFAULT_ACCESS_MAP = #{defaultAllowMap,jdbcType=VARCHAR}
+    where TRANS_CODE = #{txnCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

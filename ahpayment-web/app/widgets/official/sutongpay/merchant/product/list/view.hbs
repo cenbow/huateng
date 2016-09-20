@@ -1,0 +1,75 @@
+{{#component "mall-admin-list"}}
+  <ul class="my-onsell-tab">
+    <li><a href="?status=0">未上架的商品</a></li>
+    <li><a href="?status=1">出售中的商品</a></li>
+  </ul>
+  <ul>
+    <li><a href="/merchant/product/publish/step1">增加商品</a></li>
+  </ul>
+  <div class="my-onsell">
+    <h2 class="title"><span class="inner-title" id="js-item-status-title">出售中的商品</span><span>共有 <b id="js-list-total">{{_DATA_.total}}</b> 件商品</span></h2>
+
+    <div class="filter">
+      <form method="get">
+        <div class="item">商品名称：
+          <input type="hidden" name="status" value="{{status}}">
+          <input name="q" type="text" class="input-text" value="{{q}}">
+        </div>
+        <div class="item">总销量：
+          <input name="s_f" type="text" class="input-text short-text" value="{{s_f}}">
+          到
+          <input name="s_t" type="text" class="input-text short-text" value="{{s_t}}"></div>
+        <div class="item">价格：
+          <input name="p_f" type="text" class="input-text short-text" value="{{p_f}}">
+          到
+          <input name="p_t" type="text" class="input-text short-text" value="{{p_t}}"></div>
+        <div class="item">
+          <input type="submit" class="btn" value="筛选">
+          <a id="js-clear-filter" style="cursor:pointer;">清除</a>
+        </div>
+      </form>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th width="20"><input type="checkbox"></th>
+        <th width="121"><a id="js-item-status-btn" class="btn btn-mini">下架</a></th>
+        <th width="277" class="h-title" style="text-align:center;">商品名称</th>
+        <th width="90" class="sorting js-item-sort ">价格<i class="sorting-icon-0"></i></th>
+        <th width="109" class="sorting js-item-sort ">库存<i class="sorting-icon-0"></i></th>
+        <th width="100" class="sorting js-item-sort ">总销量<i class="sorting-icon-0"></i></th>
+        <th width="120" class="sorting js-item-sort ">发布时间<i class="sorting-icon-0"></i></th>
+        <th width="120">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+        {{#each _DATA_.data}}
+        <tr>
+          <td class="d-check"><input type="checkbox" value="{{id}}"></td>
+          <td class="d-title" style="text-align:center;">
+            {{#equals status 1}}
+              <a href="/merchant/product/publish/step2?itemId={{id}}" ><img src="{{mainImage}}" /></a>
+              </td>
+              <td>
+              <a class="goods-title" href="/merchant/product/publish/step2?itemId={{id}}" >{{{name}}}</a><a class="edit"></a>
+            {{else}}
+              <img src="{{mainImage}}" />
+              </td>
+              <td>
+              {{{name}}}
+            {{/equals}}
+          </td>
+          <td class="d-price"><b class="price">￥{{formatPrice price}}</b><a class="edit"></a></td>
+          <td class="d-count">{{quantity}}<a class="edit"></a></td>
+          <td class="d-buyer">{{soldQuantity}}</td>
+          <td class="d-total"><strong class="time">{{formatDate createdAt}}</strong></td>
+          <td class="d-status" style="width:130px;">
+            <a href="/merchant/product/publish/step2?itemId={{id}}">编辑商品</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <div class="pagination" id="js-list-pagination"></div>
+  </div>
+{{/component}}

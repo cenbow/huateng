@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.RiskCustomerTxntypeRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.RiskCustomerTxntypeRule" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="VARCHAR" />
+    <result column="TRANS_TYPE" property="transType" jdbcType="VARCHAR" />
+    <result column="ACCEPT_CHANNEL" property="acceptChannel" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TYPE" property="accountType" jdbcType="VARCHAR" />
+    <result column="USER_GRADE" property="userGrade" jdbcType="VARCHAR" />
+    <result column="MERGER_FLAG" property="mergerFlag" jdbcType="VARCHAR" />
+    <result column="TRANS_MAX_AMT" property="transMaxAmt" jdbcType="DECIMAL" />
+    <result column="TRANS_MIN_AMT" property="transMinAmt" jdbcType="DECIMAL" />
+    <result column="DAY_TRANS_AMT" property="dayTransAmt" jdbcType="DECIMAL" />
+    <result column="DAY_TRANS_TIMES" property="dayTransTimes" jdbcType="DECIMAL" />
+    <result column="MONTH_TRANS_AMT" property="monthTransAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_TRANS_TIMES" property="monthTransTimes" jdbcType="DECIMAL" />
+    <result column="USE_FLAG" property="useFlag" jdbcType="VARCHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="TIMESTAMP" />
+    <result column="VALID_DATE" property="validDate" jdbcType="TIMESTAMP" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_FLAG" property="checkFlag" jdbcType="VARCHAR" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="VARCHAR" />
+    <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, TRANS_TYPE, ACCEPT_CHANNEL, ACCOUNT_TYPE, USER_GRADE, MERGER_FLAG, TRANS_MAX_AMT ,TRANS_MIN_AMT, DAY_TRANS_AMT, DAY_TRANS_TIMES, 
+    MONTH_TRANS_AMT, MONTH_TRANS_TIMES, USE_FLAG, EFFECTIVE_DATE, VALID_DATE, CREATE_UID, 
+    CREATE_TIME, CHECK_FLAG, CHECK_UID, CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, 
+    ARCHIVE_TIME, ARCHIVED_FLAG, L_RECORD_NO, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RISK.RISK_CUSTOMER_TXNTYPE_RULE
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </select>
+
+
+    <select id="selectTxnTypeRiskRule" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select *  from  (select
+        <include refid="Base_Column_List" />
+        ,rownumber()   over()   AS   rn
+        from RISK.RISK_CUSTOMER_TXNTYPE_RULE
+        where use_flag='1' and check_flag='2'
+        and ARCHIVED_FLAG='1'
+        and ACCEPT_CHANNEL= #{acceptChannel,jdbcType=VARCHAR} and TRANS_TYPE = #{transType,jdbcType=VARCHAR}
+        and ACCOUNT_TYPE=#{accountType,jdbcType=VARCHAR} and USER_GRADE = #{userGrade,jdbcType=VARCHAR}
+
+        ) a where a.rn = 1
+    </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RISK.RISK_CUSTOMER_TXNTYPE_RULE
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.RiskCustomerTxntypeRule" >
+    insert into RISK.RISK_CUSTOMER_TXNTYPE_RULE (RECORD_NO, TRANS_TYPE, ACCEPT_CHANNEL,
+      ACCOUNT_TYPE, USER_GRADE, MERGER_FLAG,TRANS_MAX_AMT ,TRANS_MIN_AMT, DAY_TRANS_AMT, 
+      DAY_TRANS_TIMES, MONTH_TRANS_AMT, MONTH_TRANS_TIMES, 
+      USE_FLAG, EFFECTIVE_DATE, VALID_DATE, 
+      CREATE_UID, CREATE_TIME, CHECK_FLAG, 
+      CHECK_UID, CHECK_TIME, LAST_MODIFY_UID, 
+      LAST_MODIFY_TIME, ARCHIVE_TIME, ARCHIVED_FLAG, 
+      L_RECORD_NO, REMARK)
+    values (S_RISK_TXNRECORD.Nextval, #{transType,jdbcType=VARCHAR}, #{acceptChannel,jdbcType=VARCHAR},
+      #{accountType,jdbcType=VARCHAR}, #{userGrade,jdbcType=VARCHAR},#{mergerFlag,jdbcType=VARCHAR}, 
+      #{transMaxAmt,jdbcType=DECIMAL}, #{transMinAmt,jdbcType=DECIMAL}, #{dayTransTimes,jdbcType=DECIMAL}, 
+      #{dayTransTimes,jdbcType=DECIMAL}, #{monthTransAmt,jdbcType=DECIMAL}, #{monthTransTimes,jdbcType=DECIMAL}, 
+      #{useFlag,jdbcType=VARCHAR}, #{effectiveDate,jdbcType=TIMESTAMP}, #{validDate,jdbcType=TIMESTAMP}, 
+      #{createUid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{checkFlag,jdbcType=VARCHAR}, 
+      #{checkUid,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{lastModifyUid,jdbcType=VARCHAR}, 
+      #{lastModifyTime,jdbcType=TIMESTAMP}, #{archiveTime,jdbcType=TIMESTAMP}, #{archivedFlag,jdbcType=VARCHAR}, 
+      #{lRecordNo,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.RiskCustomerTxntypeRule" >
+    insert into RISK.RISK_CUSTOMER_TXNTYPE_RULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="transType != null" >
+        TRANS_TYPE,
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="userGrade != null" >
+        USER_GRADE,
+      </if>
+      <if test="mergerFlag != null" >
+        MERGER_FLAG,
+      </if>   
+      <if test="transMaxAmt != null" >
+        TRANS_MAX_AMT,
+      </if>
+      <if test="transMinAmt != null" >
+        TRANS_MIN_AMT,
+      </if>   
+      <if test="dayTransAmt != null" >
+        DAY_TRANS_AMT,
+      </if>
+      <if test="dayTransTimes != null" >
+        DAY_TRANS_TIMES,
+      </if>
+      <if test="monthTransAmt != null" >
+        MONTH_TRANS_AMT,
+      </if>
+      <if test="monthTransTimes != null" >
+        MONTH_TRANS_TIMES,
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG,
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG,
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+        S_RISK_TXNRECORD.Nextval,
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrade != null" >
+        #{userGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="mergerFlag != null" >
+        #{mergerFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="transMaxAmt != null" >
+        #{transMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="transMinAmt != null" >
+        #{transMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dayTransTimes != null" >
+        #{dayTransTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="dayTransTimes != null" >
+        #{dayTransTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="monthTransAmt != null" >
+        #{monthTransAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthTransTimes != null" >
+        #{monthTransTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="useFlag != null" >
+        #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        #{archivedFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.RiskCustomerTxntypeRule" >
+    update RISK.RISK_CUSTOMER_TXNTYPE_RULE
+    <set >
+      <if test="transType != null" >
+        TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrade != null" >
+        USER_GRADE = #{userGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="mergerFlag != null" >
+        MERGER_FLAG = #{mergerFlag,jdbcType=VARCHAR},
+      </if>    
+      <if test="transMaxAmt != null" >
+        TRANS_MAX_AMT = #{transMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test=" transMinAmt != null" >
+        TRANS_MIN_AMT = #{transMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="dayTransTimes != null" >
+        DAY_TRANS_AMT = #{dayTransTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="dayTransTimes != null" >
+        DAY_TRANS_TIMES = #{dayTransTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="monthTransAmt != null" >
+        MONTH_TRANS_AMT = #{monthTransAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthTransTimes != null" >
+        MONTH_TRANS_TIMES = #{monthTransTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG = #{useFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG = #{archivedFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.RiskCustomerTxntypeRule" >
+    update RISK.RISK_CUSTOMER_TXNTYPE_RULE
+    set TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      USER_GRADE = #{userGrade,jdbcType=VARCHAR},
+      MERGER_FLAG = #{mergerFlag,jdbcType=VARCHAR},
+      TRANS_MAX_AMT = #{transMaxAmt,jdbcType=DECIMAL},
+      TRANS_MIN_AMT = #{transMinAmt,jdbcType=DECIMAL},
+      DAY_TRANS_AMT = #{dayTransAmt,jdbcType=DECIMAL},
+      DAY_TRANS_TIMES = #{dayTransTimes,jdbcType=DECIMAL},
+      MONTH_TRANS_AMT = #{monthTransAmt,jdbcType=DECIMAL},
+      MONTH_TRANS_TIMES = #{monthTransTimes,jdbcType=DECIMAL},
+      USE_FLAG = #{useFlag,jdbcType=VARCHAR},
+      EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      ARCHIVED_FLAG = #{archivedFlag,jdbcType=VARCHAR},
+      L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

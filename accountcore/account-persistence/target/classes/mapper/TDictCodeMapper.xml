@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TDictCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TDictCode" >
+    <id column="CODE_ID" property="codeId" jdbcType="VARCHAR" />
+    <id column="CODE_VALUE" property="codeValue" jdbcType="VARCHAR" />
+    <result column="CODE_DESC" property="codeDesc" jdbcType="VARCHAR" />
+    <result column="DICT_ID" property="dictId" jdbcType="VARCHAR" />
+    <result column="PRIORITY" property="priority" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CODE_ID, CODE_VALUE, CODE_DESC, DICT_ID, PRIORITY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.p3.account.persistence.models.TDictCodeKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_DICT_CODE
+    where CODE_ID = #{codeId,jdbcType=VARCHAR}
+      and CODE_VALUE = #{codeValue,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TDictCodeKey" >
+    delete from CORE.T_DICT_CODE
+    where CODE_ID = #{codeId,jdbcType=VARCHAR}
+      and CODE_VALUE = #{codeValue,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TDictCode" >
+    insert into CORE.T_DICT_CODE (CODE_ID, CODE_VALUE, CODE_DESC, 
+      DICT_ID, PRIORITY)
+    values (#{codeId,jdbcType=VARCHAR}, #{codeValue,jdbcType=VARCHAR}, #{codeDesc,jdbcType=VARCHAR}, 
+      #{dictId,jdbcType=VARCHAR}, #{priority,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TDictCode" >
+    insert into CORE.T_DICT_CODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="codeId != null" >
+        CODE_ID,
+      </if>
+      <if test="codeValue != null" >
+        CODE_VALUE,
+      </if>
+      <if test="codeDesc != null" >
+        CODE_DESC,
+      </if>
+      <if test="dictId != null" >
+        DICT_ID,
+      </if>
+      <if test="priority != null" >
+        PRIORITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="codeId != null" >
+        #{codeId,jdbcType=VARCHAR},
+      </if>
+      <if test="codeValue != null" >
+        #{codeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDesc != null" >
+        #{codeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dictId != null" >
+        #{dictId,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TDictCode" >
+    update CORE.T_DICT_CODE
+    <set >
+      <if test="codeDesc != null" >
+        CODE_DESC = #{codeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dictId != null" >
+        DICT_ID = #{dictId,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null" >
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CODE_ID = #{codeId,jdbcType=VARCHAR}
+      and CODE_VALUE = #{codeValue,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TDictCode" >
+    update CORE.T_DICT_CODE
+    set CODE_DESC = #{codeDesc,jdbcType=VARCHAR},
+      DICT_ID = #{dictId,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=DECIMAL}
+    where CODE_ID = #{codeId,jdbcType=VARCHAR}
+      and CODE_VALUE = #{codeValue,jdbcType=VARCHAR}
+  </update>
+  <select id="querySecurityQuestions" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		  from CORE.T_DICT_CODE E
+		 where E.DICT_ID in (select O.DICT_ID from CORE.T_DICT_INFO O where O.DICT_ENG = 'passwordQuestion')
+  </select>
+  
+  <select id="querySecuritySysData" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		  from CORE.T_DICT_CODE E
+		 where E.DICT_ID in (select O.DICT_ID from CORE.T_DICT_INFO O where O.DICT_ENG = #{dictEng,jdbcType=VARCHAR})
+  </select>
+  
+  <select id="querySecurityQuestionsbyCodeValue" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		  from CORE.T_DICT_CODE E
+		 where E.DICT_ID in (select O.DICT_ID from CORE.T_DICT_INFO O where O.DICT_ENG = 'passwordQuestion')
+		 and CODE_VALUE = #{codeValue,jdbcType=VARCHAR}
+  </select>
+	
+  <select id="checkQuestion" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select COUNT(1)
+	  	  from CORE.T_DICT_CODE E
+	 	 where E.DICT_ID in (select O.DICT_ID from CORE.T_DICT_INFO O where O.DICT_ENG='passwordQuestion') and CODE_VALUE = #{value,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TRuleFeeCodeMapper">
+    <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TRuleFeeCode">
+        <result column="RECORD_NO" property="recordNo" jdbcType="DECIMAL"/>
+        <result column="SETTLE_LV" property="settleLv" jdbcType="CHAR"/>
+        <result column="FEE_CODE" property="feeCode" jdbcType="DECIMAL"/>
+        <result column="FEE_NAME" property="feeName" jdbcType="VARCHAR"/>
+        <result column="FEE_TYPE" property="feeType" jdbcType="CHAR"/>
+        <result column="TXN_COUNT_STEP" property="txnCountStep" jdbcType="DECIMAL"/>
+        <result column="TXN_AMOUNT_STEP" property="txnAmountStep" jdbcType="DECIMAL"/>
+        <result column="PERCENTAGE" property="percentage" jdbcType="DECIMAL"/>
+        <result column="AMT" property="amt" jdbcType="DECIMAL"/>
+        <result column="BOTTOM_AMT" property="bottomAmt" jdbcType="DECIMAL"/>
+        <result column="CEILING_AMT" property="ceilingAmt" jdbcType="DECIMAL"/>
+        <result column="ACCURACY_FLAG" property="accuracyFlag" jdbcType="CHAR"/>
+        <result column="USE_FLAG" property="useFlag" jdbcType="CHAR"/>
+        <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="CHAR"/>
+        <result column="VALID_DATE" property="validDate" jdbcType="CHAR"/>
+        <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR"/>
+        <result column="CHECK_FLAG" property="checkFlag" jdbcType="CHAR"/>
+        <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR"/>
+        <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP"/>
+        <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR"/>
+        <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR"/>
+        <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP"/>
+        <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="CHAR"/>
+        <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+        <result column="CALC_TYPE" property="calcType" jdbcType="CHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    RECORD_NO, SETTLE_LV, FEE_CODE, FEE_NAME, FEE_TYPE, TXN_COUNT_STEP, TXN_AMOUNT_STEP,
+    PERCENTAGE, AMT, BOTTOM_AMT, CEILING_AMT, ACCURACY_FLAG, USE_FLAG, EFFECTIVE_DATE,
+    VALID_DATE, CREATE_UID, CREATE_TIME, CHECK_UID, CHECK_FLAG, CHECK_TIME, LAST_MODIFY_UID,
+    LAST_MODIFY_TIME, RESV_FLD1, RESV_FLD2, ARCHIVE_TIME, ARCHIVED_FLAG, L_RECORD_NO,
+    REMARK, CALC_TYPE
+  </sql>
+    <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TRuleFeeCode">
+    insert into T_RULE_FEE_CODE (RECORD_NO, SETTLE_LV, FEE_CODE, 
+      FEE_NAME, FEE_TYPE, TXN_COUNT_STEP, 
+      TXN_AMOUNT_STEP, PERCENTAGE, AMT, 
+      BOTTOM_AMT, CEILING_AMT, ACCURACY_FLAG, 
+      USE_FLAG, EFFECTIVE_DATE, VALID_DATE, 
+      CREATE_UID, CREATE_TIME, CHECK_UID, 
+      CHECK_FLAG, CHECK_TIME, LAST_MODIFY_UID, 
+      LAST_MODIFY_TIME, RESV_FLD1, RESV_FLD2, 
+      ARCHIVE_TIME, ARCHIVED_FLAG, L_RECORD_NO, 
+      REMARK, CALC_TYPE)
+    values (#{recordNo,jdbcType=DECIMAL}, #{settleLv,jdbcType=CHAR}, #{feeCode,jdbcType=DECIMAL}, 
+      #{feeName,jdbcType=VARCHAR}, #{feeType,jdbcType=CHAR}, #{txnCountStep,jdbcType=DECIMAL}, 
+      #{txnAmountStep,jdbcType=DECIMAL}, #{percentage,jdbcType=DECIMAL}, #{amt,jdbcType=DECIMAL}, 
+      #{bottomAmt,jdbcType=DECIMAL}, #{ceilingAmt,jdbcType=DECIMAL}, #{accuracyFlag,jdbcType=CHAR}, 
+      #{useFlag,jdbcType=CHAR}, #{effectiveDate,jdbcType=CHAR}, #{validDate,jdbcType=CHAR}, 
+      #{createUid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{checkUid,jdbcType=VARCHAR}, 
+      #{checkFlag,jdbcType=CHAR}, #{checkTime,jdbcType=TIMESTAMP}, #{lastModifyUid,jdbcType=VARCHAR}, 
+      #{lastModifyTime,jdbcType=TIMESTAMP}, #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, 
+      #{archiveTime,jdbcType=TIMESTAMP}, #{archivedFlag,jdbcType=CHAR}, #{lRecordNo,jdbcType=DECIMAL}, 
+      #{remark,jdbcType=VARCHAR}, #{calcType,jdbcType=CHAR})
+  </insert>
+
+    <select id="selectFeeByCode" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_rule_fee_code
+        where archived_flag = '1' and check_flag = '2'
+        and FEE_CODE= #{feeCode,jdbcType=DECIMAL}
+        and SETTLE_LV= #{settlevel,jdbcType=VARCHAR}
+        <![CDATA[
+      and EFFECTIVE_DATE <= #{txndate,jdbcType=VARCHAR}
+      and VALID_DATE >= #{txndate,jdbcType=VARCHAR}
+     ]]>
+        order by fee_code
+    </select>
+    <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TRuleFeeCode">
+        insert into T_RULE_FEE_CODE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="recordNo != null">
+                RECORD_NO,
+            </if>
+            <if test="settleLv != null">
+                SETTLE_LV,
+            </if>
+            <if test="feeCode != null">
+                FEE_CODE,
+            </if>
+            <if test="feeName != null">
+                FEE_NAME,
+            </if>
+            <if test="feeType != null">
+                FEE_TYPE,
+            </if>
+            <if test="txnCountStep != null">
+                TXN_COUNT_STEP,
+            </if>
+            <if test="txnAmountStep != null">
+                TXN_AMOUNT_STEP,
+            </if>
+            <if test="percentage != null">
+                PERCENTAGE,
+            </if>
+            <if test="amt != null">
+                AMT,
+            </if>
+            <if test="bottomAmt != null">
+                BOTTOM_AMT,
+            </if>
+            <if test="ceilingAmt != null">
+                CEILING_AMT,
+            </if>
+            <if test="accuracyFlag != null">
+                ACCURACY_FLAG,
+            </if>
+            <if test="useFlag != null">
+                USE_FLAG,
+            </if>
+            <if test="effectiveDate != null">
+                EFFECTIVE_DATE,
+            </if>
+            <if test="validDate != null">
+                VALID_DATE,
+            </if>
+            <if test="createUid != null">
+                CREATE_UID,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="checkUid != null">
+                CHECK_UID,
+            </if>
+            <if test="checkFlag != null">
+                CHECK_FLAG,
+            </if>
+            <if test="checkTime != null">
+                CHECK_TIME,
+            </if>
+            <if test="lastModifyUid != null">
+                LAST_MODIFY_UID,
+            </if>
+            <if test="lastModifyTime != null">
+                LAST_MODIFY_TIME,
+            </if>
+            <if test="resvFld1 != null">
+                RESV_FLD1,
+            </if>
+            <if test="resvFld2 != null">
+                RESV_FLD2,
+            </if>
+            <if test="archiveTime != null">
+                ARCHIVE_TIME,
+            </if>
+            <if test="archivedFlag != null">
+                ARCHIVED_FLAG,
+            </if>
+            <if test="lRecordNo != null">
+                L_RECORD_NO,
+            </if>
+            <if test="remark != null">
+                REMARK,
+            </if>
+            <if test="calcType != null">
+                CALC_TYPE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="recordNo != null">
+                #{recordNo,jdbcType=DECIMAL},
+            </if>
+            <if test="settleLv != null">
+                #{settleLv,jdbcType=CHAR},
+            </if>
+            <if test="feeCode != null">
+                #{feeCode,jdbcType=DECIMAL},
+            </if>
+            <if test="feeName != null">
+                #{feeName,jdbcType=VARCHAR},
+            </if>
+            <if test="feeType != null">
+                #{feeType,jdbcType=CHAR},
+            </if>
+            <if test="txnCountStep != null">
+                #{txnCountStep,jdbcType=DECIMAL},
+            </if>
+            <if test="txnAmountStep != null">
+                #{txnAmountStep,jdbcType=DECIMAL},
+            </if>
+            <if test="percentage != null">
+                #{percentage,jdbcType=DECIMAL},
+            </if>
+            <if test="amt != null">
+                #{amt,jdbcType=DECIMAL},
+            </if>
+            <if test="bottomAmt != null">
+                #{bottomAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="ceilingAmt != null">
+                #{ceilingAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="accuracyFlag != null">
+                #{accuracyFlag,jdbcType=CHAR},
+            </if>
+            <if test="useFlag != null">
+                #{useFlag,jdbcType=CHAR},
+            </if>
+            <if test="effectiveDate != null">
+                #{effectiveDate,jdbcType=CHAR},
+            </if>
+            <if test="validDate != null">
+                #{validDate,jdbcType=CHAR},
+            </if>
+            <if test="createUid != null">
+                #{createUid,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="checkUid != null">
+                #{checkUid,jdbcType=VARCHAR},
+            </if>
+            <if test="checkFlag != null">
+                #{checkFlag,jdbcType=CHAR},
+            </if>
+            <if test="checkTime != null">
+                #{checkTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastModifyUid != null">
+                #{lastModifyUid,jdbcType=VARCHAR},
+            </if>
+            <if test="lastModifyTime != null">
+                #{lastModifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="resvFld1 != null">
+                #{resvFld1,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld2 != null">
+                #{resvFld2,jdbcType=VARCHAR},
+            </if>
+            <if test="archiveTime != null">
+                #{archiveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="archivedFlag != null">
+                #{archivedFlag,jdbcType=CHAR},
+            </if>
+            <if test="lRecordNo != null">
+                #{lRecordNo,jdbcType=DECIMAL},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="calcType != null">
+                #{calcType,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>

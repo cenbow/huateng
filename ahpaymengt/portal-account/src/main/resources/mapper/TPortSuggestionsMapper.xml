@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TPortSuggestionsMapper" >
+  <resultMap id="BaseResultMap" type="TPortSuggestions" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ORDER_NO" property="orderNo" jdbcType="VARCHAR" />
+    <result column="CONTEXT" property="context" jdbcType="VARCHAR" />
+    <result column="UNIFYID" property="unifyId" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ORDER_NO, CONTEXT, UNIFYID, CREATE_TIME
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="TPortSuggestions" >
+      <include refid="common.Pagination_Head"/>
+    select 
+    <include refid="Base_Column_List" />
+    from  PORTAL.T_PORT_SUGGESTIONS
+      <include refid="Example_Where_Clause"/>
+      order by create_time desc,id desc
+      <include refid="common.Pagination_Foot"/>
+  </select>
+
+
+    <select id="selectById" resultMap="BaseResultMap" parameterType="TPortSuggestions" >
+
+        select
+        <include refid="Base_Column_List" />
+        from  PORTAL.T_PORT_SUGGESTIONS
+        <include refid="Example_Where_Clause"/>
+    </select>
+
+    <select id="selectCountByPrimaryKey" resultType="long" parameterType="TPortSuggestions">
+        select count(1)
+        from portal.T_PORT_SUGGESTIONS
+        <include refid="Example_Where_Clause"/>
+
+    </select>
+
+    <insert id="insert" parameterType="TPortSuggestions">
+    insert into PORTAL.T_PORT_SUGGESTIONS(ID, ORDER_NO, CONTEXT, UNIFYID, CREATE_TIME)
+    values(#{id,jdbcType=VARCHAR},#{orderNo,jdbcType=VARCHAR},#{context,jdbcType=VARCHAR},#{unifyId,jdbcType=VARCHAR},#{createTime,jdbcType=DATE})
+    </insert>
+
+
+    <sql id="Example_Where_Clause">
+        <trim prefix="where" prefixOverrides="and|or">
+
+            <if test="id !=null">
+                AND ID = #{id}
+            </if>
+
+            <if test="unifyId !=null">
+                AND UNIFYID = #{unifyId}
+            </if>
+
+            <if test="startDate != null">
+                <![CDATA[ AND CREATE_TIME  >=   #{startDate}]]>
+            </if>
+            <if test="endDate   != null">
+                <![CDATA[   AND CREATE_TIME  <  #{endDate} ]]>
+            </if>
+
+
+        </trim>
+    </sql>
+
+
+</mapper>

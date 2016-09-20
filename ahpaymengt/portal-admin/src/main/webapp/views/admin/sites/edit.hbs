@@ -1,0 +1,100 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<h3>Site {{site.id}} Edit</h3>
+<form accept-charset="UTF-8" action="/sites/{{site.id}}" class="form-horizontal" id="edit_site" method="post">
+    <input name="_method" type="hidden" value="put">
+
+    <div class="control-group">
+        <label class="control-label" for="site_name">Name</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_name" name="name" size="30" type="text" value="{{site.name}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="site_type">Type</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_type" name="type" size="30" type="text" value="{{site.type}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="site_status">Status</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_status" name="status" size="30" type="text" value="{{site.status}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="site_image">Image</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_image" name="image" size="30" type="text" value="{{site.image}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="site_forkable">Forkable</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_forkable" name="forkable" size="30" type="text" value="{{site.forkable}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="site_user_id">UserId</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_user_id" name="userId" size="30" type="text" value="{{site.userId}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="site_domain">Domain</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_domain" name="domain" size="30" type="text" value="{{site.domain}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="site_sub_domain">SubDomain</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_sub_domain" name="subDomain" size="30" type="text" value="{{site.subDomain}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="site_href_base">HrefBase</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_href_base" name="hrefBase" size="30" type="text" value="{{site.hrefBase}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="site_root_path">RootPath</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_root_path" name="rootPath" size="30" type="text" value="{{site.rootPath}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="site_default_site_instance_id">DefaultSiteInstanceId</label>
+
+        <div class="controls">
+            <input class="text_field" id="site_default_site_instance_id" name="defaultSiteInstanceId" size="30"
+                   type="text" value="{{site.defaultSiteInstanceId}}">
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input class="btn btn-primary" name="commit" type="submit" value="Edit Site">
+        <a href="/sites" class="btn"><span>Cancel</span></a>
+    </div>
+</form>
+{{/partial}}
+{{> admin/layout}}

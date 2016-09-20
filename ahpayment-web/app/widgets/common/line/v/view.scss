@@ -1,0 +1,14 @@
+.line-v {
+    width: 5px;
+    min-width: 5px;
+    height: 240px;
+    border-left: 1px solid #CCCCCC;
+    position: absolute;
+    z-index: 20;
+    .line-body {
+        width: 1px;
+        height: 100%;
+        margin-left: 5px;
+        background-color: #CCCCCC;
+    }
+}

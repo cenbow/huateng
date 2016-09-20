@@ -1,0 +1,94 @@
+{{#component "individualCenter"}}
+<div class="" id="cover"></div>
+
+
+
+<div class="popup-modal modalh" id="modal" style="z-index: 10001; top: 109px; left: 320.5px;height :300px;width:700px;">
+
+    <div class="popup-dialog ee">
+        <div class="popup-dialog-title">
+            <button class="close" type="button" id="close">
+
+                ×
+
+            </button>
+            <font class="h3">
+
+            解绑银行卡
+
+            </font>
+        </div>
+        <div class="popup-dialog-content" style="height :200px;">
+            <div class="popup-dialog-info-box clearfix">
+
+                <form id="unbind" name="unbind">
+                <span class="col-wa cola fl sp-mtop12">支付密码:</span>
+   <div class="fl sp-mtop12">   
+     <input type="password" onkeyup="$(this).value=this.value.replace(/\D/g,'');" 
+      onafterpaste="$(this).value=this.value.replace(/\D/g,'')"
+      name="payPasswd" maxlength="6" id="payPasswd" class="input-w3" readonly="readonly">
+     <br>
+     <div id="payPwdMsg" name="payPwdMsg" class="ui-txtred"></div>
+   </div>  
+   
+   <div class="cl"></div>
+   <span class="col-wa cola fl sp-mtop12">验证码:</span>
+   <div class="fl sp-mtop12">
+     <div style="float:left;">
+       <input type="text" name="vcode" id="vcode" class="yzm-w2 input-w4" maxlength=4>
+
+       <span name="codeflagSpan" id="codeFlagSpan" 
+       style="display:none;margin-left:-17px;">
+       <img id="codeFlag" src="/assets/sutongpay/er.png">
+        <input type="hidden" id="imgCodeFlag" value="false"/>
+     </span>
+     <br>
+     <div id="checkCodMsg" name="checkCodMsg" class="ui-txtred"></div>
+
+   </div>
+   <div style="float:left;">
+
+     <span class="yzm fl sp-mtop14">
+      <img id="codeImg" style="display:none" width="54" height="30">
+      <a name="flushCode">换一张</a></span>
+     </form>
+    </div>
+  </div>
+
+
+
+               
+            </div>
+        </div>
+        <div class="popup-dialog-footer">
+            <button class="btn js-btn-cancel" id="jb">
+
+                解绑
+
+            </button>
+        </div>
+
+
+
+    
+    </div>
+
+    <div id="dfbKey"  style="visibility:hidden;" class="unbindkey">
+      <img src="/api/softKeyBoard/pwGeneration" border="0" usemap="#Map2"/>
+      <map name="Map2">
+          <area shape="rect" coords="15,26,42,54" href="javascript:clickKeyboard('0')">
+          <area shape="rect" coords="44,26,73,54" href="javascript:clickKeyboard('1')">
+          <area shape="rect" coords="77,26,104,54" href="javascript:clickKeyboard('2')">
+          <area shape="rect" coords="107,26,135,54" href="javascript:clickKeyboard('3')">
+          <area shape="rect" coords="15,58,42,85" href="javascript:clickKeyboard('4')">
+          <area shape="rect" coords="44,58,73,85" href="javascript:clickKeyboard('5')">
+          <area shape="rect" coords="77,58,104,85" href="javascript:clickKeyboard('6')">
+          <area shape="rect" coords="107,58,135,85" href="javascript:clickKeyboard('7')">
+          <area shape="rect" coords="15,89,42,116" href="javascript:clickKeyboard('8')">
+          <area shape="rect" coords="44,89,73,116" href="javascript:clickKeyboard('9')">
+        <area shape="rect" coords="77,89,135,116" href="javascript:clickKeyboard('bak')">
+          <area shape="rect" coords="130,5,142,19" href="javascript:closeKeyboard()">
+          <area shape="rect" coords="15,120,135,147" href="javascript:closeKeyboard()">
+      </map>
+</div>
+    {{/component}}

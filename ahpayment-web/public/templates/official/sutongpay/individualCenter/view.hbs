@@ -1,0 +1,47 @@
+{{#component "individualCenter"}}
+<div class="fund-nav">
+       <li><a href="/account">账户首页</a></li>
+       <li class="now"><a href="/individualCenter">个人中心</a></li>
+       </div>
+       <div class="cl"></div>
+       <img src="/assets/sutongpay/air.png" width="1" height="23">
+       
+       <div class="maintab">
+       <ul>
+       <dl>
+       <dd class="picbox"><img src="/assets/sutongpay/pic.png" class="pho2" width="71" height="69">
+       </dd>
+       <dd class="uid">{{_DATA_.unifyId}}</dd>
+       <dd><img src="/assets/sutongpay/vrenz.png" width="32" height="24"></dd>
+       <dd class="unev">个人信息</dd>
+       <dd class="unev">账户信息</dd>
+       <dd class="unev">我的银行卡</dd>
+       </dl>
+       </ul>
+       </div>
+    {{inject "official/sutongpay/individualCenter/personal" true}}
+          <div class="fund-base">
+          <div class="wm90">
+          <img src="/assets/sutongpay/air.png" width="1" height="20">
+          <div class="cl"></div>
+         <div class="fl">
+           
+       <div class="fundfontw"><img src="/assets/sutongpay/rmbicon.png" width="15" height="17">&nbsp;&nbsp;账户余额</div>
+       <div><font class="mymoney">{{formatAmount _DATA_.balance}}</font>&nbsp;<font class="fyuan">元</font></div> </div>
+       
+       
+        <div class="fr"><img src="/assets/sutongpay/air.png" width="20" height="30"><div class="cl"></div><div>
+       <div class="butn2" id="recharge"><img src="/assets/sutongpay/icon-chongzhi.png" width="36" height="36"><img src="/assets/sutongpay/air.png" width="15" height="14">充值<img src="/assets/sutongpay/air.png" width="10" height="14"></div>
+       <div class="butn2" id="transfer"><img src="/assets/sutongpay/icon-zhuanzhang.png" \><img src="/assets/sutongpay/air.png" width="15" height="14">转账<img src="/assets/sutongpay/air.png" width="10" height="14"></div>
+       <div class="butn2" style="display:none"><img src="/assets/sutongpay/icon-tixian.png"><img src="/assets/sutongpay/air.png" width="15" height="14">提现<img src="/assets/sutongpay/air.png" width="10" height="14"></div>
+       </div></div>
+       <div class="cl"></div>
+       <img src="/assets/sutongpay/air.png" width="1" height="5"><div class="cl"></div>
+       </div><div class="jif"><ul><dl><dd><font><img src="/assets/sutongpay/icon-jifen.png" width="18" height="18">&nbsp;&nbsp;积分&nbsp;&nbsp;</font><font class="valu">{{_DATA_.integralAvailableBalance}}</font> </dd><dd><font><img src="/assets/sutongpay/icon_tixian.png" >&nbsp;&nbsp;可提现金额&nbsp;&nbsp;</font><font class="valu">{{formatAmount _DATA_.availableBalance}}</font>&nbsp;&nbsp;元 </dd><dd><font><img src="/assets/sutongpay/icon-dongjie.png">&nbsp;&nbsp;已冻结金额&nbsp;&nbsp;</font><font class="valu">{{formatAmount _DATA_.frozenAmount}}</font>&nbsp;&nbsp;元</dd></dl></ul></div>
+     </div>
+       {{inject "official/sutongpay/individualCenter/myCard/list" true}}
+         
+
+
+
+{{/component}}

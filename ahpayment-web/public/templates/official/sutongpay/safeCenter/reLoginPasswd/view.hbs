@@ -1,0 +1,39 @@
+{{#component "re_Login_Password"}}
+<form name="changePwdForm" method="post" id="changePwdForm" action="/api/setPassword/reSetLoginPasswd">
+ <div class="sub-l fl sp-mtop30">
+  <span class="col-wa cola fl sp-mtop12">原密码:</span>
+  <div class="colb fl sp-mtop12">
+   <input type="password" name="oldLoginPasswd" id="oldLoginPasswd" class="input-w3"
+           maxlength="20"/>
+    <font style="color:red;float:right" id="oldPwdResult">密码为6到20位字母和数字组合</font>
+ </div>
+ <div class="cl"></div>
+ <span class="col-wa cola fl sp-mtop12">新密码:</span>
+ <div class="colb fl sp-mtop12">
+   <input type="password" name="newLoginPasswd" id="newLoginPasswd" class="input-w3" maxlength="20"/>
+      <font style="color:red;float:right" id="newPwdResult">密码为6到20位字母和数字组合</font>
+    {{!-- <ul class="parsley-error-list">
+        <li ><span style="color:red;" id="newPwdResult"></span></li>
+    </ul> --}}
+ </div>
+ <div class="cl"></div>
+ <span class="col-wa cola fl sp-mtop12">确认密码:</span>
+ <div class="colb fl sp-mtop12">
+   <input type="password" name="confirmLoginPasswd" id="confirmLoginPasswd" class="input-w3"/>
+    <font style="color:red;float:right" id="comPwdResult">密码为6到20位字母和数字组合</font>  
+ </div>			   
+ <div class="cl"></div>
+
+<span class="colz">
+  <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="submitButtn" name="submitButtn" class="ui-button ui-button-morange" title="确定">确定</a> 
+        <a id="resetButtn" name="button" class="ui-button ui-button-mwhite" title="取消">取消</a>
+      </div>
+    </div>
+</span>
+</div>
+</form>
+
+{{/component}}

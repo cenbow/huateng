@@ -1,0 +1,79 @@
+/* Menu CSS */
+
+#menu, #menu ul, #menu ul li, #menu ul li a {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+#menu:before, #menu:after, #menu > ul:before, #menu > ul:after {
+    content: '';
+    display: table;
+}
+
+#menu:after, #menu > ul:after {
+    clear: both;
+}
+
+#menu {
+    height: 32px;
+    background: #FF9900 bottom;
+    border-radius: 2px;
+    /*position: fixed;
+     z-index: 999999;
+     width: 100%;*/
+}
+
+#menu ul {
+    background: #FFFFFF;
+    height: 30px;
+    padding-left: 200px;
+}
+
+#menu ul li {
+    float: left;
+    list-style: none;
+}
+
+#menu ul li a {
+    display: block;
+    height: 25px;
+    padding: 4px 30px 0;
+    margin: 4px 2px 0;
+    border-radius: 2px 2px 0 0;
+    text-decoration: none;
+    font-size: 15px;
+    color: #000000;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, .75);
+    font-weight: 400;
+}
+
+#menu ul li:first-child a {
+    margin: 4px 2px 0 0;
+}
+
+#menu ul li a:hover, #menu ul li.active a {
+    background: #FF9900 ;
+    margin-top: 1px;
+    color: #FFFFFF;
+}
+#menu ul.content {
+    background: #FF9900;
+    margin-top: -1px;
+}
+
+#menu ul div li a {
+    display: block;
+    padding: 4px 15px 0;
+    height: 24px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 100;
+    text-shadow: 0px 0px 0px #000;
+
+}
+
+#menu ul div li a:hover, #menu ul div li.active a {
+    color: #FFFFFF;
+}

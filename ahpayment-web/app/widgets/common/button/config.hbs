@@ -1,0 +1,51 @@
+<div class="modal w300" id="js-button-setting-panel">
+	<div class="modal-header">
+		<button type="button" class="close">&times;</button>
+		<h4>按钮设置</h4>
+	</div>
+	<div class="modal-body">
+		<form id="js-button-settings-form">
+			<label>按钮文字:</label>
+			<input id="js-button-content" type="text" class="input-text" name="content" placeHolder="按钮" value="按钮">
+			<label>按钮链接:</label>
+			<input id="js-button-href" type="text" class="input-text" name="href" placeHolder="http://google.com" value="http://google.com">
+			<label>字体大小:</label>
+			<select id="js-button-fontsize" name="fontsize">
+				<option value="12">12px</option>
+				<option value="14">14px</option>
+				<option value="18">18px</option>
+				<option value="24">24px</option>
+				<option value="36">36px</option>
+			</select>
+			<div class="row-fluid color-row">
+				<div class="span5">背景:</div>
+				<div class="span7">
+					<input type="text" name="bg" class="input-mini js-color-picker" value="#000000"/>
+				</div>
+			</div>
+			<div class="row-fluid color-row">
+				<div class="span5">文字:</div>
+				<div class="span7">
+					<input type="text" name="text" class="input-mini js-color-picker" value="#FFFFFF"/>
+				</div>
+			</div>
+			<div class="row-fluid color-row">
+				<div class="span5">经过背景颜色:</div>
+				<div class="span7">
+					<input type="text" name="bg-hover" class="input-mini js-color-picker" value="#FFFFFF"/>
+				</div>
+			</div>
+			<div class="row-fluid color-row">
+				<div class="span5">经过文字颜色:</div>
+				<div class="span7">
+					<input type="text" name="text-hover" class="input-mini js-color-picker" value="#000000"/>
+				</div>
+			</div>
+
+		</form>
+		<button class="btn btn-primary btn-block" id="js-change-style-no-bg">自定义样式</button>
+	</div>
+	<div class="modal-footer">
+		<a id="js-button-ok" class="btn btn-primary">OK</a>
+	</div>
+</div>

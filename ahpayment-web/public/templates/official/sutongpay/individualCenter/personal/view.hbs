@@ -1,0 +1,37 @@
+{{#component "individualCenter"}}
+<div class="cl"></div>
+      <div class="fund-body" id="introduct">
+      <ul>
+      <dl>
+      <dd class="w50 bgbrown"><div class="inputtt">姓名：</div><input name="name" id="name" readonly="readonly" class="inter" type="text" value="{{_DATA_.name}}">
+      </dd>
+      <dd  class="w50 bgbrown">
+        <div class="inputtt">姓别：</div><div id="mxselect" class="inter melselect" contenteditable="{{#equals _DATA_.isRealname "4"}}false{{else}}true{{/equals}}"><span id="valu">{{#equals _DATA_.gender "1"}}男{{/equals}}{{#equals _DATA_.gender "2"}}女{{/equals}}{{#equals _DATA_.gender "3"}}其他{{/equals}}</span> {{#equals _DATA_.isRealname "4"}}{{else}}<div id="mxselected" style="display:none;"><li id="lm">男</li ><li id="lwm">女</li></div>{{/equals}}  </div></dd>
+       
+      </dl> 
+        <dl>
+       
+        </dl>
+       
+            <dl>
+      <dd class="w50 bgbrown"><div class="inputtt">身份证：</div><input name="idNo" id="idNo" readonly="readonly" class="inter" type="text" value="{{_DATA_.identifyNo}}"></br><span style="color:red;margin-left:10px" id=""></span>
+      </dd>
+      <dd  class="w50 bgbrown">
+        <div class="inputtt">家庭电话：</div><input name="homeTelephone" id="homeTelephone" maxLength="12" class="inter" type="text"  value="{{_DATA_.homeTelephone}}"></br> <span style="color:red;margin-left:10px" id="homeTelephoneMsg"></span></dd>
+      </dl>
+
+      <dl>
+      <dd class="w50 bgbrown"><div class="inputtt">办公电话：</div><input name="officeTelephone" id="officeTelephone" maxLength="12" class="inter" type="text" value="{{_DATA_.officeTelephone}}"></br> <span style="color:red;margin-left:10px" id="officeTelephoneMsg"></span>
+      </dd>
+      <dd  class="w50 bgbrown">
+        <div class="inputtt">其他电话：</div><input name="otherTelephone" id="otherTelephone" maxLength="12" class="inter" type="text"  value="{{_DATA_.otherTelephone}}"></br> <span  style="color:red;margin-left:10px" id="otherTelephoneMsg"></span></dd>
+      </dl>
+      </ul><ul>
+      <dl>
+      <dd><div class="inputtt">地址：</div><input name="contactAddress" id="contactAddress" maxLength="50" class="inter" type="text"  value="{{_DATA_.contactAddress}}"></dd>
+      </dl>
+      </ul>
+      <ul id="subinfor" style="display:none;"><dl><dd><input name="subBtn" id="subBtn" type="button" value="提交"></dd></dl></ul>
+      </div>
+
+    {{/component}}

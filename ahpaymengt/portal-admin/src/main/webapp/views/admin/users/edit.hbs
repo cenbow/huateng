@@ -1,0 +1,46 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+<h3>User {{user.id}}</h3>
+<form accept-charset="UTF-8" action="/users/{{user.id}}" class="form-horizontal" id="edit_component"
+      method="post">
+    <input name="_method" type="hidden" value="put">
+    <div class="control-group">
+        <label class="control-label" for="email">email</label>
+
+        <div class="controls">
+            <input class="text_field" id="email" name="email" size="30" type="text"
+                   value="{{user.email}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="name">name</label>
+
+        <div class="controls">
+            <input class="text_field" id="name" name="name" size="30" type="text" value="{{user.name}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="type">type</label>
+
+        <div class="controls">
+            <input class="text_field" id="type" name="type" size="30" type="text"
+                   value="{{user.type}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="status">status</label>
+
+        <div class="controls">
+            <input class="text_field" id="status" name="status" value="{{user.status}}">
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <input class="btn btn-primary" name="commit" type="submit" value="Save">
+        <a href="/users" class="btn"><span>Cancel</span></a>
+    </div>
+</form>
+{{/partial}}
+{{> admin/layout}}

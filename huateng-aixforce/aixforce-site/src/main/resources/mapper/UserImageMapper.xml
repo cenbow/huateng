@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserImage">
+    <resultMap id="userImageMap" type="UserImage">
+        <id property="id" column="id" />
+        <result property="userId" column="user_id" />
+        <result property="fileName" column="file_name" />
+        <result property="fileSize" column="file_size"/>
+        <result property="createdAt" column="created_at"/>
+    </resultMap>
+    
+    <sql id="Pagination_Head" >
+        <if test="startIndex != null and endIndex != null" >
+            <![CDATA[ select * from ( select row_.*, rownumber()   over()   AS   rn  from ( ]]>
+        </if>
+	</sql>
+	<sql id="Pagination_Foot" >
+        <if test="startIndex != null and endIndex != null" >
+            <![CDATA[ ) row_ ) rn where rn.rn > #{startIndex} and rn.rn <= #{endIndex} ]]>
+        </if>
+	</sql>
+
+    <sql id="columns">
+        user_id,file_name,file_size,created_at
+    </sql>
+
+    <select id="findById" parameterType="long" resultMap="userImageMap">
+        select id,<include refid="columns"/> from PORTAL.user_images where id=#{id}
+    </select>
+
+    <select id="findByUserId" parameterType="long" resultMap="userImageMap">
+    	<if test="offSet!=null and limit!=null">
+    		<include refid="Pagination_Head"/>
+    	</if>
+        select id,<include refid="columns"/> from PORTAL.user_images where user_id=#{userId}
+        order by id desc 
+        <if test="offSet!=null and limit!=null">
+    		<include refid="Pagination_Foot"/>
+    	</if>
+    </select>
+
+    <!-- 插入用户： 1.由数据库生成id并赋值到user对象  -->
+    <insert id="create" parameterType="UserImage">
+        insert into PORTAL.user_images (id,<include refid="columns"/> )
+        values (nextval for	 PORTAL.S_USER_IMAGES,#{userId},#{fileName}, #{fileSize},CURRENT DATE)
+    </insert>
+
+    <delete id="delete" parameterType="long">
+        delete from PORTAL.user_images where id=#{id}
+    </delete>
+
+    <delete id="deleteByUserId" parameterType="long">
+        delete from PORTAL.user_images where user_id=#{userId}
+    </delete>
+
+    <select id="countOf" resultType="int">
+        select count(1) from PORTAL.user_images where user_id = #{userId}
+    </select>
+
+    <select id="totalSize" resultType="long">
+        select sum(file_size) from PORTAL.user_images where user_id= #{userId}
+    </select>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoMobileHMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoMobileH" >
+    <id column="MOBILE_H_CODE" property="mobileHCode" jdbcType="VARCHAR" />
+    <result column="TELE_CODE" property="teleCode" jdbcType="VARCHAR" />
+    <result column="CITY_NAME" property="cityName" jdbcType="VARCHAR" />
+    <result column="CARRIER_NAME" property="carrierName" jdbcType="VARCHAR" />
+    <result column="PROV_TELECODE" property="provTelecode" jdbcType="VARCHAR" />
+    <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    MOBILE_H_CODE, TELE_CODE, CITY_NAME, CARRIER_NAME, PROV_TELECODE, LAST_UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_INFO_MOBILE_H
+    where MOBILE_H_CODE = #{mobileHCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_INFO_MOBILE_H
+    where MOBILE_H_CODE = #{mobileHCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoMobileH" >
+    insert into T_INFO_MOBILE_H (MOBILE_H_CODE, TELE_CODE, CITY_NAME, 
+      CARRIER_NAME, PROV_TELECODE, LAST_UPDATE_TIME
+      )
+    values (#{mobileHCode,jdbcType=VARCHAR}, #{teleCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
+      #{carrierName,jdbcType=VARCHAR}, #{provTelecode,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoMobileH" >
+    insert into T_INFO_MOBILE_H
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mobileHCode != null" >
+        MOBILE_H_CODE,
+      </if>
+      <if test="teleCode != null" >
+        TELE_CODE,
+      </if>
+      <if test="cityName != null" >
+        CITY_NAME,
+      </if>
+      <if test="carrierName != null" >
+        CARRIER_NAME,
+      </if>
+      <if test="provTelecode != null" >
+        PROV_TELECODE,
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mobileHCode != null" >
+        #{mobileHCode,jdbcType=VARCHAR},
+      </if>
+      <if test="teleCode != null" >
+        #{teleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="carrierName != null" >
+        #{carrierName,jdbcType=VARCHAR},
+      </if>
+      <if test="provTelecode != null" >
+        #{provTelecode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoMobileH" >
+    update T_INFO_MOBILE_H
+    <set >
+      <if test="teleCode != null" >
+        TELE_CODE = #{teleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="carrierName != null" >
+        CARRIER_NAME = #{carrierName,jdbcType=VARCHAR},
+      </if>
+      <if test="provTelecode != null" >
+        PROV_TELECODE = #{provTelecode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MOBILE_H_CODE = #{mobileHCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoMobileH" >
+    update T_INFO_MOBILE_H
+    set TELE_CODE = #{teleCode,jdbcType=VARCHAR},
+      CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      CARRIER_NAME = #{carrierName,jdbcType=VARCHAR},
+      PROV_TELECODE = #{provTelecode,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR}
+    where MOBILE_H_CODE = #{mobileHCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

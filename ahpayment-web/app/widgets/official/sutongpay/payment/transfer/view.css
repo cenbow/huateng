@@ -1,0 +1,12 @@
+/*账户转账*/
+.account{ clear:both; padding:32px 0; overflow:hidden;}
+
+.tips2{background:#f7fafd url(/assets/sutongpay/tip.jpg) no-repeat 25px 10px; overflow:hidden; border:1px solid #ededed; padding:7px 20px; margin-bottom:32px; display:block; line-height:25px; color:#666666;}
+
+.col-wc{white-space:nowrap; width:150px;}
+.col-wd{white-space:nowrap; width:100px;}
+.col-w230{white-space:nowrap; width:230px;};
+.colh14{width:280px; height:32px; line-height:32px; display:block; font-size:14px;}
+.selectb{
+	font-weight:bold;height:30px; 	
+}

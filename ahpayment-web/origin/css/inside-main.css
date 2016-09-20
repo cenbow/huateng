@@ -1,0 +1,226 @@
+@charset "utf-8";
+/* CSS Document */
+
+.inside-main {
+	width: 1000px;
+	margin: 0 auto 35px auto;
+	background: url(../images/inside-main/insidemain-bg.jpg) repeat-y;
+	display: inline-block;
+}
+.ui-my-left {
+	width: 180px;
+	display: inline-block;
+	float: left;
+	position: relative;
+	z-index: 2;
+}
+.ui-my-right {
+	width: 781px;
+	float: left;
+	padding-left: 20px;
+	text-align: left;
+	display: inline-block;
+	border: 1px solid #c2ccde;
+	position: relative;
+	margin-left: -1px;
+	padding-right: 18px;
+	min-height: 500px;
+!important _height:500px;
+}
+.ui-txt-a {
+	color: #2597dc;
+	font-size: 12px;
+}
+.ui-txt-a:hover {
+	text-decoration: underline;
+}
+.ui-text-orange {
+	color: #f77700;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.ui-text-Green {
+	color: #13af0c;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.ui-txt-Gray {
+	color: #ddd;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.ui-sepdased-line {
+	width: 100%;
+	height: 20px;
+	display: inline-block;
+	border-bottom: 1px dashed #999999;
+	margin-bottom: 20px;
+}
+.ui-inside-tab01 .ui-instab-th td {
+	background-color: #f3f2f2;
+	line-height: 35px;
+	height: 35px;
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	padding-right: 10px;
+}
+.ui-inside-tab01 .ui-instab-tm td {
+	background-color: #f3f2f2;
+	line-height: 35px;
+	height: 35px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.ui-inside-tab01 .ui-tabView {
+	font-weight: none;
+}
+.ui-inside-tab01 tr td {
+	border-bottom: 1px solid #eee;
+	line-height: 40px;
+}
+.inside-main .ui-rightdiv {
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+}
+
+.ui-news {
+	display: inline-block;
+	float: left;
+	border: 1px solid #f3f2f2;
+}
+.ui-news .ui-news-title {
+	width: 100%;
+	line-height: 40px;
+	height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #f3f2f2;
+}
+.ui-news .ui-news-title span {
+	position: relative;
+	left: 20px;
+}
+.ui-news li {
+	margin-bottom: 10px;
+}
+.ui-news .ui-newsdimg {
+	width: 15px;
+	height: 15px;
+	background-image: url(../images/inside-main/my-dian01.jpg);
+	position: relative;
+	float: left;
+	margin-right: 5px;
+	margin-left: 10px;
+}
+.ui-news a {
+	color: #666;
+}
+.ui-news a:hover {
+	color: #333;
+}
+.ui-Advertisingdiv {
+	width: 100%;
+	display: inline-block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.ui-txtinput01 {
+	border: 1px solid #CCC;
+	padding: 6px 10px;
+	line-height: 14px;
+	width: 140px;
+}
+/**弹出**/
+.tan_bei {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0px;
+	background-color: #000;
+	filter: alpha(opacity=20);
+	opacity: 0.2;
+	-moz-opacity: 0.2;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 9999;
+	text-align: center;
+	_position: absolute;
+_height:expression(document.body.scrollHeight);
+	text-align: center;
+	min-width: 1000px;
+}
+.ui-show-main {
+	min-height: 260px;
+!important _height:260px;
+	display: block;
+	z-index: 10000;
+	background-color: #FFF;
+	margin: 0 auto;
+	border: 4px solid #aaa;
+	position: relative;
+	padding-bottom: 25px;
+	margin: 0 auto;
+	position: fixed;
+	_POSITION: absolute;
+	left: 50%;
+	float: left;
+	display: inline;
+	top: 5%;
+	padding-bottom: 5px;
+	width: 750px;
+	margin-left: -375px;
+}
+.ui-show-title {
+	width: 100%;
+	line-height: 35px;
+	background-repeat: repeat-y;
+	border-bottom: 1px solid #CCC;
+	text-align: left;
+	display: block;
+	height: 35px;
+}
+.ui-show-title span {
+	position: relative;
+	left: 25px;
+	font-size: 14px;
+	display: inline-block;
+	float: left;
+	font-weight: bold;
+	color: #515151;
+}
+.close {
+	position: relative;
+	float: right;
+	display: inline-block;
+	right: 20px;
+	top: 2px;
+	font-size: 18px;
+	display: block;
+	line-height: 24px;
+	color: #515151;
+}
+.close:hover {
+	text-decoration: underline;
+}
+.ui-showdiv {
+	padding: 10px;
+	width: 98%;
+}
+.ui-my-info {
+	float: left;
+	line-height: 45px;
+	height: 45px;
+	color: #CCC;
+	display:block;
+	width:100%;
+}
+.ui-my-info span {
+	float: left;
+}
+.ui-my-info .ui-myinfo-time {
+	float: right;
+
+}

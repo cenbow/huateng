@@ -1,0 +1,76 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+<h1 xmlns="http://www.w3.org/1999/html">Sites</h1>
+<div class="span12">
+    <div class="span6">
+        <form class="form-search">
+            <input type="text" name="q" class="input-medium search-query" value="{{keywords}}">
+            <button id="js-admin-designer-list-search" type="submit" class="btn">搜索</button>
+            <div class="row">
+                <div class="span2">
+                    <input type="radio" name="queryType" value="byId" checked>
+                    by Id
+                </div>
+                <div class="span2">
+                    <input type="radio" name="queryType" value="byUserId">
+                    by userId
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="span3 pull-right">
+        <!--<a href="/sites/new" class="btn btn-primary"><span>Add</span></a>-->
+        <a href="/sites/add" class="btn">创建新站点</a>
+    </div>
+    <!--<div class="span3 pull-right">
+        &lt;!&ndash;<a href="/sites/new" class="btn btn-primary"><span>Add</span></a>&ndash;&gt;
+        <a href="/sites/dump" class="btn">同步搜索引擎</a>
+    </div>-->
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Forkable</th>
+        <th>UserId</th>
+        <th>Domain</th>
+        <th>SubDomain</th>
+        <th>HrefBase</th>
+        <th>RootPath</th>
+        <th>DefaultSiteInstanceId</th>
+        <th>From</th>
+        <th><span>Actions</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each sites}}
+    <tr>
+        <td><a href="/sites/{{id}}">{{id}}</a></td>
+        <td>{{{name}}}</td>
+        <td>{{type}}</td>
+        <td>{{status}}</td>
+        <td>{{forkable}}</td>
+        <td>{{userId}}</td>
+        <td>{{domain}}</td>
+        <td>{{subDomain}}</td>
+        <td>{{hrefBase}}</td>
+        <td>{{rootPath}}</td>
+        <td>{{defaultSiteInstanceId}}</td>
+        <td>{{forkFrom}}</td>
+        <td>
+            <a href="/sites/{{id}}/edit" class="btn btn-mini"><span>Edit</span></a>
+            <a href="/sites/{{id}}" class="btn btn-mini btn-danger delete"><span>Delete</span></a>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+<div class="pagination" id="js-admin-list">{{total}}</div>
+{{/partial}}
+{{> admin/layout}}

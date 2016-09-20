@@ -1,0 +1,32 @@
+.js-comp:hover{
+    outline: 1px dotted #249DDD;
+    cursor: move;
+    z-index: 9999;
+}
+
+// hack rowbox
+.js-comp.rowbox:hover{
+  z-index:1;
+}
+
+.js-comp.page_part:hover{
+    outline: 0;
+    cursor: default;
+}
+
+.js-comp .ui-icon{
+    background-image: none;
+}
+
+.minicolors {
+  z-index: 1000 !important;
+}
+
+.minicolors-focus {
+  z-index: 10001 !important;
+}
+
+.humane,
+.humane-libnotify {
+  top: 40px;
+}

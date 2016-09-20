@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<link href="../css/index.css" rel="stylesheet" />
+<link href="../css/inside-header.css" rel="stylesheet" />
+<link href="../css/footer.css" rel="stylesheet" />
+<link href="../css/mob-main.css" rel="stylesheet" />
+<SCRIPT type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="../js/slider.js"></SCRIPT>
+<script type="text/javascript" charset="utf-8">
+<!-- 手机切换-->
+stepcarousel.setup({
+	galleryid: 'mygallery', //传送ID
+	beltclass: 'belt', //用这个DIV包含内部所有的DIV
+	panelclass: 'panel', //分组的内容DIV
+	panelbehavior: {speed:500, wraparound:true, persist:true},
+	defaultbuttons: {enable: true, moveby: 1, leftnav: ['../images/mobileChannel/mob-an-left01.png', -85, 125], rightnav: ['../images/mobileChannel/mob-an-right01.png', 35, 125]},
+	statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
+	contenttype: ['inline'] //content setting ['inline'] or ['external', 'path_to_external_file']
+})
+$(function(){
+	$(".mob-cpqh01 ul li").hover(function(){
+		 $(".mob-cpqh01 ul li").removeClass().addClass("cpqh-none");
+		 $(this).removeClass().addClass("cpqh-sel");
+		 if($(this).attr('name') == 'txt01')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt01").show()
+		 		$(this).removeClass("cpqh-none").addClass("cpqh-sel02");
+			}
+		  if($(this).attr('name') == 'txt02')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt02").show()
+			}
+		  if($(this).attr('name') == 'txt03')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt03").show()
+			}
+		  if($(this).attr('name') == 'txt04')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt04").show()
+			}
+		  if($(this).attr('name') == 'txt05')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt05").show()
+			}
+		  if($(this).attr('name') == 'txt06')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt06").show()
+			}
+		  if($(this).attr('name') == 'txt07')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt07").show()
+			}
+		  if($(this).attr('name') == 'txt08')
+			{
+		 		$(".cpqh-div-txt").hide();
+				$("#txt08").show()
+			}
+				
+	});
+});	
+</script>
+
+<title>翼支付</title>
+</head>
+<body >
+<div id="divBody">
+<div class="topbar">
+	<div class="ui-topbarmain">
+    	<span class="ui-topleftlink"><a title="公司首页">公司首页</a><font>|</font><a title="网上营业厅">网上营业厅</a><font>|</font><a title="天翼积分商城">天翼积分商城</a><font>|</font><a title="官方微博">官方微博</a></span>
+        <div class="ui-toprightinfo">
+        <span>您好，欢迎来到翼支付！</span>   <a title="登录">登录</a><font>|</font><a title="注册">注册</a><font>|</font>
+        <div class="ui-helpselect">帮助中心<i></i>
+        <!--鼠标经过弹出DIV，改变箭头方向-->
+        <script>
+		$(function(){
+			$('.ui-helpselect').hover(function(){
+				$(this).children('div').show();
+				$(this).children('i').addClass("i-hover");
+			
+			},function(){
+				$(this).children('div').hide();
+				$(this).children('i').removeClass("i-hover");
+			});
+			});
+		</script>
+        <div class="ui-topbar-selectdiv">
+        	<ul>
+            	<li><a>常见问题</a></li>
+                <li><a>玩转翼支付</a></li>
+            </ul>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="ui-mobmain-header">
+<div class="inside-header"> <span class="ui-headerlogo"></span>
+  <div class="ui-nav"> <a >我的翼支付</a> <a >交易管理</a> <a >应用中心</a> <a >账单支付</a> <a>翼充卡</a> <a class="nav-sel">手机客户端</a> </div>
+</div>
+</div>
+<div class="mobile-main">
+	<div class="mob-main980">
+        <!--手机切换-->
+        <div id=slider>
+            <div class=stepcarousel id=mygallery>
+                <div class=belt>
+                    <div class=panel><img alt="" src="../images/mobileChannel/mob-q01.jpg"/> </div>
+                    <div class=panel> <img alt="" src="../images/mobileChannel/mob-q02.jpg"/> </div>
+                    <div class=panel> <img alt="" src="../images/mobileChannel/mob-q03.jpg"/> </div>
+                    <div class=panel><img alt="" src="../images/mobileChannel/mob-q04.jpg"/> </div>
+                    <div class=panel> <img alt="" src="../images/mobileChannel/mob-q05.jpg"/> </div> 
+                </div>
+            </div>
+         <!--下面的JS必须放在后面，只影响谷歌，即使去掉在IE6、7火狐中仍正常-->
+        <script src="../js/swfobject.js" type=text/javascript></script>        
+        </div>
+        <!--手机切换end-->
+        <span class="mob-ezfimg01"></span>
+        <span class="mob-biao01"></span>
+        <a class="mob-adown01" href="mobileDownload.jsp"></a>
+        <span class="mob-txt01">
+            &nbsp;&nbsp;&nbsp;翼支付客户端是中国电信推出的手机客户端软件，向手机用户提供综合性移动支付业务，如水电煤缴费、话费充值、游戏快充、手机购彩、购影票、购火车票、易到用车、号百商旅等。通过安全键盘、支付密码多重保障体系，用户可尽享中国电信提供的便利生活及娱乐休闲服务。
+        </span>
+    </div>
+</div>
+<div class="mob-new01">
+	<span class="mob-new-txt01">新增活动专区，参与活动即可获得各种返利，活动每天都有<br />
+新增消息中心，方便查看各项消息，了解活动动态</span>
+    <span class="mob-new-txt02">新增客服中心，贴心服务更方便<br />
+新增自动登录，体验更流畅</span>
+	<span class="mob-new-txt03">优化部分显示及体验问题<br />
+银行卡选择内置，更加安全方便</span>
+</div>
+<div class="mob-cpqh01">
+	<ul>
+    	<li class="cpqh-sel02" name="txt01">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mob-tra.png" /></span>
+            <span class="cpqh-txt">购火车票</span>
+        </li>
+    	<li class="cpqh-none" name="txt02">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mob-ysh.png" /></span>
+            <span class="cpqh-txt">翼商汇</span>
+        </li>
+    	<li class="cpqh-none" name="txt03">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mov-sdm.png" /></span>
+            <span class="cpqh-txt">水电煤</span>
+        </li>
+    	<li class="cpqh-none" name="txt04">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mov-chep.png" /></span>
+            <span class="cpqh-txt">购汽车票</span>
+        </li>
+    	<li class="cpqh-none" name="txt05">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mov-hmzz.png" /></span>
+            <span class="cpqh-txt">号码转账</span>
+        </li>
+    	<li class="cpqh-none" name="txt06">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mov-bx.png" /></span>
+            <span class="cpqh-txt">手机保险</span>
+        </li>
+    	<li class="cpqh-none" name="txt07">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mov-tic.png" /></span>
+            <span class="cpqh-txt">购电影票</span>
+        </li>
+    	<li class="cpqh-none" name="txt08">
+            <span class="cpqh-img"><img src="../images/mobileChannel/mov-cp.png" /></span>
+            <span class="cpqh-txt">手机彩票</span>
+        </li>
+    </ul>
+</div>
+<div class="cpqh-div">
+    <div class="cqhh-divmid">
+        <span class="cqqh-div-top"></span>
+        <span class="cpqh-div-txt" id="txt01">用户通过翼支付客户端可在线订购火车票，目前支持动车组列车（“C”、“D”、“G”字头）的部分线路。支付成功后即收到短信，凭该短信及乘客身份证原件到车站窗口或自动售/取票机换取纸质票即可乘车。（目前支持北京、上海、广州等24条线路，更多城市即将上线。）</span>
+        <span class="cpqh-div-txt" id="txt02" style="display:none;">为用户提供翼支付商户的地图信息、交通线路、联系方式以及优惠折扣信息，还可以进行商户收藏、纠错、签到以及图片上传等互动。降低合作商家的宣传促销成本，促进人气汇聚与信息互动。</span>
+        <span class="cpqh-div-txt" id="txt03" style="display:none;">用户通过翼支付客户端可查询和缴纳水电煤气费（目前已开通重庆、安徽、海口、哈尔滨、武汉、长沙、南京、苏州、杭州、宁波等地区，更多城市即将上线）。</span>
+        <span class="cpqh-div-txt" id="txt04" style="display:none;">通过翼支付手机客户端购买长途汽车票。用户按照翼支付客户端提示填写信息并选择班车，支付成功后即获得电子票，凭该电子票在规定时间到车站换取纸质票据即可。（目前该服务支持广州、南昌、成都等地区，提供从相应站点出发至全省及全国重点城市客运班车票务预订服务，更多城市即将上线。 ）</span>
+        <span class="cpqh-div-txt" id="txt05" style="display:none;">翼支付号码转账——即使不知道对方翼支付账户和银行账号，只要知道对方手机号就能转账付款啦！对方如已开通翼支付账户，可以直接收取您的转账，即时到账，快捷方便。安全有保障！转账到银行卡功能即将上线，敬请期待！</span>
+        <span class="cpqh-div-txt" id="txt06" style="display:none;">保险产品包括：航空保险、旅游保险、交通保险、车主保险、综合保险等。产品由中国人寿、中国人保等最具权威的保险公司提供，保费区间:1-100元；保额区间：2-100万元；保险期限：7天、15天、30天、1年。</span>
+        <span class="cpqh-div-txt" id="txt07" style="display:none;">通过翼支付客户端，用户可在线选座购票，平台会以短信形式发送电子票到用户手机，用户凭电子票在影院自助出票机打印纸质影票后，即可入场观影，再也不用排队啦！（目前覆盖北京、上海、广州等40多个城市的300多家影院，更多影院即将上线。）</span>
+        <span class="cpqh-div-txt" id="txt08" style="display:none;">翼支付用户可使用翼支付手机客户端购买彩票，目前支持的彩种有：福彩（双色球、福彩3D、七乐彩、时时乐、时时彩）、体彩（七星乐、大乐透、排列三、 排列五、十一选五、十一运夺金）。10000元内奖金支持直接转账到中奖者银行账户或翼支付账户。</span>
+    </div>
+</div>
+<div id="footer">
+    <div class="footerbg">
+      <div class="footer-main">
+        <div class="footer-link">
+          <div class="elselink">
+            <div class="elsetitlink"> <a style="cursor:default"><img src="../images/footer/dx.png" /></a> <a style="cursor:default"><img src="../images/footer/phone1.jpg"  /></a> <a style="cursor:default"><img src="../images/footer/phone.png"/></a> <a href="" target="_blank"><img src="../images/footer/youjian.png"/> <span class="t01">kefu@sutongpay.com.cn</span></a> </div>
+            <div class="elsebotlink">
+              <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+              <a href="
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu1.jpg"/></a> <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu2.jpg"/></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

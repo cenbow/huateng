@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huateng.p3.account.persistence.TbPosInfoMapper">
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TbPosInfo">
+    <id column="MERCHANT_CODE" jdbcType="CHAR" property="merchantCode" />
+    <id column="POS_CODE" jdbcType="CHAR" property="posCode" />
+    <result column="POS_TMK" jdbcType="CHAR" property="posTmk" />
+    <result column="POS_PINKEY" jdbcType="CHAR" property="posPinkey" />
+    <result column="POS_MACKEY" jdbcType="CHAR" property="posMackey" />
+    <result column="POS_STATUS" jdbcType="CHAR" property="posStatus" />
+    <result column="POS_PIN_SEQ" jdbcType="CHAR" property="posPinSeq" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MERCHANT_CODE, POS_CODE, POS_TMK, POS_PINKEY, POS_MACKEY, POS_STATUS, POS_PIN_SEQ
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TbPosInfoKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from COMMON.TB_POS_INFO
+    where MERCHANT_CODE = #{merchantCode,jdbcType=CHAR}
+      and POS_CODE = #{posCode,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TbPosInfoKey">
+    delete from COMMON.TB_POS_INFO
+    where MERCHANT_CODE = #{merchantCode,jdbcType=CHAR}
+      and POS_CODE = #{posCode,jdbcType=CHAR}
+  </delete>
+  <select id="findPinkeyFromEncrypt" resultMap="BaseResultMap"
+             parameterType="java.util.HashMap">
+		select POS_PINKEY,POS_PIN_SEQ from
+		COMMON.TB_POS_INFO
+		where
+		POS_CODE=#{posCode,jdbcType=CHAR} and MERCHANT_CODE=#{merchantCode,jdbcType=CHAR}
+ </select>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TbPosInfo">
+    insert into COMMON.TB_POS_INFO (MERCHANT_CODE, POS_CODE, POS_TMK, 
+      POS_PINKEY, POS_MACKEY, POS_STATUS, 
+      POS_PIN_SEQ)
+    values (#{merchantCode,jdbcType=CHAR}, #{posCode,jdbcType=CHAR}, #{posTmk,jdbcType=CHAR}, 
+      #{posPinkey,jdbcType=CHAR}, #{posMackey,jdbcType=CHAR}, #{posStatus,jdbcType=CHAR}, 
+      #{posPinSeq,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TbPosInfo">
+    insert into COMMON.TB_POS_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="merchantCode != null">
+        MERCHANT_CODE,
+      </if>
+      <if test="posCode != null">
+        POS_CODE,
+      </if>
+      <if test="posTmk != null">
+        POS_TMK,
+      </if>
+      <if test="posPinkey != null">
+        POS_PINKEY,
+      </if>
+      <if test="posMackey != null">
+        POS_MACKEY,
+      </if>
+      <if test="posStatus != null">
+        POS_STATUS,
+      </if>
+      <if test="posPinSeq != null">
+        POS_PIN_SEQ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="merchantCode != null">
+        #{merchantCode,jdbcType=CHAR},
+      </if>
+      <if test="posCode != null">
+        #{posCode,jdbcType=CHAR},
+      </if>
+      <if test="posTmk != null">
+        #{posTmk,jdbcType=CHAR},
+      </if>
+      <if test="posPinkey != null">
+        #{posPinkey,jdbcType=CHAR},
+      </if>
+      <if test="posMackey != null">
+        #{posMackey,jdbcType=CHAR},
+      </if>
+      <if test="posStatus != null">
+        #{posStatus,jdbcType=CHAR},
+      </if>
+      <if test="posPinSeq != null">
+        #{posPinSeq,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TbPosInfo">
+    update COMMON.TB_POS_INFO
+    <set>
+      <if test="posTmk != null">
+        POS_TMK = #{posTmk,jdbcType=CHAR},
+      </if>
+      <if test="posPinkey != null">
+        POS_PINKEY = #{posPinkey,jdbcType=CHAR},
+      </if>
+      <if test="posMackey != null">
+        POS_MACKEY = #{posMackey,jdbcType=CHAR},
+      </if>
+      <if test="posStatus != null">
+        POS_STATUS = #{posStatus,jdbcType=CHAR},
+      </if>
+      <if test="posPinSeq != null">
+        POS_PIN_SEQ = #{posPinSeq,jdbcType=CHAR},
+      </if>
+    </set>
+    where MERCHANT_CODE = #{merchantCode,jdbcType=CHAR}
+      and POS_CODE = #{posCode,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TbPosInfo">
+    update COMMON.TB_POS_INFO
+    set POS_TMK = #{posTmk,jdbcType=CHAR},
+      POS_PINKEY = #{posPinkey,jdbcType=CHAR},
+      POS_MACKEY = #{posMackey,jdbcType=CHAR},
+      POS_STATUS = #{posStatus,jdbcType=CHAR},
+      POS_PIN_SEQ = #{posPinSeq,jdbcType=CHAR}
+    where MERCHANT_CODE = #{merchantCode,jdbcType=CHAR}
+      and POS_CODE = #{posCode,jdbcType=CHAR}
+  </update>
+  </mapper>

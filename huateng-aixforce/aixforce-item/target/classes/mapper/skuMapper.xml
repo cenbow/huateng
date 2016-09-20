@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2013 杭州端点网络科技有限公司
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Sku">
+    <resultMap id="SkuMap" type="Sku">
+        <id property="id" column="id" jdbcType="DECIMAL"/>
+        <result property="itemId" column="item_id" jdbcType="DECIMAL"/>
+        <result property="price" column="price" jdbcType="DECIMAL"/>
+        <result property="stock" column="stock" jdbcType="DECIMAL"/>
+        <result property="image" column="image" jdbcType="VARCHAR"/>
+        <result property="attributeKey1" column="attribute_key1" jdbcType="VARCHAR"/>
+        <result property="attributeName1" column="attribute_name1" jdbcType="VARCHAR"/>
+        <result property="attributeValue1" column="attribute_value1" jdbcType="VARCHAR"/>
+        <result property="attributeKey2" column="attribute_key2" jdbcType="VARCHAR"/>
+        <result property="attributeName2" column="attribute_name2" jdbcType="VARCHAR"/>
+        <result property="attributeValue2" column="attribute_value2" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="columns">
+        item_id, price, stock, image,attribute_key1, attribute_name1, attribute_value1,attribute_key2,attribute_name2, attribute_value2
+    </sql>
+
+    <select id="findById" parameterType="long" resultMap="SkuMap">
+        SELECT id,
+        <include refid="columns"/>
+        FROM PORTAL.skus WHERE id=#{id}
+    </select>
+
+    <select id="findByItemId" parameterType="long" resultMap="SkuMap">
+        SELECT id,
+        <include refid="columns"/>
+        FROM PORTAL.skus WHERE item_id =#{itemId}
+    </select>
+
+
+    <insert id="create" parameterType="Sku" >
+        INSERT INTO PORTAL.skus (id,<include refid="columns"/>)
+        VALUES (nextval for PORTAL.S_SKUS,#{itemId,jdbcType=DECIMAL},#{price,jdbcType=DECIMAL},#{stock,jdbcType=DECIMAL},#{image,jdbcType=VARCHAR},
+        #{attributeKey1,jdbcType=VARCHAR},#{attributeName1,jdbcType=VARCHAR},#{attributeValue1,jdbcType=VARCHAR},#{attributeKey2,jdbcType=VARCHAR},
+        #{attributeName2,jdbcType=VARCHAR},#{attributeValue2,jdbcType=VARCHAR})
+    </insert>
+
+    <!--<insert id="batchInsert" parameterType="Sku" useGeneratedKeys="true" keyProperty="id">
+        <selectKey resultType="long" keyProperty="id" order="BEFORE">
+            SELECT
+            LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO skus (<include refid="columns"/>) VALUES
+        <foreach collection="list" item="sku" index="index" separator="," >
+           (#{sku.itemId},#{sku.price},#{sku.stock},#{sku.image},#{sku.attribute1},#{sku.attribute2})
+        </foreach>
+    </insert>-->
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM PORTAL.skus WHERE id=#{id} <!-- and user_id=#{user_id}-->
+    </delete>
+
+    <delete id="deleteByItemId" parameterType="long">
+        DELETE FROM PORTAL.skus WHERE item_id = #{itemId}
+    </delete>
+
+    <update id="update" parameterType="Sku">
+        UPDATE PORTAL.skus
+        <set>
+            <if test="itemId!=null">item_id=#{itemId,jdbcType=DECIMAL},</if>
+            <if test="price!=null">price=#{price,jdbcType=DECIMAL},</if>
+            <if test="stock!=null">stock=#{stock,jdbcType=DECIMAL},</if>
+            <if test="image!=null">image=#{image,jdbcType=VARCHAR},</if>
+            <if test="attributeKey1!=null">attribute_key1=#{attributeKey1,jdbcType=VARCHAR},</if>
+            <if test="attributeName1!=null">attribute_name1=#{attributeName1,jdbcType=VARCHAR},</if>
+            <if test="attributeValue1!=null">attribute_value1=#{attributeValue1,jdbcType=VARCHAR},</if>
+            <if test="attributeKey2!=null">attribute_key2=#{attributeKey2,jdbcType=VARCHAR},</if>
+            <if test="attributeName2!=null">attribute_name2=#{attributeName2,jdbcType=VARCHAR},</if>
+            <if test="attributeValue2!=null">attribute_value2=#{attributeValue2,jdbcType=VARCHAR},</if>
+        </set>
+        WHERE id=#{id,jdbcType=DECIMAL} <!--and user_id=#{user_id}-->
+    </update>
+
+    <update id="changeStock" parameterType="java.util.Map">
+        UPDATE PORTAL.skus SET stock = stock + #{count} WHERE id = #{id}
+    </update>
+</mapper>

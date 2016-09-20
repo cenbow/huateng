@@ -1,0 +1,20 @@
+
+.ui-my-info {
+float: left;
+line-height: 45px;
+height: 45px;
+color: #CCC;
+display: block;
+width: 100%;
+}
+.ui-my-info .ui-myinfo-time {
+float: right;
+}
+
+/*user level*/
+.userlevel{
+	line-height:32px; font-size:15px;}
+.ulgreen{color:#5aab04}
+.userlevelbar{width:560px; margin:30px auto 30px auto; height:32px}
+.loading{background:url(/assets/sutongpay/loadingnomarl.png) no-repeat;width:364px; height:12px; line-height:normal; overflow:hidden;}
+.sp-mtop12{margin-top:12px;}

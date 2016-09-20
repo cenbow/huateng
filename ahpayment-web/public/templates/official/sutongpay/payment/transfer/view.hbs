@@ -1,0 +1,104 @@
+{{#component "transfer"}}
+<form id="formNumber" method="post" action="/api/accountTransfer/number/check" AUTOCOMPLETE="OFF"/>
+<div class="account">
+  <!--step步骤结束 -->
+  <div class="tips2">
+    <div class="sp-mleftf50">小贴士:<br>
+  1. 转出资金须为账户内可提现余额，转入资金可提现至本人银行卡。 <br>
+  2. 高级实名用户转账的单笔限额5000元，每日累计限额5000元，每月累计限额30000元。转账无次数限制。非实名用户不支持转账。
+    </div>
+  </div>
+  <div class="cl sp-mtop12"></div>
+
+
+</span>
+
+<input id="amount" name="amount" type="hidden" value="{{formatAmount _DATA_.balance}}">
+<span class="col-w230 cola fl">余额：</span>
+<span class="colh14 fl"> <strong>{{formatAmount _DATA_.balance}}</strong> 元 (可用余额:<strong>{{formatAmount _DATA_.availableBalance}}</strong>元)
+</span>
+
+<div class="cl"></div>
+
+<span class="col-w230 cola fl sp-mtop16">收款人账号：</span>
+<span class="coll fl sp-mtop16">
+ <input name="transPhone" type="text" class="input-w3" maxLength="30" id="transPhone" 
+        placeholder="请输入收款人账号">
+ <br>
+     <div id="transferPhoneMsg" name="transferPhoneMsg" class="ui-txtred"></div>
+</span>
+
+<div class="cl"></div>
+
+<span class="col-w230 cola fl sp-mtop16">转账金额：</span>
+<span class="coll fl sp-mtop16 ">
+  <input name="transferAmount" type="text" maxLength="9" class="input-w3" id="transferAmount"
+  placeholder="请输入转账金额">
+  <span class="font-grey14">元</span> （例如100或则100.00）
+  <br>
+     <div id="transferAmountMsg" name="transferAmountMsg" class="ui-txtred"></div>
+</span>
+<div class="cl"></div>
+
+<span class="col-w230 cola fl sp-mtop16">转账说明：</span>
+<span class="coll fl sp-mtop16">
+ <input name="field" type="text" maxLength="15" class="input-w3" id="field">
+ 最多只能输入15个字
+ <br>
+     <div id="textfieldMsg" name="textfieldMsg" class="ui-txtred"></div>
+</span>
+
+
+ <div class="cl"> </div>
+
+ <span class="col-w230 cola fl sp-mtop16">验证码：</span>
+ <span class="colh fl sp-mtop16">
+  <div style="float:left;">
+   <input type="text" name="vcode" id="vcode" class="yzm-w2 input-w4" maxlength=4>
+
+       <span name="codeflagSpan" id="codeFlagSpan" 
+       style="display:none;margin-left:-17px;">
+       <img id="codeFlag" src="/assets/sutongpay/er.png">
+        <input type="hidden" id="imgCodeFlag" value="false"/>
+     </span>
+     <br>
+     <div id="checkCodMsg" name="checkCodMsg" class="ui-txtred"></div>
+ </div>
+   <div style="float:left;">
+
+     <span class="yzm fl sp-mtop14">
+      <img id="codeImg" style="display:none" width="54" height="30">
+      <a name="flushCode">换一张</a></span>
+     
+    </div>
+ </span> 
+
+ <div class="cl"></div>
+   <span class="col260 sp-mtop22">
+    <input type="checkbox" name="ckbox" id="ckbox" class="ui-checkbox fl">
+    <div class="fl">我已阅读并同意《<a href="#">速通支付缴费协议</a>》</div>
+  </span>
+    <div class="cl"><br>
+     <br>
+     <br>
+     <br>
+
+   </div>
+
+
+   <span class="colcenter">
+ <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="nextButton" name="nextButton" class="ui-button ui-button-morange" title="下一步">下一步</a> 
+      </div>
+    </div>
+</span>
+
+
+
+ </div><!--account结束 -->
+
+ <div class="cl"></div>
+ </form>
+ {{/component}}

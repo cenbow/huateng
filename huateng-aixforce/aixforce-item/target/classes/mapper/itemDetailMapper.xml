@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ItemDetail">
+    <resultMap id="itemDetailMap" type="ItemDetail">
+        <id property="id" column="id" jdbcType="DECIMAL"/>
+        <result property="itemId" column="item_id" jdbcType="DECIMAL"/>
+        <result property="image1" column="image1"  jdbcType="VARCHAR"/>
+        <result property="image2" column="image2"  jdbcType="VARCHAR"/>
+        <result property="image3" column="image3"  jdbcType="VARCHAR"/>
+        <result property="image4" column="image4"  jdbcType="VARCHAR"/>
+        <result property="detail" column="detail"  jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="columns">
+        id,item_id, image1, image2, image3, image4, detail
+    </sql>
+
+    <select id="findById" parameterType="long" resultMap="itemDetailMap">
+        select <include refid="columns"/> from PORTAL.item_details where id=#{id}
+    </select>
+
+    <select id="findByItemId" parameterType="long" resultMap="itemDetailMap">
+        select <include refid="columns"/> from PORTAL.item_details where item_id=#{itemId}
+    </select>
+
+    <insert id="create" parameterType="ItemDetail">
+        insert into PORTAL.item_details (<include refid="columns"/>) values (nextval for PORTAL.S_ITEM_DETAILS,
+        #{itemId,jdbcType=DECIMAL}, #{image1,jdbcType=VARCHAR}, #{image2,jdbcType=VARCHAR}, #{image3,jdbcType=VARCHAR},
+        #{image4,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR})
+    </insert>
+
+    <delete id="delete" parameterType="long">
+        delete from PORTAL.item_details where id=#{id}
+    </delete>
+
+    <delete id="deleteByItemId" parameterType="long">
+        delete from PORTAL.item_details where item_id=#{itemId}
+    </delete>
+
+    <update id="update" parameterType="ItemDetail">
+        update PORTAL.item_details
+        <set>
+            <if test="image1!=null">image1=#{image1,jdbcType=VARCHAR},</if>
+            <if test="image2!=null">image2=#{image2,jdbcType=VARCHAR},</if>
+            <if test="image3!=null">image3=#{image3,jdbcType=VARCHAR},</if>
+            <if test="image4!=null">image4=#{image4,jdbcType=VARCHAR},</if>
+            <if test="detail!=null">detail=#{detail,jdbcType=VARCHAR},</if>
+        </set>
+        where id=#{id,jdbcType=DECIMAL}
+    </update>
+
+    <update id="updateByItemId" parameterType="ItemDetail">
+        update PORTAL.item_details
+        <set>
+            <if test="image1!=null">image1=#{image1,jdbcType=VARCHAR},</if>
+            <if test="image2!=null">image2=#{image2,jdbcType=VARCHAR},</if>
+            <if test="image3!=null">image3=#{image3,jdbcType=VARCHAR},</if>
+            <if test="image4!=null">image4=#{image4,jdbcType=VARCHAR,jdbcType=VARCHAR},</if>
+            <if test="detail!=null">detail=#{detail},</if>
+        </set>
+        where item_id=#{itemId,jdbcType=DECIMAL}
+    </update>
+</mapper>

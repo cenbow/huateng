@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+.inside-header {
+	width: 1000px;
+	height: 78px;
+	background-color: #fff;
+	display: block;
+	margin: 0 auto;
+	border-bottom: 3px solid #2A9CD8;
+	position: relative;
+}
+.inside-header .ui-headerlogo {
+	width: 178px;
+	height: 75px;
+	display: block;
+	position: absolute;
+	background-image: url(../images/header/topheader-logo.jpg);
+	left: 0px;
+	top: 0px;
+}
+.inside-header .ui-nav {
+	height: 38px;
+	display: inline-block;
+*display:inline;
+	zoom: 1;
+	position: absolute;
+	float: right;
+	right: 0px;
+	top: 39px;
+	background-color: #f0f5f5;
+}
+.inside-header .ui-nav a {
+	font-size: 14px;
+	padding: 11px 20px 7px 20px;
+	color: #666;
+	display: block;
+	float: left;
+}
+.inside-header .ui-nav a:hover {
+	background-color: #E6EFEF;
+}
+.inside-header .ui-nav a.nav-sel {
+	background-color: #1A68AC;
+	color: #FFF;
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+}
+.inside-header .ui-nav a.nav-sel {
+	background-color: #2A9CD8;
+}

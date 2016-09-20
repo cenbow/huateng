@@ -1,0 +1,15 @@
+{{#partial "title"}}安全中心{{/partial}}
+{{#partial "body"}}
+  <div class="ui-my-left">
+    {{inject "official/common/menu"}}
+  </div>
+  <div class="ui-my-right">
+  	{{#inject "official/sutongpay/mypay/security/nav"}}
+  		{"data": {
+  			"pagename":"重置支付密码"
+    	}}
+  	{{/inject}}
+    {{inject "official/sutongpay/mypay/security/paypwd/reset/idno"}}
+  </div>
+{{/partial}}
+{{> layout/sutongpay/layout}}

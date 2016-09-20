@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+.Advertising{ width:800px; height:240px; display:block; background-color:#060; position:relative; left:-20px;}
+.new-read-bt{ width:800px; height:26px; display:block; background-image:url(/assets/sutongpay/play/new-reader01.jpg); margin-top:30px;position:relative; left:-20px;}
+.new-read-main{width:800px; position:relative; left:-20px; margin-top:15px; }
+.new-read-main .div-l01{ width:220px; height:145px; display:inline-block;  margin-right:40px;  margin-bottom:20px;}
+*+html .div-l01{ float:left;}
+.div-l01 .img-left{ width:110px; float:left; display:block; height:145px;}
+.div-l01 .text-right{ width:100px; float:right;}
+.text-right .text-bt01{font-weight:bold; width:110px; height:25px; line-height:25px;}
+.text-right .text-main01{width:100px; height:80px; }
+.text-right .text-bot01{ width:100px; height:30px;}
+.shopping-read-bt{ width:800px; height:26px; display:block; background-image:url(/assets/sutongpay/play/shopping-reader01.jpg);position:relative; left:-20px;}
+.life-read-bt{ width:800px; height:26px; display:block; background-image:url(/assets/sutongpay/play/life-reader01.jpg); position:relative; left:-20px;}
+.xinshou01{ width:110px; height:134px; background:url(/assets/sutongpay/play/newcar.png) bottom; display:block;}
+.xinshou01:hover{ background-position:top;}
+.zhuce01{ width:110px; height:134px; background:url(/assets/sutongpay/play/zhucechangshi.png) bottom; display:block;}
+.zhuce01:hover{ background-position:top;}
+.anquan01{ width:110px; height:134px; background:url(/assets/sutongpay/play/anquanchanpin.png) bottom; display:block;}
+.anquan01:hover{ background-position:top;}
+.fukuan01{ width:110px; height:134px; background:url(/assets/sutongpay/play/fukuan.png) bottom; display:block;}
+.fukuan01:hover{ background-position:top;}
+.jiaofei01{ width:110px; height:134px; background:url(/assets/sutongpay/play/shenghuojiaofei.png) bottom; display:block;}
+.jiaofei01:hover{ background-position:top;}
+.about01{ width:110px; height:134px; background:url(/assets/sutongpay/play/tianyizhanghao.png) bottom; display:block;}
+.about01:hover{ background-position:top;}
+.wlanquan01{ width:110px; height:134px; background:url(/assets/sutongpay/play/wangluozhifu.png) bottom; display:block;}
+.wlanquan01:hover{ background-position:top;}

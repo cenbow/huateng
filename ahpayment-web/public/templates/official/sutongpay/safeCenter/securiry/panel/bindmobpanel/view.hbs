@@ -1,0 +1,44 @@
+      {{#component "safeCenter-security-panel-bindmobpanel"}}
+      <div class="setlist">
+       <div class="fl tp">手机绑定</div>
+       
+      
+
+       {{#equals _DATA_.mobileNo ""}}
+       <div class="fl" style="background: url('/assets/sutongpay/setscico2.jpg') no-repeat scroll left top transparent;text-indent: 25px;width: 90%;
+text-align: center;"><div class="fl" >当您忘记支付密码时，可通过绑定手机找回您的支付密码。
+       </div>
+       <div class="fr ctrl"><li><a href="#"  id="libang">立即绑定</a></li></div>
+       {{else}}
+       <div class="fl cp"><div class="fl">当您忘记支付密码时，可通过绑定手机找回您的支付密码。
+       您绑定的手机：{{_DATA_.mobileNo}}。
+       </div>
+       <div class="fr ctrl"><li><a href="#" id="xg">修改</a></li></div>
+       <div class="fr ctrl"><li><a href="#" id="jbs">解绑</a></li></div>
+       {{/equals}}
+       
+       <!--div class="fr ctrl"><li><a href="#">修改</a></li></div--></div>
+       </div>
+
+       <input type="hidden" id="imgCodeFlag" value="true"/>
+       <input type="hidden" id="oldMobileNo" value="{{_DATA_.mobileNo}}"/>
+
+       <div id="dfbKey" class="po" style="visibility:hidden;">
+  <img src="/api/softKeyBoard/pwGeneration" border="0" usemap="#Map2"/>
+  <map name="Map2">
+    <area shape="rect" coords="15,26,42,54" href="javascript:clickKeyboard('0')">
+    <area shape="rect" coords="44,26,73,54" href="javascript:clickKeyboard('1')">
+    <area shape="rect" coords="77,26,104,54" href="javascript:clickKeyboard('2')">
+    <area shape="rect" coords="107,26,135,54" href="javascript:clickKeyboard('3')">
+    <area shape="rect" coords="15,58,42,85" href="javascript:clickKeyboard('4')">
+    <area shape="rect" coords="44,58,73,85" href="javascript:clickKeyboard('5')">
+    <area shape="rect" coords="77,58,104,85" href="javascript:clickKeyboard('6')">
+    <area shape="rect" coords="107,58,135,85" href="javascript:clickKeyboard('7')">
+    <area shape="rect" coords="15,89,42,116" href="javascript:clickKeyboard('8')">
+    <area shape="rect" coords="44,89,73,116" href="javascript:clickKeyboard('9')">
+    <area shape="rect" coords="77,89,135,116" href="javascript:clickKeyboard('bak')">
+    <area shape="rect" coords="130,5,142,19" href="javascript:closeKeyboard()">
+    <area shape="rect" coords="15,120,135,147" href="javascript:closeKeyboard()">
+  </map>
+</div>
+       {{/component}}

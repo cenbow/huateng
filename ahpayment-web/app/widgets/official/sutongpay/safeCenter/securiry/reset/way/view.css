@@ -1,0 +1,7 @@
+/* 安全中心选择修改方式页面 */
+.ui-ModifySelection{ width:99%; border:1px solid #CCC; border-radius: 5px; background-color:#fff;	height: 100px; position:relative; margin-bottom:15px;}
+.ui-ModifySelection .ui-modselimg{ position:absolute; left:25px; top:15px;}
+.ui-ModifySelection .ui-modseltab01{ position:absolute; left:125px; top:25px; font-size:14px;}
+.ui-ModifySelection .ui-modseltab01 td{ height:50px;}
+.ui-ModifySelection .ui-modsel-a{ position:absolute; float:right; right:25px; top:35px;}
+.ui-ModifySelection-hover{ border:1px solid #7fadde; background-color:#f2f9ff;}

@@ -1,0 +1,117 @@
+{{#component "order-list"}}
+
+<div class="cl"></div>
+<div class="order-m">
+  <form method="get" action="/order/orderList" id="searchform">
+    <input type='hidden' name='feeType' value="{{feeType}}" id="feeType">
+    <input type='hidden' name='deploy' value="{{deploy}}" id="deploy">
+    <span class="order-cola order-cola-wa fl">起止日期：</span> 
+    <span class="order-colb order-colb-wa fl">
+      <input name="startDate" id="startDate" type="text"  value="{{startDate}}" 
+      class="input-w5 ui-timeinput portal-datepicker fl" readOnly  style="cursor:pointer">
+      <span class="sp-plr8 fl">-</span>
+      <input name="endDate" id="endDate" type="text"  value="{{endDate}}" 
+      class="input-w5 ui-timeinput portal-datepicker fl" readOnly  style="cursor:pointer">
+      <input type="submit" name="button2" id="button" 
+      value="查 询" class=" inqu-btn fl">
+    </span>
+    <form> 
+     <span class="cl"></span> 
+     <span class="order-cola order-cola-wa fl sp-mtop12">交易类型：</span> 
+     <span class="order-colb ordercolb-wa fl sp-mtop12">
+       <span class="inqu fl" id="F"><i></i>全部</span> 
+       <span class="inqu fl" id="01"><i></i>月票</span> 
+       <span class="inqu fl" id="02"><i></i>充值卡</span> 
+       <span class="inqu fl" id="03"><i></i>电子标签</span> 
+       <span class="inqu fl" id="05"><i></i>通用商品</span> 
+     </span> 
+     <div class="cl" style="padding-top:30px;"></div>
+     <table cellpadding="0" cellspacing="0">
+       <tr>
+         <th>创建时间</th>
+         <th>订单号</th>
+         <th>交易类型</th>
+         <th>交易金额(元)</th>
+         <th>交易状态</th>
+         <th>详情</th>
+       </tr>
+       {{#if _DATA_.data}}
+       {{#each _DATA_.data}}
+       <tr class="white">
+         <td align="center">{{formatDate createTime "day"}}</td>
+         <td align="center">{{orderReqTranSeq}}</td>
+         <td align="center">
+           {{#equals feeType "01"}}
+         月票
+           {{/equals}}
+           {{#equals feeType "05"}}
+         通用商品
+           {{/equals}}
+         </td>
+         <td align="center"><strong class="font-org">{{formatAmount orderAmount}}</strong></td>
+         <td align="center">
+          {{#if status }}
+          {{#equals status "1"}}
+          待支付
+          {{/equals}}
+          {{#equals status "2"}}
+          支付成功
+          {{/equals}}
+          {{#equals status "3"}}
+          支付失败
+          {{/equals}}
+          {{#equals status "4"}}
+          订单已受理
+          {{/equals}}
+          {{#equals status "5"}}
+          受理成功
+          {{/equals}}
+          {{#equals status "6"}}
+          受理失败
+          {{/equals}}
+          {{#equals status "7"}}
+          退款成功
+          {{/equals}}
+          {{#equals status "8"}}
+          退款失败
+          {{/equals}}
+          {{#equals status "9"}}
+          充值成功
+          {{/equals}}
+          {{#equals status "10"}}
+          充值失败
+          {{/equals}}
+          {{else}}
+          其他
+          {{/if }}
+        </td>
+        <td align="center"> 
+    <a class="ui-txt-a" href="/api/order/detail?orderNo={{orderReqTranSeq}}&feeType={{feeType}}&orderSeq={{orderSeq}}&orderAmount={{orderAmount}}">详情</a>&nbsp;&nbsp;
+      {{#equals status "1"}}
+      {{#equals feeType "01"}}
+    <a class="ui-txt-a" name ="cashout"  id="{{orderReqTranSeq}},{{feeType}},{{orderSeq}}">支付</a>
+      {{/equals}}
+      {{/equals}}
+        </td>
+      </tr>
+      {{/each}}
+      {{/if}}
+
+    </table>
+    {{#equals _DATA_.total 0}}
+    <div class="ui-Transaction-none">
+      <span class="ui-noneimg"></span>
+      <span class="ui-nonetxt">亲，没有交易记录~</span>
+    </div>
+    {{/equals}}
+    
+    </span>
+    {{#if _DATA_.data}}
+       <span id="js-list-total" style="display:none;">{{_DATA_.total}}</span>
+       <div class="pagination" id="js-list-pagination" style="float: right;"></div>
+    {{/if}}
+    <div style="margin-top:20px;">
+    <span>备注:退货反馈内容在订单详情页，如需查看，请点击订单详情
+    </div>
+ </div>
+ {{/component}}

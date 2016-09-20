@@ -1,0 +1,53 @@
+{{#component "order-sugsear"}}
+                
+<div class="order-m">
+    <form> 
+     <div style="padding-top:5px;"></div>
+
+      <div class="order-m">
+        <input id="principal" type="hidden" value="{{_USER_.principal}}">
+                     <span class="cl"></span> 
+              
+                <div class="sub-l fl sp-mtop10">
+                      <span class="col-wa cola fl sp-mtop12">姓名:</span>
+                       <div class="colb fl sp-mtop12">{{_USER_.principal}}</div>
+                      <div class="cl"></div>
+                      <span class="col-wa cola fl sp-mtop12">订单号:</span>
+                       <div class="fl sp-mtop12">
+                           <input type="text" name="orderNo" maxLength="32" id="orderNo" class="input-w3" >
+                           <br>
+                          <div id="orderNoMsg" name="orderNoMsg" class="ui-txtred"></div>
+                        </div>
+                      <div class="cl"></div>
+            
+                      <span class="col-wa cola fl sp-mtop12">投诉内容:</span>
+                       <div class="fl sp-mtop12"> 
+                           <textarea  cols="40" rows="8" maxLength="100" name ="context" id ="context"></textarea>
+                           <br>
+                          <div id="contextMsg" name="contextMsg" class="ui-txtred"></div>
+                        </div>
+
+                      <span class="colz">
+  <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="modifyBtn" name="modifyBtn" class="ui-button ui-button-morange" title="提交">提交</a> 
+        <a id="button" name="button" class="ui-button ui-button-mwhite" title="返回">返回</a>
+      </div>
+    </div>
+</span>
+        </div><!--fl结束 -->
+
+
+
+
+
+    </table>
+
+    {{#if _DATA_.data}}
+       <span id="js-list-total" style="display:none;">{{_DATA_.total}}</span>
+       <div class="pagination" id="js-list-pagination" style="float: right;"></div>
+    {{/if}}
+ </div>
+ 
+{{/component}}

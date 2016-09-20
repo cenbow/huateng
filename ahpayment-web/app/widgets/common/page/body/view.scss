@@ -1,0 +1,14 @@
+.page_body {
+    display: block;
+    height: auto;
+    min-height: 560px;
+    position: relative;
+    z-index: 1;
+    #body_inner {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1000px;
+        height: 100%;
+    }
+}

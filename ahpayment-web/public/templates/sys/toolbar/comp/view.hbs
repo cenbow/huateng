@@ -1,0 +1,17 @@
+<div class="app-modal comp-panel hide" id="js-comp-panel">
+    <b class="menu-icon"></b>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4>添加组件</h4>
+    </div>
+    <div class="modal-body none">
+        <p class="app-introduction">你可以在这里选择组件分类</p>
+        <ul class="app-list unstyled" id="js-comp-list">
+            {{#each data }}
+            <li class="{{this.last}}" data-comp-id="{{this.id}}"><span class="{{this.icon}}"></span>{{this.name}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+

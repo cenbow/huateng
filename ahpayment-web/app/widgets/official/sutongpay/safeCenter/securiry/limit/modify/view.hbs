@@ -1,0 +1,117 @@
+{{#component "safeCenter-security-riskparam"}}
+<div class=" sp-mtop30">
+<form id="riskForm" method="post">
+<div class="ui-TransactionSwitch02" id="TradingLimit">
+
+  
+
+    <input type="hidden" name="txnAmt2" id="txnAmt2" value="{{formatPrice _DATA_.consumeTransMaxAmt}}"/>
+    <input type="hidden" name="txnDayAmt2" id="txnDayAmt2" value="{{formatPrice _DATA_.consumeTransMaxAmtSum}}"/>
+    <input type="hidden" name="txnMonAmt2" id="txnMonAmt2" value="{{formatPrice _DATA_.monthMaxConsAmt}}"/>
+
+</div>
+<div class="ui-Security-maindiv"> 
+  <span class="ui-securityimg">
+    <img src="/assets/sutongpay/mycenter/jiaoyixiane.jpg"/>
+  </span>
+  <div class="ui-form">
+    <div class="ui-form-txt01">单笔消费限额:</div>
+    <div class="ui-form-item">
+      <input name="txnAmt" id="txnAmt" 
+      type="text" class="ui-txtinput02"  maxlength="31"
+      data-error-container="#txnAmtResult"
+      data-required="true" 
+      data-range="[0,10000.00]" 
+      data-regexp="^(([1-9]\d*)|0)((\.)(\d{1}|\d{2}))?$"
+      data-error-message="只能输入0-10000.00之间的数字"/>
+      <span class="ui-txtright">元</span>
+      <span style="color:red;" id="txnAmtResult"></span> 
+    </div>
+    
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">日消费限额:</div>
+    <div class="ui-form-item">
+      <input name="txnDayAmt" id="txnDayAmt" 
+      type="text" class="ui-txtinput02" maxlength="31"
+      data-error-container="#txnDayAmtResult"
+      data-required="true" 
+      data-range="[0,10000.00]" 
+      data-regexp="^(([1-9]\d*)|0)((\.)(\d{1}|\d{2}))?$"
+      data-error-message="只能输入0-10000.00之间的数字"/>
+      <span class="ui-txtright">元</span>
+      <span style="color:red;" id="txnDayAmtResult"></span>
+    </div>
+    
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">月消费限额:</div>
+    <div class="ui-form-item">
+      <input name="txnMonAmt" id="txnMonAmt" 
+      type="text" class="ui-txtinput02"  maxlength="31"
+      data-error-container="#txnMonAmtResult"
+      data-required="true" 
+      data-range="[0,30000.00]" 
+      data-regexp="^(([1-9]\d*)|0)((\.)(\d{1}|\d{2}))?$"
+      data-error-message="只能输入0-30000.00之间的数字"/>
+      <span class="ui-txtright">元</span> 
+      <span style="color:red;" id="txnMonAmtResult"></span>
+    </div>
+    <span style="color:red;" id="txnMonAmtResult"></span>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01"></div>
+    <div class="ui-form-item">
+      <a class="ui-button ui-button-morange" id="changeButtn">修改交易限额</a>
+      <a class="ui-button ui-button-morange" id="subButtn" style="display:none">提交</a> 
+      <a class="ui-button ui-button-mwhite" id="backButtn">返回</a> 
+    </div>
+  </div>
+</div>
+</form>
+<div class="ui-sepdased-line"></div>
+<div class="ui-all-note">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-inside-tab01 ui-tabcenter">
+    <tr class="ui-instab-tm">
+      <td  width="8%"></td>
+      <td  width="10%">余额上限</td>
+      <td  width="10%">消费限额</td>
+      <td  width="10%">充值限额</td>
+      <td  width="10%">提现限额</td>
+      <td  width="10%">转账限额</td>
+      <td  width="8%">快捷支付</td>
+    </tr>
+    <tr>
+      <td>非实名</td>
+      <td>2000元</td>
+      <td>每日单笔500元<br />
+              每日累计500元<br />
+              每月累计2000元</td>
+      <td>每日单笔500元<br />
+              每日累计500元<br />
+              每月累计2000元</td>
+      <td>不支持</td>
+      <td>不支持</td>
+      <td>不支持</td>
+    </tr>
+    <tr>
+      <td>高级实名</td>
+      <td>100000元</td>
+      <td>每日单笔10000元<br />
+              每日累计10000元<br />
+              每月累计30000元</td>
+      <td>每日单笔10000元<br />
+              每日累计10000元<br />
+              每月累计30000元</td>
+      <td>单笔3000元<br />
+              每月累计3000元<br />
+              每月累计3次</td>
+      <td>每日单笔2000元<br />
+              每日累计2000元<br />
+              每月累计20000元</td>
+      <td>支持</td>
+    </tr>
+  </table>
+</div>
+</div>
+{{/component}}

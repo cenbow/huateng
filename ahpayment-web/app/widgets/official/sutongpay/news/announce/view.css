@@ -1,0 +1,51 @@
+/*table style*/
+.announce .settit{
+	background:#f8f8f8 url(/assets/sutongpay/setsc.jpg) no-repeat left top;
+	text-indent:42px;
+	font-size:14px;
+	font-weight:bold;
+	border-bottom:3px #e4e4e4 solid;
+	line-height:40PX;
+	}
+.announce .setlist{
+	line-height:61px;
+	height:61px;
+	text-indent:2em;
+	font-size:14px;
+	border-bottom:1px #d1d1d1 dashed;
+}
+.announce .setlist .tp{
+	width:14%;
+	text-align:center;
+}
+.announce .setlist .cp{
+	width:85%;
+	text-align:center;
+	background:url(/assets/sutongpay/setscico.jpg) no-repeat top left;
+	text-indent:30px;
+}
+.announce .setlist .fr{width:150px;
+color:#999999; text-align:center;}
+.announce .setlist .ctrl li{
+	margin:0 10px;
+	list-style:none;
+	float:left;
+}
+.announce .setlist:hover{
+	background:#f6f6f6;
+}
+.announce .setlist a{
+	font-size:14px;
+}
+.announce .setlist .ctrl li a:hover{
+	color:#fb6100;
+}
+.announce .articel {
+	padding:30px;
+	font-size:14px;
+	line-height:26px;
+	border-bottom:1px #dcdcdc dashed;		
+}
+.announce .articel p{
+	font-size:14px;
+}

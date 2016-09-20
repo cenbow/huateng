@@ -1,0 +1,64 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<h1 xmlns="http://www.w3.org/1999/html">Users</h1>
+<div class="span12">
+    <div class="span6">
+        <form class="form-search">
+            <input type="text" name="q" class="input-medium search-query" value="{{keywords}}">
+            <button id="js-admin-user-list-search" type="submit" class="btn">搜索</button>
+            <div class="row">
+                <div class="span2">
+                    <input type="radio" name="queryType" value="byId" checked>
+                    by Id
+                </div>
+                <div class="span2">
+                    <input type="radio" name="queryType" value="byName">
+                    by Name
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="span3 pull-right">
+        <a href="/users/new" class="btn btn-primary"><span>Add</span></a>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>email</th>
+            <th>type</th>
+            <th>status</th>
+            <th>lastLogin</th>
+            <th>failedAttempts</th>
+            <th>lockedAt</th>
+            <th>createdAt</th>
+            <th><span>Actions</span></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each users}}
+        <tr>
+            <td><a href="/users/{{id}}">{{id}}</a></td>
+            <td>{{email}}</td>
+            <td>{{type}}</td>
+            <td>{{status}}</td>
+            <td>{{lastLogin}}</td>
+            <td>{{failedAttempts}}</td>
+            <td>{{lockedAt}}</td>
+            <td>{{createdAt}}</td>
+            <td>
+                <a href="/users/{{id}}/edit" class="btn btn-mini"><span>Edit</span></a>
+                <a href="/users/{{id}}" class="btn btn-mini btn-danger delete"><span>Destroy</span></a>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
+<div class="pagination" id="js-admin-list">{{total}}</div>
+{{/partial}}
+{{> admin/layout}}

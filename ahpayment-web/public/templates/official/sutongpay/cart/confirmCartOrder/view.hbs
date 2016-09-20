@@ -1,0 +1,48 @@
+{{#component "confirmCartOrder"}}
+<form method="POST" action="/api/cart/createOrder" AUTOCOMPLETE="OFF" target="_blank" data-validate="parsley">
+ <img src="/assets/sutongpay/air.png" width="1" height="35" />
+<div class="txtac"><img src="/assets/sutongpay/state2.png" width="705" height="79" /></div>
+<img src="/assets/sutongpay/air.png" width="1" height="20" />
+
+<!--list-->
+<div class="bor1">
+<!--list title-->
+<ul class="cartlist">
+<dl class="listt">
+
+<dd>商品信息</dd>
+<dd class="ac">单价</dd>
+<dd class="ac">数量</dd>
+<dd class="ac wid110">金额</dd><div class="cl"></div>
+</dl>
+<input type="hidden" name="ids" id="ids" value="{{ids}}">
+
+<!--/list title-->
+<!--循环1-->
+{{#each _DATA_.data}}
+<input type="hidden" name="cartTotalPrice" id="cartTotalPrice_{{cart.cartNo}}" value="{{formatAmount cart.totalPrice}}">
+<dl class="listc">
+<dd><img src="{{item.mainImage}}" width="125"/>
+	<span class="pctip">
+		<a href="/payment/reChargeCard/detail?itemId={{item.id}}">{{item.name}}</a>
+	</span></dd>
+<dd class="ac"><strong>{{formatAmount sku.price}}</strong></dd>
+<dd class="ac">{{cart.goods_sum}}</dd>
+<dd  class="ac"><div class="sale">{{formatAmount cart.totalPrice}}</div></dd>
+</dl>
+<!--/循环1-->
+{{/each}}
+
+<dl class="listf">
+<dd><div class="back"><a href="/cart/myCart">返回购物车</a></div></dd>
+<dd class="ac"></dd>
+
+<dd class="ac">应付款&nbsp;&nbsp;<font name="allAmt"class="value">￥0</font></dd>
+<dd class="ac"><input class="countsub" type="submit" value="结算" /></dd>
+</dl>
+</ul>
+<img src="/assets/sutongpay/air.png" width="1" height="25" />
+</div>
+</form>
+<!--/list-->
+{{/component}}

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogAccountPaymentMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogAccountPayment" >
+    <id column="TXN_SEQ_NO" property="txnSeqNo" jdbcType="VARCHAR" />
+    <result column="SETTLE_DATE" property="settleDate" jdbcType="CHAR" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TYPE" property="accountType" jdbcType="VARCHAR" />
+    <result column="INNER_CARD_NO" property="innerCardNo" jdbcType="VARCHAR" />
+    <result column="TXN_TIME" property="txnTime" jdbcType="TIMESTAMP" />
+    <result column="TXN_MONTH" property="txnMonth" jdbcType="INTEGER" />
+    <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
+    <result column="TXN_TYPE" property="txnType" jdbcType="VARCHAR" />
+    <result column="TXN_DSCPT" property="txnDscpt" jdbcType="VARCHAR" />
+    <result column="TXN_CHANNEL" property="txnChannel" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_TYPE" property="acceptOrgType" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TRANS_DATE" property="acceptTransDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TRANS_TIME" property="acceptTransTime" jdbcType="VARCHAR" />
+    <result column="TXN_AMT" property="txnAmt" jdbcType="DECIMAL" />
+    <result column="BEFORE_AMT" property="beforeAmt" jdbcType="DECIMAL" />
+    <result column="AFTER_AMT" property="afterAmt" jdbcType="DECIMAL" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="TRANS_SEQ_TYPE" property="transSeqType" jdbcType="CHAR" />
+    <result column="PAYMENT_OBJ_NO" property="paymentObjNo" jdbcType="VARCHAR" />
+    <result column="PAYMENT_OBJ_TYPE" property="paymentObjType" jdbcType="VARCHAR" />
+    <result column="TXN_LABEL" property="txnLabel" jdbcType="CHAR" />
+    <result column="CLEARING_TXN_SEQ_NO" property="clearingTxnSeqNo" jdbcType="VARCHAR" />
+    <result column="REVSAL_FLAG" property="revsalFlag" jdbcType="CHAR" />
+    <result column="CANCEL_FLAG" property="cancelFlag" jdbcType="CHAR" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="RESV_FLD3" property="resvFld3" jdbcType="VARCHAR" />
+    <result column="RESV_FLD4" property="resvFld4" jdbcType="VARCHAR" />
+    <result column="RESV_FLD5" property="resvFld5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Pagination_Head" >
+    <if test="startIndex != null and endIndex != null" >
+      <![CDATA[ select * from ( select row_.*, rownumber() over() as rn from ( ]]>
+    </if>
+  </sql>
+  <sql id="Pagination_Foot" >
+    <if test="startIndex != null and endIndex != null" >
+      <![CDATA[ ) row_) where rn <= #{endIndex} and rn > #{startIndex} ]]>
+    </if>
+  </sql>
+  <sql id="Base_Column_List" >
+    TXN_SEQ_NO, SETTLE_DATE, CUSTOMER_NO, ACCOUNT_NO, ACCOUNT_TYPE, INNER_CARD_NO, TXN_TIME, 
+    TXN_MONTH, BUSINESS_TYPE, TXN_TYPE, TXN_DSCPT, TXN_CHANNEL, ACCEPT_ORG_CODE, ACCEPT_ORG_TYPE, 
+    ACCEPT_TRANS_DATE, ACCEPT_TRANS_TIME, TXN_AMT, BEFORE_AMT, AFTER_AMT, AREA_CODE, 
+    CITY_CODE, TRANS_SEQ_TYPE, PAYMENT_OBJ_NO, PAYMENT_OBJ_TYPE, TXN_LABEL, CLEARING_TXN_SEQ_NO, 
+    REVSAL_FLAG, CANCEL_FLAG, RESV_FLD1, RESV_FLD2, RESV_FLD3, RESV_FLD4, RESV_FLD5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_LOG_ACCOUNT_PAYMENT
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </select>
+  <select id="findByClearingSeqNo" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select
+        <include refid="Base_Column_List" />
+        from CORE.T_LOG_ACCOUNT_PAYMENT
+        where CLEARING_TXN_SEQ_NO = #{clearingSeqNo,jdbcType=VARCHAR}
+     AND  TXN_LABEL=  #{txnLabel,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_LOG_ACCOUNT_PAYMENT
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogAccountPayment" >
+    insert into CORE.T_LOG_ACCOUNT_PAYMENT (TXN_SEQ_NO, SETTLE_DATE, CUSTOMER_NO, 
+      ACCOUNT_NO, ACCOUNT_TYPE, INNER_CARD_NO, 
+      TXN_TIME, TXN_MONTH, BUSINESS_TYPE, 
+      TXN_TYPE, TXN_DSCPT, TXN_CHANNEL, 
+      ACCEPT_ORG_CODE, ACCEPT_ORG_TYPE, ACCEPT_TRANS_DATE, 
+      ACCEPT_TRANS_TIME, TXN_AMT, BEFORE_AMT, 
+      AFTER_AMT, AREA_CODE, CITY_CODE, 
+      TRANS_SEQ_TYPE, PAYMENT_OBJ_NO, PAYMENT_OBJ_TYPE, 
+      TXN_LABEL, CLEARING_TXN_SEQ_NO, REVSAL_FLAG, 
+      CANCEL_FLAG, RESV_FLD1, RESV_FLD2, 
+      RESV_FLD3, RESV_FLD4, RESV_FLD5
+      )
+    values (#{txnSeqNo,jdbcType=VARCHAR}, #{settleDate,jdbcType=CHAR}, #{customerNo,jdbcType=VARCHAR}, 
+      #{accountNo,jdbcType=VARCHAR}, #{accountType,jdbcType=VARCHAR}, #{innerCardNo,jdbcType=VARCHAR}, 
+      #{txnTime,jdbcType=OTHER}, #{txnMonth,jdbcType=DECIMAL}, #{businessType,jdbcType=VARCHAR}, 
+      #{txnType,jdbcType=VARCHAR}, #{txnDscpt,jdbcType=VARCHAR}, #{txnChannel,jdbcType=VARCHAR}, 
+      #{acceptOrgCode,jdbcType=VARCHAR}, #{acceptOrgType,jdbcType=VARCHAR}, #{acceptTransDate,jdbcType=VARCHAR}, 
+      #{acceptTransTime,jdbcType=VARCHAR}, #{txnAmt,jdbcType=DECIMAL}, #{beforeAmt,jdbcType=DECIMAL}, 
+      #{afterAmt,jdbcType=DECIMAL}, #{areaCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{transSeqType,jdbcType=CHAR}, #{paymentObjNo,jdbcType=VARCHAR}, #{paymentObjType,jdbcType=VARCHAR}, 
+      #{txnLabel,jdbcType=CHAR}, #{clearingTxnSeqNo,jdbcType=VARCHAR}, #{revsalFlag,jdbcType=CHAR}, 
+      #{cancelFlag,jdbcType=CHAR}, #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, 
+      #{resvFld3,jdbcType=VARCHAR}, #{resvFld4,jdbcType=VARCHAR}, #{resvFld5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountPayment" >
+    insert into CORE.T_LOG_ACCOUNT_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="txnSeqNo != null" >
+        TXN_SEQ_NO,
+      </if>
+      <if test="settleDate != null" >
+        SETTLE_DATE,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO,
+      </if>
+      <if test="txnTime != null" >
+        TXN_TIME,
+      </if>
+      <if test="txnMonth != null" >
+        TXN_MONTH,
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE,
+      </if>
+      <if test="txnType != null" >
+        TXN_TYPE,
+      </if>
+      <if test="txnDscpt != null" >
+        TXN_DSCPT,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE,
+      </if>
+      <if test="acceptOrgType != null" >
+        ACCEPT_ORG_TYPE,
+      </if>
+      <if test="acceptTransDate != null" >
+        ACCEPT_TRANS_DATE,
+      </if>
+      <if test="acceptTransTime != null" >
+        ACCEPT_TRANS_TIME,
+      </if>
+      <if test="txnAmt != null" >
+        TXN_AMT,
+      </if>
+      <if test="beforeAmt != null" >
+        BEFORE_AMT,
+      </if>
+      <if test="afterAmt != null" >
+        AFTER_AMT,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="transSeqType != null" >
+        TRANS_SEQ_TYPE,
+      </if>
+      <if test="paymentObjNo != null" >
+        PAYMENT_OBJ_NO,
+      </if>
+      <if test="paymentObjType != null" >
+        PAYMENT_OBJ_TYPE,
+      </if>
+      <if test="txnLabel != null" >
+        TXN_LABEL,
+      </if>
+      <if test="clearingTxnSeqNo != null" >
+        CLEARING_TXN_SEQ_NO,
+      </if>
+      <if test="revsalFlag != null" >
+        REVSAL_FLAG,
+      </if>
+      <if test="cancelFlag != null" >
+        CANCEL_FLAG,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3,
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4,
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="txnSeqNo != null" >
+        #{txnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null" >
+        #{settleDate,jdbcType=CHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="innerCardNo != null" >
+        #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnTime != null" >
+        #{txnTime,jdbcType=OTHER},
+      </if>
+      <if test="txnMonth != null" >
+        #{txnMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null" >
+        #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnDscpt != null" >
+        #{txnDscpt,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgType != null" >
+        #{acceptOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransDate != null" >
+        #{acceptTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransTime != null" >
+        #{acceptTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmt != null" >
+        #{txnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="beforeAmt != null" >
+        #{beforeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="afterAmt != null" >
+        #{afterAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transSeqType != null" >
+        #{transSeqType,jdbcType=CHAR},
+      </if>
+      <if test="paymentObjNo != null" >
+        #{paymentObjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentObjType != null" >
+        #{paymentObjType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnLabel != null" >
+        #{txnLabel,jdbcType=CHAR},
+      </if>
+      <if test="clearingTxnSeqNo != null" >
+        #{clearingTxnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="revsalFlag != null" >
+        #{revsalFlag,jdbcType=CHAR},
+      </if>
+      <if test="cancelFlag != null" >
+        #{cancelFlag,jdbcType=CHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        #{resvFld5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountPayment" >
+    update CORE.T_LOG_ACCOUNT_PAYMENT
+    <set >
+      <if test="settleDate != null" >
+        SETTLE_DATE = #{settleDate,jdbcType=CHAR},
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnTime != null" >
+        TXN_TIME = #{txnTime,jdbcType=OTHER},
+      </if>
+      <if test="txnMonth != null" >
+        TXN_MONTH = #{txnMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null" >
+        TXN_TYPE = #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnDscpt != null" >
+        TXN_DSCPT = #{txnDscpt,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgType != null" >
+        ACCEPT_ORG_TYPE = #{acceptOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransDate != null" >
+        ACCEPT_TRANS_DATE = #{acceptTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransTime != null" >
+        ACCEPT_TRANS_TIME = #{acceptTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmt != null" >
+        TXN_AMT = #{txnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="beforeAmt != null" >
+        BEFORE_AMT = #{beforeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="afterAmt != null" >
+        AFTER_AMT = #{afterAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transSeqType != null" >
+        TRANS_SEQ_TYPE = #{transSeqType,jdbcType=CHAR},
+      </if>
+      <if test="paymentObjNo != null" >
+        PAYMENT_OBJ_NO = #{paymentObjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentObjType != null" >
+        PAYMENT_OBJ_TYPE = #{paymentObjType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnLabel != null" >
+        TXN_LABEL = #{txnLabel,jdbcType=CHAR},
+      </if>
+      <if test="clearingTxnSeqNo != null" >
+        CLEARING_TXN_SEQ_NO = #{clearingTxnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="revsalFlag != null" >
+        REVSAL_FLAG = #{revsalFlag,jdbcType=CHAR},
+      </if>
+      <if test="cancelFlag != null" >
+        CANCEL_FLAG = #{cancelFlag,jdbcType=CHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogAccountPayment" >
+    update CORE.T_LOG_ACCOUNT_PAYMENT
+    set SETTLE_DATE = #{settleDate,jdbcType=CHAR},
+      CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+      TXN_TIME = #{txnTime,jdbcType=OTHER},
+      TXN_MONTH = #{txnMonth,jdbcType=DECIMAL},
+      BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR},
+      TXN_TYPE = #{txnType,jdbcType=VARCHAR},
+      TXN_DSCPT = #{txnDscpt,jdbcType=VARCHAR},
+      TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      ACCEPT_ORG_TYPE = #{acceptOrgType,jdbcType=VARCHAR},
+      ACCEPT_TRANS_DATE = #{acceptTransDate,jdbcType=VARCHAR},
+      ACCEPT_TRANS_TIME = #{acceptTransTime,jdbcType=VARCHAR},
+      TXN_AMT = #{txnAmt,jdbcType=DECIMAL},
+      BEFORE_AMT = #{beforeAmt,jdbcType=DECIMAL},
+      AFTER_AMT = #{afterAmt,jdbcType=DECIMAL},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      TRANS_SEQ_TYPE = #{transSeqType,jdbcType=CHAR},
+      PAYMENT_OBJ_NO = #{paymentObjNo,jdbcType=VARCHAR},
+      PAYMENT_OBJ_TYPE = #{paymentObjType,jdbcType=VARCHAR},
+      TXN_LABEL = #{txnLabel,jdbcType=CHAR},
+      CLEARING_TXN_SEQ_NO = #{clearingTxnSeqNo,jdbcType=VARCHAR},
+      REVSAL_FLAG = #{revsalFlag,jdbcType=CHAR},
+      CANCEL_FLAG = #{cancelFlag,jdbcType=CHAR},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR}
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </update>
+
+	<select id="findPaymentResult" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		<include refid="Pagination_Head" />
+		select
+		<include refid="Base_Column_List" />
+		from CORE.T_LOG_ACCOUNT_PAYMENT
+		WHERE 1=1
+		<if test="accountNo != null">
+			and ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+		</if>
+
+		<if test="businessType != null">
+			and BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR}
+		</if>
+
+		<if test="txnType != null">
+			and TXN_TYPE = #{txnType,jdbcType=VARCHAR}
+		</if>
+
+		<if test="txnChannel != null">
+			and TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR}
+		</if>
+
+		<if test="startDate != null">
+                <![CDATA[
+			and TXN_TIME>=#{startDate,jdbcType=TIMESTAMP}
+			]]>
+		</if>
+
+		<if test="endDate != null">
+          <![CDATA[
+			and TXN_TIME<#{endDate,jdbcType=TIMESTAMP}
+			]]>
+		</if>
+		ORDER BY
+		TXN_TIME DESC
+		<include refid="Pagination_Foot" />
+	</select>
+
+	<select id="findPaymentCount" resultType="java.lang.Long" parameterType="java.util.HashMap">
+		select
+		count(0)
+		from CORE.T_LOG_ACCOUNT_PAYMENT
+		WHERE 1=1
+		<if test="accountNo != null">
+			and ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+		</if>
+
+		<if test="businessType != null">
+			and BUSINESS_TYPE = #{businessType,jdbcType=VARCHAR}
+		</if>
+
+		<if test="txnType != null">
+			and TXN_TYPE = #{txnType,jdbcType=VARCHAR}
+		</if>
+
+		<if test="txnChannel != null">
+			and TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR}
+		</if>
+
+		<if test="startDate != null">
+                <![CDATA[
+			and TXN_TIME>=#{startDate,jdbcType=TIMESTAMP}
+			]]>
+		</if>
+
+		<if test="endDate != null">
+          <![CDATA[
+			and TXN_TIME<#{endDate,jdbcType=TIMESTAMP}
+			]]>
+		</if>
+	</select>
+</mapper>

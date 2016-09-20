@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TDictTxnErrcodeMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TDictTxnErrcode" >
+    <id column="ERRCODE" property="errcode" jdbcType="CHAR" />
+    <result column="ERRFLAG" property="errflag" jdbcType="CHAR" />
+    <result column="ERRDESC" property="errdesc" jdbcType="VARCHAR" />
+    <result column="OUTERCODE" property="outercode" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+       ERRCODE, ERRFLAG, ERRDESC, OUTERCODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_DICT_TXN_ERRCODE
+    where ERRCODE = #{errcode,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_DICT_TXN_ERRCODE
+    where ERRCODE = #{errcode,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TDictTxnErrcode" >
+    insert into T_DICT_TXN_ERRCODE (ERRCODE, ERRFLAG, ERRDESC, 
+      OUTERCODE)
+    values (#{errcode,jdbcType=CHAR}, #{errflag,jdbcType=CHAR}, #{errdesc,jdbcType=VARCHAR}, 
+      #{outercode,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TDictTxnErrcode" >
+    insert into T_DICT_TXN_ERRCODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="errcode != null" >
+        ERRCODE,
+      </if>
+      <if test="errflag != null" >
+        ERRFLAG,
+      </if>
+      <if test="errdesc != null" >
+        ERRDESC,
+      </if>
+      <if test="outercode != null" >
+        OUTERCODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="errcode != null" >
+        #{errcode,jdbcType=CHAR},
+      </if>
+      <if test="errflag != null" >
+        #{errflag,jdbcType=CHAR},
+      </if>
+      <if test="errdesc != null" >
+        #{errdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="outercode != null" >
+        #{outercode,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TDictTxnErrcode" >
+    update T_DICT_TXN_ERRCODE
+    <set >
+      <if test="errflag != null" >
+        ERRFLAG = #{errflag,jdbcType=CHAR},
+      </if>
+      <if test="errdesc != null" >
+        ERRDESC = #{errdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="outercode != null" >
+        OUTERCODE = #{outercode,jdbcType=CHAR},
+      </if>
+    </set>
+    where ERRCODE = #{errcode,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TDictTxnErrcode" >
+    update T_DICT_TXN_ERRCODE
+    set ERRFLAG = #{errflag,jdbcType=CHAR},
+      ERRDESC = #{errdesc,jdbcType=VARCHAR},
+      OUTERCODE = #{outercode,jdbcType=CHAR}
+    where ERRCODE = #{errcode,jdbcType=CHAR}
+  </update>
+</mapper>

@@ -1,0 +1,27 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<form accept-charset="UTF-8" action="/users/signup" class="form-horizontal" id="signup" method="post">
+    <div class="control-group">
+        <label class="control-label" for="email_id">Email</label>
+
+        <div class="controls">
+            <input class="text_field" id="email_id" name="email" size="30" type="text">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="password_id">Password</label>
+
+        <div class="controls">
+            <input class="text_field" id="password_id" name="password" size="30" type="password">
+        </div>
+    </div>
+    <div class="form-actions">
+        <input class="btn btn-primary" name="commit" type="submit" value="注册">
+        <a href="/users" class="btn"><span>Cancel</span></a>
+    </div>
+</form>
+{{/partial}}
+{{> admin/layout}}

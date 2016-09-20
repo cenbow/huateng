@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2013 杭州端点网络科技有限公司
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Item">
+    <resultMap id="itemMap" type="Item">
+        <id property="id" column="id" jdbcType="DECIMAL"/>
+        <result property="spuId" column="spu_id" jdbcType="DECIMAL"/>
+        <result property="userId" column="user_id" jdbcType="DECIMAL"/>
+        <result property="siteId" column="site_id" jdbcType="DECIMAL"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="mainImage" column="main_image" jdbcType="VARCHAR"/>
+        <result property="tradeType" column="trade_type" jdbcType="DECIMAL"/>
+        <result property="price" column="price" jdbcType="DECIMAL"/>
+        <result property="quantity" column="quantity" jdbcType="DECIMAL"/>
+        <result property="soldQuantity" column="sold_quantity" jdbcType="DECIMAL"/>
+        <result property="status" column="status" jdbcType="DECIMAL"/>
+        <result property="onShelfAt" column="on_shelf_at" jdbcType="DATE"/>
+        <result property="offShelfAt" column="off_shelf_at" jdbcType="DATE"/>
+        <result property="createdAt" column="created_at" jdbcType="DATE"/>
+        <result property="updatedAt" column="updated_at" jdbcType="DATE"/>
+    </resultMap>
+
+    <sql id="columns">
+        spu_id, user_id, site_id, NAME, main_image, trade_type, price, quantity,
+        sold_quantity, STATUS, on_shelf_at, off_shelf_at,
+        created_at, updated_at
+    </sql>
+
+    <sql id="Pagination_Head" >
+        <if test="startIndex != null and endIndex != null" >
+            <![CDATA[ select * from ( select row_.*, rownumber()   over()   AS   rn  from ( ]]>
+        </if>
+    </sql>
+    <sql id="Pagination_Foot" >
+        <if test="startIndex != null and endIndex != null" >
+            <![CDATA[ ) row_ ) rn where rn.rn > #{startIndex} and rn.rn <= #{endIndex} ]]>
+        </if>
+    </sql>
+
+    <select id="findById" parameterType="long" resultMap="itemMap">
+        SELECT id,
+        <include refid="columns"/>
+        FROM PORTAL.items WHERE id=#{id}
+    </select>
+
+    <select id="findByIds" parameterType="long" resultMap="itemMap">
+        SELECT id,
+        <include refid="columns"/>
+        FROM PORTAL.items WHERE id IN
+        <foreach item="id" collection="list"
+                 open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="forDump" resultMap="itemMap">
+        <include refid="Pagination_Head"/>
+        SELECT id,
+        <include refid="columns"/>
+        FROM PORTAL.items WHERE  <![CDATA[id < #{lastId}]]> ORDER BY id DESC
+        <include refid="Pagination_Foot"/>
+    </select>
+
+    <select id="sellerItemCount" resultType="int" parameterType="java.util.Map">
+        select count(1) from PORTAL.items where user_id=#{userId}
+        <if test="name!=null">and name like concat(concat('%', #{name}),'%')</if>
+        <if test="priceFrom!=null"> and <![CDATA[price >= #{priceFrom}]]></if>
+        <if test="priceTo!=null"> and <![CDATA[price <= #{priceTo}]]></if>
+        <if test="quantityFrom!=null"> and <![CDATA[quantity >= #{quantityFrom}]]></if>
+        <if test="quantityTo!=null"> and <![CDATA[quantity <= #{quantityTo}]]></if>
+        <if test="soldQuantityFrom!=null"> and <![CDATA[sold_quantity >= #{quantityFrom}]]></if>
+        <if test="soldQuantity!=null"> and <![CDATA[sold_quantity <= #{soldQuantityTo}]]></if>
+        <if test="status!=null">and status in
+            <foreach item="item" index="index" collection="status"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="sellerItems" resultMap="itemMap" parameterType="java.util.Map">
+        <include refid="Pagination_Head"/>
+        select id,
+        <include refid="columns"/> from PORTAL.items where user_id=#{userId}
+        <if test="name!=null">and name like concat(concat('%', #{name}),'%')</if>
+        <if test="priceFrom!=null"> and <![CDATA[price >= #{priceFrom}]]></if>
+        <if test="priceTo!=null"> and <![CDATA[price <= #{priceTo}]]></if>
+        <if test="quantityFrom!=null"> and <![CDATA[quantity >= #{quantityFrom}]]></if>
+        <if test="quantityTo!=null"> and <![CDATA[quantity <= #{quantityTo}]]></if>
+        <if test="soldQuantityFrom!=null"> and <![CDATA[sold_quantity >= #{quantityFrom}]]></if>
+        <if test="soldQuantity!=null"> and <![CDATA[sold_quantity <= #{soldQuantityTo}]]></if>
+        <if test="status!=null">and status in
+            <foreach item="item" index="index" collection="status"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        ORDER BY id DESC
+        <include refid="Pagination_Foot"/>
+    </select>
+
+    <select id="forDeltaDump" resultMap="itemMap" parameterType="java.util.Map">
+        <include refid="Pagination_Head"/>
+        SELECT id,
+        <include refid="columns"/>
+        FROM PORTAL.items
+        WHERE  <![CDATA[id < #{lastId} AND updated_at >#{compared}]]>
+        ORDER BY id DESC
+        <include refid="Pagination_Foot"/>
+    </select>
+
+    <select id="maxId" resultType="long">
+        SELECT
+            max(id)
+        FROM PORTAL.items
+    </select>
+
+
+    <insert id="create" parameterType="Item" >
+        <selectKey keyProperty="id" resultType="long"  order="BEFORE">
+            VALUES NEXTVAL FOR PORTAL.S_ITEM
+        </selectKey>
+        INSERT INTO PORTAL.items (id,<include refid="columns"/>)
+        VALUES (#{id,jdbcType=DECIMAL},#{spuId,jdbcType=DECIMAL},#{userId,jdbcType=DECIMAL},#{siteId,jdbcType=DECIMAL},
+        #{name,jdbcType=VARCHAR}, #{mainImage,jdbcType=VARCHAR},#{tradeType,jdbcType=DECIMAL},#{price,jdbcType=DECIMAL},#{quantity,jdbcType=DECIMAL},
+        #{soldQuantity,jdbcType=DECIMAL},#{status,jdbcType=DECIMAL},
+        #{onShelfAt,jdbcType=DATE},#{offShelfAt,jdbcType=DATE},CURRENT DATE,CURRENT DATE)
+    </insert>
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM PORTAL.items WHERE id=#{id} <!-- and user_id=#{userId}-->
+    </delete>
+
+    <update id="update" parameterType="Item">
+        UPDATE PORTAL.items
+        <set>
+            updated_at = CURRENT DATE,
+            <if test="spuId!=null">spu_id=#{spuId,jdbcType=DECIMAL},</if>
+            <if test="userId!=null">user_id=#{userId,jdbcType=DECIMAL},</if>
+            <if test="siteId!=null">site_id=#{siteId,jdbcType=DECIMAL},</if>
+            <if test="name!=null">NAME=#{name},</if>
+            <if test="mainImage!=null">main_image=#{mainImage},</if>
+            <if test="tradeType!=null">tradeType=#{tradeType,jdbcType=DECIMAL},</if>
+            <if test="price!=null">price=#{price,jdbcType=DECIMAL},</if>
+            <if test="quantity!=null">quantity=#{quantity,jdbcType=DECIMAL},</if>
+            <if test="soldQuantity!=null">sold_quantity=#{soldQuantity,jdbcType=DECIMAL},</if>
+            <if test="status!=null">STATUS=#{status,jdbcType=DECIMAL},</if>
+            <if test="onShelfAt!=null">on_shelf_at=#{onShelfAt,jdbcType=DATE},</if>
+            <if test="offShelfAt!=null">off_shelf_at=#{offShelfAt,jdbcType=DATE},</if>
+        </set>
+        WHERE id=#{id,jdbcType=DECIMAL} <!--and user_id=#{userId}-->
+    </update>
+
+    <update id="bulkUpdateStatus">
+        UPDATE PORTAL.items
+        <set>
+            updated_at = CURRENT DATE,`status`=#{status},
+            on_shelf_at = (
+            CASE WHEN #{status}=1 AND on_shelf_at IS NULL
+            THEN CURRENT DATE
+            ELSE on_shelf_at
+            END),
+            off_shelf_at = (
+            CASE WHEN #{status}=-1 OR #{status}=-2
+            THEN CURRENT DATE
+            ELSE off_shelf_at
+            END)
+
+        </set>
+        WHERE user_id=#{userId} AND id IN
+        <foreach item="id" collection="ids"
+                 open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <update id="changeStock">
+        UPDATE PORTAL.items SET quantity = quantity + #{delta},`status`=(
+                CASE WHEN <![CDATA[quantity + #{delta} <= 0 ]]> THEN -1 ELSE STATUS END
+        ) WHERE id = #{id}
+    </update>
+</mapper>

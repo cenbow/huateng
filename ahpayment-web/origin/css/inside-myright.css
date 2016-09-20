@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ui-my-right {
+	width: 781px;
+	float: left;
+	padding-left: 20px;
+	text-align: left;
+	display: inline-block;
+	border: 1px solid #c2ccde;
+	position: relative;
+	margin-left: -1px;
+	padding-right: 18px;
+	min-height: 500px;
+!important _height:500px;
+}
+.ui-my-info {
+	float: left;
+	line-height: 45px;
+	height: 45px;
+	color: #CCC;
+	display: block;
+}
+.ui-my-info span {
+	float: left;
+}
+.ui-my-info .ui-myinfo-time {
+	float: right;
+}
+.ui-my-news {
+	width: 780px;
+	height: 95px;
+	background-color: #fff7e7;
+	display: inline-block;
+	position: relative;
+	clear: both;
+}
+.ui-my-news .ui-mynews-bal {
+	position: absolute;
+	top: 15px;
+	left: 25px;
+	font-size: 14px;
+}
+.ui-my-news .ui-mynews-bal .ui-mynews-t1 {
+	font-size: 28px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+.ui-my-news .ui-mynews-bal .ui-but-wh {
+	position: relative;
+	top: -7px;
+	margin-left: 10px;
+}
+.ui-my-news .ui-mynews-bal .ui-txt-wh {
+	position: relative;
+	left: 10px;
+	top: -7px;
+}
+.ui-my-news .ui-mynews-txt {
+	position: absolute;
+	width: 260px;
+	float: left;
+	left: 480px;
+	top: 15px;
+}
+.ui-my-news .ui-mynews-txt li {
+	margin-bottom: 5px;
+}
+.ui-my-news .ui-mynews-cimg {
+	width: 18px;
+	height: 16px;
+	display: block;
+	background-image: url(../images/inside-main/myAuthenticate-img01.jpg);
+	float: left;
+	margin-top: 2px;
+	margin-right: 5px;
+}

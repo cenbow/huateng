@@ -1,0 +1,167 @@
+@charset "utf-8";
+/* CSS Document */
+.ui-apptitle {
+	width: 100%;
+	height: 65px;
+	display: block;
+	float: left;
+	position: relative;
+	margin-top: 10px;
+	border-bottom: 1px dashed #CCCCCC;
+	margin-bottom: 15px;
+}
+.ui-apptitle .ui-titleimg {
+	position: absolute;
+	width: 51px;
+	height: 53px;
+	display: block;
+	float: left;
+	left: 0px;
+}
+.ui-apptitle .ui-titletxt {
+	position: absolute;
+	float: left;
+	left: 65px;
+	top: 0px;
+}
+.ui-apptitle .ui-titletxt .ui-p1 {
+	font-size: 14px;
+	line-height: 31px;
+}
+.ui-apptitle .ui-titletxt .ui-p2 {
+	font-size: 12px;
+}
+.ui-apptitle .ui-Servertime {
+	position: absolute;
+	float: right;
+	right: 15px;
+	top: 5px;
+}
+.ui-apptitle .ui-Share {
+	position: absolute;
+	float: right;
+	right: 15px;
+	top: 30px;
+}
+.ui-apptitle .ui-Share a {
+	display: block;
+	line-height: 20px;
+	float: left;
+	margin-left: 10px;
+}
+.ui-apptitle .ui-Share a:hover {
+	color: #2597dc;
+}
+.ui-apptitle .ui-Share i {
+	width: 16px;
+	height: 16px;
+	background-image: url(../images/inside-main/share.gif);
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+.ui-apptitle .ui-Share .ui-sina {
+	background-position: -3px -2px;
+}
+.ui-apptitle .ui-Share .ui-hap {
+	background-position: -25px -2px;
+}
+.ui-apptitle .ui-Share .ui-peo {
+	background-position: -46px -2px;
+}
+.ui-form {
+	width: 100%;
+	float: left;
+	display: inline-block;
+	width: 100%;
+	padding: 5px;
+	padding-bottom: 15px;
+}
+.ui-form .ui-form-txt01 {
+	float: left;
+	width: 120px;
+	display: inline-block;
+	height: 25px;
+	text-align: right;
+	font-size: 14px;
+	padding-right: 10px;
+}
+.ui-form .ui-form-item {
+	float: left;
+	display: inline-block;
+}
+.ui-form .ui-lifepay-select01 {
+	line-height: 32px;
+	border: 1px solid #CCC;
+	font-size: 14px;
+	padding: 5px;
+	margin-top: -4px;
+	float: left;
+	margin-left: 0px;
+}
+*html .ui-form .ui-lifepay-select01 {
+	margin-top: 0px;
+}
+*+html .ui-form .ui-lifepay-select01 {
+	margin-top: 0px;
+}
+.ui-form .ui-Gray-notes01 {
+	text-align: left;
+	display: inline-block;
+	float: left;
+	clear: both;
+	line-height: 25px;
+	color: #ddd;
+}
+.ui-form .ui-form-item .ui-txtinput01 {
+	position: relative;
+	top: -3px;
+}
+.ui-form .ui-rel {
+	position: relative
+}
+.ui-form .ui-Checkimg {
+	position: absolute;
+	float: left;
+	left: 75px;
+	top: 5px;
+}
+.ui-form .ui-CheckControls {
+	margin-left: 5px;
+}
+.ui-form .ui-Exchange {
+	margin-left: 5px;
+	margin-top: 5px;
+	vertical-align: top
+}
+.ui-form .ui-Check01 {
+	float: left;
+	width: 15px;
+	height: 15px;
+	vertical-align: top;
+	position: relative;
+	top: -1px;
+}
+*html .ui-form .ui-Check01 {
+	top: 2px;
+}
+*+html .ui-form .ui-Check01 {
+	top: 1px;
+}
+.ui-form .ui-Agreement {
+	margin-top: 10px;
+}
+.ui-Agreementtxt {
+	text-align: left;
+	padding: 0px 20px 30px 20px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	height: 300px;
+	overflow: hidden;
+	overflow-y: auto;
+	float: left;
+	color: #666;
+	line-height: 21px;
+	margin-right: 10px;
+*margin-right:0px;
+}

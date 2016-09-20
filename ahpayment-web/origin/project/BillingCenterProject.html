@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<!--所有CSS公用-->
+<link href="../css/index.css" rel="stylesheet" />
+<!--账单中心页面-CSS-->
+<link href="../css/inside-BillingCenter.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></script>
+
+<title>无标题文档</title>
+</head>
+
+<body style="background-color:#FFF">
+<div class="ui-billcenter-form">
+  <div class="ui-form">
+    <div class="ui-form-txt01">选择业务:</div>
+    <div class="ui-form-item">
+      <select name="feeType_sel" id="feeType_sel" class="ui-lifepay-select01" onchange="changeFeeType(this.value);">
+        <option value="11" selected="selected">水费</option>
+        <option value="12">电费</option>
+        <option value="13">燃气费</option>
+        <option value="21">固话/宽带费</option>
+      </select>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">缴费地区:</div>
+    <div class="ui-form-item">
+      <select name="feeType_sel" id="feeType_sel" class="ui-lifepay-select01" onchange="changeFeeType(this.value);">
+        <option value="11" selected="selected">北京</option>
+        <option value="12">北京</option>
+        <option value="13">北京</option>
+        <option value="21">乌鲁木齐</option>
+      </select>
+      <select name="feeType_sel" id="feeType_sel" class="ui-lifepay-select01" onchange="changeFeeType(this.value);" style="margin-left:10px;">
+        <option value="11" selected="selected">北京直辖市</option>
+        <option value="12">北京</option>
+        <option value="13">北京</option>
+        <option value="21">乌鲁木齐</option>
+      </select>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">收费单位:</div>
+    <div class="ui-form-item">
+      <select  name="company" id="company" class="ui-lifepay-select01">
+        <option value="3100003101001001">上海市自来水市北有限公司</option>
+        <option value="3100003101001002">上海市自来水市南有限公司</option>
+        <option value="3100003101001003">上海市自来水闵行有限公司</option>
+        <option value="3100003101001004">上海市浦东威立雅自来水有限公司</option>
+        <option value="3100003101001007">上海市嘉定自来水有限公司</option>
+        <option value="3100003101001008">上海市浦东新区（川沙）水有限公司</option>
+        <option value="3100003101001009">上海市南汇自来水有限公司</option>
+        <option value="3100003101001014">上海金山自来水有限公司</option>
+      </select>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">户号:</div>
+    <div class="ui-form-item">
+      <input name=""  type="text" class="ui-txtinput01" style="width:300px;" />
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">是否设置代扣:</div>
+    <div class="ui-form-item"> <span class="ui-radspan">
+      <input name="" type="radio" value="" class="ui-Radio"/>
+      是
+      <input name="" type="radio" value="" class="ui-Radio" style="margin-left:20px;" />
+      否 </span> </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">备注:</div>
+    <div class="ui-form-item">
+      <input name=""  type="text" class="ui-txtinput01" style="width:300px; color:#ccc" value="如父母家的账单" onclick="if(value==defaultValue){value='';this.style.color='#222'}" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+    </div>
+  </div>
+  <div class="ui-form ui-showinput">
+    <div class="ui-form-txt01">设置提醒:</div>
+    <div class="ui-form-item" > <span class="ui-radiospan">
+      <input name="" type="checkbox" value=""  checked="checked" class="ui-RadioM" id="check-mob"  />
+      手机短信提醒</span>
+      <input name="" type="text" style="width:165px; color:#999" value="13411111111"onclick="if(value==defaultValue){value='';this.style.color='#222'}"class="ui-txtinput01 " onblur="if(!value){value=defaultValue;this.style.color='#fff'}" id="mob-inp"/>
+    </div>
+  </div>
+  <div class="ui-form ui-showinput">
+    <div class="ui-form-txt01"></div>
+    <div class="ui-form-item" > <span class="ui-radiospan">
+      <input name="" type="checkbox" value=""   class="ui-RadioM"  id="check-mail"/>
+     邮箱提醒</span>
+      <input name="" type="text" style="width:165px; color:#999; display:none" value="13411111111"onclick="if(value==defaultValue){value='';this.style.color='#222'}" class="ui-txtinput01 " onblur="if(!value){value=defaultValue;this.style.color='#fff'}" id="mail-inp"/>
+    </div>
+    <div class="ui-form ui-showinput">
+    <div class="ui-form-txt01"></div>
+    <div class="ui-form-item" >
+        <select name="company"  class="ui-lifepay-select01" style="margin-right:10px; margin-top:5px;">
+            <option>选择提醒日期</option>
+            <option>1号</option>
+            <option>1号</option>
+            <option>1号</option>
+        </select>
+    <span class="ui-Gray-notes02">每月1-28号</span>
+    </div>
+  </div>
+    <script>
+	<!--生活缴费提醒日期-->
+	$(document).ready(function(){
+	 $("#check-mail").click(function(){
+		
+		$("#mail-inp").toggle();
+		
+	  });
+	  $("#check-mob").click(function(){
+		$("#mob-inp").toggle();
+	  });
+	});
+	</script>
+  </div>
+</div>
+</body>
+</html>

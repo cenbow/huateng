@@ -1,0 +1,31 @@
+.slider{
+    width:132px;
+    display:inline-block;
+    height:5px;
+}
+
+.slider .ui-widget-header {
+    background: #EEE url(/assets/slider_pass.png) repeat-x;
+    color: white;
+    font-weight: bold;
+}
+.slider.ui-widget-content {
+    background: #000;
+    color: white;
+    font-weight: bold;
+}
+
+
+.slider.ui-slider .ui-slider-handle{
+    position:absolute;
+    z-index:2;
+    width:16px;
+    height:16px;
+    cursor:pointer;
+    border:none;
+    background: url(/assets/icon.png) 0 -400px;
+}
+
+.slider.ui-slider-horizontal .ui-slider-handle{
+    top:-6px;
+}

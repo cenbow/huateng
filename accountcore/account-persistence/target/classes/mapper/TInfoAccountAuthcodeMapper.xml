@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoAccountAuthcodeMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoAccountAuthcode" >
+    <result column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="MERCHANT_CODE" property="merchantCode" jdbcType="VARCHAR" />
+    <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR" />
+    <result column="AUTH_CODE" property="authCode" jdbcType="VARCHAR" />
+    <result column="BIZ_NO" property="bizNo" jdbcType="VARCHAR" />
+    <result column="AUTH_FLAG" property="authFlag" jdbcType="CHAR" />
+    <result column="VALID_DATE" property="validDate" jdbcType="TIMESTAMP" />
+    <result column="AUTH_TIME" property="authTime" jdbcType="TIMESTAMP" />
+    <result column="UNAUTH_TIME" property="unauthTime" jdbcType="TIMESTAMP" />
+    <result column="AUTH_ACCEPT_ORG_CODE" property="authAcceptOrgCode" jdbcType="VARCHAR" />
+    <result column="AUTH_ACCEPT_UID" property="authAcceptUid" jdbcType="VARCHAR" />
+    <result column="AUTH_ACCEPT_TIME" property="authAcceptTime" jdbcType="TIMESTAMP" />
+    <result column="UNAUTH_ACCEPT_ORG_CODE" property="unauthAcceptOrgCode" jdbcType="VARCHAR" />
+    <result column="UNAUTH_ACCEPT_UID" property="unauthAcceptUid" jdbcType="VARCHAR" />
+    <result column="UNAUTH_ACCEPT_TIME" property="unauthAcceptTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountAuthcode" >
+    insert into T_INFO_ACCOUNT_AUTHCODE (RECORD_NO, CUSTOMER_NO, ACCOUNT_NO, 
+      MERCHANT_CODE, BUSINESS_TYPE, AUTH_CODE, 
+      BIZ_NO, AUTH_FLAG, VALID_DATE, 
+      AUTH_TIME, UNAUTH_TIME, AUTH_ACCEPT_ORG_CODE, 
+      AUTH_ACCEPT_UID, AUTH_ACCEPT_TIME, UNAUTH_ACCEPT_ORG_CODE, 
+      UNAUTH_ACCEPT_UID, UNAUTH_ACCEPT_TIME)
+    values (#{recordNo,jdbcType=DECIMAL}, #{customerNo,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, 
+      #{merchantCode,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{authCode,jdbcType=VARCHAR}, 
+      #{bizNo,jdbcType=VARCHAR}, #{authFlag,jdbcType=CHAR}, #{validDate,jdbcType=TIMESTAMP}, 
+      #{authTime,jdbcType=TIMESTAMP}, #{unauthTime,jdbcType=TIMESTAMP}, #{authAcceptOrgCode,jdbcType=VARCHAR}, 
+      #{authAcceptUid,jdbcType=VARCHAR}, #{authAcceptTime,jdbcType=TIMESTAMP}, #{unauthAcceptOrgCode,jdbcType=VARCHAR}, 
+      #{unauthAcceptUid,jdbcType=VARCHAR}, #{unauthAcceptTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountAuthcode" >
+    insert into T_INFO_ACCOUNT_AUTHCODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="merchantCode != null" >
+        MERCHANT_CODE,
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE,
+      </if>
+      <if test="authCode != null" >
+        AUTH_CODE,
+      </if>
+      <if test="bizNo != null" >
+        BIZ_NO,
+      </if>
+      <if test="authFlag != null" >
+        AUTH_FLAG,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="authTime != null" >
+        AUTH_TIME,
+      </if>
+      <if test="unauthTime != null" >
+        UNAUTH_TIME,
+      </if>
+      <if test="authAcceptOrgCode != null" >
+        AUTH_ACCEPT_ORG_CODE,
+      </if>
+      <if test="authAcceptUid != null" >
+        AUTH_ACCEPT_UID,
+      </if>
+      <if test="authAcceptTime != null" >
+        AUTH_ACCEPT_TIME,
+      </if>
+      <if test="unauthAcceptOrgCode != null" >
+        UNAUTH_ACCEPT_ORG_CODE,
+      </if>
+      <if test="unauthAcceptUid != null" >
+        UNAUTH_ACCEPT_UID,
+      </if>
+      <if test="unauthAcceptTime != null" >
+        UNAUTH_ACCEPT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantCode != null" >
+        #{merchantCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="authCode != null" >
+        #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bizNo != null" >
+        #{bizNo,jdbcType=VARCHAR},
+      </if>
+      <if test="authFlag != null" >
+        #{authFlag,jdbcType=CHAR},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authTime != null" >
+        #{authTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unauthTime != null" >
+        #{unauthTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="authAcceptOrgCode != null" >
+        #{authAcceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authAcceptUid != null" >
+        #{authAcceptUid,jdbcType=VARCHAR},
+      </if>
+      <if test="authAcceptTime != null" >
+        #{authAcceptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unauthAcceptOrgCode != null" >
+        #{unauthAcceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="unauthAcceptUid != null" >
+        #{unauthAcceptUid,jdbcType=VARCHAR},
+      </if>
+      <if test="unauthAcceptTime != null" >
+        #{unauthAcceptTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

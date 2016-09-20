@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		 http://code.alibabatech.com/schema/dubbo
+		 http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="huateng-provider" logger="slf4j"/>
+
+    <import resource="classpath*:spring/payment-context.xml"/>
+    <!-- 使用zookeeper广播注册中心暴露服务地址 -->
+    <dubbo:registry address="#{app.dubboRegistry}"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="#{app.dubboPort}"/>
+    <!-- 声明需要暴露的服务接口-->
+
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.payment.service.PaymentService"
+                   ref="paymentServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.payment.service.MobileCheckCodeService"
+                   ref="mobileCheckCodeServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.payment.service.AccountTransferService"
+                   ref="accountTransferServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.payment.service.WebGatePayService"
+                   ref="webGatePayServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.payment.service.CartService"
+                   ref="cartServiceImpl"/>
+
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.payment.service.VirtualGoodsService"
+                   ref="virtualGoodsServiceImpl"/>
+
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.payment.service.ReturnGoodsService"
+                   ref="returnGoodsServiceImpl"/>
+    <!--商城-->
+    <dubbo:reference version="#{app.dubboVersion}" id="itemService" timeout="10000"
+                     interface="com.aixforce.item.service.ItemService"/>
+    <!-- 门户账户-->
+    <dubbo:reference version="#{app.dubboVersion}"
+                     interface="cn.com.huateng.account.service.SeqGeneratorService"
+                     id="seqGeneratorService" timeout="10000"/>
+
+    <dubbo:reference version="#{app.dubboVersion}"
+                     interface="cn.com.huateng.account.service.UserService"
+                     id="userService" timeout="10000"/>
+    <!-- 核心交换-->
+    <dubbo:reference interface="com.huateng.p3.hub.accountcore.service.HubAccountQueryService"
+                     id="hubAccountQueryService" timeout="10000"/>
+
+    <dubbo:reference interface="com.huateng.p3.hub.accountcore.service.HubAccountTransferService"
+                     id="hubAccountTransferService" timeout="10000"/>
+
+    <dubbo:reference interface="com.huateng.p3.hub.accountcore.service.HubCommonGoodsService"
+                     id="hubCommonGoodsService" timeout="10000"/>
+
+</beans>

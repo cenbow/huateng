@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* 安全中心DIV */
+.ui-SecurityCenterDiv {
+	width: 100%;
+	border-radius: 5px;
+	display: inline-block;
+	border: 1px solid #CFCFCF;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 10px;
+	position: relative;
+	min-height: 100px;
+!important _height:100px;
+}
+*html .ui-SecurityCenterDiv {
+	width: 99%;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-img {
+	position: absolute;
+	left: 20px;
+	top: 15px;
+	width: 62px;
+	height: 60px;
+	float: left;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main {
+	display: inline-block;
+	margin-left: 110px;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main .ui-title {
+	font-size: 14px;
+	font-weight: bold;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main li {
+	margin-bottom: 5px;
+	display: inline-block;
+	width: 100%;
+	float: left;
+	line-height: 21px;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main .ui-bot {
+	margin-top: 10px;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main a {
+	margin-right: 5px;
+	font-weight: 100;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-Result {
+	position: absolute;
+	float: right;
+	top: 10px;
+	right: 20px;
+}
+.ui-SecurityCenterDiv .ui-Resultimg {
+	width: 40px;
+	height: 40px;
+	background: url(/assets/sutongpay/mycenter/Resultimg.jpg) left;
+	display: block;
+}
+.ui-SecurityCenterDiv .ui-Resulttxt {
+	text-align: center;
+	display: block;
+	width: 40px;
+	float: left;
+	color: #A2CF68;
+}
+/* 橘黄色DIV */
+
+.ui-SecurityCenter-sel {
+	border: 2px solid #F3B055;
+}
+.ui-SecurityCenter-sel .ui-Resultimg {
+	background-position: right;
+}
+.ui-SecurityCenter-sel .ui-Resulttxt {
+	color: #F3B055;
+}
+/* 安全中心内页 */
+.ui-Security-maindiv{ position:relative; width:100%; display:inline-block;}
+.ui-Security-maindiv .ui-form-txt01{ width:265px;}
+.ui-Security-maindiv .ui-securityimg{ position:absolute; left:25px; top:0px;}
+
+/* 安全中心选择修改方式页面 */
+.ui-ModifySelection{ width:99%; border:1px solid #CCC; border-radius: 5px; background-color:#fff;	height: 100px; position:relative; margin-bottom:15px;}
+.ui-ModifySelection .ui-modselimg{ position:absolute; left:25px; top:15px;}
+.ui-ModifySelection .ui-modseltab01{ position:absolute; left:125px; top:25px; font-size:14px;}
+.ui-ModifySelection .ui-modseltab01 td{ height:50px;}
+.ui-ModifySelection .ui-modsel-a{ position:absolute; float:right; right:25px; top:35px;}
+.ui-ModifySelection-hover{ border:1px solid #7fadde; background-color:#f2f9ff;}
+
+
+.myinfo-security-real-upload .ui-postion{ position: relative;}
+.myinfo-security-real-upload .css-button{ height: 25px; line-height: 25px; padding-left: 7px; padding-right: 7px;}
+.myinfo-security-real-upload .ui-fileimg{ position: absolute; left: -1px; top:-2px; z-index: 999; width: 70px; height: 25px; filter: alpha(opacity=0); opacity: 0;}
+
+.ui-Security-maindiv .ui-timeinput {
+	width: 105px;
+	background-image: url(/assets/sutongpay/inside-main/allicon.png);
+	background-position: -36px -445px;
+	background-repeat: no-repeat;
+}
+
+
+.myinfo-security-real-upload .ui-form-item {
+display: inline-block;
+text-align: left;
+}
+
+.myinfo-security-real-upload .ui-form-item .ui-txtinput01 {
+height: 20px;
+position: relative;
+top: -4px;
+margin-right: 5px;
+}

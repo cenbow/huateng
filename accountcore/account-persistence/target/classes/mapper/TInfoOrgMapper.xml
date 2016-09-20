@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoOrg" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="ORG_TYPE" property="orgType" jdbcType="VARCHAR" />
+    <result column="SUB_TYPE" property="subType" jdbcType="VARCHAR" />
+    <result column="ORG_FNAME" property="orgFname" jdbcType="VARCHAR" />
+    <result column="ORG_SNAME" property="orgSname" jdbcType="VARCHAR" />
+    <result column="INDUSTRY_TYPE" property="industryType" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="ZIP_CODE" property="zipCode" jdbcType="VARCHAR" />
+    <result column="BUSINESS_LICENSE_NO" property="businessLicenseNo" jdbcType="VARCHAR" />
+    <result column="ORGANIZATION_CODE" property="organizationCode" jdbcType="VARCHAR" />
+    <result column="LEGAL_REPRESENTIVE_NAME" property="legalRepresentiveName" jdbcType="VARCHAR" />
+    <result column="LINKMAN_NAME" property="linkmanName" jdbcType="VARCHAR" />
+    <result column="LINKMAN_TELEPHONE" property="linkmanTelephone" jdbcType="VARCHAR" />
+    <result column="LINKMAN_FAX" property="linkmanFax" jdbcType="VARCHAR" />
+    <result column="LINKMAN_EMAIL" property="linkmanEmail" jdbcType="VARCHAR" />
+    <result column="SERVICE_LEVEL" property="serviceLevel" jdbcType="CHAR" />
+    <result column="RISK_LEVEL" property="riskLevel" jdbcType="CHAR" />
+    <result column="ALLOW_TRANS" property="allowTrans" jdbcType="VARCHAR" />
+    <result column="ORG_STATUS" property="orgStatus" jdbcType="CHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="UP_ORG_CODE" property="upOrgCode" jdbcType="VARCHAR" />
+    <result column="SIGN_ORG_CODE" property="signOrgCode" jdbcType="VARCHAR" />
+    <result column="CLEARING_ORG_CODE" property="clearingOrgCode" jdbcType="VARCHAR" />
+    <result column="SETTLEMENT_ORG_CODE" property="settlementOrgCode" jdbcType="VARCHAR" />
+    <result column="SETTLEMENT_MODE" property="settlementMode" jdbcType="CHAR" />
+    <result column="IS_REAL_CLEAR" property="isRealClear" jdbcType="CHAR" />
+    <result column="CLEARING_DATE" property="clearingDate" jdbcType="VARCHAR" />
+    <result column="SETTLE_DATE" property="settleDate" jdbcType="VARCHAR" />
+    <result column="F_LINKMAN_NAME" property="fLinkmanName" jdbcType="VARCHAR" />
+    <result column="F_LINKMAN_TELEPHONE" property="fLinkmanTelephone" jdbcType="VARCHAR" />
+    <result column="F_LINKMAN_FAX" property="fLinkmanFax" jdbcType="VARCHAR" />
+    <result column="F_LINKMAN_EMAIL" property="fLinkmanEmail" jdbcType="VARCHAR" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_FLAG" property="checkFlag" jdbcType="CHAR" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP" />
+    <result column="SETTLEMENT_MIN1" property="settlementMin1" jdbcType="DECIMAL" />
+    <result column="SETTLEMENT_MIN2" property="settlementMin2" jdbcType="DECIMAL" />
+    <result column="SETTLEMENT_MIN3" property="settlementMin3" jdbcType="DECIMAL" />
+    <result column="SETTLEMENT_MIN4" property="settlementMin4" jdbcType="DECIMAL" />
+    <result column="SETTLEMENT_MIN5" property="settlementMin5" jdbcType="DECIMAL" />
+    <result column="CHARGE_ACC_FLAG" property="chargeAccFlag" jdbcType="CHAR" />
+    <result column="ORG_KIND" property="orgKind" jdbcType="CHAR" />
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVE_FLAG" property="archiveFlag" jdbcType="CHAR" />
+    <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="SETTLE_FLAG" property="settleFlag" jdbcType="CHAR" />
+    <result column="PAY_TYPE" property="payType" jdbcType="CHAR" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="RESV_FLD3" property="resvFld3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, ORG_CODE, ORG_TYPE, SUB_TYPE, ORG_FNAME, ORG_SNAME, INDUSTRY_TYPE, ADDRESS, 
+    ZIP_CODE, BUSINESS_LICENSE_NO, ORGANIZATION_CODE, LEGAL_REPRESENTIVE_NAME, LINKMAN_NAME, 
+    LINKMAN_TELEPHONE, LINKMAN_FAX, LINKMAN_EMAIL, SERVICE_LEVEL, RISK_LEVEL, ALLOW_TRANS, 
+    ORG_STATUS, AREA_CODE, CITY_CODE, UP_ORG_CODE, SIGN_ORG_CODE, CLEARING_ORG_CODE, SETTLEMENT_ORG_CODE, 
+    SETTLEMENT_MODE, IS_REAL_CLEAR, CLEARING_DATE, SETTLE_DATE, F_LINKMAN_NAME, F_LINKMAN_TELEPHONE, 
+    F_LINKMAN_FAX, F_LINKMAN_EMAIL, CREATE_UID, CREATE_TIME, CHECK_FLAG, CHECK_UID, CHECK_TIME, 
+    LAST_MODIFY_UID, LAST_MODIFY_TIME, SETTLEMENT_MIN1, SETTLEMENT_MIN2, SETTLEMENT_MIN3, SETTLEMENT_MIN4, 
+    SETTLEMENT_MIN5, CHARGE_ACC_FLAG, ORG_KIND, ARCHIVE_TIME, ARCHIVE_FLAG, L_RECORD_NO, 
+    REMARK, SETTLE_FLAG, PAY_TYPE, RESV_FLD1, RESV_FLD2, RESV_FLD3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_INFO_ORG
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+   <select id="findBlackMerchant" resultMap="BaseResultMap"
+            parameterType="java.util.HashMap">
+		select o.*,rm.MERCHANT_CODE as BLACK_LABEL
+		from
+		CORE.T_INFO_ORG o left join (
+		select MERCHANT_CODE from
+		T_RISK_BLACK_MERCHANT
+		where
+		MERCHANT_CODE=#{merchantCode,jdbcType=VARCHAR}
+		and
+		USE_FLAG='1' and
+				<![CDATA[
+					EFFECTIVE_DATE<=#{currentDate,jdbcType=TIMESTAMP} and
+					VALID_DATE>=#{currentDate,jdbcType=TIMESTAMP}and
+				]]>
+		CHECK_FLAG='2' and
+		ARCHIVE_FLAG ='1'
+		) rm on
+		o.org_code=rm.MERCHANT_CODE
+		where
+		o.org_code=#{merchantCode,jdbcType=VARCHAR}and
+		o.CHECK_FLAG='2' and
+		o.ARCHIVE_FLAG ='1' and o.ORG_STATUS='1'
+	</select>
+  <select id="selectByOrgCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_INFO_ORG
+    where ORG_CODE = #{orgCode,jdbcType=VARCHAR}
+      and  CHECK_FLAG='2'
+      and  ARCHIVE_FLAG ='1'
+      and  ORG_STATUS='1'
+  </select>
+    <select id="selectMchntType" parameterType="java.lang.String" resultType="java.lang.String">
+    select nvl(substr(INDUSTRY_TYPE,1,4),'4900') from CORE.T_INFO_ORG
+             where ARCHIVE_FLAG = '1' and check_flag = '2'
+     and org_code = #{supplyOrgCode,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from CORE.T_INFO_ORG
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoOrg" >
+    insert into CORE.T_INFO_ORG (RECORD_NO, ORG_CODE, ORG_TYPE, 
+      SUB_TYPE, ORG_FNAME, ORG_SNAME, 
+      INDUSTRY_TYPE, ADDRESS, ZIP_CODE, 
+      BUSINESS_LICENSE_NO, ORGANIZATION_CODE, LEGAL_REPRESENTIVE_NAME, 
+      LINKMAN_NAME, LINKMAN_TELEPHONE, LINKMAN_FAX, 
+      LINKMAN_EMAIL, SERVICE_LEVEL, RISK_LEVEL, 
+      ALLOW_TRANS, ORG_STATUS, AREA_CODE, 
+      CITY_CODE, UP_ORG_CODE, SIGN_ORG_CODE, 
+      CLEARING_ORG_CODE, SETTLEMENT_ORG_CODE, SETTLEMENT_MODE, 
+      IS_REAL_CLEAR, CLEARING_DATE, SETTLE_DATE, 
+      F_LINKMAN_NAME, F_LINKMAN_TELEPHONE, F_LINKMAN_FAX, 
+      F_LINKMAN_EMAIL, CREATE_UID, CREATE_TIME, 
+      CHECK_FLAG, CHECK_UID, CHECK_TIME, 
+      LAST_MODIFY_UID, LAST_MODIFY_TIME, SETTLEMENT_MIN1, 
+      SETTLEMENT_MIN2, SETTLEMENT_MIN3, SETTLEMENT_MIN4, 
+      SETTLEMENT_MIN5, CHARGE_ACC_FLAG, ORG_KIND, 
+      ARCHIVE_TIME, ARCHIVE_FLAG, L_RECORD_NO, 
+      REMARK, SETTLE_FLAG, PAY_TYPE, 
+      RESV_FLD1, RESV_FLD2, RESV_FLD3
+      )
+    values (#{recordNo,jdbcType=DECIMAL}, #{orgCode,jdbcType=VARCHAR}, #{orgType,jdbcType=VARCHAR}, 
+      #{subType,jdbcType=VARCHAR}, #{orgFname,jdbcType=VARCHAR}, #{orgSname,jdbcType=VARCHAR}, 
+      #{industryType,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, 
+      #{businessLicenseNo,jdbcType=VARCHAR}, #{organizationCode,jdbcType=VARCHAR}, #{legalRepresentiveName,jdbcType=VARCHAR}, 
+      #{linkmanName,jdbcType=VARCHAR}, #{linkmanTelephone,jdbcType=VARCHAR}, #{linkmanFax,jdbcType=VARCHAR}, 
+      #{linkmanEmail,jdbcType=VARCHAR}, #{serviceLevel,jdbcType=CHAR}, #{riskLevel,jdbcType=CHAR}, 
+      #{allowTrans,jdbcType=VARCHAR}, #{orgStatus,jdbcType=CHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{upOrgCode,jdbcType=VARCHAR}, #{signOrgCode,jdbcType=VARCHAR}, 
+      #{clearingOrgCode,jdbcType=VARCHAR}, #{settlementOrgCode,jdbcType=VARCHAR}, #{settlementMode,jdbcType=CHAR}, 
+      #{isRealClear,jdbcType=CHAR}, #{clearingDate,jdbcType=VARCHAR}, #{settleDate,jdbcType=VARCHAR}, 
+      #{fLinkmanName,jdbcType=VARCHAR}, #{flinkmanTelephone,jdbcType=VARCHAR}, #{fLinkmanFax,jdbcType=VARCHAR}, 
+      #{fLinkmanEmail,jdbcType=VARCHAR}, #{createUid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{checkFlag,jdbcType=CHAR}, #{checkUid,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, 
+      #{lastModifyUid,jdbcType=VARCHAR}, #{lastModifyTime,jdbcType=TIMESTAMP}, #{settlementMin1,jdbcType=DECIMAL}, 
+      #{settlementMin2,jdbcType=DECIMAL}, #{settlementMin3,jdbcType=DECIMAL}, #{settlementMin4,jdbcType=DECIMAL}, 
+      #{settlementMin5,jdbcType=DECIMAL}, #{chargeAccFlag,jdbcType=CHAR}, #{orgKind,jdbcType=CHAR}, 
+      #{archiveTime,jdbcType=TIMESTAMP}, #{archiveFlag,jdbcType=CHAR}, #{lRecordNo,jdbcType=DECIMAL}, 
+      #{remark,jdbcType=VARCHAR}, #{settleFlag,jdbcType=CHAR}, #{payType,jdbcType=CHAR}, 
+      #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, #{resvFld3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoOrg" >
+    insert into CORE.T_INFO_ORG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="orgType != null" >
+        ORG_TYPE,
+      </if>
+      <if test="subType != null" >
+        SUB_TYPE,
+      </if>
+      <if test="orgFname != null" >
+        ORG_FNAME,
+      </if>
+      <if test="orgSname != null" >
+        ORG_SNAME,
+      </if>
+      <if test="industryType != null" >
+        INDUSTRY_TYPE,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="zipCode != null" >
+        ZIP_CODE,
+      </if>
+      <if test="businessLicenseNo != null" >
+        BUSINESS_LICENSE_NO,
+      </if>
+      <if test="organizationCode != null" >
+        ORGANIZATION_CODE,
+      </if>
+      <if test="legalRepresentiveName != null" >
+        LEGAL_REPRESENTIVE_NAME,
+      </if>
+      <if test="linkmanName != null" >
+        LINKMAN_NAME,
+      </if>
+      <if test="linkmanTelephone != null" >
+        LINKMAN_TELEPHONE,
+      </if>
+      <if test="linkmanFax != null" >
+        LINKMAN_FAX,
+      </if>
+      <if test="linkmanEmail != null" >
+        LINKMAN_EMAIL,
+      </if>
+      <if test="serviceLevel != null" >
+        SERVICE_LEVEL,
+      </if>
+      <if test="riskLevel != null" >
+        RISK_LEVEL,
+      </if>
+      <if test="allowTrans != null" >
+        ALLOW_TRANS,
+      </if>
+      <if test="orgStatus != null" >
+        ORG_STATUS,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="upOrgCode != null" >
+        UP_ORG_CODE,
+      </if>
+      <if test="signOrgCode != null" >
+        SIGN_ORG_CODE,
+      </if>
+      <if test="clearingOrgCode != null" >
+        CLEARING_ORG_CODE,
+      </if>
+      <if test="settlementOrgCode != null" >
+        SETTLEMENT_ORG_CODE,
+      </if>
+      <if test="settlementMode != null" >
+        SETTLEMENT_MODE,
+      </if>
+      <if test="isRealClear != null" >
+        IS_REAL_CLEAR,
+      </if>
+      <if test="clearingDate != null" >
+        CLEARING_DATE,
+      </if>
+      <if test="settleDate != null" >
+        SETTLE_DATE,
+      </if>
+      <if test="fLinkmanName != null" >
+        F_LINKMAN_NAME,
+      </if>
+      <if test="flinkmanTelephone != null" >
+        F_LINKMAN_TELEPHONE,
+      </if>
+      <if test="fLinkmanFax != null" >
+        F_LINKMAN_FAX,
+      </if>
+      <if test="fLinkmanEmail != null" >
+        F_LINKMAN_EMAIL,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+      <if test="settlementMin1 != null" >
+        SETTLEMENT_MIN1,
+      </if>
+      <if test="settlementMin2 != null" >
+        SETTLEMENT_MIN2,
+      </if>
+      <if test="settlementMin3 != null" >
+        SETTLEMENT_MIN3,
+      </if>
+      <if test="settlementMin4 != null" >
+        SETTLEMENT_MIN4,
+      </if>
+      <if test="settlementMin5 != null" >
+        SETTLEMENT_MIN5,
+      </if>
+      <if test="chargeAccFlag != null" >
+        CHARGE_ACC_FLAG,
+      </if>
+      <if test="orgKind != null" >
+        ORG_KIND,
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+      <if test="archiveFlag != null" >
+        ARCHIVE_FLAG,
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="settleFlag != null" >
+        SETTLE_FLAG,
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null" >
+        #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null" >
+        #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgFname != null" >
+        #{orgFname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSname != null" >
+        #{orgSname,jdbcType=VARCHAR},
+      </if>
+      <if test="industryType != null" >
+        #{industryType,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null" >
+        #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNo != null" >
+        #{businessLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null" >
+        #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentiveName != null" >
+        #{legalRepresentiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanName != null" >
+        #{linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanTelephone != null" >
+        #{linkmanTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanFax != null" >
+        #{linkmanFax,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanEmail != null" >
+        #{linkmanEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLevel != null" >
+        #{serviceLevel,jdbcType=CHAR},
+      </if>
+      <if test="riskLevel != null" >
+        #{riskLevel,jdbcType=CHAR},
+      </if>
+      <if test="allowTrans != null" >
+        #{allowTrans,jdbcType=VARCHAR},
+      </if>
+      <if test="orgStatus != null" >
+        #{orgStatus,jdbcType=CHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upOrgCode != null" >
+        #{upOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="signOrgCode != null" >
+        #{signOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clearingOrgCode != null" >
+        #{clearingOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementOrgCode != null" >
+        #{settlementOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementMode != null" >
+        #{settlementMode,jdbcType=CHAR},
+      </if>
+      <if test="isRealClear != null" >
+        #{isRealClear,jdbcType=CHAR},
+      </if>
+      <if test="clearingDate != null" >
+        #{clearingDate,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null" >
+        #{settleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="fLinkmanName != null" >
+        #{fLinkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="flinkmanTelephone != null" >
+        #{flinkmanTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="fLinkmanFax != null" >
+        #{fLinkmanFax,jdbcType=VARCHAR},
+      </if>
+      <if test="fLinkmanEmail != null" >
+        #{fLinkmanEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="settlementMin1 != null" >
+        #{settlementMin1,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin2 != null" >
+        #{settlementMin2,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin3 != null" >
+        #{settlementMin3,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin4 != null" >
+        #{settlementMin4,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin5 != null" >
+        #{settlementMin5,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeAccFlag != null" >
+        #{chargeAccFlag,jdbcType=CHAR},
+      </if>
+      <if test="orgKind != null" >
+        #{orgKind,jdbcType=CHAR},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveFlag != null" >
+        #{archiveFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="settleFlag != null" >
+        #{settleFlag,jdbcType=CHAR},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=CHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        #{resvFld3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoOrg" >
+    update CORE.T_INFO_ORG
+    <set >
+      <if test="orgCode != null" >
+        ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null" >
+        ORG_TYPE = #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null" >
+        SUB_TYPE = #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgFname != null" >
+        ORG_FNAME = #{orgFname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSname != null" >
+        ORG_SNAME = #{orgSname,jdbcType=VARCHAR},
+      </if>
+      <if test="industryType != null" >
+        INDUSTRY_TYPE = #{industryType,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null" >
+        ZIP_CODE = #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicenseNo != null" >
+        BUSINESS_LICENSE_NO = #{businessLicenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null" >
+        ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalRepresentiveName != null" >
+        LEGAL_REPRESENTIVE_NAME = #{legalRepresentiveName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanName != null" >
+        LINKMAN_NAME = #{linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanTelephone != null" >
+        LINKMAN_TELEPHONE = #{linkmanTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanFax != null" >
+        LINKMAN_FAX = #{linkmanFax,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanEmail != null" >
+        LINKMAN_EMAIL = #{linkmanEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLevel != null" >
+        SERVICE_LEVEL = #{serviceLevel,jdbcType=CHAR},
+      </if>
+      <if test="riskLevel != null" >
+        RISK_LEVEL = #{riskLevel,jdbcType=CHAR},
+      </if>
+      <if test="allowTrans != null" >
+        ALLOW_TRANS = #{allowTrans,jdbcType=VARCHAR},
+      </if>
+      <if test="orgStatus != null" >
+        ORG_STATUS = #{orgStatus,jdbcType=CHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="upOrgCode != null" >
+        UP_ORG_CODE = #{upOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="signOrgCode != null" >
+        SIGN_ORG_CODE = #{signOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="clearingOrgCode != null" >
+        CLEARING_ORG_CODE = #{clearingOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementOrgCode != null" >
+        SETTLEMENT_ORG_CODE = #{settlementOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementMode != null" >
+        SETTLEMENT_MODE = #{settlementMode,jdbcType=CHAR},
+      </if>
+      <if test="isRealClear != null" >
+        IS_REAL_CLEAR = #{isRealClear,jdbcType=CHAR},
+      </if>
+      <if test="clearingDate != null" >
+        CLEARING_DATE = #{clearingDate,jdbcType=VARCHAR},
+      </if>
+      <if test="settleDate != null" >
+        SETTLE_DATE = #{settleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="fLinkmanName != null" >
+        F_LINKMAN_NAME = #{fLinkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="flinkmanTelephone != null" >
+        F_LINKMAN_TELEPHONE = #{flinkmanTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="fLinkmanFax != null" >
+        F_LINKMAN_FAX = #{fLinkmanFax,jdbcType=VARCHAR},
+      </if>
+      <if test="fLinkmanEmail != null" >
+        F_LINKMAN_EMAIL = #{fLinkmanEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="settlementMin1 != null" >
+        SETTLEMENT_MIN1 = #{settlementMin1,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin2 != null" >
+        SETTLEMENT_MIN2 = #{settlementMin2,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin3 != null" >
+        SETTLEMENT_MIN3 = #{settlementMin3,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin4 != null" >
+        SETTLEMENT_MIN4 = #{settlementMin4,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMin5 != null" >
+        SETTLEMENT_MIN5 = #{settlementMin5,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeAccFlag != null" >
+        CHARGE_ACC_FLAG = #{chargeAccFlag,jdbcType=CHAR},
+      </if>
+      <if test="orgKind != null" >
+        ORG_KIND = #{orgKind,jdbcType=CHAR},
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archiveFlag != null" >
+        ARCHIVE_FLAG = #{archiveFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="settleFlag != null" >
+        SETTLE_FLAG = #{settleFlag,jdbcType=CHAR},
+      </if>
+      <if test="payType != null" >
+        PAY_TYPE = #{payType,jdbcType=CHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoOrg" >
+    update CORE.T_INFO_ORG
+    set ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      ORG_TYPE = #{orgType,jdbcType=VARCHAR},
+      SUB_TYPE = #{subType,jdbcType=VARCHAR},
+      ORG_FNAME = #{orgFname,jdbcType=VARCHAR},
+      ORG_SNAME = #{orgSname,jdbcType=VARCHAR},
+      INDUSTRY_TYPE = #{industryType,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      ZIP_CODE = #{zipCode,jdbcType=VARCHAR},
+      BUSINESS_LICENSE_NO = #{businessLicenseNo,jdbcType=VARCHAR},
+      ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+      LEGAL_REPRESENTIVE_NAME = #{legalRepresentiveName,jdbcType=VARCHAR},
+      LINKMAN_NAME = #{linkmanName,jdbcType=VARCHAR},
+      LINKMAN_TELEPHONE = #{linkmanTelephone,jdbcType=VARCHAR},
+      LINKMAN_FAX = #{linkmanFax,jdbcType=VARCHAR},
+      LINKMAN_EMAIL = #{linkmanEmail,jdbcType=VARCHAR},
+      SERVICE_LEVEL = #{serviceLevel,jdbcType=CHAR},
+      RISK_LEVEL = #{riskLevel,jdbcType=CHAR},
+      ALLOW_TRANS = #{allowTrans,jdbcType=VARCHAR},
+      ORG_STATUS = #{orgStatus,jdbcType=CHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      UP_ORG_CODE = #{upOrgCode,jdbcType=VARCHAR},
+      SIGN_ORG_CODE = #{signOrgCode,jdbcType=VARCHAR},
+      CLEARING_ORG_CODE = #{clearingOrgCode,jdbcType=VARCHAR},
+      SETTLEMENT_ORG_CODE = #{settlementOrgCode,jdbcType=VARCHAR},
+      SETTLEMENT_MODE = #{settlementMode,jdbcType=CHAR},
+      IS_REAL_CLEAR = #{isRealClear,jdbcType=CHAR},
+      CLEARING_DATE = #{clearingDate,jdbcType=VARCHAR},
+      SETTLE_DATE = #{settleDate,jdbcType=VARCHAR},
+      F_LINKMAN_NAME = #{fLinkmanName,jdbcType=VARCHAR},
+      F_LINKMAN_TELEPHONE = #{flinkmanTelephone,jdbcType=VARCHAR},
+      F_LINKMAN_FAX = #{fLinkmanFax,jdbcType=VARCHAR},
+      F_LINKMAN_EMAIL = #{fLinkmanEmail,jdbcType=VARCHAR},
+      CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      SETTLEMENT_MIN1 = #{settlementMin1,jdbcType=DECIMAL},
+      SETTLEMENT_MIN2 = #{settlementMin2,jdbcType=DECIMAL},
+      SETTLEMENT_MIN3 = #{settlementMin3,jdbcType=DECIMAL},
+      SETTLEMENT_MIN4 = #{settlementMin4,jdbcType=DECIMAL},
+      SETTLEMENT_MIN5 = #{settlementMin5,jdbcType=DECIMAL},
+      CHARGE_ACC_FLAG = #{chargeAccFlag,jdbcType=CHAR},
+      ORG_KIND = #{orgKind,jdbcType=CHAR},
+      ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      ARCHIVE_FLAG = #{archiveFlag,jdbcType=CHAR},
+      L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      SETTLE_FLAG = #{settleFlag,jdbcType=CHAR},
+      PAY_TYPE = #{payType,jdbcType=CHAR},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

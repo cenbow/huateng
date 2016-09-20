@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--url="dubbo://192.168.231.216:20899"-->
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+    <dubbo:application name="huateng-portal" logger="slf4j"/>
+
+    <!-- 使用zookeeper注册中心暴露发现服务地址 -->
+    <dubbo:registry address="#{app.dubboRegistry}"/>
+
+    <!-- 生成远程服务代理，可以和本地bean一样使用userService -->
+    <!--账户类-->
+    <!-- url="dubbo://130.233.1.134:20111 -->
+    <dubbo:reference version="#{app.dubboVersion}" id="userService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.account.service.UserService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="registerUserService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.account.service.RegisterUserService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="passwordMgmService" lazy="true"  timeout="10000"
+                     interface="cn.com.huateng.account.service.PasswordMgmService"/>
+	
+
+ 
+    <dubbo:reference version="#{app.dubboVersion}" id="suggestionsService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.account.service.SuggestionsService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="seqGeneratorService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.account.service.SeqGeneratorService"/>
+
+
+    <dubbo:reference version="#{app.dubboVersion}" id="mobileCheckCodeService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.payment.service.MobileCheckCodeService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="queryQuestionsService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.account.service.QueryQuestionsService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="securitySysDataService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.account.service.SecuritySysDataService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="realNameService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.account.service.RealNameService"/>
+
+    <!--交易类-->
+
+    <dubbo:reference version="#{app.dubboVersion}" id="accountTransferService"  lazy="true" timeout="10000"
+                     interface="cn.com.huateng.payment.service.AccountTransferService"/>
+
+
+    <dubbo:reference version="#{app.dubboVersion}" id="paymentService" lazy="true" timeout="10000"
+                     interface="cn.com.huateng.payment.service.PaymentService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="webGatePayService"  lazy="true" timeout="10000"
+                     interface="cn.com.huateng.payment.service.WebGatePayService"/>
+
+    
+    <dubbo:reference version="#{app.dubboVersion}" id="cartService"  lazy="true" timeout="10000"
+                     interface="cn.com.huateng.payment.service.CartService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="virtualGoodsService"  lazy="true" timeout="10000"
+                     interface="cn.com.huateng.payment.service.VirtualGoodsService"/>
+
+    <dubbo:reference version="#{app.dubboVersion}" id="returnGoodsService"  lazy="true" timeout="10000"
+                     interface="cn.com.huateng.payment.service.ReturnGoodsService"/>
+
+    <!-- 核心交换的服务 不能加版本号-->
+    <dubbo:reference id="hubPortalAdService"  lazy="true" timeout="10000"
+                     interface="com.huateng.p3.hub.accountcore.service.HubPortalAdService"/>
+
+    <!--商城类-->
+    <dubbo:reference version="#{app.dubboVersion}" id="categoryService" timeout="10000" 
+                     interface="com.aixforce.category.service.CategoryService"/>
+    <dubbo:reference version="#{app.dubboVersion}" id="itemService"  timeout="10000"
+                     interface="com.aixforce.item.service.ItemService"/>
+    <dubbo:reference version="#{app.dubboVersion}" id="spuService" timeout="10000"
+                     interface="com.aixforce.item.service.SpuService"/>
+    <dubbo:reference version="#{app.dubboVersion}" id="searchService" timeout="10000"
+                     interface="com.aixforce.item.service.SearchService"/>
+    <dubbo:reference version="#{app.dubboVersion}" id="attributeService" timeout="10000"
+                     interface="com.aixforce.item.service.AttributeService"/>
+    <dubbo:reference version="#{app.dubboVersion}" id="orderService" timeout="10000"
+                     interface="cn.com.huateng.mall.service.OrderService"/>
+    <dubbo:reference version="#{app.dubboVersion}" id="accountTranMgmService"   timeout="10000"
+                     interface="cn.com.huateng.account.service.AccountTranMgmService"/>
+
+
+</beans>

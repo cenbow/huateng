@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="VirtualGoods">
+    <resultMap id="BaseResultMap" type="VirtualGoods">
+        <id column="ORDER_NO" property="orderNo" jdbcType="VARCHAR"/>
+        <result column="GOODS_NAME" property="goodsName" jdbcType="VARCHAR"/>
+        <result column="SKU_NO" property="skuNo" jdbcType="DECIMAL"/>
+        <result column="ORDER_AMT" property="orderAmt" jdbcType="DECIMAL"/>
+        <result column="TXN_TIME" property="txnTime" jdbcType="TIMESTAMP"/>
+        <result column="NUMBER" property="number" jdbcType="DECIMAL"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="UNIFY_ID" property="unifyId" jdbcType="VARCHAR"/>
+        <result column="ELECTRONIC_NUMBER" property="electronicNumber" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Example_Where_Clause">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="orderNo !=null">
+                AND   ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+            </if>
+            <if test="unifyId !=null">
+                AND   UNIFY_ID  = #{unifyId,jdbcType=VARCHAR}
+            </if>
+            <if test="status !=null">
+                AND  STATUS = #{status,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="Base_Column_List">
+        ORDER_NO,GOODS_NAME, SKU_NO, ORDER_AMT, TXN_TIME, NUMBER, CREATE_TIME,UNIFY_ID,ELECTRONIC_NUMBER,STATUS
+    </sql>
+
+    <insert id="insertVirtualGoods" parameterType="VirtualGoods">
+        insert into PORTAL.T_PORT_VIRTUAL_GOODS
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderNo != null">
+                ORDER_NO,
+            </if>
+            <if test="goodsName != null">
+                GOODS_NAME,
+            </if>
+            <if test="skuNo != null">
+                SKU_NO,
+            </if>
+            <if test="orderAmt != null">
+                ORDER_AMT,
+            </if>
+            <if test="txnTime != null">
+                TXN_TIME,
+            </if>
+            <if test="number != null">
+                NUMBER,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="unifyId != null">
+                UNIFY_ID,
+            </if>
+            <if test="electronicNumber != null">
+                ELECTRONIC_NUMBER,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderNo != null">
+                #{orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsName != null">
+                #{goodsName,jdbcType=VARCHAR},
+            </if>
+            <if test="skuNo != null">
+                #{skuNo,jdbcType=DECIMAL},
+            </if>
+            <if test="orderAmt != null">
+                #{orderAmt,jdbcType=DECIMAL},
+            </if>
+            <if test="txnTime != null">
+                #{txnTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=DECIMAL},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="unifyId != null">
+                #{unifyId,jdbcType=VARCHAR},
+            </if>
+            <if test="electronicNumber != null">
+                #{electronicNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateVirtualGoods" parameterType="VirtualGoods">
+        update PORTAL.T_PORT_VIRTUAL_GOODS
+        <set>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="electronicNumber != null">
+                ELECTRONIC_NUMBER = #{electronicNumber,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ORDER_NO = #{orderNo,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectVirtualGoods" parameterType="VirtualGoods" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/>
+        from PORTAL.T_PORT_VIRTUAL_GOODS
+        <include refid="Example_Where_Clause"/>
+        order by CREATE_TIME desc
+    </select>
+
+
+
+
+
+
+</mapper>

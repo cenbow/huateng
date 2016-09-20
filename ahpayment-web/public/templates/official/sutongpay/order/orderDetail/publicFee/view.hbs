@@ -1,0 +1,223 @@
+{{#component "order-list-detail"}}
+<div class="cl"></div>
+       <table width="100%" border="0" cellspacing="1" cellpadding="0" class="ui-appcenter-infotab" style="margin-top:0px;">
+	<tr>
+		<td width="170" class="ui-tabtxt01">订单号</td>
+		<td><strong>{{orderdetail.orderNo}}</strong></td>
+	</tr>
+	<tr>
+		<td  class="ui-tabtxt01">用户名</td>
+		<td>{{_USER_.principal}}</td>
+	</tr>
+	<tr>
+		<td  class="ui-tabtxt01">实名认证</td>
+		<td> {{#equals  customer.isRealname  "1"}}
+			初级实名认证
+			{{else}}
+			{{#equals customer.isRealname "4"}}
+			高级实名认证
+			{{else}}
+			非实名认证
+			{{/equals}}
+			{{/equals}}</td>
+		</tr>
+		<tr>
+			<td  class="ui-tabtxt01">统一帐号</td>
+			<td>{{_USER_.unifyId}}</td>
+		</tr>
+	</table> 
+	<div class="ui-sepdased-line"></div>
+	{{#equals orderdetail.feeType "05"}}
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-inside-tab01" style="margin-bottom:15px;">
+		<tr class="ui-instab-tm">
+			<td align="center" >交易时间</td>
+			<td align="center" >虚拟电子号</td>
+			<td align="center" >购买数量</td>
+			<td align="center" >交易金额</td>
+			<td align="center" >处理状态</td>
+		</tr>
+		<tr>
+			<td align="center">{{formatDate orderdetail.txnTime "day" }}</td>
+			<td align="center" >{{orderdetail.electronicNumber}}</td>
+			<td align="center" >{{orderdetail.number}}</td>
+			<td align="center" ><strong>{{formatAmount orderdetail.orderAmt}}元</strong></td>
+			<td align="center" >
+				{{#if orderdetail.status }} 
+				{{#equals orderdetail.status "1"}} 
+				待支付
+				{{/equals}}
+				{{#equals orderdetail.status "2"}} 
+				支付成功
+				{{/equals}}
+				{{#equals orderdetail.status "3"}} 
+				支付失败
+				{{/equals}}
+				{{#equals orderdetail.status "4"}} 
+				订单已受理
+				{{/equals}}  
+				{{#equals orderdetail.status "5"}}
+				受理成功
+				{{/equals}}
+				{{#equals orderdetail.status "6"}}
+		          受理失败
+		        {{/equals}}
+		        {{#equals orderdetail.status "7"}}
+		          退款成功
+		        {{/equals}}
+		        {{#equals orderdetail.status "8"}}
+		          退款失败
+		        {{/equals}}
+		        {{#equals orderdetail.status "9"}}
+		          充值成功
+		        {{/equals}}
+		        {{#equals orderdetail.status "10"}}
+		          充值失败
+		        {{/equals}}
+				{{/if}}
+			</td>
+		</tr>
+	</table>
+	{{#if orderdetail.saleReturnApplies}}
+	<span>退货列表</span>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-inside-tab01" style="margin-bottom:15px;margin-top:15px;">
+		<tr class="ui-instab-tm">
+			<td align="center" >退货流水</td>
+			<td align="center" >退货申请时间</td>
+			<td align="center" >商品名称</td>
+			<td align="center" >退货金额</td>
+			<td align="center" >退货电子单号</td>
+			<td align="center" >数量</td>
+			<td align="center" >状态</td>
+			<td align="center" >备注</td>
+		</tr>
+		{{#each orderdetail.saleReturnApplies}}
+        <tr>
+			<td align="center">{{recordNo}}</td>
+			<td align="center" >{{formatDate createTime}}</td>
+			<td align="center" >{{goodsName}}</td>
+			<td align="center" >
+				<strong>{{formatAmount refundAmt}}元
+			    </strong>
+			</td>
+			<td align="center" title="{{electronicNumber}}">{{transformat electronicNumber}}</td>
+			<td align="center" >{{count}}</td>
+			<td align="center">
+				{{#if checkFlag }} 
+		        {{#equals checkFlag "0"}}
+		          退货待审核
+		        {{/equals}}
+		        {{#equals checkFlag "1"}}
+		          审核已通过
+		        {{/equals}}
+		        {{#equals checkFlag "2"}}
+		          已驳回
+		        {{/equals}}
+				{{/if}}
+			</td>
+			<td align="center" title="{{remark}}">{{#if remark}}{{transformat remark}}{{else}}{{remark}}{{/if}}</td>
+		</tr>
+	   {{/each}}
+	</table>
+	{{/if}}
+	<span>备注：退款成功后3个工作日将钱返还。  </span>
+	<div class="tradedetail-Money">
+		<span>订单金额:<strong>￥{{formatAmount orderdetail.orderAmt}}</strong>元</span>
+		<input name="orderNo" type="hidden" value="{{orderdetail.orderNo}}"/>
+		<input name="feeType" type="hidden" value="{{orderdetail.feeType}}"/>
+		<input name="count" type="hidden" value="{{orderdetail.number}}"/>
+		<input name="electronicNumber" type="hidden" value="{{orderdetail.electronicNumber}}"/>
+		<input name="orderAmt" type="hidden" value="{{orderdetail.orderAmt}}"/>
+	   {{#equals orderdetail.status "5"}} 
+	        {{#equals orderdetail.isOrNotReturnGoods "0"}}
+	        {{#if orderdetail.isReturningGoods}}  
+	          <a class="ui-button ui-button-mwhite">退货审核中</a>
+	          {{else}}
+	          <a class="ui-button ui-button-morange" id="returnbutton">退货</a>
+	        {{/if}}
+			{{/equals}}
+	   {{/equals}}
+		</div>
+		  {{else}}
+		  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-inside-tab01" style="margin-bottom:15px;">
+		<tr class="ui-instab-tm">
+			<td align="center" >交易时间</td>
+			<td align="center" >账单号</td>
+			<td align="center" >交易类型</td>  
+			<td align="center" >交易金额</td>
+			<td align="center" >处理状态</td>
+		</tr>
+		  <tr>
+			<td align="center">{{formatDate orderdetail.txnTime "day" }}</td>
+			<td align="center" >{{orderdetail.barCode}}</td>
+			<td align="center" >{{explain feeType "FeeType"}}</td>
+			<td align="center" ><strong>{{formatAmount orderdetail.txnAmt }}</strong></td>
+			<td align="center" >
+				{{#if orderdetail.status }} 
+				{{#equals orderdetail.status "1"}} 
+				待支付
+				{{/equals}}
+				{{#equals orderdetail.status "2"}} 
+				支付成功
+				{{/equals}}
+				{{#equals orderdetail.status "3"}} 
+				支付失败
+				{{/equals}}
+				{{#equals orderdetail.status "4"}} 
+				受理成功
+				{{/equals}}  
+				{{#equals orderdetail.status "5"}}
+				{{#unless orderdetail.refoundStatus}}
+				受理失败
+				{{else}}
+				{{#equals  orderdetail.refoundStatus "A"}}
+				退款失败
+				{{else}}
+				{{#equals  refoundStatus "B"}}
+				退款成功
+				{{else}}
+				其他
+				{{/equals}}
+				{{/equals}}
+				{{/unless}}
+				{{/equals}}
+				{{#equals orderdetail.status "6"}} 
+				账户充值成功
+				{{/equals}}
+				{{#equals orderdetail.status "7"}} 
+				账户充值失败
+				{{/equals}}
+				{{#equals orderdetail.status "C"}} 
+				订单已受理
+				{{/equals}}
+				{{else}}
+				其他
+				{{/if}}
+			</td>
+		</tr>
+	</table>
+	<span>备注：退款成功后3个工作日将钱返还。  </span>
+	<div class="tradedetail-Money">
+		<span>订单金额:<strong>￥{{formatAmount orderdetail.txnAmt  }}</strong>元</span>
+		{{#equals orderdetail.status "1"}} 
+		{{#equals orderdetail.feeType "01"}} 
+		<form id="formMobile" action="/api/appcenter/recharge/mobile/payment" method="post" >
+			<span class="ui-appcenter-span01 ">
+				<input name="orderNo" type="hidden" value="{{orderdetail.orderNo}}"/>
+				<input name="feeType" type="hidden" value="{{orderdetail.feeType}}"/>
+				<input name="orderSeq" type="hidden" value="{{orderdetail.orderSeq}}"/>
+			</span>
+		</form>
+		{{else}}
+		<form id="formMobile" action="/api/appcenter/lifepay/{{#equals orderdetail.feeType "01"}}ticket{{/equals}}/orderpay" method="post" target="_blank">
+			<span class="ui-appcenter-span01 ">
+				<input name="orderNo" type="hidden" value="{{orderdetail.orderNo}}"/>
+				<input name="feeType" type="hidden" value="{{orderdetail.feeType}}"/>
+				<input name="orderSeq" type="hidden" value="{{orderdetail.orderSeq}}"/>
+			</span>
+			{{/equals}}
+			<a class="ui-button ui-button-morange" id="paybutton">支付</a>
+			{{/equals}}
+		</div>
+		{{/equals}}
+		
+{{/component}}

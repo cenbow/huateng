@@ -1,0 +1,41 @@
+#js-style-setting-panel {
+    .modal-body{
+        padding: 0;
+        min-height:265px;
+        p{
+            margin-left: 14px;
+            margin-right: 14px;
+        }
+    }
+    #bg-image{
+        max-height: 103px;
+    }
+    #js-change-image{
+        margin-left: 20px;
+    }
+    .repeat-and-position {
+        .positions {
+            width: 65px;
+            height: 65px;
+            margin-top: 10px;
+            div {
+                height: 21px;
+            }
+            .position {
+                min-height: 16px;
+                height: 16px;
+            }
+            .position:hover {
+                opacity: 0.3;
+                background: url(/assets/icon.png) no-repeat 0 -384px;
+            }
+            .position.selected {
+                background: url(/assets/icon.png) no-repeat 0 -384px;
+            }
+            .position.selected:hover {
+                opacity: 0.7;
+                background: url(/assets/icon.png) no-repeat 0 -384px;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="description" content='{{#block "desc"}}速通支付{{/block}}'>
+  <title>
+    速通支付-{{#block "title"}}{{/block}}
+  </title>
+  <link rel="stylesheet" href="/assets/smallBootstrap.css">
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/common.css">
+<!--[if IE 6]>
+<style>
+.ui-my-right{ height:600px;}
+</style>
+<![endif]-->
+</head>
+
+<body>
+  <div id="wrapper">
+    {{inject "official/sutongpay/index-header"}}
+      <div class="main-bg">
+        <div class="main">
+          {{{block "body"}}}
+        </div>
+      </div>
+      {{inject "official/sutongpay/rightfooter"}}
+    {{inject "official/sutongpay/footer"}}
+    <script src="/assets/common.js"></script>
+    <script>require("common/init")</script>
+  </div>
+</body>
+</html>

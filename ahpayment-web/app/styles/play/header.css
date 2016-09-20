@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+.topbar{width: 100%; height:30px; position:relative;display:block; border-bottom: 1px solid gainsboro; _overflow: hidden; z-index:9999; }
+.topbar-wrap{width: 980px; margin:0 auto;   height:26px;}
+.topbar-wrap .top-links{float: left; position:relative;}
+.topbar-wrap .top-links a{ color:#666666; line-height:26px;  padding-left:10px; padding-right:10px; float:left; display:block; }
+.topbar-wrap .top-links a:hover{ background-image:url(../../images/top-linksbg.gif); color:#333; text-decoration:none;}
+.topbar-wrap .top-links .top-link-f{ line-height:26px; float:left; cursor:pointer; z-index:29999; padding-left:5px; padding-right:5px; cursor:pointer; margin-left:5px;}
+.top-link-f .nav-second02{  top:15px; left:370px;}
+.topbar-wrap .top-link-f .nav-second02 a{ background-image:none; color:#595757;}
+.topbar-wrap .top-link-f .nav-second02 a:hover{ color:#FF7F00;}
+.topminu{float:right;color: #666; position: relative; z-index: 1000; height:26px;}
+.topminu span{ float:left; line-height:26px;}
+.topminu-welcome{ padding-right:20px;}
+.topminu .topminu-link a{ color:#666666; line-height:26px;   padding-left:10px; padding-right:10px; float:left; display:block;}
+.topminu .topminu-link a:hover{ background-image:url(../../images/top-linksbg.gif); color:#333; text-decoration:none;}
+.topheader{ width:100%; height:85px; display:block; }
+.topheader-wrap{ width:980px; margin:0 auto; height:85px; repeat-x; position:relative; z-index:1000; }
+.topheader-logo{ width:340px; height:85px; display: inline-block; float:left; position:relative; left:0px;}
+.top-logo-sutongpay{ display:block; float:left;}
+.topheader-nav{ width:600px; height:85px; float:right; display:block; }
+.topheader-nav .nav{ position:relative; right:0px; float:right; position:relative; top:50px;}
+.topheader-nav .nav li{ float:left; margin-left:20px; }
+.nav-home{ width:32px; height:25px; display:block; background:url(../images/nav-home.jpg) top;}
+.nav-home:hover{background:url(../images/nav-home.jpg) bottom;}
+.nav-pay{ width:64px; height:25px; display:block; background:url(../images/nav-pay.jpg) top;}
+.nav-slog{ width:64px; height:25px; display:block; background:url(../images/nav-slog.jpg) top;}
+.nav-bill{ width:64px; height:25px; display:block; background:url(../images/nav-bill.jpg) top;}
+.nav-mobile{ width:80px; height:25px; display:block; background:url(../images/nav-mobile.jpg) top;}
+.nav-recharge{ width:48px; height:25px; display:block; background:url(../images/nav-recharge.jpg) top;}
+.nav-second{width:268px; position:absolute;  margin-left:-205px; top:18px; padding:10px; z-index:19999;}
+.nav-second02{position:absolute; width:260px;  height:55px;  margin-left:-260px; z-index:19999;}
+.nav-second02 .div-right{ height:53px; line-height:53px; right:-70px; background:url(../images/nav-kuang1.png) right; float:right;position:relative;}
+.div-right tr td{ padding-right:16px; }
+.div-left{ height:53px; width:16px; background:url(../images/nav-kuang2.png) left no-repeat; position:absolute;display:inline-block; float:left; left:-16px; top:0px; z-index:1999;}
+.right-a{ position:relative; top:5px; color:#595757; margin-left:5px;}
+.right-a:hover{ color:#FF7F00}
+.div-top{ width:268px; height:17px; line-height:17px; background-image:url(../images/nav-arrow.png); display:inline-block; position:relative;}
+.div-middle{ width:268px; min-height:30px; !important _height:30px; background-image:url(../images/nav-middle.png); display:inline-block; position:relative; text-align:center; padding-top:3px; padding-bottom:2px;}
+.div-bot{width:268px; height:7px; font-size:7px; background-image:url(../images/nav-divbot.png); display:inline-block; position:relative;}
+.div-middle a{ width:60px; height:30px; line-height:30px; display:block; float:left; text-align:center; position:relative; left:15px; color:#727171;}
+.div-middle a:hover{color:#FF7F00;}
+.aid-news-main{ width:980px; margin:0 auto;}
+.aid-bank{ width:170px; color:#595757; font-weight:bold;}
+.aid-bank ul{ width:170px;}
+.aid-bank ul li{ width:24px; height:20px; float:left;}
+.header-bot{ width:100%; position:relative; display:inline-block; top:0px; background:url(../images/header-botimg.png) repeat-x ;z-index:700; height:15px;}
+*+html .header-bot{ top:0px;}

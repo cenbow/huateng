@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>组件</title>
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<link href="../css/inside-header.css" rel="stylesheet" />
+<link href="../css/index.css" rel="stylesheet"/>
+<script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></script>
+</head>
+<style>
+.style {
+	width: 90%;
+	padding-left: 50px;
+	padding-bottom: 35px;
+	display: inline-block;
+}
+.style div {
+	margin-bottom: 25px;
+}
+.style .ui-Greentxt {
+	margin-bottom: 0px;
+}
+</style>
+</style>
+<body style="background-color:#FFF; text-align:left; overflow-x:hidden; padding-left:30px;">
+<h1>按钮</h1>
+<a class="ui-button ui-button-mwhite">确定</a> <a class="ui-button ui-button-mwhite48">立即免费注册</a> <a class="ui-button ui-button-sermwhite">确定</a> <br />
+<br />
+<a class="ui-button ui-button-morange">确定</a> <a class="ui-button ui-button-morange48">立即免费注册</a> <a class="ui-button ui-button-serOrange">确定</a> <br />
+<br />
+<a class="ui-button ui-button-primary">确定</a> <a class="ui-button ui-button-primary48">立即免费注册</a> <a class="ui-button ui-button-serprimary">确定</a> <br />
+<br />
+<a class="ui-button ui-button-hwhite">确定</a> <a class="ui-button ui-button-icon01"><i class="ui-addicon"></i>添加</a>
+<h1>表单</h1>
+<div class="ui-form">
+  <div class="ui-form-txt01">模板名称:</div>
+  <div class="ui-form-item">
+    <input name=""  type="text" class="ui-txtinput01" style="color:#666;" value="美好的月色" onclick="if(value==defaultValue){value='';this.style.color='#666'}" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+    <i class="ui-noteicon01"></i>最多10个字 </div>
+</div>
+<div class="ui-form">
+  <div class="ui-form-txt01">价格:</div>
+  <div class="ui-form-item">
+    <input name=""  type="text" class="ui-txtinput01" style="color:#666;" value="美好的月色" onclick="if(value==defaultValue){value='';this.style.color='#666'}" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+    元（建议300元以内） </div>
+</div>
+<div class="ui-form" >
+  <div class="ui-form-txt01">缩略图:</div>
+  <div class="ui-form-item"> <a class="ui-button ui-button-sermwhite" >选择图片</a> <i class="ui-noteicon01"></i>建议上传尺寸&nbsp;800x600 </div>
+</div>
+<div class="ui-form">
+  <div class="ui-form-txt01">模板说明:</div>
+  <div class="ui-form-item">
+    <textarea class="ui-textarea"></textarea>
+  </div>
+</div>
+<div class="ui-form">
+  <div class="ui-form-txt01"></div>
+  <div class="ui-form-item"> <a class="ui-button ui-button-morange">发布</a> <a class="ui-txt-a">取消，稍后再发布</a> </div>
+</div>
+<h1>表格</h1>
+<div style="width:700px; padding-left:50px; padding-bottom:35px;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-inside-tab01 ui-tabcenter">
+    <tr class="ui-instab-tm">
+      <td  width="10%">缴费项目</td>
+      <td  width="15%">收费单位</td>
+      <td  width="10%">查询类型</td>
+      <td  width="15%">查询编号</td>
+      <td  width="8%">账单状态</td>
+      <td  width="10%">备注</td>
+      <td  width="8%">操作</td>
+    </tr>
+    <tr>
+      <td>水费</td>
+      <td>池州自来水有限公司</td>
+      <td>户号</td>
+      <td>2336475</td>
+      <td>自动代扣</td>
+      <td>无</td>
+      <td><a class="ui-txt-a">缴费</a></td>
+    </tr>
+  </table>
+</div>
+<h1>导航</h1>
+<div class="inside-header"> <span class="ui-headerlogo"></span>
+  <div class="ui-nav"> <a >我的翼支付</a> <a >交易管理</a> <a class="nav-sel">应用中心</a> <a >账单支付</a> <a>翼充卡</a> <a>手机客户端</a> </div>
+</div>
+<h1>提示</h1>
+<div class="style">
+  <div class="ui-Promptdiv ui-Error"><i></i><span><strong>出错</strong><br />
+    你的操作有问题，请<a>点此修复</a></span> </div>
+  <br />
+  <div class="ui-Promptdiv ui-Warning"><i></i><span><strong>出错</strong><br />
+    你的操作有问题，请<a>点此修复</a></span> </div>
+  <br />
+  <div class="ui-Promptdiv ui-Correct"><i></i><span><strong>出错</strong><br />
+    你的操作有问题，请<a>点此修复</a></span> </div>
+  <br />
+  <div class="ui-Promptdiv ui-Note"><i></i><span><strong>出错</strong><br />
+    你的操作有问题，请<a>点此修复</a></span> </div>
+  <div class="ui-Downnote"> <span class="ui-aggimg01"></span> <span class="ui-noteimg01"></span> <span class="ui-txtnote">即日起至2013 年6月30日，使用翼支付账户为账户对应手机号充值，享受97折优惠即日起至2013 年6月30日，使用翼支付账户为账户对应手机号充值，享受97折优惠即日起至2013 年6月30日，使用翼支付账户为账户对应手机号充值，享受97折优惠</span> </div>
+  <div class="ui-GreenNote"> <span class="ui-GreenNoteimg"></span>
+    <div class="ui-Greentxt">
+      <ul>
+        <li class="ui-title">小贴士:</li>
+        <li class="ui-main">如您充值手机已停机，请先致电运营商客服激活手机号码后再充值。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ui-result-icon ui-Successicon01"><i></i>修改成功</div>
+  <div class="ui-result-icon ui-Failure01"><i></i>修改失败</div>
+</div>
+</div>
+<h1>翻页</h1>
+<div class="ui-Nextpagestyle">
+  <ul>
+    <li class="selnone"><span>上一页</span></li>
+    <li class="selli"><span>1</span></li>
+    <li><span>2</span></li>
+    <li><span>3</span></li>
+    <li><span>4</span></li>
+    <li><span>5</span></li>
+    <li class="lastli"><span>下一页</span></li>
+  </ul>
+</div>
+<h1>浮层</h1>
+<a class="ui-button ui-button-morange" id="open01">弹出浮动层</a> 
+<script>
+$(function(){
+$('#open01').click(function(){
+$("#show01").show()
+});
+});
+</script>
+<div id="show01" style="display:none;">
+  <div class="ui-show-main">
+    <div class="ui-show-title"><span>新增缴费项目</span><a title="关闭" class="close" id="close01" >x</a> </div>
+    <script>
+		 $(function(){
+			$("#close01").click(function(){
+				$("#show01").hide();
+			});
+		});
+		</script>
+    <div class="ui-showdiv">
+      <iframe scrolling="no" frameborder="0" src="Withdraw.html" style="width:100%; height:380px;  top:0px; left:0px; background-color:transparent;"></iframe>
+    </div>
+    <div class="ui-showdiv-close"> <span> <a title="确定" class="ui-button ui-button-morange " href="#">确定</a> <a title="取消" class="ui-button ui-button-mwhite " href="#">取消</a> </span> </div>
+  </div>
+  <div class="tan_bei"> </div>
+</div>
+<h1>TAB</h1>
+<div style="width:700px; padding-left:50px; padding-bottom:35px;">
+
+<div class="ui-TransactionSwitch">
+  <ul>
+    <li class="ui-TranSw-sel">当前交易</li>
+    <li>历史交易</li>
+  </ul>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-inside-tab01">
+  <tr class="ui-instab-tm">
+    <td align="center" width="15%">订单交易时间</td>
+    <td align="center"  width="10%">商品名称</td>
+    <td align="center" width="10%">产品名称</td>
+    <td align="center" width="8%">交易金额</td>
+    <td align="center" width="8%">业务状态</td>
+    <td align="center" width="8%">订单状态</td>
+    <td align="center" width="8%">支持状态</td>
+</table>
+<br />
+<br />
+
+<div class="ui-TransactionSwitch02">
+  <ul>
+    <li class="ui-TranSw-sel">当前交易</li>
+    <li>历史交易</li>
+  </ul>
+</div>
+</div>
+</body>
+</html>

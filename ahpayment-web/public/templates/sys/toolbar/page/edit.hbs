@@ -1,0 +1,31 @@
+<div class="app-modal page-panel" id="js-add-page-panel">
+    <div class="modal-header">
+        <button type="button" class="close js-close-self" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4>页面编辑</h4>
+    </div>
+    <div class="modal-body">
+        <p class="bottom-line app-introduction">在此编辑页面名称、指定地址</p>
+
+        <form id="js-page-form">
+            <label>页面名称:</label>
+            <input id="page-form-id" name="id" type="hidden" value="{{data.id}}"/>
+            <input type="text" id="page-form-name" name="name" value="{{data.name}}"/>
+            <label>页面Title:</label>
+            <input type="text" id="page-form-title" name="title" value="{{data.title}}"/>
+            <label>地址:</label>
+            <input type="text" id="page-form-path" name="path" value="{{data.path}}"/>
+            <label>页面Description:</label>
+            <input type="text" id="page-form-description" name="description" value="{{data.descripton}}"/>
+            <label>关键词</label>
+            <input type="text" id="page-form-keyword" name="keyword" value="{{data.keyword}}"/>
+            <label class="checkbox">
+                <input type="checkbox" name="onNav"{{#if data.onNav}} checked{{/if}}>在导航中显示
+            </label>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-danger" id="js-delete-page">删除</button>
+        <button class="btn btn-primary" id="js-save-page">确定</button>
+    </div>
+</div>

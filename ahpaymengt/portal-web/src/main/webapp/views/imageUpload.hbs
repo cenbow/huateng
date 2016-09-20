@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<html>
+<head>
+    <title>上传图片</title>
+</head>
+<body>
+<div>
+    <h2>Image Upload</h2>
+
+    <form id="fileuploadForm" action="/user/1/images" method="POST" enctype="multipart/form-data">
+        <label for="file">File</label>
+        <input id="file" type="file" name="file"/>
+
+        <p>
+            <input type="submit">Upload</input>
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

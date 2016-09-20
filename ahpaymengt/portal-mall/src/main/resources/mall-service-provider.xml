@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		 http://code.alibabatech.com/schema/dubbo
+		 http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <import resource="classpath*:/spring/huateng-mall-context.xml"/>
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="huateng-mall-provider" logger="slf4j"/>
+
+    <!-- 使用zookeeper广播注册中心暴露服务地址 -->
+    <dubbo:registry address="#{app.dubboRegistry}"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <!--<dubbo:protocol name="dubbo" port="#{app.dubboPort}"/>-->
+    <dubbo:protocol name="dubbo" port="#{app.dubboPort}" serialization="java"/>
+    <!-- 声明需要暴露的服务接口-->
+    <dubbo:service version="#{app.dubboVersion}" interface="com.aixforce.category.service.CategoryService" ref="categoryServiceProxy"/>
+    <dubbo:service version="#{app.dubboVersion}" interface="com.aixforce.item.service.ItemService" ref="itemServiceProxy"/>
+    <dubbo:service version="#{app.dubboVersion}" interface="com.aixforce.item.service.SpuService" ref="spuService"/>
+    <dubbo:service version="#{app.dubboVersion}" interface="com.aixforce.item.service.SearchService" ref="searchServiceProxy"/>
+    <dubbo:service version="#{app.dubboVersion}" interface="com.aixforce.item.service.AttributeService" ref="attributeService"/>
+    <dubbo:service version="#{app.dubboVersion}" interface="cn.com.huateng.mall.service.OrderService" ref="orderService"/>
+
+
+    <dubbo:reference version="#{app.dubboVersion}" id="userService" interface="cn.com.huateng.account.service.UserService"/>
+    <dubbo:reference version="#{app.dubboVersion}" id="seqGeneratorService" interface="cn.com.huateng.account.service.SeqGeneratorService"/>
+</beans>

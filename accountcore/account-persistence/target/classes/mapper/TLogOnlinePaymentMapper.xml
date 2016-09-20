@@ -1,0 +1,2575 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogOnlinePaymentMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogOnlinePayment" >
+    <id column="TRANS_SERIAL_NO" property="transSerialNo" jdbcType="VARCHAR" />
+    <result column="SETTLEMENT_DATE" property="settlementDate" jdbcType="CHAR" />
+    <result column="TRANS_TIME" property="transTime" jdbcType="TIMESTAMP" />
+    <result column="TRANS_MONTH" property="transMonth" jdbcType="DECIMAL" />
+    <result column="EXT_BUSINESS_TYPE" property="extBusinessType" jdbcType="VARCHAR" />
+    <result column="INTERIOR_TRANS_TYPE" property="interiorTransType" jdbcType="VARCHAR" />
+    <result column="TRANS_MEMO" property="transMemo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_CHANNEL" property="acceptChannel" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_TYPE" property="acceptOrgType" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_SERIAL_NO" property="acceptOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_TRANS_DATE" property="acceptOrgTransDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_TRANS_TIME" property="acceptOrgTransTime" jdbcType="VARCHAR" />
+    <result column="TRANSFER_ORG_CODE" property="transferOrgCode" jdbcType="VARCHAR" />
+    <result column="TRANSFER_ORG_TYPE" property="transferOrgType" jdbcType="VARCHAR" />
+    <result column="TRANSFER_ORG_SERIAL_NO" property="transferOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="TRANSFER_ORG_TRANS_DATE" property="transferOrgTransDate" jdbcType="VARCHAR" />
+    <result column="TRANSFER_ORG_TRANS_TIME" property="transferOrgTransTime" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_CODE" property="payOrgCode" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_TYPE" property="payOrgType" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_SERIAL_NO" property="payOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_TRANS_DATE" property="payOrgTransDate" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_TRANS_TIME" property="payOrgTransTime" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_CODE" property="supplyOrgCode" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_TYPE" property="supplyOrgType" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_SERIAL_NO" property="supplyOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_TRANS_DATE" property="supplyOrgTransDate" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_TRANS_TIME" property="supplyOrgTransTime" jdbcType="VARCHAR" />
+    <result column="TRANS_AMOUNT" property="transAmount" jdbcType="DECIMAL" />
+    <result column="BEFORE_TRANS_AMOUNT" property="beforeTransAmount" jdbcType="DECIMAL" />
+    <result column="AFTER_TRANS_AMOUNT" property="afterTransAmount" jdbcType="DECIMAL" />
+    <result column="FEE_IN_FLAG" property="feeInFlag" jdbcType="CHAR" />
+    <result column="PROFIT_IN_FLAG" property="profitInFlag" jdbcType="CHAR" />
+    <result column="FEE_AMOUNT" property="feeAmount" jdbcType="DECIMAL" />
+    <result column="PROFIT_AMOUNT" property="profitAmount" jdbcType="DECIMAL" />
+    <result column="P_FEE_CODE" property="pFeeCode" jdbcType="DECIMAL" />
+    <result column="P_FEE_AMOUNT" property="pFeeAmount" jdbcType="DECIMAL" />
+    <result column="ACCEPT_FEE_CODE" property="acceptFeeCode" jdbcType="DECIMAL" />
+    <result column="ACCEPT_FEE_AMOUNT" property="acceptFeeAmount" jdbcType="DECIMAL" />
+    <result column="ACCEPT_FEE_FLAG" property="acceptFeeFlag" jdbcType="CHAR" />
+    <result column="TRANSFER_FEE_CODE" property="transferFeeCode" jdbcType="DECIMAL" />
+    <result column="TRANSFER_FEE_AMOUNT" property="transferFeeAmount" jdbcType="DECIMAL" />
+    <result column="TRANSFER_FEE_FLAG" property="transferFeeFlag" jdbcType="CHAR" />
+    <result column="PAY_FEE_CODE" property="payFeeCode" jdbcType="DECIMAL" />
+    <result column="PAY_FEE_AMOUNT" property="payFeeAmount" jdbcType="DECIMAL" />
+    <result column="PAY_FEE_FLAG" property="payFeeFlag" jdbcType="CHAR" />
+    <result column="SUPPLY_FEE_CODE" property="supplyFeeCode" jdbcType="DECIMAL" />
+    <result column="SUPPLY_FEE_AMOUNT" property="supplyFeeAmount" jdbcType="DECIMAL" />
+    <result column="SUPPLY_FEE_FLAG" property="supplyFeeFlag" jdbcType="CHAR" />
+    <result column="CARD_SERIAL_NO" property="cardSerialNo" jdbcType="VARCHAR" />
+    <result column="CARD_COUNT" property="cardCount" jdbcType="DECIMAL" />
+    <result column="TRANS_TAC" property="transTac" jdbcType="VARCHAR" />
+    <result column="TAC_CHECK_LABEL" property="tacCheckLabel" jdbcType="CHAR" />
+    <result column="CARD_DPT_AMOUNT" property="cardDptAmount" jdbcType="DECIMAL" />
+    <result column="CARD_EXP_DATE" property="cardExpDate" jdbcType="VARCHAR" />
+    <result column="BATCH_FILE_ID" property="batchFileId" jdbcType="VARCHAR" />
+    <result column="UPLOAD_FLAG" property="uploadFlag" jdbcType="CHAR" />
+    <result column="UPLOAD_PKG_NO" property="uploadPkgNo" jdbcType="VARCHAR" />
+    <result column="INNER_CARD_NO" property="innerCardNo" jdbcType="VARCHAR" />
+    <result column="OUTER_CARD_NO" property="outerCardNo" jdbcType="VARCHAR" />
+    <result column="CARD_MEDIA_TYPE" property="cardMediaType" jdbcType="CHAR" />
+    <result column="CARD_BRAND_TYPE" property="cardBrandType" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TYPE" property="accountType" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="TERMINAL_NO" property="terminalNo" jdbcType="VARCHAR" />
+    <result column="TERMINAL_SERIAL_NO" property="terminalSerialNo" jdbcType="VARCHAR" />
+    <result column="TERMINAL_COMM_SERIAL_NO" property="terminalCommSerialNo" jdbcType="VARCHAR" />
+    <result column="TERMINAL_OPER_NO" property="terminalOperNo" jdbcType="VARCHAR" />
+    <result column="BATCH_NO" property="batchNo" jdbcType="VARCHAR" />
+    <result column="TRANS_SERIAL_TYPE" property="transSerialType" jdbcType="CHAR" />
+    <result column="TRANS_ACCEPT_MATCH_FLAG" property="transAcceptMatchFlag" jdbcType="CHAR" />
+    <result column="TRANS_TRANSFER_MATCH_FLAG" property="transTransferMatchFlag" jdbcType="CHAR" />
+    <result column="TRANS_PAY_MATCH_FLAG" property="transPayMatchFlag" jdbcType="CHAR" />
+    <result column="TRANS_SUPPLY_MATCH_FLAG" property="transSupplyMatchFlag" jdbcType="CHAR" />
+    <result column="PAYMENT_OBJ_NO" property="paymentObjNo" jdbcType="VARCHAR" />
+    <result column="PAYMENT_OBJ_TYPE" property="paymentObjType" jdbcType="VARCHAR" />
+    <result column="L_ACCEPT_ORG_SERIAL_NO" property="lAcceptOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="L_ACCEPT_ORG_TRANS_DATE" property="lAcceptOrgTransDate" jdbcType="VARCHAR" />
+    <result column="L_ACCEPT_ORG_TRANS_TIME" property="lAcceptOrgTransTime" jdbcType="VARCHAR" />
+    <result column="L_TRANSFER_ORG_SERIAL_NO" property="lTransferOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="L_TRANSFER_ORG_TRANS_DATE" property="lTransferOrgTransDate" jdbcType="VARCHAR" />
+    <result column="L_TRANSFER_ORG_TRANS_TIME" property="lTransferOrgTransTime" jdbcType="VARCHAR" />
+    <result column="L_PAY_TRANS_SERIAL_NO" property="lPayTransSerialNo" jdbcType="VARCHAR" />
+    <result column="L_PAY_ORG_TRANS_DATE" property="lPayOrgTransDate" jdbcType="VARCHAR" />
+    <result column="L_PAY_ORG_TRANS_TIME" property="lPayOrgTransTime" jdbcType="VARCHAR" />
+    <result column="L_SUPPLY_ORG_SERIAL_NO" property="lSupplyOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="L_SUPPLY_ORG_TRANS_DATE" property="lSupplyOrgTransDate" jdbcType="VARCHAR" />
+    <result column="L_SUPPLY_ORG_TRANS_TIME" property="lSupplyOrgTransTime" jdbcType="VARCHAR" />
+    <result column="PSAM_CARD_NO" property="psamCardNo" jdbcType="VARCHAR" />
+    <result column="PRE_AUTH_SERIAL_NO" property="preAuthSerialNo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_PROC_FLAG" property="acceptProcFlag" jdbcType="CHAR" />
+    <result column="TRANSFER_PROC_FLAG" property="transferProcFlag" jdbcType="CHAR" />
+    <result column="PAY_PROC_FLAG" property="payProcFlag" jdbcType="CHAR" />
+    <result column="SUPPLY_PROC_FLAG" property="supplyProcFlag" jdbcType="CHAR" />
+    <result column="ACCEPT_RESP_CODE" property="acceptRespCode" jdbcType="VARCHAR" />
+    <result column="TRANSFER_RESP_CODE" property="transferRespCode" jdbcType="VARCHAR" />
+    <result column="PAY_RESP_CODE" property="payRespCode" jdbcType="VARCHAR" />
+    <result column="SUPPLY_CODE" property="supplyCode" jdbcType="VARCHAR" />
+    <result column="TRANS_FIN_TS" property="transFinTs" jdbcType="TIMESTAMP" />
+    <result column="TRANS_TO_TS" property="transToTs" jdbcType="TIMESTAMP" />
+    <result column="IS_CLEARING" property="isClearing" jdbcType="CHAR" />
+    <result column="CLEARING_ID" property="clearingId" jdbcType="CHAR" />
+    <result column="RESEND_NUM" property="resendNum" jdbcType="DECIMAL" />
+    <result column="SETTLEMENT_MONTH" property="settlementMonth" jdbcType="CHAR" />
+    <result column="SETTLEMENT_DAY" property="settlementDay" jdbcType="CHAR" />
+    <result column="REVSAL_FLAG" property="revsalFlag" jdbcType="CHAR" />
+    <result column="REVSAL_TXN_SERIAL_NO" property="revsalTxnSerialNo" jdbcType="VARCHAR" />
+    <result column="CANCEL_FLAG" property="cancelFlag" jdbcType="CHAR" />
+    <result column="CANCEL_TXN_SERIAL_NO" property="cancelTxnSerialNo" jdbcType="VARCHAR" />
+    <result column="L_TRANS_SERIAL_NO" property="lTransSerialNo" jdbcType="VARCHAR" />
+    <result column="RETURN_FLAG" property="returnFlag" jdbcType="CHAR" />
+    <result column="RETURN_COUNT" property="returnCount" jdbcType="DECIMAL" />
+    <result column="RETURN_AMOUNT" property="returnAmount" jdbcType="DECIMAL" />
+    <result column="DUBIOUS_FLAG" property="dubiousFlag" jdbcType="CHAR" />
+    <result column="BATCH_DATE" property="batchDate" jdbcType="CHAR" />
+    <result column="BATCH_FLAG" property="batchFlag" jdbcType="CHAR" />
+    <result column="ACCEPT_SETTLE_AMOUNT" property="acceptSettleAmount" jdbcType="DECIMAL" />
+    <result column="TRANSFER_SETTLE_AMOUNT" property="transferSettleAmount" jdbcType="DECIMAL" />
+    <result column="PAY_SETTLE_AMOUNT" property="paySettleAmount" jdbcType="DECIMAL" />
+    <result column="SUPPLY_SETTLE_AMOUNT" property="supplySettleAmount" jdbcType="DECIMAL" />
+    <result column="TRANSFER_IN_ORG_CODE" property="transferInOrgCode" jdbcType="VARCHAR" />
+    <result column="IN_ACCOUNT_NO" property="inAccountNo" jdbcType="VARCHAR" />
+    <result column="TRANSFER_OUT_ORG_CODE" property="transferOutOrgCode" jdbcType="VARCHAR" />
+    <result column="OUT_ACCOUNT_NO" property="outAccountNo" jdbcType="VARCHAR" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="RESV_FLD3" property="resvFld3" jdbcType="VARCHAR" />
+    <result column="RESV_FLD4" property="resvFld4" jdbcType="VARCHAR" />
+    <result column="RESV_FLD5" property="resvFld5" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="PRODUCT_NO" property="productNo" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_AREA_CODE" property="customerAreaCode" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_CITY_CODE" property="customerCityCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Pagination_Head" >
+    <if test="startIndex != null and endIndex != null" >
+      <![CDATA[ select * from ( select row_.*, rownumber() over() as rn from ( ]]>
+    </if>
+  </sql>
+  <sql id="Pagination_Foot" >
+    <if test="startIndex != null and endIndex != null" >
+      <![CDATA[ ) row_) where rn <= #{endIndex} and rn > #{startIndex} ]]>
+    </if>
+  </sql>
+  <sql id="Base_Column_List" >
+    TRANS_SERIAL_NO, SETTLEMENT_DATE, TRANS_TIME, TRANS_MONTH, EXT_BUSINESS_TYPE, INTERIOR_TRANS_TYPE, TRANS_MEMO, 
+    ACCEPT_CHANNEL, ACCEPT_ORG_CODE, ACCEPT_ORG_TYPE, ACCEPT_ORG_SERIAL_NO, ACCEPT_ORG_TRANS_DATE, 
+    ACCEPT_ORG_TRANS_TIME, TRANSFER_ORG_CODE, TRANSFER_ORG_TYPE, TRANSFER_ORG_SERIAL_NO, TRANSFER_ORG_TRANS_DATE, 
+    TRANSFER_ORG_TRANS_TIME, PAY_ORG_CODE, PAY_ORG_TYPE, PAY_ORG_SERIAL_NO, PAY_ORG_TRANS_DATE, 
+    PAY_ORG_TRANS_TIME, SUPPLY_ORG_CODE, SUPPLY_ORG_TYPE, SUPPLY_ORG_SERIAL_NO, SUPPLY_ORG_TRANS_DATE, 
+    SUPPLY_ORG_TRANS_TIME, TRANS_AMOUNT, BEFORE_TRANS_AMOUNT, AFTER_TRANS_AMOUNT, FEE_IN_FLAG, PROFIT_IN_FLAG, FEE_AMOUNT, 
+    PROFIT_AMOUNT, P_FEE_CODE, P_FEE_AMOUNT, ACCEPT_FEE_CODE, ACCEPT_FEE_AMOUNT, ACCEPT_FEE_FLAG, 
+    TRANSFER_FEE_CODE, TRANSFER_FEE_AMOUNT, TRANSFER_FEE_FLAG, PAY_FEE_CODE, PAY_FEE_AMOUNT, 
+    PAY_FEE_FLAG, SUPPLY_FEE_CODE, SUPPLY_FEE_AMOUNT, SUPPLY_FEE_FLAG, CARD_SERIAL_NO, CARD_COUNT, 
+    TRANS_TAC, TAC_CHECK_LABEL, CARD_DPT_AMOUNT, CARD_EXP_DATE, BATCH_FILE_ID, UPLOAD_FLAG, 
+    UPLOAD_PKG_NO, INNER_CARD_NO, OUTER_CARD_NO, CARD_MEDIA_TYPE, CARD_BRAND_TYPE, ACCOUNT_TYPE, 
+    ACCOUNT_NO, AREA_CODE, CITY_CODE, TERMINAL_NO, TERMINAL_SERIAL_NO, TERMINAL_COMM_SERIAL_NO, 
+    TERMINAL_OPER_NO, BATCH_NO, TRANS_SERIAL_TYPE, TRANS_ACCEPT_MATCH_FLAG, TRANS_TRANSFER_MATCH_FLAG, 
+    TRANS_PAY_MATCH_FLAG, TRANS_SUPPLY_MATCH_FLAG, PAYMENT_OBJ_NO, PAYMENT_OBJ_TYPE, L_ACCEPT_ORG_SERIAL_NO, 
+    L_ACCEPT_ORG_TRANS_DATE, L_ACCEPT_ORG_TRANS_TIME, L_TRANSFER_ORG_SERIAL_NO, L_TRANSFER_ORG_TRANS_DATE, 
+    L_TRANSFER_ORG_TRANS_TIME, L_PAY_TRANS_SERIAL_NO, L_PAY_ORG_TRANS_DATE, L_PAY_ORG_TRANS_TIME, L_SUPPLY_ORG_SERIAL_NO, 
+    L_SUPPLY_ORG_TRANS_DATE, L_SUPPLY_ORG_TRANS_TIME, PSAM_CARD_NO, PRE_AUTH_SERIAL_NO, ACCEPT_PROC_FLAG, 
+    TRANSFER_PROC_FLAG, PAY_PROC_FLAG, SUPPLY_PROC_FLAG, ACCEPT_RESP_CODE, TRANSFER_RESP_CODE, 
+    PAY_RESP_CODE, SUPPLY_CODE, TRANS_FIN_TS, TRANS_TO_TS, IS_CLEARING, CLEARING_ID, RESEND_NUM, 
+    SETTLEMENT_MONTH, SETTLEMENT_DAY, REVSAL_FLAG, REVSAL_TXN_SERIAL_NO, CANCEL_FLAG, CANCEL_TXN_SERIAL_NO, 
+    L_TRANS_SERIAL_NO, RETURN_FLAG, RETURN_COUNT, RETURN_AMOUNT, DUBIOUS_FLAG, BATCH_DATE, BATCH_FLAG, 
+    ACCEPT_SETTLE_AMOUNT, TRANSFER_SETTLE_AMOUNT, PAY_SETTLE_AMOUNT, SUPPLY_SETTLE_AMOUNT, TRANSFER_IN_ORG_CODE, 
+    IN_ACCOUNT_NO, TRANSFER_OUT_ORG_CODE, OUT_ACCOUNT_NO, RESV_FLD1, RESV_FLD2, RESV_FLD3, 
+    RESV_FLD4, RESV_FLD5, CUSTOMER_NO, PRODUCT_NO, CUSTOMER_AREA_CODE, CUSTOMER_CITY_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_LOG_ONLINE_PAYMENT
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </select>
+
+
+<select id="findTxnDayResult" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+	<include refid="Pagination_Head" />
+	select 
+	<include refid="Base_Column_List"/>
+       from CORE.T_LOG_ONLINE_PAYMENT
+	WHERE 1=1      
+       <if test="accountNo != null">
+           and ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+       </if>
+       
+        <if test="extBusinessType != null">
+           and EXT_BUSINESS_TYPE = #{extBusinessType,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="acceptChannel != null">
+           and ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="acceptOrgSerialNo != null">
+           and ACCEPT_ORG_SERIAL_NO= #{acceptOrgSerialNo,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="supplyOrgCode != null">
+           and SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="terminalNo != null">
+        	and  SUPPLY_ORG_CODE in (
+        	SELECT ORG_CODE FROM T_INFO_ORG_TERMINAL WHERE
+			TERMINAL_NO=#{terminalNo,jdbcType=VARCHAR} and check_flag='2' and archived_flag='1')	
+       </if>      
+       AND
+		TRANS_SERIAL_TYPE!='3' AND REVSAL_FLAG is null
+		ORDER BY
+		TRANS_TIME DESC
+		<include refid="Pagination_Foot" />
+	</select>
+	
+  <select id="findTxnDayCount" resultType="java.lang.Integer" parameterType="java.util.HashMap">	
+	select 
+	   count(0)
+       from CORE.T_LOG_ONLINE_PAYMENT
+	WHERE 1=1      
+       <if test="accountNo != null">
+           and ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="extBusinessType != null">
+           and EXT_BUSINESS_TYPE = #{extBusinessType,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="acceptChannel != null">
+           and ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="acceptOrgSerialNo != null">
+           and ACCEPT_ORG_SERIAL_NO= #{acceptOrgSerialNo,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="supplyOrgCode != null">
+           and SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR}
+       </if>
+       
+       <if test="terminalNo != null">
+        	and  SUPPLY_ORG_CODE in (
+        	SELECT ORG_CODE FROM T_INFO_ORG_TERMINAL WHERE
+			TERMINAL_NO=#{terminalNo,jdbcType=VARCHAR} and check_flag='2' and archived_flag='1')	
+       </if>      
+       AND
+		TRANS_SERIAL_TYPE!='3' and REVSAL_FLAG is null
+		
+	</select>
+	
+  <select id="findOldNormalOnlineLog" resultMap="BaseResultMap" parameterType="java.util.Map" >
+        select  <include refid="Base_Column_List" />
+        from      CORE.T_LOG_ONLINE_PAYMENT
+        where
+             ACCEPT_ORG_SERIAL_NO= #{acceptOrgSerialNo,jdbcType=VARCHAR}
+        and   ACCEPT_ORG_TRANS_DATE=  #{acceptOrgTransDate,jdbcType=VARCHAR}
+        and   ACCEPT_ORG_TRANS_TIME=  #{acceptOrgTransTime,jdbcType=VARCHAR}
+         <if test="accountNo != null" >
+             and ACCOUNT_NO= #{accountNo,jdbcType=VARCHAR}
+         </if>
+        and ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR}
+        and (TRANS_SERIAL_TYPE='1' or  TRANS_SERIAL_TYPE='2')  
+  </select>
+
+  <select id="findOrgCurrentDayTxnSum" resultType="java.lang.String" parameterType="java.util.Map">
+		select (case when
+		sum(trans_amount) is not null then sum(trans_amount) else 0 end)||','|| (case
+		when count(1) is not null then count(*) else 0 end)
+		from
+		CORE.T_LOG_ONLINE_PAYMENT
+		where
+		account_no=#{accountNo,jdbcType=VARCHAR}
+		and SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR}
+		and to_char(#{transTime,jdbcType=VARCHAR},'yyyyMMdd')=to_char(sysdate,'yyyyMMdd')
+		and INTERIOR_TRANS_TYPE=#{interiorTransType,jdbcType=VARCHAR}
+		and TRANS_SERIAL_TYPE='1'
+		and REVSAL_FLAG is null
+		and CANCEL_FLAG is null
+</select>
+
+<select id="findFeeOnlineLogByNormalLog" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from CORE.T_LOG_ONLINE_PAYMENT where
+		L_TRANS_SERIAL_NO=#{value,jdbcType=VARCHAR}
+		and TRANS_SERIAL_TYPE='6'
+</select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_LOG_ONLINE_PAYMENT
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </delete>
+ <!--  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogOnlinePayment" >
+    insert into CORE.T_LOG_ONLINE_PAYMENT (TRANS_SERIAL_NO, SETTLEMENT_DATE, TRANS_TIME, 
+      TRANS_MONTH, EXT_BUSINESS_TYPE, INTERIOR_TRANS_TYPE, 
+      TRANS_MEMO, ACCEPT_CHANNEL, ACCEPT_ORG_CODE, 
+      ACCEPT_ORG_TYPE, ACCEPT_ORG_SERIAL_NO, ACCEPT_ORG_TRANS_DATE, 
+      ACCEPT_ORG_TRANS_TIME, TRANSFER_ORG_CODE, TRANSFER_ORG_TYPE, 
+      TRANSFER_ORG_SERIAL_NO, TRANSFER_ORG_TRANS_DATE, 
+      TRANSFER_ORG_TRANS_TIME, PAY_ORG_CODE, PAY_ORG_TYPE, 
+      PAY_ORG_SERIAL_NO, PAY_ORG_TRANS_DATE, PAY_ORG_TRANS_TIME, 
+      SUPPLY_ORG_CODE, SUPPLY_ORG_TYPE, SUPPLY_ORG_SERIAL_NO, 
+      SUPPLY_ORG_TRANS_DATE, SUPPLY_ORG_TRANS_TIME, TRANS_AMOUNT, 
+      BEFORE_TRANS_AMOUNT, AFTER_TRANS_AMOUNT, FEE_IN_FLAG, 
+      PROFIT_IN_FLAG, FEE_AMOUNT, PROFIT_AMOUNT, 
+      P_FEE_CODE, P_FEE_AMOUNT, ACCEPT_FEE_CODE, 
+      ACCEPT_FEE_AMOUNT, ACCEPT_FEE_FLAG, TRANSFER_FEE_CODE, 
+      TRANSFER_FEE_AMOUNT, TRANSFER_FEE_FLAG, PAY_FEE_CODE, 
+      PAY_FEE_AMOUNT, PAY_FEE_FLAG, SUPPLY_FEE_CODE, 
+      SUPPLY_FEE_AMOUNT, SUPPLY_FEE_FLAG, CARD_SERIAL_NO, 
+      CARD_COUNT, TRANS_TAC, TAC_CHECK_LABEL, 
+      CARD_DPT_AMOUNT, CARD_EXP_DATE, BATCH_FILE_ID, 
+      UPLOAD_FLAG, UPLOAD_PKG_NO, INNER_CARD_NO, 
+      OUTER_CARD_NO, CARD_MEDIA_TYPE, CARD_BRAND_TYPE, 
+      ACCOUNT_TYPE, ACCOUNT_NO, AREA_CODE, 
+      CITY_CODE, TERMINAL_NO, TERMINAL_SERIAL_NO, 
+      TERMINAL_COMM_SERIAL_NO, TERMINAL_OPER_NO, BATCH_NO, 
+      TRANS_SERIAL_TYPE, TRANS_ACCEPT_MATCH_FLAG, TRANS_TRANSFER_MATCH_FLAG, 
+      TRANS_PAY_MATCH_FLAG, TRANS_SUPPLY_MATCH_FLAG, PAYMENT_OBJ_NO, 
+      PAYMENT_OBJ_TYPE, L_ACCEPT_ORG_SERIAL_NO, L_ACCEPT_ORG_TRANS_DATE, 
+      L_ACCEPT_ORG_TRANS_TIME, L_TRANSFER_ORG_SERIAL_NO, 
+      L_TRANSFER_ORG_TRANS_DATE, L_TRANSFER_ORG_TRANS_TIME, 
+      L_PAY_TRANS_SERIAL_NO, L_PAY_ORG_TRANS_DATE, L_PAY_ORG_TRANS_TIME, 
+      L_SUPPLY_ORG_SERIAL_NO, L_SUPPLY_ORG_TRANS_DATE, L_SUPPLY_ORG_TRANS_TIME, 
+      PSAM_CARD_NO, PRE_AUTH_SERIAL_NO, ACCEPT_PROC_FLAG, 
+      TRANSFER_PROC_FLAG, PAY_PROC_FLAG, SUPPLY_PROC_FLAG, 
+      ACCEPT_RESP_CODE, TRANSFER_RESP_CODE, PAY_RESP_CODE, 
+      SUPPLY_CODE, TRANS_FIN_TS, TRANS_TO_TS, 
+      IS_CLEARING, CLEARING_ID, RESEND_NUM, 
+      SETTLEMENT_MONTH, SETTLEMENT_DAY, REVSAL_FLAG, 
+      REVSAL_TXN_SERIAL_NO, CANCEL_FLAG, CANCEL_TXN_SERIAL_NO, 
+      L_TRANS_SERIAL_NO, RETURN_FLAG, RETURN_COUNT, 
+      RETURN_AMOUNT, DUBIOUS_FLAG, BATCH_DATE, 
+      BATCH_FLAG, ACCEPT_SETTLE_AMOUNT, TRANSFER_SETTLE_AMOUNT, 
+      PAY_SETTLE_AMOUNT, SUPPLY_SETTLE_AMOUNT, TRANSFER_IN_ORG_CODE, 
+      IN_ACCOUNT_NO, TRANSFER_OUT_ORG_CODE, OUT_ACCOUNT_NO, 
+      RESV_FLD1, RESV_FLD2, RESV_FLD3, 
+      RESV_FLD4, RESV_FLD5, CUSTOMER_NO, 
+      PRODUCT_NO, CUSTOMER_AREA_CODE, CUSTOMER_CITY_CODE
+      )
+    values (#{transSerialNo,jdbcType=VARCHAR}, #{settlementDate,jdbcType=CHAR}, #{transTime,jdbcType=TIMESTAMP}, 
+      #{transMonth,jdbcType=DECIMAL}, #{extBusinessType,jdbcType=VARCHAR}, #{interiorTransType,jdbcType=VARCHAR}, 
+      #{transMemo,jdbcType=VARCHAR}, #{acceptChannel,jdbcType=VARCHAR}, #{acceptOrgCode,jdbcType=VARCHAR}, 
+      #{acceptOrgType,jdbcType=VARCHAR}, #{acceptOrgSerialNo,jdbcType=VARCHAR}, #{acceptOrgTransDate,jdbcType=VARCHAR}, 
+      #{acceptOrgTransTime,jdbcType=VARCHAR}, #{transferOrgCode,jdbcType=VARCHAR}, #{transferOrgType,jdbcType=VARCHAR}, 
+      #{transferOrgSerialNo,jdbcType=VARCHAR}, #{transferOrgTransDate,jdbcType=VARCHAR}, 
+      #{transferOrgTransTime,jdbcType=VARCHAR}, #{payOrgCode,jdbcType=VARCHAR}, #{payOrgType,jdbcType=VARCHAR}, 
+      #{payOrgSerialNo,jdbcType=VARCHAR}, #{payOrgTransDate,jdbcType=VARCHAR}, #{payOrgTransTime,jdbcType=VARCHAR}, 
+      #{supplyOrgCode,jdbcType=VARCHAR}, #{supplyOrgType,jdbcType=VARCHAR}, #{supplyOrgSerialNo,jdbcType=VARCHAR}, 
+      #{supplyOrgTransDate,jdbcType=VARCHAR}, #{supplyOrgTransTime,jdbcType=VARCHAR}, #{transAmount,jdbcType=DECIMAL}, 
+      #{beforeTransAmount,jdbcType=DECIMAL}, #{afterTransAmount,jdbcType=DECIMAL}, #{feeInFlag,jdbcType=CHAR}, 
+      #{profitInFlag,jdbcType=CHAR}, #{feeAmount,jdbcType=DECIMAL}, #{profitAmount,jdbcType=DECIMAL}, 
+      #{pFeeCode,jdbcType=DECIMAL}, #{pFeeAmount,jdbcType=DECIMAL}, #{acceptFeeCode,jdbcType=DECIMAL}, 
+      #{acceptFeeAmount,jdbcType=DECIMAL}, #{acceptFeeFlag,jdbcType=CHAR}, #{transferFeeCode,jdbcType=DECIMAL}, 
+      #{transferFeeAmount,jdbcType=DECIMAL}, #{transferFeeFlag,jdbcType=CHAR}, #{payFeeCode,jdbcType=DECIMAL}, 
+      #{payFeeAmount,jdbcType=DECIMAL}, #{payFeeFlag,jdbcType=CHAR}, #{supplyFeeCode,jdbcType=DECIMAL}, 
+      #{supplyFeeAmount,jdbcType=DECIMAL}, #{supplyFeeFlag,jdbcType=CHAR}, #{cardSerialNo,jdbcType=VARCHAR}, 
+      #{cardCount,jdbcType=DECIMAL}, #{transTac,jdbcType=VARCHAR}, #{tacCheckLabel,jdbcType=CHAR}, 
+      #{cardDptAmount,jdbcType=DECIMAL}, #{cardExpDate,jdbcType=VARCHAR}, #{batchFileId,jdbcType=VARCHAR}, 
+      #{uploadFlag,jdbcType=CHAR}, #{uploadPkgNo,jdbcType=VARCHAR}, #{innerCardNo,jdbcType=VARCHAR}, 
+      #{outerCardNo,jdbcType=VARCHAR}, #{cardMediaType,jdbcType=CHAR}, #{cardBrandType,jdbcType=VARCHAR}, 
+      #{accountType,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{terminalNo,jdbcType=VARCHAR}, #{terminalSerialNo,jdbcType=VARCHAR}, 
+      #{terminalCommSerialNo,jdbcType=VARCHAR}, #{terminalOperNo,jdbcType=VARCHAR}, #{batchNo,jdbcType=VARCHAR}, 
+      #{transSerialType,jdbcType=CHAR}, #{transAcceptMatchFlag,jdbcType=CHAR}, #{transTransferMatchFlag,jdbcType=CHAR}, 
+      #{transPayMatchFlag,jdbcType=CHAR}, #{transSupplyMatchFlag,jdbcType=CHAR}, #{paymentObjNo,jdbcType=VARCHAR}, 
+      #{paymentObjType,jdbcType=VARCHAR}, #{lAcceptOrgSerialNo,jdbcType=VARCHAR}, #{lAcceptOrgTransDate,jdbcType=VARCHAR}, 
+      #{lAcceptOrgTransTime,jdbcType=VARCHAR}, #{lTransferOrgSerialNo,jdbcType=VARCHAR}, 
+      #{lTransferOrgTransDate,jdbcType=VARCHAR}, #{lTransferOrgTransTime,jdbcType=VARCHAR}, 
+      #{lPayTransSerialNo,jdbcType=VARCHAR}, #{lPayOrgTransDate,jdbcType=VARCHAR}, #{lPayOrgTransTime,jdbcType=VARCHAR}, 
+      #{lSupplyOrgSerialNo,jdbcType=VARCHAR}, #{lSupplyOrgTransDate,jdbcType=VARCHAR}, #{lSupplyOrgTransTime,jdbcType=VARCHAR}, 
+      #{psamCardNo,jdbcType=VARCHAR}, #{preAuthSerialNo,jdbcType=VARCHAR}, #{acceptProcFlag,jdbcType=CHAR}, 
+      #{transferProcFlag,jdbcType=CHAR}, #{payProcFlag,jdbcType=CHAR}, #{supplyProcFlag,jdbcType=CHAR}, 
+      #{acceptRespCode,jdbcType=VARCHAR}, #{transferRespCode,jdbcType=VARCHAR}, #{payRespCode,jdbcType=VARCHAR}, 
+      #{supplyCode,jdbcType=VARCHAR}, #{transFinTs,jdbcType=TIMESTAMP}, #{transToTs,jdbcType=TIMESTAMP}, 
+      #{isClearing,jdbcType=CHAR}, #{clearingId,jdbcType=CHAR}, #{resendNum,jdbcType=DECIMAL}, 
+      #{settlementMonth,jdbcType=CHAR}, #{settlementDay,jdbcType=CHAR}, #{revsalFlag,jdbcType=CHAR}, 
+      #{revsalTxnSerialNo,jdbcType=VARCHAR}, #{cancelFlag,jdbcType=CHAR}, #{cancelTxnSerialNo,jdbcType=VARCHAR}, 
+      #{lTransSerialNo,jdbcType=VARCHAR}, #{returnFlag,jdbcType=CHAR}, #{returnCount,jdbcType=DECIMAL}, 
+      #{returnAmount,jdbcType=DECIMAL}, #{dubiousFlag,jdbcType=CHAR}, #{batchDate,jdbcType=CHAR}, 
+      #{batchFlag,jdbcType=CHAR}, #{acceptSettleAmount,jdbcType=DECIMAL}, #{transferSettleAmount,jdbcType=DECIMAL}, 
+      #{paySettleAmount,jdbcType=DECIMAL}, #{supplySettleAmount,jdbcType=DECIMAL}, #{transferInOrgCode,jdbcType=VARCHAR}, 
+      #{inAccountNo,jdbcType=VARCHAR}, #{transferOutOrgCode,jdbcType=VARCHAR}, #{outAccountNo,jdbcType=VARCHAR}, 
+      #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, #{resvFld3,jdbcType=VARCHAR}, 
+      #{resvFld4,jdbcType=VARCHAR}, #{resvFld5,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, 
+      #{productNo,jdbcType=VARCHAR}, #{customerAreaCode,jdbcType=VARCHAR}, #{customerCityCode,jdbcType=VARCHAR}
+      )
+  </insert> --> 
+   <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogOnlinePayment" >
+    insert into CORE.T_LOG_ONLINE_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="transSerialNo != null" >
+        TRANS_SERIAL_NO,
+      </if>
+      <if test="settlementDate != null" >
+        SETTLEMENT_DATE,
+      </if>
+      <if test="transTime != null" >
+        TRANS_TIME,
+      </if>
+      <if test="transMonth != null" >
+        TRANS_MONTH,
+      </if>
+      <if test="extBusinessType != null" >
+        EXT_BUSINESS_TYPE,
+      </if>
+      <if test="interiorTransType != null" >
+        INTERIOR_TRANS_TYPE,
+      </if>
+      <if test="transMemo != null" >
+        TRANS_MEMO,
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL,
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE,
+      </if>
+      <if test="acceptOrgType != null" >
+        ACCEPT_ORG_TYPE,
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        ACCEPT_ORG_SERIAL_NO,
+      </if>
+      <if test="acceptOrgTransDate != null" >
+        ACCEPT_ORG_TRANS_DATE,
+      </if>
+      <if test="acceptOrgTransTime != null" >
+        ACCEPT_ORG_TRANS_TIME,
+      </if>
+      <if test="transferOrgCode != null" >
+        TRANSFER_ORG_CODE,
+      </if>
+      <if test="transferOrgType != null" >
+        TRANSFER_ORG_TYPE,
+      </if>
+      <if test="transferOrgSerialNo != null" >
+        TRANSFER_ORG_SERIAL_NO,
+      </if>
+      <if test="transferOrgTransDate != null" >
+        TRANSFER_ORG_TRANS_DATE,
+      </if>
+      <if test="transferOrgTransTime != null" >
+        TRANSFER_ORG_TRANS_TIME,
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE,
+      </if>
+      <if test="payOrgType != null" >
+        PAY_ORG_TYPE,
+      </if>
+      <if test="payOrgSerialNo != null" >
+        PAY_ORG_SERIAL_NO,
+      </if>
+      <if test="payOrgTransDate != null" >
+        PAY_ORG_TRANS_DATE,
+      </if>
+      <if test="payOrgTransTime != null" >
+        PAY_ORG_TRANS_TIME,
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE,
+      </if>
+      <if test="supplyOrgType != null" >
+        SUPPLY_ORG_TYPE,
+      </if>
+      <if test="supplyOrgSerialNo != null" >
+        SUPPLY_ORG_SERIAL_NO,
+      </if>
+      <if test="supplyOrgTransDate != null" >
+        SUPPLY_ORG_TRANS_DATE,
+      </if>
+      <if test="supplyOrgTransTime != null" >
+        SUPPLY_ORG_TRANS_TIME,
+      </if>
+      <if test="transAmount != null" >
+        TRANS_AMOUNT,
+      </if>
+      <if test="beforeTransAmount != null" >
+        BEFORE_TRANS_AMOUNT,
+      </if>
+      <if test="afterTransAmount != null" >
+        AFTER_TRANS_AMOUNT,
+      </if>
+      <if test="feeInFlag != null" >
+        FEE_IN_FLAG,
+      </if>
+      <if test="profitInFlag != null" >
+        PROFIT_IN_FLAG,
+      </if>
+      <if test="feeAmount != null" >
+        FEE_AMOUNT,
+      </if>
+      <if test="profitAmount != null" >
+        PROFIT_AMOUNT,
+      </if>
+      <if test="pFeeCode != null" >
+        P_FEE_CODE,
+      </if>
+      <if test="pFeeAmount != null" >
+        P_FEE_AMOUNT,
+      </if>
+      <if test="acceptFeeCode != null" >
+        ACCEPT_FEE_CODE,
+      </if>
+      <if test="acceptFeeAmount != null" >
+        ACCEPT_FEE_AMOUNT,
+      </if>
+      <if test="acceptFeeFlag != null" >
+        ACCEPT_FEE_FLAG,
+      </if>
+      <if test="transferFeeCode != null" >
+        TRANSFER_FEE_CODE,
+      </if>
+      <if test="transferFeeAmount != null" >
+        TRANSFER_FEE_AMOUNT,
+      </if>
+      <if test="transferFeeFlag != null" >
+        TRANSFER_FEE_FLAG,
+      </if>
+      <if test="payFeeCode != null" >
+        PAY_FEE_CODE,
+      </if>
+      <if test="payFeeAmount != null" >
+        PAY_FEE_AMOUNT,
+      </if>
+      <if test="payFeeFlag != null" >
+        PAY_FEE_FLAG,
+      </if>
+      <if test="supplyFeeCode != null" >
+        SUPPLY_FEE_CODE,
+      </if>
+      <if test="supplyFeeAmount != null" >
+        SUPPLY_FEE_AMOUNT,
+      </if>
+      <if test="supplyFeeFlag != null" >
+        SUPPLY_FEE_FLAG,
+      </if>
+      <if test="cardSerialNo != null" >
+        CARD_SERIAL_NO,
+      </if>
+      <if test="cardCount != null" >
+        CARD_COUNT,
+      </if>
+      <if test="transTac != null" >
+        TRANS_TAC,
+      </if>
+      <if test="tacCheckLabel != null" >
+        TAC_CHECK_LABEL,
+      </if>
+      <if test="cardDptAmount != null" >
+        CARD_DPT_AMOUNT,
+      </if>
+      <if test="cardExpDate != null" >
+        CARD_EXP_DATE,
+      </if>
+      <if test="batchFileId != null" >
+        BATCH_FILE_ID,
+      </if>
+      <if test="uploadFlag != null" >
+        UPLOAD_FLAG,
+      </if>
+      <if test="uploadPkgNo != null" >
+        UPLOAD_PKG_NO,
+      </if>
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO,
+      </if>
+      <if test="outerCardNo != null" >
+        OUTER_CARD_NO,
+      </if>
+      <if test="cardMediaType != null" >
+        CARD_MEDIA_TYPE,
+      </if>
+      <if test="cardBrandType != null" >
+        CARD_BRAND_TYPE,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO,
+      </if>
+      <if test="terminalSerialNo != null" >
+        TERMINAL_SERIAL_NO,
+      </if>
+      <if test="terminalCommSerialNo != null" >
+        TERMINAL_COMM_SERIAL_NO,
+      </if>
+      <if test="terminalOperNo != null" >
+        TERMINAL_OPER_NO,
+      </if>
+      <if test="batchNo != null" >
+        BATCH_NO,
+      </if>
+      <if test="transSerialType != null" >
+        TRANS_SERIAL_TYPE,
+      </if>
+      <if test="transAcceptMatchFlag != null" >
+        TRANS_ACCEPT_MATCH_FLAG,
+      </if>
+      <if test="transTransferMatchFlag != null" >
+        TRANS_TRANSFER_MATCH_FLAG,
+      </if>
+      <if test="transPayMatchFlag != null" >
+        TRANS_PAY_MATCH_FLAG,
+      </if>
+      <if test="transSupplyMatchFlag != null" >
+        TRANS_SUPPLY_MATCH_FLAG,
+      </if>
+      <if test="paymentObjNo != null" >
+        PAYMENT_OBJ_NO,
+      </if>
+      <if test="paymentObjType != null" >
+        PAYMENT_OBJ_TYPE,
+      </if>
+      <if test="lAcceptOrgSerialNo != null" >
+        L_ACCEPT_ORG_SERIAL_NO,
+      </if>
+      <if test="lAcceptOrgTransDate != null" >
+        L_ACCEPT_ORG_TRANS_DATE,
+      </if>
+      <if test="lAcceptOrgTransTime != null" >
+        L_ACCEPT_ORG_TRANS_TIME,
+      </if>
+      <if test="lTransferOrgSerialNo != null" >
+        L_TRANSFER_ORG_SERIAL_NO,
+      </if>
+      <if test="lTransferOrgTransDate != null" >
+        L_TRANSFER_ORG_TRANS_DATE,
+      </if>
+      <if test="lTransferOrgTransTime != null" >
+        L_TRANSFER_ORG_TRANS_TIME,
+      </if>
+      <if test="lPayTransSerialNo != null" >
+        L_PAY_TRANS_SERIAL_NO,
+      </if>
+      <if test="lPayOrgTransDate != null" >
+        L_PAY_ORG_TRANS_DATE,
+      </if>
+      <if test="lPayOrgTransTime != null" >
+        L_PAY_ORG_TRANS_TIME,
+      </if>
+      <if test="lSupplyOrgSerialNo != null" >
+        L_SUPPLY_ORG_SERIAL_NO,
+      </if>
+      <if test="lSupplyOrgTransDate != null" >
+        L_SUPPLY_ORG_TRANS_DATE,
+      </if>
+      <if test="lSupplyOrgTransTime != null" >
+        L_SUPPLY_ORG_TRANS_TIME,
+      </if>
+      <if test="psamCardNo != null" >
+        PSAM_CARD_NO,
+      </if>
+      <if test="preAuthSerialNo != null" >
+        PRE_AUTH_SERIAL_NO,
+      </if>
+      <if test="acceptProcFlag != null" >
+        ACCEPT_PROC_FLAG,
+      </if>
+      <if test="transferProcFlag != null" >
+        TRANSFER_PROC_FLAG,
+      </if>
+      <if test="payProcFlag != null" >
+        PAY_PROC_FLAG,
+      </if>
+      <if test="supplyProcFlag != null" >
+        SUPPLY_PROC_FLAG,
+      </if>
+      <if test="acceptRespCode != null" >
+        ACCEPT_RESP_CODE,
+      </if>
+      <if test="transferRespCode != null" >
+        TRANSFER_RESP_CODE,
+      </if>
+      <if test="payRespCode != null" >
+        PAY_RESP_CODE,
+      </if>
+      <if test="supplyCode != null" >
+        SUPPLY_CODE,
+      </if>
+      <if test="transFinTs != null" >
+        TRANS_FIN_TS,
+      </if>
+      <if test="transToTs != null" >
+        TRANS_TO_TS,
+      </if>
+      <if test="isClearing != null" >
+        IS_CLEARING,
+      </if>
+      <if test="clearingId != null" >
+        CLEARING_ID,
+      </if>
+      <if test="resendNum != null" >
+        RESEND_NUM,
+      </if>
+      <if test="settlementMonth != null" >
+        SETTLEMENT_MONTH,
+      </if>
+      <if test="settlementDay != null" >
+        SETTLEMENT_DAY,
+      </if>
+      <if test="revsalFlag != null" >
+        REVSAL_FLAG,
+      </if>
+      <if test="revsalTxnSerialNo != null" >
+        REVSAL_TXN_SERIAL_NO,
+      </if>
+      <if test="cancelFlag != null" >
+        CANCEL_FLAG,
+      </if>
+      <if test="cancelTxnSerialNo != null" >
+        CANCEL_TXN_SERIAL_NO,
+      </if>
+      <if test="lTransSerialNo != null" >
+        L_TRANS_SERIAL_NO,
+      </if>
+      <if test="returnFlag != null" >
+        RETURN_FLAG,
+      </if>
+      <if test="returnCount != null" >
+        RETURN_COUNT,
+      </if>
+      <if test="returnAmount != null" >
+        RETURN_AMOUNT,
+      </if>
+      <if test="dubiousFlag != null" >
+        DUBIOUS_FLAG,
+      </if>
+      <if test="batchDate != null" >
+        BATCH_DATE,
+      </if>
+      <if test="batchFlag != null" >
+        BATCH_FLAG,
+      </if>
+      <if test="acceptSettleAmount != null" >
+        ACCEPT_SETTLE_AMOUNT,
+      </if>
+      <if test="transferSettleAmount != null" >
+        TRANSFER_SETTLE_AMOUNT,
+      </if>
+      <if test="paySettleAmount != null" >
+        PAY_SETTLE_AMOUNT,
+      </if>
+      <if test="supplySettleAmount != null" >
+        SUPPLY_SETTLE_AMOUNT,
+      </if>
+      <if test="transferInOrgCode != null" >
+        TRANSFER_IN_ORG_CODE,
+      </if>
+      <if test="inAccountNo != null" >
+        IN_ACCOUNT_NO,
+      </if>
+      <if test="transferOutOrgCode != null" >
+        TRANSFER_OUT_ORG_CODE,
+      </if>
+      <if test="outAccountNo != null" >
+        OUT_ACCOUNT_NO,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3,
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4,
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO,
+      </if>
+      <if test="customerAreaCode != null" >
+        CUSTOMER_AREA_CODE,
+      </if>
+      <if test="customerCityCode != null" >
+        CUSTOMER_CITY_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="transSerialNo != null" >
+        #{transSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementDate != null" >
+        #{settlementDate,jdbcType=CHAR},
+      </if>
+      <if test="transTime != null" >
+        #{transTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transMonth != null" >
+        #{transMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="extBusinessType != null" >
+        #{extBusinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="interiorTransType != null" >
+        #{interiorTransType,jdbcType=VARCHAR},
+      </if>
+      <if test="transMemo != null" >
+        #{transMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgType != null" >
+        #{acceptOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        #{acceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgTransDate != null" >
+        #{acceptOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgTransTime != null" >
+        #{acceptOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgCode != null" >
+        #{transferOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgType != null" >
+        #{transferOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgSerialNo != null" >
+        #{transferOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgTransDate != null" >
+        #{transferOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgTransTime != null" >
+        #{transferOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgType != null" >
+        #{payOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgSerialNo != null" >
+        #{payOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgTransDate != null" >
+        #{payOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgTransTime != null" >
+        #{payOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgType != null" >
+        #{supplyOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgSerialNo != null" >
+        #{supplyOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgTransDate != null" >
+        #{supplyOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgTransTime != null" >
+        #{supplyOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transAmount != null" >
+        #{transAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="beforeTransAmount != null" >
+        #{beforeTransAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="afterTransAmount != null" >
+        #{afterTransAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="feeInFlag != null" >
+        #{feeInFlag,jdbcType=CHAR},
+      </if>
+      <if test="profitInFlag != null" >
+        #{profitInFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeAmount != null" >
+        #{feeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="profitAmount != null" >
+        #{profitAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pFeeCode != null" >
+        #{pFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="pFeeAmount != null" >
+        #{pFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeCode != null" >
+        #{acceptFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeAmount != null" >
+        #{acceptFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeFlag != null" >
+        #{acceptFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="transferFeeCode != null" >
+        #{transferFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFeeAmount != null" >
+        #{transferFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFeeFlag != null" >
+        #{transferFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="payFeeCode != null" >
+        #{payFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeAmount != null" >
+        #{payFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeFlag != null" >
+        #{payFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="supplyFeeCode != null" >
+        #{supplyFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyFeeAmount != null" >
+        #{supplyFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyFeeFlag != null" >
+        #{supplyFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="cardSerialNo != null" >
+        #{cardSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardCount != null" >
+        #{cardCount,jdbcType=DECIMAL},
+      </if>
+      <if test="transTac != null" >
+        #{transTac,jdbcType=VARCHAR},
+      </if>
+      <if test="tacCheckLabel != null" >
+        #{tacCheckLabel,jdbcType=CHAR},
+      </if>
+      <if test="cardDptAmount != null" >
+        #{cardDptAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="cardExpDate != null" >
+        #{cardExpDate,jdbcType=VARCHAR},
+      </if>
+      <if test="batchFileId != null" >
+        #{batchFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadFlag != null" >
+        #{uploadFlag,jdbcType=CHAR},
+      </if>
+      <if test="uploadPkgNo != null" >
+        #{uploadPkgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="innerCardNo != null" >
+        #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outerCardNo != null" >
+        #{outerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMediaType != null" >
+        #{cardMediaType,jdbcType=CHAR},
+      </if>
+      <if test="cardBrandType != null" >
+        #{cardBrandType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSerialNo != null" >
+        #{terminalSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalCommSerialNo != null" >
+        #{terminalCommSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalOperNo != null" >
+        #{terminalOperNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transSerialType != null" >
+        #{transSerialType,jdbcType=CHAR},
+      </if>
+      <if test="transAcceptMatchFlag != null" >
+        #{transAcceptMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transTransferMatchFlag != null" >
+        #{transTransferMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transPayMatchFlag != null" >
+        #{transPayMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transSupplyMatchFlag != null" >
+        #{transSupplyMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="paymentObjNo != null" >
+        #{paymentObjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentObjType != null" >
+        #{paymentObjType,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgSerialNo != null" >
+        #{lAcceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgTransDate != null" >
+        #{lAcceptOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgTransTime != null" >
+        #{lAcceptOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgSerialNo != null" >
+        #{lTransferOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgTransDate != null" >
+        #{lTransferOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgTransTime != null" >
+        #{lTransferOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayTransSerialNo != null" >
+        #{lPayTransSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayOrgTransDate != null" >
+        #{lPayOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayOrgTransTime != null" >
+        #{lPayOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgSerialNo != null" >
+        #{lSupplyOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgTransDate != null" >
+        #{lSupplyOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgTransTime != null" >
+        #{lSupplyOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="psamCardNo != null" >
+        #{psamCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preAuthSerialNo != null" >
+        #{preAuthSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptProcFlag != null" >
+        #{acceptProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="transferProcFlag != null" >
+        #{transferProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="payProcFlag != null" >
+        #{payProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="supplyProcFlag != null" >
+        #{supplyProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="acceptRespCode != null" >
+        #{acceptRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferRespCode != null" >
+        #{transferRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payRespCode != null" >
+        #{payRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyCode != null" >
+        #{supplyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transFinTs != null" >
+        #{transFinTs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transToTs != null" >
+        #{transToTs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isClearing != null" >
+        #{isClearing,jdbcType=CHAR},
+      </if>
+      <if test="clearingId != null" >
+        #{clearingId,jdbcType=CHAR},
+      </if>
+      <if test="resendNum != null" >
+        #{resendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMonth != null" >
+        #{settlementMonth,jdbcType=CHAR},
+      </if>
+      <if test="settlementDay != null" >
+        #{settlementDay,jdbcType=CHAR},
+      </if>
+      <if test="revsalFlag != null" >
+        #{revsalFlag,jdbcType=CHAR},
+      </if>
+      <if test="revsalTxnSerialNo != null" >
+        #{revsalTxnSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelFlag != null" >
+        #{cancelFlag,jdbcType=CHAR},
+      </if>
+      <if test="cancelTxnSerialNo != null" >
+        #{cancelTxnSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransSerialNo != null" >
+        #{lTransSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="returnFlag != null" >
+        #{returnFlag,jdbcType=CHAR},
+      </if>
+      <if test="returnCount != null" >
+        #{returnCount,jdbcType=DECIMAL},
+      </if>
+      <if test="returnAmount != null" >
+        #{returnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="dubiousFlag != null" >
+        #{dubiousFlag,jdbcType=CHAR},
+      </if>
+      <if test="batchDate != null" >
+        #{batchDate,jdbcType=CHAR},
+      </if>
+      <if test="batchFlag != null" >
+        #{batchFlag,jdbcType=CHAR},
+      </if>
+      <if test="acceptSettleAmount != null" >
+        #{acceptSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferSettleAmount != null" >
+        #{transferSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="paySettleAmount != null" >
+        #{paySettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="supplySettleAmount != null" >
+        #{supplySettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferInOrgCode != null" >
+        #{transferInOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="inAccountNo != null" >
+        #{inAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOutOrgCode != null" >
+        #{transferOutOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outAccountNo != null" >
+        #{outAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        #{resvFld5,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAreaCode != null" >
+        #{customerAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCityCode != null" >
+        #{customerCityCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogOnlinePayment" >
+    insert into CORE.T_LOG_ONLINE_PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="transSerialNo != null" >
+        TRANS_SERIAL_NO,
+      </if>
+      <if test="settlementDate != null" >
+        SETTLEMENT_DATE,
+      </if>
+      <if test="transTime != null" >
+        TRANS_TIME,
+      </if>
+      <if test="transMonth != null" >
+        TRANS_MONTH,
+      </if>
+      <if test="extBusinessType != null" >
+        EXT_BUSINESS_TYPE,
+      </if>
+      <if test="interiorTransType != null" >
+        INTERIOR_TRANS_TYPE,
+      </if>
+      <if test="transMemo != null" >
+        TRANS_MEMO,
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL,
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE,
+      </if>
+      <if test="acceptOrgType != null" >
+        ACCEPT_ORG_TYPE,
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        ACCEPT_ORG_SERIAL_NO,
+      </if>
+      <if test="acceptOrgTransDate != null" >
+        ACCEPT_ORG_TRANS_DATE,
+      </if>
+      <if test="acceptOrgTransTime != null" >
+        ACCEPT_ORG_TRANS_TIME,
+      </if>
+      <if test="transferOrgCode != null" >
+        TRANSFER_ORG_CODE,
+      </if>
+      <if test="transferOrgType != null" >
+        TRANSFER_ORG_TYPE,
+      </if>
+      <if test="transferOrgSerialNo != null" >
+        TRANSFER_ORG_SERIAL_NO,
+      </if>
+      <if test="transferOrgTransDate != null" >
+        TRANSFER_ORG_TRANS_DATE,
+      </if>
+      <if test="transferOrgTransTime != null" >
+        TRANSFER_ORG_TRANS_TIME,
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE,
+      </if>
+      <if test="payOrgType != null" >
+        PAY_ORG_TYPE,
+      </if>
+      <if test="payOrgSerialNo != null" >
+        PAY_ORG_SERIAL_NO,
+      </if>
+      <if test="payOrgTransDate != null" >
+        PAY_ORG_TRANS_DATE,
+      </if>
+      <if test="payOrgTransTime != null" >
+        PAY_ORG_TRANS_TIME,
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE,
+      </if>
+      <if test="supplyOrgType != null" >
+        SUPPLY_ORG_TYPE,
+      </if>
+      <if test="supplyOrgSerialNo != null" >
+        SUPPLY_ORG_SERIAL_NO,
+      </if>
+      <if test="supplyOrgTransDate != null" >
+        SUPPLY_ORG_TRANS_DATE,
+      </if>
+      <if test="supplyOrgTransTime != null" >
+        SUPPLY_ORG_TRANS_TIME,
+      </if>
+      <if test="transAmount != null" >
+        TRANS_AMOUNT,
+      </if>
+      <if test="beforeTransAmount != null" >
+        BEFORE_TRANS_AMOUNT,
+      </if>
+      <if test="afterTransAmount != null" >
+        AFTER_TRANS_AMOUNT,
+      </if>
+      <if test="feeInFlag != null" >
+        FEE_IN_FLAG,
+      </if>
+      <if test="profitInFlag != null" >
+        PROFIT_IN_FLAG,
+      </if>
+      <if test="feeAmount != null" >
+        FEE_AMOUNT,
+      </if>
+      <if test="profitAmount != null" >
+        PROFIT_AMOUNT,
+      </if>
+      <if test="pFeeCode != null" >
+        P_FEE_CODE,
+      </if>
+      <if test="pFeeAmount != null" >
+        P_FEE_AMOUNT,
+      </if>
+      <if test="acceptFeeCode != null" >
+        ACCEPT_FEE_CODE,
+      </if>
+      <if test="acceptFeeAmount != null" >
+        ACCEPT_FEE_AMOUNT,
+      </if>
+      <if test="acceptFeeFlag != null" >
+        ACCEPT_FEE_FLAG,
+      </if>
+      <if test="transferFeeCode != null" >
+        TRANSFER_FEE_CODE,
+      </if>
+      <if test="transferFeeAmount != null" >
+        TRANSFER_FEE_AMOUNT,
+      </if>
+      <if test="transferFeeFlag != null" >
+        TRANSFER_FEE_FLAG,
+      </if>
+      <if test="payFeeCode != null" >
+        PAY_FEE_CODE,
+      </if>
+      <if test="payFeeAmount != null" >
+        PAY_FEE_AMOUNT,
+      </if>
+      <if test="payFeeFlag != null" >
+        PAY_FEE_FLAG,
+      </if>
+      <if test="supplyFeeCode != null" >
+        SUPPLY_FEE_CODE,
+      </if>
+      <if test="supplyFeeAmount != null" >
+        SUPPLY_FEE_AMOUNT,
+      </if>
+      <if test="supplyFeeFlag != null" >
+        SUPPLY_FEE_FLAG,
+      </if>
+      <if test="cardSerialNo != null" >
+        CARD_SERIAL_NO,
+      </if>
+      <if test="cardCount != null" >
+        CARD_COUNT,
+      </if>
+      <if test="transTac != null" >
+        TRANS_TAC,
+      </if>
+      <if test="tacCheckLabel != null" >
+        TAC_CHECK_LABEL,
+      </if>
+      <if test="cardDptAmount != null" >
+        CARD_DPT_AMOUNT,
+      </if>
+      <if test="cardExpDate != null" >
+        CARD_EXP_DATE,
+      </if>
+      <if test="batchFileId != null" >
+        BATCH_FILE_ID,
+      </if>
+      <if test="uploadFlag != null" >
+        UPLOAD_FLAG,
+      </if>
+      <if test="uploadPkgNo != null" >
+        UPLOAD_PKG_NO,
+      </if>
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO,
+      </if>
+      <if test="outerCardNo != null" >
+        OUTER_CARD_NO,
+      </if>
+      <if test="cardMediaType != null" >
+        CARD_MEDIA_TYPE,
+      </if>
+      <if test="cardBrandType != null" >
+        CARD_BRAND_TYPE,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO,
+      </if>
+      <if test="terminalSerialNo != null" >
+        TERMINAL_SERIAL_NO,
+      </if>
+      <if test="terminalCommSerialNo != null" >
+        TERMINAL_COMM_SERIAL_NO,
+      </if>
+      <if test="terminalOperNo != null" >
+        TERMINAL_OPER_NO,
+      </if>
+      <if test="batchNo != null" >
+        BATCH_NO,
+      </if>
+      <if test="transSerialType != null" >
+        TRANS_SERIAL_TYPE,
+      </if>
+      <if test="transAcceptMatchFlag != null" >
+        TRANS_ACCEPT_MATCH_FLAG,
+      </if>
+      <if test="transTransferMatchFlag != null" >
+        TRANS_TRANSFER_MATCH_FLAG,
+      </if>
+      <if test="transPayMatchFlag != null" >
+        TRANS_PAY_MATCH_FLAG,
+      </if>
+      <if test="transSupplyMatchFlag != null" >
+        TRANS_SUPPLY_MATCH_FLAG,
+      </if>
+      <if test="paymentObjNo != null" >
+        PAYMENT_OBJ_NO,
+      </if>
+      <if test="paymentObjType != null" >
+        PAYMENT_OBJ_TYPE,
+      </if>
+      <if test="lAcceptOrgSerialNo != null" >
+        L_ACCEPT_ORG_SERIAL_NO,
+      </if>
+      <if test="lAcceptOrgTransDate != null" >
+        L_ACCEPT_ORG_TRANS_DATE,
+      </if>
+      <if test="lAcceptOrgTransTime != null" >
+        L_ACCEPT_ORG_TRANS_TIME,
+      </if>
+      <if test="lTransferOrgSerialNo != null" >
+        L_TRANSFER_ORG_SERIAL_NO,
+      </if>
+      <if test="lTransferOrgTransDate != null" >
+        L_TRANSFER_ORG_TRANS_DATE,
+      </if>
+      <if test="lTransferOrgTransTime != null" >
+        L_TRANSFER_ORG_TRANS_TIME,
+      </if>
+      <if test="lPayTransSerialNo != null" >
+        L_PAY_TRANS_SERIAL_NO,
+      </if>
+      <if test="lPayOrgTransDate != null" >
+        L_PAY_ORG_TRANS_DATE,
+      </if>
+      <if test="lPayOrgTransTime != null" >
+        L_PAY_ORG_TRANS_TIME,
+      </if>
+      <if test="lSupplyOrgSerialNo != null" >
+        L_SUPPLY_ORG_SERIAL_NO,
+      </if>
+      <if test="lSupplyOrgTransDate != null" >
+        L_SUPPLY_ORG_TRANS_DATE,
+      </if>
+      <if test="lSupplyOrgTransTime != null" >
+        L_SUPPLY_ORG_TRANS_TIME,
+      </if>
+      <if test="psamCardNo != null" >
+        PSAM_CARD_NO,
+      </if>
+      <if test="preAuthSerialNo != null" >
+        PRE_AUTH_SERIAL_NO,
+      </if>
+      <if test="acceptProcFlag != null" >
+        ACCEPT_PROC_FLAG,
+      </if>
+      <if test="transferProcFlag != null" >
+        TRANSFER_PROC_FLAG,
+      </if>
+      <if test="payProcFlag != null" >
+        PAY_PROC_FLAG,
+      </if>
+      <if test="supplyProcFlag != null" >
+        SUPPLY_PROC_FLAG,
+      </if>
+      <if test="acceptRespCode != null" >
+        ACCEPT_RESP_CODE,
+      </if>
+      <if test="transferRespCode != null" >
+        TRANSFER_RESP_CODE,
+      </if>
+      <if test="payRespCode != null" >
+        PAY_RESP_CODE,
+      </if>
+      <if test="supplyCode != null" >
+        SUPPLY_CODE,
+      </if>
+      <if test="transFinTs != null" >
+        TRANS_FIN_TS,
+      </if>
+      <if test="transToTs != null" >
+        TRANS_TO_TS,
+      </if>
+      <if test="isClearing != null" >
+        IS_CLEARING,
+      </if>
+      <if test="clearingId != null" >
+        CLEARING_ID,
+      </if>
+      <if test="resendNum != null" >
+        RESEND_NUM,
+      </if>
+      <if test="settlementMonth != null" >
+        SETTLEMENT_MONTH,
+      </if>
+      <if test="settlementDay != null" >
+        SETTLEMENT_DAY,
+      </if>
+      <if test="revsalFlag != null" >
+        REVSAL_FLAG,
+      </if>
+      <if test="revsalTxnSerialNo != null" >
+        REVSAL_TXN_SERIAL_NO,
+      </if>
+      <if test="cancelFlag != null" >
+        CANCEL_FLAG,
+      </if>
+      <if test="cancelTxnSerialNo != null" >
+        CANCEL_TXN_SERIAL_NO,
+      </if>
+      <if test="lTransSerialNo != null" >
+        L_TRANS_SERIAL_NO,
+      </if>
+      <if test="returnFlag != null" >
+        RETURN_FLAG,
+      </if>
+      <if test="returnCount != null" >
+        RETURN_COUNT,
+      </if>
+      <if test="returnAmount != null" >
+        RETURN_AMOUNT,
+      </if>
+      <if test="dubiousFlag != null" >
+        DUBIOUS_FLAG,
+      </if>
+      <if test="batchDate != null" >
+        BATCH_DATE,
+      </if>
+      <if test="batchFlag != null" >
+        BATCH_FLAG,
+      </if>
+      <if test="acceptSettleAmount != null" >
+        ACCEPT_SETTLE_AMOUNT,
+      </if>
+      <if test="transferSettleAmount != null" >
+        TRANSFER_SETTLE_AMOUNT,
+      </if>
+      <if test="paySettleAmount != null" >
+        PAY_SETTLE_AMOUNT,
+      </if>
+      <if test="supplySettleAmount != null" >
+        SUPPLY_SETTLE_AMOUNT,
+      </if>
+      <if test="transferInOrgCode != null" >
+        TRANSFER_IN_ORG_CODE,
+      </if>
+      <if test="inAccountNo != null" >
+        IN_ACCOUNT_NO,
+      </if>
+      <if test="transferOutOrgCode != null" >
+        TRANSFER_OUT_ORG_CODE,
+      </if>
+      <if test="outAccountNo != null" >
+        OUT_ACCOUNT_NO,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3,
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4,
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO,
+      </if>
+      <if test="customerAreaCode != null" >
+        CUSTOMER_AREA_CODE,
+      </if>
+      <if test="customerCityCode != null" >
+        CUSTOMER_CITY_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="transSerialNo != null" >
+        #{transSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementDate != null" >
+        #{settlementDate,jdbcType=CHAR},
+      </if>
+      <if test="transTime != null" >
+        #{transTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transMonth != null" >
+        #{transMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="extBusinessType != null" >
+        #{extBusinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="interiorTransType != null" >
+        #{interiorTransType,jdbcType=VARCHAR},
+      </if>
+      <if test="transMemo != null" >
+        #{transMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgType != null" >
+        #{acceptOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        #{acceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgTransDate != null" >
+        #{acceptOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgTransTime != null" >
+        #{acceptOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgCode != null" >
+        #{transferOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgType != null" >
+        #{transferOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgSerialNo != null" >
+        #{transferOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgTransDate != null" >
+        #{transferOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgTransTime != null" >
+        #{transferOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgType != null" >
+        #{payOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgSerialNo != null" >
+        #{payOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgTransDate != null" >
+        #{payOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgTransTime != null" >
+        #{payOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgType != null" >
+        #{supplyOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgSerialNo != null" >
+        #{supplyOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgTransDate != null" >
+        #{supplyOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgTransTime != null" >
+        #{supplyOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transAmount != null" >
+        #{transAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="beforeTransAmount != null" >
+        #{beforeTransAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="afterTransAmount != null" >
+        #{afterTransAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="feeInFlag != null" >
+        #{feeInFlag,jdbcType=CHAR},
+      </if>
+      <if test="profitInFlag != null" >
+        #{profitInFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeAmount != null" >
+        #{feeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="profitAmount != null" >
+        #{profitAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pFeeCode != null" >
+        #{pFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="pFeeAmount != null" >
+        #{pFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeCode != null" >
+        #{acceptFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeAmount != null" >
+        #{acceptFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeFlag != null" >
+        #{acceptFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="transferFeeCode != null" >
+        #{transferFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFeeAmount != null" >
+        #{transferFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFeeFlag != null" >
+        #{transferFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="payFeeCode != null" >
+        #{payFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeAmount != null" >
+        #{payFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeFlag != null" >
+        #{payFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="supplyFeeCode != null" >
+        #{supplyFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyFeeAmount != null" >
+        #{supplyFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyFeeFlag != null" >
+        #{supplyFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="cardSerialNo != null" >
+        #{cardSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardCount != null" >
+        #{cardCount,jdbcType=DECIMAL},
+      </if>
+      <if test="transTac != null" >
+        #{transTac,jdbcType=VARCHAR},
+      </if>
+      <if test="tacCheckLabel != null" >
+        #{tacCheckLabel,jdbcType=CHAR},
+      </if>
+      <if test="cardDptAmount != null" >
+        #{cardDptAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="cardExpDate != null" >
+        #{cardExpDate,jdbcType=VARCHAR},
+      </if>
+      <if test="batchFileId != null" >
+        #{batchFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadFlag != null" >
+        #{uploadFlag,jdbcType=CHAR},
+      </if>
+      <if test="uploadPkgNo != null" >
+        #{uploadPkgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="innerCardNo != null" >
+        #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outerCardNo != null" >
+        #{outerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMediaType != null" >
+        #{cardMediaType,jdbcType=CHAR},
+      </if>
+      <if test="cardBrandType != null" >
+        #{cardBrandType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSerialNo != null" >
+        #{terminalSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalCommSerialNo != null" >
+        #{terminalCommSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalOperNo != null" >
+        #{terminalOperNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transSerialType != null" >
+        #{transSerialType,jdbcType=CHAR},
+      </if>
+      <if test="transAcceptMatchFlag != null" >
+        #{transAcceptMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transTransferMatchFlag != null" >
+        #{transTransferMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transPayMatchFlag != null" >
+        #{transPayMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transSupplyMatchFlag != null" >
+        #{transSupplyMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="paymentObjNo != null" >
+        #{paymentObjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentObjType != null" >
+        #{paymentObjType,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgSerialNo != null" >
+        #{lAcceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgTransDate != null" >
+        #{lAcceptOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgTransTime != null" >
+        #{lAcceptOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgSerialNo != null" >
+        #{lTransferOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgTransDate != null" >
+        #{lTransferOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgTransTime != null" >
+        #{lTransferOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayTransSerialNo != null" >
+        #{lPayTransSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayOrgTransDate != null" >
+        #{lPayOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayOrgTransTime != null" >
+        #{lPayOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgSerialNo != null" >
+        #{lSupplyOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgTransDate != null" >
+        #{lSupplyOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgTransTime != null" >
+        #{lSupplyOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="psamCardNo != null" >
+        #{psamCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preAuthSerialNo != null" >
+        #{preAuthSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptProcFlag != null" >
+        #{acceptProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="transferProcFlag != null" >
+        #{transferProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="payProcFlag != null" >
+        #{payProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="supplyProcFlag != null" >
+        #{supplyProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="acceptRespCode != null" >
+        #{acceptRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferRespCode != null" >
+        #{transferRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payRespCode != null" >
+        #{payRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyCode != null" >
+        #{supplyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transFinTs != null" >
+        #{transFinTs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transToTs != null" >
+        #{transToTs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isClearing != null" >
+        #{isClearing,jdbcType=CHAR},
+      </if>
+      <if test="clearingId != null" >
+        #{clearingId,jdbcType=CHAR},
+      </if>
+      <if test="resendNum != null" >
+        #{resendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMonth != null" >
+        #{settlementMonth,jdbcType=CHAR},
+      </if>
+      <if test="settlementDay != null" >
+        #{settlementDay,jdbcType=CHAR},
+      </if>
+      <if test="revsalFlag != null" >
+        #{revsalFlag,jdbcType=CHAR},
+      </if>
+      <if test="revsalTxnSerialNo != null" >
+        #{revsalTxnSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelFlag != null" >
+        #{cancelFlag,jdbcType=CHAR},
+      </if>
+      <if test="cancelTxnSerialNo != null" >
+        #{cancelTxnSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransSerialNo != null" >
+        #{lTransSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="returnFlag != null" >
+        #{returnFlag,jdbcType=CHAR},
+      </if>
+      <if test="returnCount != null" >
+        #{returnCount,jdbcType=DECIMAL},
+      </if>
+      <if test="returnAmount != null" >
+        #{returnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="dubiousFlag != null" >
+        #{dubiousFlag,jdbcType=CHAR},
+      </if>
+      <if test="batchDate != null" >
+        #{batchDate,jdbcType=CHAR},
+      </if>
+      <if test="batchFlag != null" >
+        #{batchFlag,jdbcType=CHAR},
+      </if>
+      <if test="acceptSettleAmount != null" >
+        #{acceptSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferSettleAmount != null" >
+        #{transferSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="paySettleAmount != null" >
+        #{paySettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="supplySettleAmount != null" >
+        #{supplySettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferInOrgCode != null" >
+        #{transferInOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="inAccountNo != null" >
+        #{inAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOutOrgCode != null" >
+        #{transferOutOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outAccountNo != null" >
+        #{outAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        #{resvFld5,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAreaCode != null" >
+        #{customerAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCityCode != null" >
+        #{customerCityCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogOnlinePayment" >
+    update CORE.T_LOG_ONLINE_PAYMENT
+    <set >
+      <if test="settlementDate != null" >
+        SETTLEMENT_DATE = #{settlementDate,jdbcType=CHAR},
+      </if>
+      <if test="transTime != null" >
+        TRANS_TIME = #{transTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transMonth != null" >
+        TRANS_MONTH = #{transMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="extBusinessType != null" >
+        EXT_BUSINESS_TYPE = #{extBusinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="interiorTransType != null" >
+        INTERIOR_TRANS_TYPE = #{interiorTransType,jdbcType=VARCHAR},
+      </if>
+      <if test="transMemo != null" >
+        TRANS_MEMO = #{transMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgType != null" >
+        ACCEPT_ORG_TYPE = #{acceptOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        ACCEPT_ORG_SERIAL_NO = #{acceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgTransDate != null" >
+        ACCEPT_ORG_TRANS_DATE = #{acceptOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgTransTime != null" >
+        ACCEPT_ORG_TRANS_TIME = #{acceptOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgCode != null" >
+        TRANSFER_ORG_CODE = #{transferOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgType != null" >
+        TRANSFER_ORG_TYPE = #{transferOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgSerialNo != null" >
+        TRANSFER_ORG_SERIAL_NO = #{transferOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgTransDate != null" >
+        TRANSFER_ORG_TRANS_DATE = #{transferOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgTransTime != null" >
+        TRANSFER_ORG_TRANS_TIME = #{transferOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE = #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgType != null" >
+        PAY_ORG_TYPE = #{payOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgSerialNo != null" >
+        PAY_ORG_SERIAL_NO = #{payOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgTransDate != null" >
+        PAY_ORG_TRANS_DATE = #{payOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgTransTime != null" >
+        PAY_ORG_TRANS_TIME = #{payOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgType != null" >
+        SUPPLY_ORG_TYPE = #{supplyOrgType,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgSerialNo != null" >
+        SUPPLY_ORG_SERIAL_NO = #{supplyOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgTransDate != null" >
+        SUPPLY_ORG_TRANS_DATE = #{supplyOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgTransTime != null" >
+        SUPPLY_ORG_TRANS_TIME = #{supplyOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="transAmount != null" >
+        TRANS_AMOUNT = #{transAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="beforeTransAmount != null" >
+        BEFORE_TRANS_AMOUNT = #{beforeTransAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="afterTransAmount != null" >
+        AFTER_TRANS_AMOUNT = #{afterTransAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="feeInFlag != null" >
+        FEE_IN_FLAG = #{feeInFlag,jdbcType=CHAR},
+      </if>
+      <if test="profitInFlag != null" >
+        PROFIT_IN_FLAG = #{profitInFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeAmount != null" >
+        FEE_AMOUNT = #{feeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="profitAmount != null" >
+        PROFIT_AMOUNT = #{profitAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pFeeCode != null" >
+        P_FEE_CODE = #{pFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="pFeeAmount != null" >
+        P_FEE_AMOUNT = #{pFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeCode != null" >
+        ACCEPT_FEE_CODE = #{acceptFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeAmount != null" >
+        ACCEPT_FEE_AMOUNT = #{acceptFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptFeeFlag != null" >
+        ACCEPT_FEE_FLAG = #{acceptFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="transferFeeCode != null" >
+        TRANSFER_FEE_CODE = #{transferFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFeeAmount != null" >
+        TRANSFER_FEE_AMOUNT = #{transferFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferFeeFlag != null" >
+        TRANSFER_FEE_FLAG = #{transferFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="payFeeCode != null" >
+        PAY_FEE_CODE = #{payFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeAmount != null" >
+        PAY_FEE_AMOUNT = #{payFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payFeeFlag != null" >
+        PAY_FEE_FLAG = #{payFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="supplyFeeCode != null" >
+        SUPPLY_FEE_CODE = #{supplyFeeCode,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyFeeAmount != null" >
+        SUPPLY_FEE_AMOUNT = #{supplyFeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyFeeFlag != null" >
+        SUPPLY_FEE_FLAG = #{supplyFeeFlag,jdbcType=CHAR},
+      </if>
+      <if test="cardSerialNo != null" >
+        CARD_SERIAL_NO = #{cardSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardCount != null" >
+        CARD_COUNT = #{cardCount,jdbcType=DECIMAL},
+      </if>
+      <if test="transTac != null" >
+        TRANS_TAC = #{transTac,jdbcType=VARCHAR},
+      </if>
+      <if test="tacCheckLabel != null" >
+        TAC_CHECK_LABEL = #{tacCheckLabel,jdbcType=CHAR},
+      </if>
+      <if test="cardDptAmount != null" >
+        CARD_DPT_AMOUNT = #{cardDptAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="cardExpDate != null" >
+        CARD_EXP_DATE = #{cardExpDate,jdbcType=VARCHAR},
+      </if>
+      <if test="batchFileId != null" >
+        BATCH_FILE_ID = #{batchFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadFlag != null" >
+        UPLOAD_FLAG = #{uploadFlag,jdbcType=CHAR},
+      </if>
+      <if test="uploadPkgNo != null" >
+        UPLOAD_PKG_NO = #{uploadPkgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outerCardNo != null" >
+        OUTER_CARD_NO = #{outerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMediaType != null" >
+        CARD_MEDIA_TYPE = #{cardMediaType,jdbcType=CHAR},
+      </if>
+      <if test="cardBrandType != null" >
+        CARD_BRAND_TYPE = #{cardBrandType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalNo != null" >
+        TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalSerialNo != null" >
+        TERMINAL_SERIAL_NO = #{terminalSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalCommSerialNo != null" >
+        TERMINAL_COMM_SERIAL_NO = #{terminalCommSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalOperNo != null" >
+        TERMINAL_OPER_NO = #{terminalOperNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transSerialType != null" >
+        TRANS_SERIAL_TYPE = #{transSerialType,jdbcType=CHAR},
+      </if>
+      <if test="transAcceptMatchFlag != null" >
+        TRANS_ACCEPT_MATCH_FLAG = #{transAcceptMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transTransferMatchFlag != null" >
+        TRANS_TRANSFER_MATCH_FLAG = #{transTransferMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transPayMatchFlag != null" >
+        TRANS_PAY_MATCH_FLAG = #{transPayMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="transSupplyMatchFlag != null" >
+        TRANS_SUPPLY_MATCH_FLAG = #{transSupplyMatchFlag,jdbcType=CHAR},
+      </if>
+      <if test="paymentObjNo != null" >
+        PAYMENT_OBJ_NO = #{paymentObjNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentObjType != null" >
+        PAYMENT_OBJ_TYPE = #{paymentObjType,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgSerialNo != null" >
+        L_ACCEPT_ORG_SERIAL_NO = #{lAcceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgTransDate != null" >
+        L_ACCEPT_ORG_TRANS_DATE = #{lAcceptOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lAcceptOrgTransTime != null" >
+        L_ACCEPT_ORG_TRANS_TIME = #{lAcceptOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgSerialNo != null" >
+        L_TRANSFER_ORG_SERIAL_NO = #{lTransferOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgTransDate != null" >
+        L_TRANSFER_ORG_TRANS_DATE = #{lTransferOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransferOrgTransTime != null" >
+        L_TRANSFER_ORG_TRANS_TIME = #{lTransferOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayTransSerialNo != null" >
+        L_PAY_TRANS_SERIAL_NO = #{lPayTransSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayOrgTransDate != null" >
+        L_PAY_ORG_TRANS_DATE = #{lPayOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lPayOrgTransTime != null" >
+        L_PAY_ORG_TRANS_TIME = #{lPayOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgSerialNo != null" >
+        L_SUPPLY_ORG_SERIAL_NO = #{lSupplyOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgTransDate != null" >
+        L_SUPPLY_ORG_TRANS_DATE = #{lSupplyOrgTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lSupplyOrgTransTime != null" >
+        L_SUPPLY_ORG_TRANS_TIME = #{lSupplyOrgTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="psamCardNo != null" >
+        PSAM_CARD_NO = #{psamCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preAuthSerialNo != null" >
+        PRE_AUTH_SERIAL_NO = #{preAuthSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptProcFlag != null" >
+        ACCEPT_PROC_FLAG = #{acceptProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="transferProcFlag != null" >
+        TRANSFER_PROC_FLAG = #{transferProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="payProcFlag != null" >
+        PAY_PROC_FLAG = #{payProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="supplyProcFlag != null" >
+        SUPPLY_PROC_FLAG = #{supplyProcFlag,jdbcType=CHAR},
+      </if>
+      <if test="acceptRespCode != null" >
+        ACCEPT_RESP_CODE = #{acceptRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferRespCode != null" >
+        TRANSFER_RESP_CODE = #{transferRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payRespCode != null" >
+        PAY_RESP_CODE = #{payRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyCode != null" >
+        SUPPLY_CODE = #{supplyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transFinTs != null" >
+        TRANS_FIN_TS = #{transFinTs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transToTs != null" >
+        TRANS_TO_TS = #{transToTs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isClearing != null" >
+        IS_CLEARING = #{isClearing,jdbcType=CHAR},
+      </if>
+      <if test="clearingId != null" >
+        CLEARING_ID = #{clearingId,jdbcType=CHAR},
+      </if>
+      <if test="resendNum != null" >
+        RESEND_NUM = #{resendNum,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementMonth != null" >
+        SETTLEMENT_MONTH = #{settlementMonth,jdbcType=CHAR},
+      </if>
+      <if test="settlementDay != null" >
+        SETTLEMENT_DAY = #{settlementDay,jdbcType=CHAR},
+      </if>
+      <if test="revsalFlag != null" >
+        REVSAL_FLAG = #{revsalFlag,jdbcType=CHAR},
+      </if>
+      <if test="revsalTxnSerialNo != null" >
+        REVSAL_TXN_SERIAL_NO = #{revsalTxnSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelFlag != null" >
+        CANCEL_FLAG = #{cancelFlag,jdbcType=CHAR},
+      </if>
+      <if test="cancelTxnSerialNo != null" >
+        CANCEL_TXN_SERIAL_NO = #{cancelTxnSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lTransSerialNo != null" >
+        L_TRANS_SERIAL_NO = #{lTransSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="returnFlag != null" >
+        RETURN_FLAG = #{returnFlag,jdbcType=CHAR},
+      </if>
+      <if test="returnCount != null" >
+        RETURN_COUNT = #{returnCount,jdbcType=DECIMAL},
+      </if>
+      <if test="returnAmount != null" >
+        RETURN_AMOUNT = #{returnAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="dubiousFlag != null" >
+        DUBIOUS_FLAG = #{dubiousFlag,jdbcType=CHAR},
+      </if>
+      <if test="batchDate != null" >
+        BATCH_DATE = #{batchDate,jdbcType=CHAR},
+      </if>
+      <if test="batchFlag != null" >
+        BATCH_FLAG = #{batchFlag,jdbcType=CHAR},
+      </if>
+      <if test="acceptSettleAmount != null" >
+        ACCEPT_SETTLE_AMOUNT = #{acceptSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferSettleAmount != null" >
+        TRANSFER_SETTLE_AMOUNT = #{transferSettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="paySettleAmount != null" >
+        PAY_SETTLE_AMOUNT = #{paySettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="supplySettleAmount != null" >
+        SUPPLY_SETTLE_AMOUNT = #{supplySettleAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferInOrgCode != null" >
+        TRANSFER_IN_ORG_CODE = #{transferInOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="inAccountNo != null" >
+        IN_ACCOUNT_NO = #{inAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOutOrgCode != null" >
+        TRANSFER_OUT_ORG_CODE = #{transferOutOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outAccountNo != null" >
+        OUT_ACCOUNT_NO = #{outAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAreaCode != null" >
+        CUSTOMER_AREA_CODE = #{customerAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCityCode != null" >
+        CUSTOMER_CITY_CODE = #{customerCityCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogOnlinePayment" >
+    update CORE.T_LOG_ONLINE_PAYMENT
+    set SETTLEMENT_DATE = #{settlementDate,jdbcType=CHAR},
+      TRANS_TIME = #{transTime,jdbcType=TIMESTAMP},
+      TRANS_MONTH = #{transMonth,jdbcType=DECIMAL},
+      EXT_BUSINESS_TYPE = #{extBusinessType,jdbcType=VARCHAR},
+      INTERIOR_TRANS_TYPE = #{interiorTransType,jdbcType=VARCHAR},
+      TRANS_MEMO = #{transMemo,jdbcType=VARCHAR},
+      ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      ACCEPT_ORG_TYPE = #{acceptOrgType,jdbcType=VARCHAR},
+      ACCEPT_ORG_SERIAL_NO = #{acceptOrgSerialNo,jdbcType=VARCHAR},
+      ACCEPT_ORG_TRANS_DATE = #{acceptOrgTransDate,jdbcType=VARCHAR},
+      ACCEPT_ORG_TRANS_TIME = #{acceptOrgTransTime,jdbcType=VARCHAR},
+      TRANSFER_ORG_CODE = #{transferOrgCode,jdbcType=VARCHAR},
+      TRANSFER_ORG_TYPE = #{transferOrgType,jdbcType=VARCHAR},
+      TRANSFER_ORG_SERIAL_NO = #{transferOrgSerialNo,jdbcType=VARCHAR},
+      TRANSFER_ORG_TRANS_DATE = #{transferOrgTransDate,jdbcType=VARCHAR},
+      TRANSFER_ORG_TRANS_TIME = #{transferOrgTransTime,jdbcType=VARCHAR},
+      PAY_ORG_CODE = #{payOrgCode,jdbcType=VARCHAR},
+      PAY_ORG_TYPE = #{payOrgType,jdbcType=VARCHAR},
+      PAY_ORG_SERIAL_NO = #{payOrgSerialNo,jdbcType=VARCHAR},
+      PAY_ORG_TRANS_DATE = #{payOrgTransDate,jdbcType=VARCHAR},
+      PAY_ORG_TRANS_TIME = #{payOrgTransTime,jdbcType=VARCHAR},
+      SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      SUPPLY_ORG_TYPE = #{supplyOrgType,jdbcType=VARCHAR},
+      SUPPLY_ORG_SERIAL_NO = #{supplyOrgSerialNo,jdbcType=VARCHAR},
+      SUPPLY_ORG_TRANS_DATE = #{supplyOrgTransDate,jdbcType=VARCHAR},
+      SUPPLY_ORG_TRANS_TIME = #{supplyOrgTransTime,jdbcType=VARCHAR},
+      TRANS_AMOUNT = #{transAmount,jdbcType=DECIMAL},
+      BEFORE_TRANS_AMOUNT = #{beforeTransAmount,jdbcType=DECIMAL},
+      AFTER_TRANS_AMOUNT = #{afterTransAmount,jdbcType=DECIMAL},
+      FEE_IN_FLAG = #{feeInFlag,jdbcType=CHAR},
+      PROFIT_IN_FLAG = #{profitInFlag,jdbcType=CHAR},
+      FEE_AMOUNT = #{feeAmount,jdbcType=DECIMAL},
+      PROFIT_AMOUNT = #{profitAmount,jdbcType=DECIMAL},
+      P_FEE_CODE = #{pFeeCode,jdbcType=DECIMAL},
+      P_FEE_AMOUNT = #{pFeeAmount,jdbcType=DECIMAL},
+      ACCEPT_FEE_CODE = #{acceptFeeCode,jdbcType=DECIMAL},
+      ACCEPT_FEE_AMOUNT = #{acceptFeeAmount,jdbcType=DECIMAL},
+      ACCEPT_FEE_FLAG = #{acceptFeeFlag,jdbcType=CHAR},
+      TRANSFER_FEE_CODE = #{transferFeeCode,jdbcType=DECIMAL},
+      TRANSFER_FEE_AMOUNT = #{transferFeeAmount,jdbcType=DECIMAL},
+      TRANSFER_FEE_FLAG = #{transferFeeFlag,jdbcType=CHAR},
+      PAY_FEE_CODE = #{payFeeCode,jdbcType=DECIMAL},
+      PAY_FEE_AMOUNT = #{payFeeAmount,jdbcType=DECIMAL},
+      PAY_FEE_FLAG = #{payFeeFlag,jdbcType=CHAR},
+      SUPPLY_FEE_CODE = #{supplyFeeCode,jdbcType=DECIMAL},
+      SUPPLY_FEE_AMOUNT = #{supplyFeeAmount,jdbcType=DECIMAL},
+      SUPPLY_FEE_FLAG = #{supplyFeeFlag,jdbcType=CHAR},
+      CARD_SERIAL_NO = #{cardSerialNo,jdbcType=VARCHAR},
+      CARD_COUNT = #{cardCount,jdbcType=DECIMAL},
+      TRANS_TAC = #{transTac,jdbcType=VARCHAR},
+      TAC_CHECK_LABEL = #{tacCheckLabel,jdbcType=CHAR},
+      CARD_DPT_AMOUNT = #{cardDptAmount,jdbcType=DECIMAL},
+      CARD_EXP_DATE = #{cardExpDate,jdbcType=VARCHAR},
+      BATCH_FILE_ID = #{batchFileId,jdbcType=VARCHAR},
+      UPLOAD_FLAG = #{uploadFlag,jdbcType=CHAR},
+      UPLOAD_PKG_NO = #{uploadPkgNo,jdbcType=VARCHAR},
+      INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+      OUTER_CARD_NO = #{outerCardNo,jdbcType=VARCHAR},
+      CARD_MEDIA_TYPE = #{cardMediaType,jdbcType=CHAR},
+      CARD_BRAND_TYPE = #{cardBrandType,jdbcType=VARCHAR},
+      ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      TERMINAL_NO = #{terminalNo,jdbcType=VARCHAR},
+      TERMINAL_SERIAL_NO = #{terminalSerialNo,jdbcType=VARCHAR},
+      TERMINAL_COMM_SERIAL_NO = #{terminalCommSerialNo,jdbcType=VARCHAR},
+      TERMINAL_OPER_NO = #{terminalOperNo,jdbcType=VARCHAR},
+      BATCH_NO = #{batchNo,jdbcType=VARCHAR},
+      TRANS_SERIAL_TYPE = #{transSerialType,jdbcType=CHAR},
+      TRANS_ACCEPT_MATCH_FLAG = #{transAcceptMatchFlag,jdbcType=CHAR},
+      TRANS_TRANSFER_MATCH_FLAG = #{transTransferMatchFlag,jdbcType=CHAR},
+      TRANS_PAY_MATCH_FLAG = #{transPayMatchFlag,jdbcType=CHAR},
+      TRANS_SUPPLY_MATCH_FLAG = #{transSupplyMatchFlag,jdbcType=CHAR},
+      PAYMENT_OBJ_NO = #{paymentObjNo,jdbcType=VARCHAR},
+      PAYMENT_OBJ_TYPE = #{paymentObjType,jdbcType=VARCHAR},
+      L_ACCEPT_ORG_SERIAL_NO = #{lAcceptOrgSerialNo,jdbcType=VARCHAR},
+      L_ACCEPT_ORG_TRANS_DATE = #{lAcceptOrgTransDate,jdbcType=VARCHAR},
+      L_ACCEPT_ORG_TRANS_TIME = #{lAcceptOrgTransTime,jdbcType=VARCHAR},
+      L_TRANSFER_ORG_SERIAL_NO = #{lTransferOrgSerialNo,jdbcType=VARCHAR},
+      L_TRANSFER_ORG_TRANS_DATE = #{lTransferOrgTransDate,jdbcType=VARCHAR},
+      L_TRANSFER_ORG_TRANS_TIME = #{lTransferOrgTransTime,jdbcType=VARCHAR},
+      L_PAY_TRANS_SERIAL_NO = #{lPayTransSerialNo,jdbcType=VARCHAR},
+      L_PAY_ORG_TRANS_DATE = #{lPayOrgTransDate,jdbcType=VARCHAR},
+      L_PAY_ORG_TRANS_TIME = #{lPayOrgTransTime,jdbcType=VARCHAR},
+      L_SUPPLY_ORG_SERIAL_NO = #{lSupplyOrgSerialNo,jdbcType=VARCHAR},
+      L_SUPPLY_ORG_TRANS_DATE = #{lSupplyOrgTransDate,jdbcType=VARCHAR},
+      L_SUPPLY_ORG_TRANS_TIME = #{lSupplyOrgTransTime,jdbcType=VARCHAR},
+      PSAM_CARD_NO = #{psamCardNo,jdbcType=VARCHAR},
+      PRE_AUTH_SERIAL_NO = #{preAuthSerialNo,jdbcType=VARCHAR},
+      ACCEPT_PROC_FLAG = #{acceptProcFlag,jdbcType=CHAR},
+      TRANSFER_PROC_FLAG = #{transferProcFlag,jdbcType=CHAR},
+      PAY_PROC_FLAG = #{payProcFlag,jdbcType=CHAR},
+      SUPPLY_PROC_FLAG = #{supplyProcFlag,jdbcType=CHAR},
+      ACCEPT_RESP_CODE = #{acceptRespCode,jdbcType=VARCHAR},
+      TRANSFER_RESP_CODE = #{transferRespCode,jdbcType=VARCHAR},
+      PAY_RESP_CODE = #{payRespCode,jdbcType=VARCHAR},
+      SUPPLY_CODE = #{supplyCode,jdbcType=VARCHAR},
+      TRANS_FIN_TS = #{transFinTs,jdbcType=TIMESTAMP},
+      TRANS_TO_TS = #{transToTs,jdbcType=TIMESTAMP},
+      IS_CLEARING = #{isClearing,jdbcType=CHAR},
+      CLEARING_ID = #{clearingId,jdbcType=CHAR},
+      RESEND_NUM = #{resendNum,jdbcType=DECIMAL},
+      SETTLEMENT_MONTH = #{settlementMonth,jdbcType=CHAR},
+      SETTLEMENT_DAY = #{settlementDay,jdbcType=CHAR},
+      REVSAL_FLAG = #{revsalFlag,jdbcType=CHAR},
+      REVSAL_TXN_SERIAL_NO = #{revsalTxnSerialNo,jdbcType=VARCHAR},
+      CANCEL_FLAG = #{cancelFlag,jdbcType=CHAR},
+      CANCEL_TXN_SERIAL_NO = #{cancelTxnSerialNo,jdbcType=VARCHAR},
+      L_TRANS_SERIAL_NO = #{lTransSerialNo,jdbcType=VARCHAR},
+      RETURN_FLAG = #{returnFlag,jdbcType=CHAR},
+      RETURN_COUNT = #{returnCount,jdbcType=DECIMAL},
+      RETURN_AMOUNT = #{returnAmount,jdbcType=DECIMAL},
+      DUBIOUS_FLAG = #{dubiousFlag,jdbcType=CHAR},
+      BATCH_DATE = #{batchDate,jdbcType=CHAR},
+      BATCH_FLAG = #{batchFlag,jdbcType=CHAR},
+      ACCEPT_SETTLE_AMOUNT = #{acceptSettleAmount,jdbcType=DECIMAL},
+      TRANSFER_SETTLE_AMOUNT = #{transferSettleAmount,jdbcType=DECIMAL},
+      PAY_SETTLE_AMOUNT = #{paySettleAmount,jdbcType=DECIMAL},
+      SUPPLY_SETTLE_AMOUNT = #{supplySettleAmount,jdbcType=DECIMAL},
+      TRANSFER_IN_ORG_CODE = #{transferInOrgCode,jdbcType=VARCHAR},
+      IN_ACCOUNT_NO = #{inAccountNo,jdbcType=VARCHAR},
+      TRANSFER_OUT_ORG_CODE = #{transferOutOrgCode,jdbcType=VARCHAR},
+      OUT_ACCOUNT_NO = #{outAccountNo,jdbcType=VARCHAR},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR},
+      CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      CUSTOMER_AREA_CODE = #{customerAreaCode,jdbcType=VARCHAR},
+      CUSTOMER_CITY_CODE = #{customerCityCode,jdbcType=VARCHAR}
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

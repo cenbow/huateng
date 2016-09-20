@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* 搜索 */
+.ui-BillingCenter-SearchDiv {
+	float: left;
+	vertical-align: top;
+	margin-top: 20px;
+}
+.ui-BillingCenter-SearchDiv .ui-select01 {
+	line-height: 25px;
+	border: 1px solid #CCC;
+	font-size: 14px;
+	padding: 3px;
+	position: relative;
+	top: 2px;
+*top:3px;
+	margin-right: 10px;
+}
+.ui-BillingCenter-SearchDiv .ui-form-txt01 {
+	position: relative;
+	top: 4px;
+	margin-right: 25px;
+	width: 190px;
+}
+.ui-BillingCenter-SearchDiv strong {
+	margin-right: 10px;
+}
+/* 弹出部分 */
+.ui-billcenter-form {
+	margin-left: 20px;
+	margin-top: 15px;
+}
+.ui-billcenter-form .ui-Radio {
+	width: 15px;
+	height: 15px;
+	margin-top: 1px;
+	margin-top: -2px\0;
+}
+.ui-billcenter-form .ui-radspan {
+	vertical-align: top;
+	position: relative;
+	top: 2px;
+}
+.ui-billcenter-form .ui-inputspan {
+	position: absolute;
+	float: left;
+	left: 168px;
+	top: 2px;
+}
+.ui-billcenter-form .ui-RadioM {
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin-top: 3px;
+*margin-top:0px;
+	margin-top: -3px\0;
+}
+.ui-billcenter-form .ui-radiospan {
+	position: relative;
+	top: 2px;
+	margin-right: 10px;
+	width: 120px;
+	display: block;
+	float: left;
+	text-align: left
+}
+.ui-billcenter-form .ui-showinput .ui-form-item {
+	height: 20px;
+}
+.ui-billcenter-form .ui-showinput .ui-form-txt01 {
+	height: 20px;
+}

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogPayorgRefundMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogPayorgRefund" >
+    <id column="TXN_SEQ_NO" property="txnSeqNo" jdbcType="VARCHAR" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="OUT_ORDER_ID" property="outOrderId" jdbcType="VARCHAR" />
+    <result column="OLD_TRANS_DATE" property="oldTransDate" jdbcType="VARCHAR" />
+    <result column="REFUND_AMOUNT" property="refundAmount" jdbcType="DECIMAL" />
+    <result column="INPUT_TIME" property="inputTime" jdbcType="TIMESTAMP" />
+    <result column="INPUT_UID" property="inputUid" jdbcType="VARCHAR" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TXN" property="acceptTxn" jdbcType="CHAR" />
+    <result column="ACCEPT_SEQ_NO" property="acceptSeqNo" jdbcType="VARCHAR" />
+    <result column="BATCH_NO" property="batchNo" jdbcType="DECIMAL" />
+    <result column="ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR" />
+    <result column="ACCEPT_DATE" property="acceptDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TIME" property="acceptTime" jdbcType="VARCHAR" />
+    <result column="SUPPLY_ORG_CODE" property="supplyOrgCode" jdbcType="VARCHAR" />
+    <result column="TRANSFER_ORG_CODE" property="transferOrgCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TXN_SEQ_NO, ORG_CODE, OUT_ORDER_ID, OLD_TRANS_DATE, REFUND_AMOUNT, INPUT_TIME, INPUT_UID, 
+    END_TIME, STATUS, REMARK, RESV_FLD1, RESV_FLD2, ACCEPT_TXN, ACCEPT_SEQ_NO, BATCH_NO, 
+    ACCEPT_ORG_CODE, ACCEPT_DATE, ACCEPT_TIME, SUPPLY_ORG_CODE, TRANSFER_ORG_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOG_PAYORG_REFUND
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_LOG_PAYORG_REFUND
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogPayorgRefund" >
+    insert into T_LOG_PAYORG_REFUND (TXN_SEQ_NO, ORG_CODE, OUT_ORDER_ID, 
+      OLD_TRANS_DATE, REFUND_AMOUNT, INPUT_TIME, 
+      INPUT_UID, END_TIME, STATUS, 
+      REMARK, RESV_FLD1, RESV_FLD2, 
+      ACCEPT_TXN, ACCEPT_SEQ_NO, BATCH_NO, 
+      ACCEPT_ORG_CODE, ACCEPT_DATE, ACCEPT_TIME, 
+      SUPPLY_ORG_CODE, TRANSFER_ORG_CODE)
+    values (#{txnSeqNo,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{outOrderId,jdbcType=VARCHAR}, 
+      #{oldTransDate,jdbcType=VARCHAR}, #{refundAmount,jdbcType=DECIMAL}, #{inputTime,jdbcType=TIMESTAMP}, 
+      #{inputUid,jdbcType=VARCHAR}, #{endTime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, 
+      #{acceptTxn,jdbcType=CHAR}, #{acceptSeqNo,jdbcType=VARCHAR}, #{batchNo,jdbcType=DECIMAL}, 
+      #{acceptOrgCode,jdbcType=VARCHAR}, #{acceptDate,jdbcType=VARCHAR}, #{acceptTime,jdbcType=VARCHAR}, 
+      #{supplyOrgCode,jdbcType=VARCHAR}, #{transferOrgCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogPayorgRefund" >
+    insert into T_LOG_PAYORG_REFUND
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="txnSeqNo != null" >
+        TXN_SEQ_NO,
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="outOrderId != null" >
+        OUT_ORDER_ID,
+      </if>
+      <if test="oldTransDate != null" >
+        OLD_TRANS_DATE,
+      </if>
+      <if test="refundAmount != null" >
+        REFUND_AMOUNT,
+      </if>
+      <if test="inputTime != null" >
+        INPUT_TIME,
+      </if>
+      <if test="inputUid != null" >
+        INPUT_UID,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="acceptTxn != null" >
+        ACCEPT_TXN,
+      </if>
+      <if test="acceptSeqNo != null" >
+        ACCEPT_SEQ_NO,
+      </if>
+      <if test="batchNo != null" >
+        BATCH_NO,
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE,
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_DATE,
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_TIME,
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE,
+      </if>
+      <if test="transferOrgCode != null" >
+        TRANSFER_ORG_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="txnSeqNo != null" >
+        #{txnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrderId != null" >
+        #{outOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTransDate != null" >
+        #{oldTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="refundAmount != null" >
+        #{refundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="inputTime != null" >
+        #{inputTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputUid != null" >
+        #{inputUid,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxn != null" >
+        #{acceptTxn,jdbcType=CHAR},
+      </if>
+      <if test="acceptSeqNo != null" >
+        #{acceptSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        #{batchNo,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptDate != null" >
+        #{acceptDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgCode != null" >
+        #{transferOrgCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogPayorgRefund" >
+    update T_LOG_PAYORG_REFUND
+    <set >
+      <if test="orgCode != null" >
+        ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrderId != null" >
+        OUT_ORDER_ID = #{outOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTransDate != null" >
+        OLD_TRANS_DATE = #{oldTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="refundAmount != null" >
+        REFUND_AMOUNT = #{refundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="inputTime != null" >
+        INPUT_TIME = #{inputTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputUid != null" >
+        INPUT_UID = #{inputUid,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null" >
+        END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTxn != null" >
+        ACCEPT_TXN = #{acceptTxn,jdbcType=CHAR},
+      </if>
+      <if test="acceptSeqNo != null" >
+        ACCEPT_SEQ_NO = #{acceptSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="batchNo != null" >
+        BATCH_NO = #{batchNo,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_DATE = #{acceptDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_TIME = #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyOrgCode != null" >
+        SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transferOrgCode != null" >
+        TRANSFER_ORG_CODE = #{transferOrgCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogPayorgRefund" >
+    update T_LOG_PAYORG_REFUND
+    set ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      OUT_ORDER_ID = #{outOrderId,jdbcType=VARCHAR},
+      OLD_TRANS_DATE = #{oldTransDate,jdbcType=VARCHAR},
+      REFUND_AMOUNT = #{refundAmount,jdbcType=DECIMAL},
+      INPUT_TIME = #{inputTime,jdbcType=TIMESTAMP},
+      INPUT_UID = #{inputUid,jdbcType=VARCHAR},
+      END_TIME = #{endTime,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      ACCEPT_TXN = #{acceptTxn,jdbcType=CHAR},
+      ACCEPT_SEQ_NO = #{acceptSeqNo,jdbcType=VARCHAR},
+      BATCH_NO = #{batchNo,jdbcType=DECIMAL},
+      ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      ACCEPT_DATE = #{acceptDate,jdbcType=VARCHAR},
+      ACCEPT_TIME = #{acceptTime,jdbcType=VARCHAR},
+      SUPPLY_ORG_CODE = #{supplyOrgCode,jdbcType=VARCHAR},
+      TRANSFER_ORG_CODE = #{transferOrgCode,jdbcType=VARCHAR}
+    where TXN_SEQ_NO = #{txnSeqNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

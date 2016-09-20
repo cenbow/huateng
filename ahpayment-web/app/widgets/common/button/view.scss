@@ -1,0 +1,22 @@
+.button {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    background: #000000;
+    color: #FFFFFF;
+    position: absolute;
+    z-index: 20;
+}
+
+.button:hover {
+    text-decoration: none;
+}
+
+.button:active {
+    position: absolute;
+    top: 1px;
+}

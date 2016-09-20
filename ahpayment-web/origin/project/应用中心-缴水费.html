@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<!--所有CSS公用-->
+<link href="../css/index.css" rel="stylesheet" />
+<!--header-CSS-->
+<link href="../css/inside-header.css" rel="stylesheet" />
+<!--footer-CSS-->
+<link href="../css/footer.css" rel="stylesheet" />
+<!--生活支付水电煤页面-CSS-->
+<link href="../css/appcenter-lifepay.css" rel="stylesheet" />
+<!--应用中心left-CSS-->
+<link href="../css/inside-leftapp.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/an-change.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/shzf.js"></script>
+<script>
+<!--左边栏目条-->
+$(function(){
+	$(".ui-appleft-title").click(function(){
+		if($(this).parent().attr("class")!="ui-appleftselli")
+		{
+		$(".ui-appleft-main").slideUp(300);	
+		$(this).next(".ui-appleft-main").slideDown(300);
+		$(".ui-appleft-show li").removeClass("ui-appleftselli");
+		$(this).parent().addClass("ui-appleftselli");
+		}
+		else{
+		$(this).next(".ui-appleft-main").slideUp(300);
+		$(this).parent().removeClass("ui-appleftselli");
+		}
+	});
+});
+$(function(){
+	$(".ui-appleft-main li").hover(function(){
+		if($(this).attr("class")!="ui-appleft-sel")
+		{
+		$(this).addClass("ui-appleft-hover")
+		}
+
+	},function(){
+		$(this).removeClass("ui-appleft-hover")
+	});
+});
+</script>
+<title>翼支付</title>
+</head>
+<body>
+<div id="divBody">
+  <div class="inside-header"> <span class="ui-headerlogo"></span>
+    <div class="ui-nav"> <a >我的翼支付</a> <a >交易管理</a> <a class="nav-sel">应用中心</a> <a >账单支付</a> <a>翼充卡</a> <a>手机客户端</a> </div>
+  </div>
+  <div class="inside-main"> 
+    <!--内页left-->
+    <div class="ui-my-left">
+      <div id="accordion" class="ui-appleft-show">
+        <ul>
+          <li class="ui-appleft-sel">
+            <div class="ui-appleft-title" ><span>生活缴费</span><i class="ui-iconleft "></i></div>
+            <div class="ui-appleft-main" >
+              <ul>
+                <li ><i class="icon-leftwater"></i><a><span>缴水费</span></a></li>
+                <li ><i class="icon-leftwater"></i><a><span>缴电费</span></a></li>
+                <li ><i class="icon-leftwater"></i><a><span>缴燃气费</span></a></li>
+                <li ><i class="icon-leftwater"></i><a><span>缴供暖费</span></a></li>
+                <li ><i class="icon-leftwater"></i><a><span>缴有线电视费</span></a></li>
+                <li ><i class="icon-leftwater"></i><a><span>缴固话/宽带费</span></a></li>
+                <li ><i class="icon-leftwater"></i><a><span>缴交通罚款代办</span></a></li>
+                <li ><i class="icon-leftwater"></i><a><span>缴四川交罚款</span></a></li>
+               
+              </ul>
+            </div>
+          </li>
+          <li class="ui-appleftselli">
+            <div class="ui-appleft-title "><span>商户帮助</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main" style="display:block;">
+              <ul>
+                <li ><i class="icon-leftwater"></i><a><span>新手指南</span></a></li>
+              </ul>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    <!--内页right-->
+    <div class="ui-my-right">
+      <div class="ui-apptitle"> <span class="ui-titleimg"><img src="../images/inside/shzf-btimg.jpg"/></span> <span class="ui-titletxt"> <strong class="ui-p1">缴水费</strong></br>
+        <font class="ui-p2">随时随地，免受排队之苦</font> </span> <span class="ui-Servertime">服务器时间：22:01:40</span> <span class="ui-Share"> <a title="分享到新浪微博" class="fx01-cl"><i class="ui-sina"></i>新浪微博 </a> <a title="分享到开心网" class="fx01-cl"><i class="ui-hap"></i>开心网</a> <a title="分享到人人网"class="fx01-cl"><i class="ui-peo"></i>人人网</a> </span> </div>
+      <div class="ui-lifepay">
+        <div class="ui-lifeselect"><strong class="ui-citytxt">选择城市</strong>
+          <div class="life-payl02 paylbgpostion" id="life-cl02">
+            <div class="payl-txtxs01" id="jf02"> 省份 </div>
+          </div>
+          <div id="life-tc02" class="lifetcdiv jftc02" style="display:none;">
+            <ul>
+              <li><span>请选择</span></li>
+              <li><span>安徽</span></li>
+              <li><span>北京</span></li>
+              <li><span>重庆</span></li>
+              <li><span>福建</span></li>
+              <li><span>广东</span></li>
+              <li><span>广西</span></li>
+              <li><span>河北</span></li>
+              <li><span>河南</span></li>
+              <li><span>黑龙江</span></li>
+              <li><span>湖北</span></li>
+              <li><span title="湘西湘西湘西湘西湘西湘西湘西湘西">湖南...</span></li>
+              <li><span>吉林</span></li>
+              <li><span>江苏</span></li>
+              <li><span>江西</span></li>
+              <li><span>辽宁</span></li>
+              <li><span>山东</span></li>
+              <li><span>山西</span></li>
+              <li><span>上海</span></li>
+              <li><span>四川</span></li>
+              <li><span>天津</span></li>
+              <li><span>云南</span></li>
+              <li><span>浙江</span></li>
+            </ul>
+          </div>
+          <div class="life-payl03 paylbgpostion" id="life-cl03">
+            <div class="payl-txtxs01" id="jf03"> 城市 </div>
+          </div>
+          <div id="life-tc03" class="lifetcdiv jftc03" style="display:none;">
+            <ul>
+              <li><span>请选择</span></li>
+              <li><span>安徽</span></li>
+              <li><span>北京</span></li>
+              <li><span>重庆</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ui-lifeform">
+        <div class="ui-lifeformleft">
+          <div class="ui-form">
+            <div class="ui-form-txt01">收费单位:</div>
+            <div class="ui-form-item">
+              <select  name="company" id="company" class="ui-lifepay-select01">
+                <option value="3100003101001001">上海市自来水市北有限公司</option>
+                <option value="3100003101001002">上海市自来水市南有限公司</option>
+                <option value="3100003101001003">上海市自来水闵行有限公司</option>
+                <option value="3100003101001004">上海市浦东威立雅自来水有限公司</option>
+                <option value="3100003101001007">上海市嘉定自来水有限公司</option>
+                <option value="3100003101001008">上海市浦东新区（川沙）水有限公司</option>
+                <option value="3100003101001009">上海市南汇自来水有限公司</option>
+                <option value="3100003101001014">上海金山自来水有限公司</option>
+              </select>
+              <br />
+              <span class="ui-Gray-notes01">暂无收费单位显示相关说明</span> </div>
+          </div>
+          <div class="ui-form">
+            <div class="ui-form-txt01">营销活动:</div>
+            <div class="ui-form-item">
+              <select  name="company"  class="ui-lifepay-select01">
+                <option>无活动</option>
+                <option >97折活动</option>
+              </select>
+            </div>
+          </div>
+          <div class="ui-form">
+            <div class="ui-form-txt01">发票抬头:</div>
+            <div class="ui-form-item">
+              <input name=""  type="text" class="ui-txtinput01" style="width:330px;" />
+              <br />
+              <span class="ui-Gray-notes01">缴费成功后，您可凭缴费凭证到指定营业网点换取具有发票抬头的发票</span> </div>
+          </div>
+          <div class="ui-form">
+            <div class="ui-form-txt01">供暖用户号:</div>
+            <div class="ui-form-item">
+              <input name=""  type="text" class="ui-txtinput01" style="width:330px;" />
+            </div>
+          </div>
+          <div class="ui-form">
+            <div class="ui-form-txt01">校验码:</div>
+            <div class="ui-form-item ui-rel">
+              <input name=""  type="text" class="ui-txtinput01" style="width:80px;" />
+              <span class=" ui-Checkimg"><img src="../images/er.png" /></span> <span class=" ui-CheckControls"><img src="../images/yan.jpg" /></span> <span class=" ui-Exchange"><a href="" class="ui-txt-a">看不清，换一张</a></span>
+              <div class="ui-Agreement">
+                <input name="" type="checkbox" value="" class="ui-Check01" checked="checked" />
+                
+                <span class=" ui-Exchange">我已阅读并同意《<a  class="ui-txt-a" id="open-txt">翼支付缴费协议</a>》</span> </div>
+                <script>
+		  $(function(){
+			$("#open-txt").click(function(){
+				$("#show02").show();
+			});
+		});
+		</script>
+            </div>
+          </div>
+          <div class="ui-form">
+            <div class="ui-form-txt01"></div>
+            <div class="ui-form-item"> <a title="下一步" class="ui-button ui-button-morange " href="#">下一步</a>  </div>
+          </div>
+        </div>
+        <div class="ui-lifeformright">
+          <div class="ckimg01"> <a id="opener-img"></a> </div>
+          <script>
+		  $(function(){
+			$("#opener-img").click(function(){
+				$("#show01").show();
+			});
+		});
+		</script>
+          <div class="cktxt01"> 合肥有线电视宽带网络有限公司有线电视费 </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footerbg">
+      <div class="footer-main">
+        <div class="footer-link">
+          <div class="elselink">
+            <div class="elsetitlink"> <a style="cursor:default"><img src="../images/footer/dx.png" /></a> <a style="cursor:default"><img src="../images/footer/phone1.jpg"  /></a> <a style="cursor:default"><img src="../images/footer/phone.png"/></a> <a href="" target="_blank"><img src="../images/footer/youjian.png"/> <span class="t01">kefu@sutongpay.com.cn</span></a> </div>
+            <div class="elsebotlink">
+              <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+              <a href="
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu1.jpg"/></a> <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu2.jpg"/></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--缴费图纸样张-->
+<div id="show01" style="display:none;">
+    <div class="ui-show-main">
+        <div class="ui-show-title"><span>合肥有线电视宽带网络有限公司有线电视费图样</span><a title="关闭" class="close" id="close01" >x</a>
+        </div>
+        <script>
+		 $(function(){
+			$("#close01").click(function(){
+				$("#show01").hide();
+			});
+		});
+		</script>
+        <div class="ui-showdiv">
+        <img src="../images/sdm/222111.jpg" width="652" height="304"  style="margin:0 auto;"/>
+        </div>
+    </div>
+<div class="tan_bei">
+</div>
+</div>
+<!--协议DIV-->
+<div id="show02" style="display:none;">
+    <div class="ui-show-main">
+        <div class="ui-show-title"><span>翼支付缴费协议</span><a title="关闭" class="close" id="close02" >x</a>
+        </div>
+        <script>
+		 $(function(){
+			$("#close02").click(function(){
+				$("#show02").hide();
+			});
+		});
+		</script>
+        <div class="ui-showdiv">
+        <iframe scrolling="no" frameborder="0" src="Agreementtxt.html" style="width:100%; height:370px;top:0px; left:0px; background-color:transparent;"></iframe>  
+        <div class="ui-showdiv-close"> <span> <a title="确定" class="ui-button ui-button-morange " href="#">确定</a> <a title="取消" class="ui-button ui-button-mwhite " href="#">取消</a> </span> </div>      	
+        </div>
+    </div>
+<div class="tan_bei">
+</div>
+</div>
+</body>
+</html>

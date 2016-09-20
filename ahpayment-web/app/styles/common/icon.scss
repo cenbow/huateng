@@ -1,0 +1,342 @@
+@mixin icon-background($size: 16px){
+    background: url(/assets/icon.png) no-repeat;
+    width: $size;
+    height: $size;
+}
+
+.icon-location {
+    @include icon-background(16px);
+    background-position: 0 0;
+}
+
+.icon-people {
+    @include icon-background(16px);
+    background-position: 0 -32px;
+}
+
+.icon-copy {
+    @include icon-background(16px);
+    background-position: 0 -64px;
+}
+
+.icon-level-up {
+    @include icon-background(16px);
+    background-position: 0 -80px;
+}
+
+.icon-level-down {
+    @include icon-background(16px);
+    background-position: 0 -96px;
+}
+
+.icon-delete {
+    @include icon-background(16px);
+    background-position: 0 -112px;
+}
+
+.icon-selected {
+    @include icon-background(16px);
+    background-position: 0 -128px;
+}
+
+.icon-unselect {
+    @include icon-background(16px);
+    background-position: 0 -144px;
+}
+
+.icon-selected-yellow {
+    @include icon-background(16px);
+    background-position: 0 -160px;
+}
+
+.icon-unselect-white {
+    @include icon-background(16px);
+    background-position: 0 -176px;
+}
+
+.icon-gird {
+    @include icon-background(16px);
+    background-position: 0 -192px;
+}
+
+.icon-copy-white {
+    @include icon-background(16px);
+    background-position: 0 -208px;
+}
+
+.icon-paste-white {
+    @include icon-background(16px);
+    background-position: 0 -224px;
+}
+
+.icon-undo-white {
+    @include icon-background(16px);
+    background-position: 0 -240px;
+}
+
+.icon-redo-white {
+    @include icon-background(16px);
+    background-position: 0 -256px;
+}
+
+.icon-close-white {
+    @include icon-background(16px);
+    background-position: 0 -272px;
+}
+
+.icon-position-left-top {
+    @include icon-background(16px);
+    background-position: 0 -288px;
+}
+
+.icon-position-right-top {
+    @include icon-background(16px);
+    background-position: 0 -304px;
+}
+
+.icon-position-left-bottom {
+    @include icon-background(16px);
+    background-position: 0 -320px;
+}
+
+.icon-position-right-bottom {
+    @include icon-background(16px);
+    background-position: 0 -336px;
+}
+
+.icon-position-side-center {
+    @include icon-background(16px);
+    background-position: 0 -352px;
+}
+
+.icon-position-center {
+    @include icon-background(16px);
+    background-position: 0 -368px;
+}
+
+.icon-position-selected {
+    @include icon-background(16px);
+    background-position: 0 -384px;
+}
+
+.icon-slide-handler {
+    @include icon-background(16px);
+    background-position: 0 -400px;
+}
+
+.icon-sort-down {
+    @include icon-background(16px);
+    background-position: 0 -416px;
+}
+
+.icon-sort-up {
+    @include icon-background(16px);
+    background-position: 0 -432px;
+}
+
+.icon-help-small {
+    @include icon-background(16px);
+    background-position: 0 -448px;
+}
+
+.icon-setting-small {
+    @include icon-background(16px);
+    background-position: 0 -464px;
+}
+
+.icon-font-b {
+    @include icon-background(16px);
+    background-position: 0 -480px;
+}
+
+.icon-font-i {
+    @include icon-background(16px);
+    background-position: 0 -496px;
+}
+
+.icon-font-u {
+    @include icon-background(16px);
+    background-position: 0 -512px;
+}
+
+.icon-font-align-normal {
+    @include icon-background(16px);
+    background-position: 0 -528px;
+}
+
+.icon-font-align-left {
+    @include icon-background(16px);
+    background-position: 0 -544px;
+}
+
+.icon-font-align-center {
+    @include icon-background(16px);
+    background-position: 0 -560px;
+}
+
+.icon-font-align-right {
+    @include icon-background(16px);
+    background-position: 0 -576px;
+}
+
+.icon-font-sort-dot {
+    @include icon-background(16px);
+    background-position: 0 -592px;
+}
+
+.icon-font-sort-num {
+    @include icon-background(16px);
+    background-position: 0 -608px;
+}
+
+.icon-font-link {
+    @include icon-background(16px);
+    background-position: 0 -624px;
+}
+
+.icon-font-color {
+    @include icon-background(16px);
+    background-position: 0 -640px;
+}
+
+.icon-font-size {
+    @include icon-background(16px);
+    background-position: 0 -656px;
+}
+
+.icon-pencil {
+    @include icon-background(16px);
+    background-position: 0 -672px;
+}
+
+.icon-location2 {
+    @include icon-background(16px);
+    background-position: 0 -688px;
+}
+
+.icon-flag-up {
+    @include icon-background(16px);
+    background-position: 0 -704px;
+}
+
+.icon-flag-down {
+    @include icon-background(16px);
+    background-position: 0 -720px;
+}
+
+.icon-color-picker {
+    @include icon-background(32px);
+    background-position: -100px -128px;
+}
+
+.icon-flag-open {
+    @include icon-background(32px);
+    width:42px;
+    background-position: -100px -128px;
+}
+
+.icon-flag-close {
+    @include icon-background(32px);
+    width:42px;
+    background-position: -100px -160px;
+}
+
+.icon-site-logo {
+    @include icon-background(64px);
+    width:106px;
+    background-position: -100px -300px;
+}
+
+.icon-error {
+    @include icon-background(48px);
+    background-position: -200px 0;
+}
+
+.icon-warn {
+    @include icon-background(48px);
+    background-position: -200px -48px;
+}
+
+.icon-success {
+    @include icon-background(48px);
+    background-position: -200px -96px;
+}
+
+.icon-info {
+    @include icon-background(48px);
+    background-position: -200px -144px;
+}
+
+.icon-text {
+    @include icon-background(32px);
+    background-position: -400px 0;
+}
+
+.icon-image {
+    @include icon-background(32px);
+    background-position: -400px -32px;
+}
+
+.icon-comp {
+    @include icon-background(32px);
+    background-position: -400px -64px;
+}
+
+.icon-media {
+    @include icon-background(32px);
+    background-position: -400px -96px;
+}
+
+.icon-sharp {
+    @include icon-background(32px);
+    background-position: -400px -128px;
+}
+
+.icon-button-menu {
+    @include icon-background(32px);
+    background-position: -400px -160px;
+}
+
+.icon-3rd {
+    @include icon-background(32px);
+    background-position: -400px -192px;
+}
+
+.icon-background {
+    @include icon-background(32px);
+    background-position: -400px -224px;
+}
+
+.icon-my-template {
+    @include icon-background(32px);
+    background-position: -400px -256px;
+}
+
+.icon-font {
+    @include icon-background(32px);
+    background-position: -400px -288px;
+}
+
+.icon-box {
+    @include icon-background(32px);
+    background-position: -400px -320px;
+}
+
+.icon-row-box {
+    @include icon-background(32px);
+    background-position: -400px -352px;
+}
+
+.icon-line-h {
+    @include icon-background(32px);
+    background-position: -400px -384px;
+}
+
+.icon-line-v {
+    @include icon-background(32px);
+    background-position: -400px -416px;
+}
+.icon-plus{
+    @include icon-background(54px);
+    background-position: -300px -128px;
+}

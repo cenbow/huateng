@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoCardMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoCard" >
+    <id column="INNER_CARD_NO" property="innerCardNo" jdbcType="VARCHAR" />
+    <result column="ISSUE_ORG_CODE" property="issueOrgCode" jdbcType="VARCHAR" />
+    <result column="OUTER_CARD_NO" property="outerCardNo" jdbcType="VARCHAR" />
+    <result column="CARD_SSN" property="cardSsn" jdbcType="VARCHAR" />
+    <result column="CARD_MEDIA_TYPE" property="cardMediaType" jdbcType="CHAR" />
+    <result column="CARD_BARND" property="cardBarnd" jdbcType="VARCHAR" />
+    <result column="CARD_MADE_TIME" property="cardMadeTime" jdbcType="TIMESTAMP" />
+    <result column="SOLD_TIME" property="soldTime" jdbcType="TIMESTAMP" />
+    <result column="FOREGIFT" property="foregift" jdbcType="DECIMAL" />
+    <result column="INITIAL_AMT" property="initialAmt" jdbcType="DECIMAL" />
+    <result column="BALANCE" property="balance" jdbcType="DECIMAL" />
+    <result column="APPANGE" property="appange" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="AUTH_CODE" property="authCode" jdbcType="VARCHAR" />
+    <result column="CARD_VERSION" property="cardVersion" jdbcType="DECIMAL" />
+    <result column="VALID_TIME" property="validTime" jdbcType="TIMESTAMP" />
+    <result column="CONSUME_COUNTER" property="consumeCounter" jdbcType="DECIMAL" />
+    <result column="CHARGE_COUNTER" property="chargeCounter" jdbcType="DECIMAL" />
+    <result column="TAR" property="tar" jdbcType="VARCHAR" />
+    <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_TXN_TIME" property="lastTxnTime" jdbcType="TIMESTAMP" />
+    <result column="FORBIDDEN_TXN" property="forbiddenTxn" jdbcType="VARCHAR" />
+    <result column="ISSUED_BATCH_NO" property="issuedBatchNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    INNER_CARD_NO, ISSUE_ORG_CODE, OUTER_CARD_NO, CARD_SSN, CARD_MEDIA_TYPE, CARD_BARND, 
+    CARD_MADE_TIME, SOLD_TIME, FOREGIFT, INITIAL_AMT, BALANCE, APPANGE, STATUS, CITY_CODE, 
+    AREA_CODE, AUTH_CODE, CARD_VERSION, VALID_TIME, CONSUME_COUNTER, CHARGE_COUNTER, 
+    TAR, LAST_UPDATE_TIME, LAST_TXN_TIME, FORBIDDEN_TXN, ISSUED_BATCH_NO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_INFO_CARD
+    where INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_INFO_CARD
+    where INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoCard" >
+    insert into T_INFO_CARD (INNER_CARD_NO, ISSUE_ORG_CODE, OUTER_CARD_NO, 
+      CARD_SSN, CARD_MEDIA_TYPE, CARD_BARND, 
+      CARD_MADE_TIME, SOLD_TIME, FOREGIFT, 
+      INITIAL_AMT, BALANCE, APPANGE, 
+      STATUS, CITY_CODE, AREA_CODE, 
+      AUTH_CODE, CARD_VERSION, VALID_TIME, 
+      CONSUME_COUNTER, CHARGE_COUNTER, TAR, 
+      LAST_UPDATE_TIME, LAST_TXN_TIME, FORBIDDEN_TXN, 
+      ISSUED_BATCH_NO)
+    values (#{innerCardNo,jdbcType=VARCHAR}, #{issueOrgCode,jdbcType=VARCHAR}, #{outerCardNo,jdbcType=VARCHAR}, 
+      #{cardSsn,jdbcType=VARCHAR}, #{cardMediaType,jdbcType=CHAR}, #{cardBarnd,jdbcType=VARCHAR}, 
+      #{cardMadeTime,jdbcType=TIMESTAMP}, #{soldTime,jdbcType=TIMESTAMP}, #{foregift,jdbcType=DECIMAL}, 
+      #{initialAmt,jdbcType=DECIMAL}, #{balance,jdbcType=DECIMAL}, #{appange,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{cityCode,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{authCode,jdbcType=VARCHAR}, #{cardVersion,jdbcType=DECIMAL}, #{validTime,jdbcType=TIMESTAMP}, 
+      #{consumeCounter,jdbcType=DECIMAL}, #{chargeCounter,jdbcType=DECIMAL}, #{tar,jdbcType=VARCHAR}, 
+      #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastTxnTime,jdbcType=TIMESTAMP}, #{forbiddenTxn,jdbcType=VARCHAR}, 
+      #{issuedBatchNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoCard" >
+    insert into T_INFO_CARD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO,
+      </if>
+      <if test="issueOrgCode != null" >
+        ISSUE_ORG_CODE,
+      </if>
+      <if test="outerCardNo != null" >
+        OUTER_CARD_NO,
+      </if>
+      <if test="cardSsn != null" >
+        CARD_SSN,
+      </if>
+      <if test="cardMediaType != null" >
+        CARD_MEDIA_TYPE,
+      </if>
+      <if test="cardBarnd != null" >
+        CARD_BARND,
+      </if>
+      <if test="cardMadeTime != null" >
+        CARD_MADE_TIME,
+      </if>
+      <if test="soldTime != null" >
+        SOLD_TIME,
+      </if>
+      <if test="foregift != null" >
+        FOREGIFT,
+      </if>
+      <if test="initialAmt != null" >
+        INITIAL_AMT,
+      </if>
+      <if test="balance != null" >
+        BALANCE,
+      </if>
+      <if test="appange != null" >
+        APPANGE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="authCode != null" >
+        AUTH_CODE,
+      </if>
+      <if test="cardVersion != null" >
+        CARD_VERSION,
+      </if>
+      <if test="validTime != null" >
+        VALID_TIME,
+      </if>
+      <if test="consumeCounter != null" >
+        CONSUME_COUNTER,
+      </if>
+      <if test="chargeCounter != null" >
+        CHARGE_COUNTER,
+      </if>
+      <if test="tar != null" >
+        TAR,
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="lastTxnTime != null" >
+        LAST_TXN_TIME,
+      </if>
+      <if test="forbiddenTxn != null" >
+        FORBIDDEN_TXN,
+      </if>
+      <if test="issuedBatchNo != null" >
+        ISSUED_BATCH_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="innerCardNo != null" >
+        #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="issueOrgCode != null" >
+        #{issueOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outerCardNo != null" >
+        #{outerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSsn != null" >
+        #{cardSsn,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMediaType != null" >
+        #{cardMediaType,jdbcType=CHAR},
+      </if>
+      <if test="cardBarnd != null" >
+        #{cardBarnd,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMadeTime != null" >
+        #{cardMadeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="soldTime != null" >
+        #{soldTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="foregift != null" >
+        #{foregift,jdbcType=DECIMAL},
+      </if>
+      <if test="initialAmt != null" >
+        #{initialAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="appange != null" >
+        #{appange,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authCode != null" >
+        #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardVersion != null" >
+        #{cardVersion,jdbcType=DECIMAL},
+      </if>
+      <if test="validTime != null" >
+        #{validTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consumeCounter != null" >
+        #{consumeCounter,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeCounter != null" >
+        #{chargeCounter,jdbcType=DECIMAL},
+      </if>
+      <if test="tar != null" >
+        #{tar,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTxnTime != null" >
+        #{lastTxnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forbiddenTxn != null" >
+        #{forbiddenTxn,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedBatchNo != null" >
+        #{issuedBatchNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoCard" >
+    update T_INFO_CARD
+    <set >
+      <if test="issueOrgCode != null" >
+        ISSUE_ORG_CODE = #{issueOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="outerCardNo != null" >
+        OUTER_CARD_NO = #{outerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cardSsn != null" >
+        CARD_SSN = #{cardSsn,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMediaType != null" >
+        CARD_MEDIA_TYPE = #{cardMediaType,jdbcType=CHAR},
+      </if>
+      <if test="cardBarnd != null" >
+        CARD_BARND = #{cardBarnd,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMadeTime != null" >
+        CARD_MADE_TIME = #{cardMadeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="soldTime != null" >
+        SOLD_TIME = #{soldTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="foregift != null" >
+        FOREGIFT = #{foregift,jdbcType=DECIMAL},
+      </if>
+      <if test="initialAmt != null" >
+        INITIAL_AMT = #{initialAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        BALANCE = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="appange != null" >
+        APPANGE = #{appange,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="authCode != null" >
+        AUTH_CODE = #{authCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardVersion != null" >
+        CARD_VERSION = #{cardVersion,jdbcType=DECIMAL},
+      </if>
+      <if test="validTime != null" >
+        VALID_TIME = #{validTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consumeCounter != null" >
+        CONSUME_COUNTER = #{consumeCounter,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeCounter != null" >
+        CHARGE_COUNTER = #{chargeCounter,jdbcType=DECIMAL},
+      </if>
+      <if test="tar != null" >
+        TAR = #{tar,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTxnTime != null" >
+        LAST_TXN_TIME = #{lastTxnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="forbiddenTxn != null" >
+        FORBIDDEN_TXN = #{forbiddenTxn,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedBatchNo != null" >
+        ISSUED_BATCH_NO = #{issuedBatchNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoCard" >
+    update T_INFO_CARD
+    set ISSUE_ORG_CODE = #{issueOrgCode,jdbcType=VARCHAR},
+      OUTER_CARD_NO = #{outerCardNo,jdbcType=VARCHAR},
+      CARD_SSN = #{cardSsn,jdbcType=VARCHAR},
+      CARD_MEDIA_TYPE = #{cardMediaType,jdbcType=CHAR},
+      CARD_BARND = #{cardBarnd,jdbcType=VARCHAR},
+      CARD_MADE_TIME = #{cardMadeTime,jdbcType=TIMESTAMP},
+      SOLD_TIME = #{soldTime,jdbcType=TIMESTAMP},
+      FOREGIFT = #{foregift,jdbcType=DECIMAL},
+      INITIAL_AMT = #{initialAmt,jdbcType=DECIMAL},
+      BALANCE = #{balance,jdbcType=DECIMAL},
+      APPANGE = #{appange,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      AUTH_CODE = #{authCode,jdbcType=VARCHAR},
+      CARD_VERSION = #{cardVersion,jdbcType=DECIMAL},
+      VALID_TIME = #{validTime,jdbcType=TIMESTAMP},
+      CONSUME_COUNTER = #{consumeCounter,jdbcType=DECIMAL},
+      CHARGE_COUNTER = #{chargeCounter,jdbcType=DECIMAL},
+      TAR = #{tar,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      LAST_TXN_TIME = #{lastTxnTime,jdbcType=TIMESTAMP},
+      FORBIDDEN_TXN = #{forbiddenTxn,jdbcType=VARCHAR},
+      ISSUED_BATCH_NO = #{issuedBatchNo,jdbcType=VARCHAR}
+    where INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,1120 @@
+@charset "utf-8";
+* {padding:0;margin:0;}
+body{margin:0;padding:0;
+    background:#f6f6f6;
+    font: 12px/1.5 tahoma, arial, Hiragino Sans GB, 宋体b8b\4f53; 
+    color: #545454;}
+div,p,li{font-family:;font-size:12px;}
+form,ul,li,p,h1,h2,h3,h4,h5,h6,dl,dd,dt{margin:0;padding:0;}
+
+/********************右边底角处 客服 购物车样式********************/
+.ctrolPanel{width:66px;position:fixed;
+    right:25px;top:300px;overflow:hidden;z-index:10000; _position:absolute; 
+    /* for IE6 */_top:expression(documentElement.scrollTop + 300);}
+/********************右边底角处 客服 购物车样式********************/
+
+img{border:0;}
+ul,li{list-style-type:none;}
+li{font-size:12px;}
+.tc{text-align:center;}.tl{text-align:left;}.tr{text-align:right;}
+.dis{display:block;}.hide{display:none;}
+.fl{float:left;}.fr{float:right;}.cl{clear:both; height:0;overflow:hidden;font-size:0;line-height:0;}
+a{color:#5A5A5A;text-decoration:none;}
+a:hover{color:#FB4C09;text-decoration:underline;}
+a{cursor:pointer;}
+.h3{
+  margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1;
+  color: inherit;
+  text-rendering: optimizelegibility;
+  line-height: 40px;
+}
+
+
+/********************无left的主体DIVCSS********************/
+.ui-noleft {
+    background-image: none;
+    background-color:#fff;
+}
+
+/* ok */
+div.ui-Correct {
+    border-color: #A0C87A;
+    background-color: #F4FFE7;
+    color: #58852F;
+}
+
+.ui-Promptdiv {
+    width: 100%;
+    min-height: 36px;
+    padding: 16px 0px;
+    display: inline-block;
+    border: 1px solid;
+    box-shadow: 1px 3px 1px 0px #DDD;
+    position: relative;
+    font-size: 14px;
+}
+
+div.ui-Correct i {
+    background-position: 0px -344px;
+}
+
+div.ui-Error {
+    color: #C30;
+}
+
+div.ui-Error i {
+    background-position: 0px -376px;
+}
+
+.ui-Promptdiv i {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    background-image: url('/assets/sutongpay/inside-main/allicon.png');
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+}
+
+.ui-button, .ui-button:link, .ui-button:visited, .ui-button:hover, .ui-button:active {
+    text-decoration: none;
+}
+
+a.ui-button-morange {
+    border: 1px solid #BA4A06;
+    background-color: #EF9018;
+    color: #FFF;
+    line-height: 28px;
+    height: 28px;
+}
+
+a.ui-button {
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-family: verdana,Hiragino Sans GB;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 0px 20px;
+    background-image: none;
+    overflow: visible;
+    display: inline-block;
+}
+a.ui-button:active {
+    position: relative;
+    top: 2px;
+    *top:0px;
+}
+a.ui-button-icon01 {
+    border: 1px solid #C2CCDF;
+    color: #666;
+    background-color: #F1F5F5;
+    line-height: 28px;
+    height: 28px;
+    font-weight: 100;
+    position: relative;
+    padding-left: 30px;
+}
+a.ui-button-icon01 i {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    float: left;
+    position: absolute;
+    left: 11px;
+    top: 7px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    background-repeat: no-repeat;
+}
+*+ html a.ui-button-icon01 i {
+    top: 9px;
+}
+a.ui-button-icon01:hover i {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+a.ui-button-icon01 i.ui-addicon {
+    background-image: url(/assets/sutongpay/inside-main/addicon01.png);
+}
+*+html a.ui-button-icon01 {
+    line-height: 30px;
+}
+a.ui-button-icon01:hover {
+    border: 1px solid #B6C1D5;
+    background-color: #EBF0F0;
+}
+a.ui-button-morange {
+    border: 1px solid #BA4A06;
+    background-color: #EF9018;
+    color: #fff;
+    line-height: 28px;
+    height: 28px;
+}
+*+html a.ui-button-morange {
+    line-height: 30px;
+}
+a.ui-button-morange:hover {
+    border: 1px solid #BA4A06;
+    background-color: #F19A2B;
+    color: #fff;
+}
+a.ui-button-morange48 {
+    border: 1px solid #BA4A06;
+    background-color: #EF9018;
+    color: #fff;
+    line-height: 48px;
+    height: 48px;
+    font-family: "微软雅黑";
+    font-size: 22px;
+    font-weight: 100;
+}
+*+html a.ui-button-morange48 {
+    line-height: 50px;
+}
+a.ui-button-morange48:hover {
+    border: 1px solid #BA4A06;
+    background-color: #F19A2B;
+}
+a.ui-button-primary {
+    border: 1px solid #FFC467;
+    background-color: #FFF8E6;
+    color: #F3A115;
+    line-height: 28px;
+    height: 28px;
+    font-weight: 100;
+}
+*+html a.ui-button-primary {
+    line-height: 30px;
+}
+a.ui-button-primary:hover {
+    border: 1px solid #FEA308;
+    background-color: #FFF7E2;
+    color: #F3A115;
+
+}
+a.ui-button-primary48 {
+    border: 1px solid #FFC467;
+    background-color: #FFF8E6;
+    color: #F3A115;
+    line-height: 48px;
+    height: 48px;
+    font-size: 22px;
+    font-weight: 100;
+    font-family: "微软雅黑";
+}
+*+html a.ui-button-primary48 {
+    line-height: 50px;
+}
+a.ui-button-primary48:hover {
+    border: 1px solid #FEA308;
+    background-color: #FFF7E2;
+}
+a.ui-button-serprimary {
+    border: 1px solid #FFC467;
+    background-color: #FFF8E6;
+    color: #F3A115;
+    line-height: 21px;
+    height: 21px;
+    font-size: 12px;
+    padding: 2px 15px;
+    font-weight: 100;
+}
+a.ui-button-serprimary:hover {
+    border: 1px solid #FEA308;
+    background-color: #FFF7E2;
+}
+a.ui-button-morange-h25 {
+    border: 1px solid #d66500;
+    background-color: #F57403;
+    color: #fff;
+    line-height: 21px;
+    height: 21px;
+    font-size: 12px;
+}
+*+html a.ui-button-morange-h25 {
+    line-height: 26px;
+}
+a.ui-button-mwhite {
+    border: 1px solid #C2CCDF;
+    color: #666;
+    background-color: #F1F5F5;
+    line-height: 28px;
+    height: 28px;
+    font-weight: 100;
+}
+*+html a.ui-button-mwhite {
+    line-height: 30px;
+}
+a.ui-button-mwhite:hover {
+    border: 1px solid #B6C1D5;
+    background-color: #EBF0F0;
+    color: #666;
+}
+a.ui-button-mwhite48 {
+    border: 1px solid #C2CCDF;
+    color: #666;
+    background-color: #F1F5F5;
+    line-height: 48px;
+    height: 48px;
+    font-weight: 100;
+    font-size: 20px;
+    font-family: "微软雅黑"
+}
+*+html a.ui-button-mwhite48 {
+    line-height: 50px;
+}
+a.ui-button-mwhite48:hover {
+    border: 1px solid #B6C1D5;
+    background-color: #EBF0F0;
+}
+a.ui-button-hwhite {
+    border: 1px solid #BABABA;
+    color: #939393;
+    background-color: #C6C6C6;
+    line-height: 26px;
+    height: 26px;
+    font-weight: 100;
+    cursor: default;
+}
+a.ui-button-hwhite:active {
+    position: relative;
+    top: 0px;
+}
+a.ui-button-serOrange {
+    border: 1px solid #BA4A06;
+    background-color: #EE9017;
+    color: #fff;
+    line-height: 21px;
+    height: 21px;
+    font-size: 12px;
+    padding: 2px 15px;
+}
+a.ui-button-serOrange:hover {
+    background-color: #F19A2B;
+    color: #fff;
+}
+
+a.ui-button-sermwhite {
+    border: 1px solid #C2CCDF;
+    color: #666;
+    background-color: #F1F5F5;
+    line-height: 21px;
+    height: 21px;
+    font-size: 12px;
+    padding: 2px 15px;
+    font-weight: 100;
+}
+a.ui-button-sermwhite:hover {
+    border: 1px solid #B6C1D5;
+    background-color: #EBF0F0;
+    color: #666;
+}
+
+
+.ui-Promptdiv span {
+    display: block;
+    float: left;
+    margin-left: 64px;
+    text-align: left;
+    width: 90%;
+}
+
+.ui-form {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.ui-form-item {
+    display: inline-block;
+    text-align: left;
+}
+
+
+.ui-form-item .ui-txtinput01{
+    height: 30px;
+}
+
+/*交易限额*/
+.ui-form-item .ui-txtinput02{
+    height: 20px;
+    border: 1px solid #CCC;
+padding: 5px 10px;
+line-height: 14px;
+width: 160px;
+color: #666;
+box-shadow: 2px 2px 2px #EEE inset;
+margin-bottom: 0px;
+}
+
+
+
+/*input*/
+
+.input-w1{ width:180px; height:30px; padding-left:7px; font-size:16px; color:#555; font-weight:bold; border:1px solid #ccc; background:url(/assets/sutongpay/inputbg.png) repeat-x; line-height:30px;}
+.input-w2,.input-w3,.input-w5{ height:30px; padding-left:7px; font-size:14px; color:#555; font-weight:bold; border:1px solid #ddd; background:#fff; line-height:30px;}
+.input-w2{width:260px;}
+.input-w3{width:165px;}
+.input-w5{width:114px;}
+.input-w4{width:90px; height:30px; padding-left:7px; font-size:14px; color:#555;border:1px solid #ddd; background:#fff; line-height:30px;}
+.input-w6,.input-w7{background:#fff; height:32px; padding-left:7px; font-size:16px; font-weight:bold; border:1px solid #ccc; line-height:32px;}
+.input-w6{width:290px; position:relative;}
+.input-w7{width:120px;}
+
+/*font*/
+.font-org32{font-size:32px; color:#fb6100; margin:0 3px;}
+.font-org{color:#fb6100;}
+.font-org24{ font-size:24px;color:#fb6100;}
+.font-blue{color:#0069ba;}
+.font-black{font-size:16px; color:#555;font-weight:bold;}
+.font-green{color:#2ca900;}
+.font-grey{color:#666;}
+.font-grey16{color:#999;}
+.font-greyb16{color:#888; font-size:16px; font-weight:bold;}
+.font-grey12{color:#d5d4d4;}
+.font-grey14{ font-size:14px;color:#666;}
+.font-grey24{color:#999; font-size:24px;}
+/*btn*/
+.org-btn{background:#f19a2b; border:1px solid #d96d00; color:#fff; font-size:16px; font-weight:bold; width:239px; margin:17px auto 20px; height:32px; line-height:32px;cursor: pointer;}
+
+.org-step{ background:#fff; background-image:url(/assets/sutongpay/common.png); background-position: right -65px; width:116px; height:39px; float:left; display:block; font-size:14px; color:#fff; font-weight:bold; border:0; cursor:pointer; line-height:39px;}
+.org-step-h{ background:#fff; background-image:url(/assets/sutongpay/common.png); background-position: -369px -182px; width:98px; height:36px; float:left; display:block; font-size:14px; color:#fff; font-weight:bold; border:0; cursor:pointer; line-height:39px;}
+.org-step-w{ background:#fff; background-image:url(/assets/sutongpay/common.png); background-position: -479px -181px; width:98px; height:36px; float:left; display:block; font-size:14px; color:#fff; font-weight:bold; border:0; cursor:pointer; line-height:39px;}
+
+.grey-btn{background:#fff; background-image:url(/assets/sutongpay/common.png); background-position: -369px -126px;float:left; width:144px; height:33px; cursor:pointer; border:0; text-align:center; color:#777; font-size:12px; font-weight:bold; line-height:34px; }
+.zoom{background-image:url(/assets/sutongpay/common.png); background-position:-535px -126px; float:left; display:block; width:67px; height:25px; text-align:center;font-size:12px; color:#666; line-height:26px; border:0; cursor:pointer;}
+
+.down-btn{background-image:url(/assets/sutongpay/common.png); background-position:right -126px; float:left; display:block; width:92px; height:25px; text-align:center;font-size:12px; color:#666; line-height:26px; border:0; cursor:pointer; margin-left:6px;}
+.inqu-btn{background:#fff; background-image:url(/assets/sutongpay/common.png); background-position: -238px -180px; width:97px; height:36px; border:0; font-size:14px; font-weight:bold; color:#666; display:block; margin-left:12px;}
+/*head*/
+#wrapper{width:100%; }
+.header{width:100%; background:#fff;overflow:hidden;}
+.section{background:url(/assets/sutongpay/topbg.png) repeat-x;height:30px; border-bottom:1px solid #ebebeb;}
+.section .top{width:1000px; margin:0 auto;}
+.section span{color:#deddde; font-size:12px; line-height:30px;}
+.section span .font-grey{color:#666;}
+.section span a{color:#666;padding:0 15px;  text-decoration:none;}
+.section span a:hover{text-decoration:underline;}
+.nav{clear:both;width:1111px; margin:14px auto; overflow:hidden; display:block;}
+.nav .logo{ margin-left:8px;width:325px; height:63px; background-image:url(/assets/sutongpay/logo.png); background-position:0 0; display:block;float: left}
+.nav ul{ width:678px; padding-top:19px; padding-left:100px; overflow:hidden;float:right; display:block;}
+.nav li{width:82px; height:29px; font-size:16px; margin:0 14px; text-align:center; color:#666; font-family:"微软雅黑"; line-height:29px; float:left; display:block;}
+.nav li a{color:#666; text-decoration:none;}
+.nav li a:hover{color:#ff6600; text-decoration:none;}
+.nav li.home a{ color:#fff;background-image:url(/assets/sutongpay/common.png); background-position:-268px -4px; width:68px; height:29px; float:left; display:inline; }
+.nav li.other a{ color:#fff;background-image:url(/assets/sutongpay/common.png); background-position:-371px -4px; width:82px; height:29px; float:left; display:inline; }
+
+
+.a-main-bg{width:100%;margin-top:3px;background:#fff; overflow:hidden;}
+.a-main{width:1000px; margin:14px auto 150px; overflow:hidden;}
+.n-main-bg{width:100%;margin-top:3px;background:#fff; overflow:hidden;}
+.n-main{width:1000px; margin:14px auto; overflow:hidden;}
+.main-bg{width:100%;margin-top:3px;background:#fff; }
+.main{width:1000px; margin:14px auto; }
+
+.z-main-bg{width:100%; background:#f9f9f9; overflow:hidden;}
+
+.p-main-bg{width:100%;margin-top:3px;background:#fff; overflow:hidden;}
+.p-main{width:1000px; margin:3px auto 0px auto; overflow:hidden;}
+
+.l-main-bg{width:100%; background:#fff; overflow:hidden;}
+.l-main{width:1000px; margin:5px auto 80px; overflow:hidden;}
+
+
+
+/*select*/
+.select-outer { background:#fff; display:inline-block; *display:inline; zoom:1; border:1px solid #ddd; }
+.select-inner { display:inline-block; *display:inline; zoom:1; height:19px; overflow:hidden; position:relative; }
+.select-h { border:1px solid #ddd; height:25px; font-size:14px; font-weight: 400; position:relative; zoom:1; margin:-1px; }
+.select-wh92 ,.select-wh165 {padding:3px 3px 0 3px; }
+.select-wh92 .select-inner {width:92px; }
+.select-wh92 select { width:94px; }
+.select-wh165 .select-inner {width:165px; }
+.select-wh165 select {width:167px; }
+
+
+/*空白*/
+.sp-mtop12{margin-top:12px;}
+.sp-mtop16{margin-top:16px;}
+.sp-mtop22{margin-top:22px;}
+.sp-mtop30{margin-top:30px;}
+.sp-mleft250{margin-left: 250px;}
+.sp-mleft25{margin-left: 25px;}
+.sp-mleft100{margin-top:100px;}
+.sp-l20{padding-left:20px;}
+.sp-mleftf70{margin-left:-70px;}
+.sp-mleftf50{
+    margin-left: 40px;
+}
+.sp-mtopf16{margin-top:-16px;}
+
+.left{background:#f6f6f6;width:190px;border:1px solid #dcdcdc; padding:15px 0 24px 0; border-right:0; overflow:hidden; float:left;}
+.right{ background:#fff; width:760px; border:1px solid #dcdcdc; padding:10px 18px 80px 18px; min-height:500px; overflow:hidden; float:left;}
+.tit{height:30px; line-height:30px; border-bottom:1px solid #e6e4e4; display:block; font-weight:normal; display:block;}
+.tit h2{ width:100px; text-align:center; border-bottom:4px solid #0169b8;font-size:14px; color:#0169b8; float:left;}
+.ex{color:#666; font-size:12px; float:left;}
+.time{color:#b5b5b5; font-size:12px; float:right;}
+/*菜单*/
+.menu{width:190px;overflow:hidden; display:block;}
+h2{line-height: 30px}
+.menu h2{font-size:16px; padding-left:35px; padding-bottom:10px; overflow:hidden; display:block;}
+.menu h2 i{background-image:url(/assets/sutongpay/common.png); background-position:0 -78px; float:left; display:block; width:14px; height:14px; margin-top:8px; margin-left:20px;}
+.menu h2 em{ color:#6d6d6d; font-style:normal; display:block; float:left;}
+.menu li{clear:both; color:#6d6d6d; font-size:14px; height:37px; line-height:37px;overflow:hidden;display:block; margin:5px 0;}
+.menu li a{color:#6d6d6d; text-decoration:none;}
+.menu li a:hover{color:#6d6d6d; text-decoration:underline;}
+.menu li.current{background:#dcdcdc; height:37px;}
+
+.menus{width:190px;overflow:hidden; display:block;}
+h2{line-height: 30px}
+.menus h2{font-size:16px; padding-left:35px; padding-bottom:10px; overflow:hidden; display:block;}
+.menus h2 i{background-image:url(/assets/sutongpay/common.png); background-position:0 -78px; float:left; display:block; width:14px; height:14px; margin-top:8px; margin-left:20px;}
+.menus h2 em{ color:#6d6d6d; font-style:normal; display:block; float:left;}
+.menus li{clear:both; color:#6d6d6d; font-size:14px; height:37px; line-height:37px;overflow:hidden;display:block; margin:5px 0;}
+.menus li a{color:#6d6d6d; text-decoration:none;}
+.menus li a:hover{color:#6d6d6d; text-decoration:underline;}
+.menus li.current{background:#dcdcdc; height:37px;}
+
+.menuo{width:190px;overflow:hidden; display:block;}
+h2{line-height: 30px}
+.menuo h2{font-size:16px; padding-left:35px; padding-bottom:10px; overflow:hidden; display:block;}
+.menuo h2 i{background-image:url(/assets/sutongpay/common.png); background-position:0 -78px; float:left; display:block; width:14px; height:14px; margin-top:8px; margin-left:20px;}
+.menuo h2 em{ color:#6d6d6d; font-style:normal; display:block; float:left;}
+.menuo li{clear:both; color:#6d6d6d; font-size:14px; height:37px; line-height:37px;overflow:hidden;display:block; margin:5px 0;}
+.menuo li a{color:#6d6d6d; text-decoration:none;}
+.menuo li a:hover{color:#6d6d6d; text-decoration:underline;}
+.menuo li.current{background:#dcdcdc; height:37px;}
+.menu i{background-image:url(/assets/sutongpay/menu-icon.png); float:left; display:block; width:27px; height:27px; margin:6px 12px 0 35px!important;margin:6px 12px 0 15px}
+.menus i{background-image:url(/assets/sutongpay/safeCenter.png); float:left; display:block; width:27px; height:27px; margin:6px 12px 0 35px!important;margin:6px 12px 0 15px}
+.menuo i{background-image:url(/assets/sutongpay/order.png); float:left; display:block; width:27px; height:27px; margin:6px 12px 0 35px!important;margin:6px 12px 0 15px}
+.m1 i{background-position:0 0;}
+.m2 i{background-position:0 -48px;}
+.m3 i{background-position:0 -96px;}
+.m4 i{background-position:0 -144px;}
+.m5 i{background-position:0 -192px;}
+.m6 i{background-position:0 -240px;}
+.m7 i{background-position:0 -288px;}
+.m8 i{background-position:0 -336px;}
+/*水电燃气费缴费*/
+.water{clear:both;padding:18px 0; overflow:hidden;}
+.blue-bg{background:#f7fafd; height:38px; padding-top:6px; margin-bottom:32px;display:block;}
+.cola{font-size:14px; color:#666; padding-right:8px; text-align:right; height:32px; line-height:32px; display:block;}
+.colb{width:340px; height:32px; line-height:32px; display:block;}
+
+.col260{padding-left:260px; font-size:12px; height:20px; line-height:20px;vertical-align: middle;display:block;}
+.col260 a{color:#0169b8; text-decoration:none;}
+.col260 a:hover{color:#0169b8; text-decoration:underline;}
+.colg{width:170px; height:32px; line-height:32px; display:block;}
+.colh{width:280px; height:32px; line-height:32px; display:block;}
+.colh14{width:280px; height:32px; line-height:32px; display:block; font-size:14px;}
+.colh a{ color:#0169b8; font-size:14px; text-decoration:underline; padding-left:20px;}
+.colh a:hover{text-decoration:none;}
+.colc{padding-left:140px; font-size:12px; height:40px; line-height:20px;vertical-align: middle;display:block;}
+.colc a{color:#0169b8; text-decoration:none;}
+.colc a:hover{color:#0169b8; text-decoration:underline;}
+.cold{padding-top:12px; padding-left:140px; overflow:hidden;display:block;}
+.cold a{ font-size:14px; padding-left:16px;color:#666; text-decoration:underline; line-height:40px;}
+.cold a:hover{color:#666; text-decoration:none;}
+.cole{padding-left:140px; font-size:14px; color:#666; height:20px; line-height:20px;vertical-align: middle;display:block;}
+.colf{padding-left:108px; overflow:hidden;display:block;}
+.colf a{ font-size:14px; padding-left:16px;color:#666; text-decoration:underline; line-height:40px;}
+.colf a:hover{color:#666; text-decoration:none;}
+.coli{padding-left:158px; overflow:hidden;display:block;}
+.coli a{ font-size:14px; padding-left:16px;color:#666; text-decoration:underline; line-height:40px;}
+.coli a:hover{color:#666; text-decoration:none;}
+
+.colz{padding-top:12px; padding-left:140px; overflow:hidden;display:block;}
+.colcenter{padding-top:12px; padding-left:235px; overflow:hidden;display:block;}
+
+
+.picbg{background:#fcfcfc;width:242px; height:140px; border:1px dashed #d1d1d2;}
+.col-wa{width:130px;}
+.col-wb{width:100px;}
+.col-wc{width:150px;}
+.sub-l{width:488px; overflow:hidden;}
+.sub-r{ width:244px; overflow:hidden;}
+.sub-r h6{color:#666; font-size:14px; font-weight:normal; display:block;}
+.ui-checkbox{font-size: 12px;height: 14px;line-height: 14px;vertical-align: middle; margin-top:4px!important;*margin-top:2px; margin-right:5px; display:block;}
+/*翼冲卡*/
+.ycard{ clear:both; padding:28px 40px 60px 40px; overflow:hidden;}
+.step{margin:0 auto; overflow:hidden; display:block;}
+.step-wa{width:596px; }
+.step-wb{width:620px;  }
+.step i{background-image:url(/assets/sutongpay/common.png); display:inline; float:left;}
+.s-one i{background-position:left -133px; width:38px; height:38px; display:block;}
+.s-one-grey i{background-position:left -180px; width:38px; height:38px;display:block;}
+.s-two i{background-position:-63px -180px; width:38px; height:38px;display:block;}
+.s-two-grey i{background-position:-64px -133px; width:38px; height:38px;display:block;}
+.s-three i{background-position:-126px -180px; width:38px; height:38px;display:block;}
+.s-three-grey i{background-position:-125px -133px; width:38px; height:38px;display:block;}
+.greyline{background:#ddd;height:6px; margin-top:16px; display:block; float:left;}
+.line-wa{width:520px;}
+.line-wb{width:250px;}
+.step-ex{ clear:both;width:680px; margin:0 auto; font-size:14px; height:28px; line-height:28px;}
+.step-ex .org{ width:130px;color:#ff7f00; text-align:center;}
+.step-ex .grey{ width:130px;color:#ddd; text-align:center;}
+.step-ex .wa{width:100px; display:block;}
+.step-ex .wb{width:470px; display:block;}
+.ycard-buy{ clear:both;width:680px; padding-top:40px; overflow:hidden;}
+.ycard-buy .yi-l{width:456px; overflow:hidden;}
+.ycard-buy .yipic{background:#fcfcfc;width:200px; height:128px; border:1px solid #d1d1d2;}
+.par-value{ background:#fff; font-size:14px; color:#666; text-align:center; width:60px; height:30px; border:1px solid #ddd; line-height:30px; display:block; margin-right:8px;}
+.sel-par{ border:2px solid #ff7f00; color:#ff6100;position: relative;}
+.sel-par i{ background-image:url(/assets/sutongpay/common.png); background-position:-528px 0; float:left; overflow:hidden; display:block; width:13px; height:13px;position:absolute; right:0;bottom: 0;}
+.par-arrow{width:18px; overflow:hidden;float:left; margin-left:3px; display:block;} 
+.par-arrow i{background-image:url(/assets/sutongpay/common.png); width:18px; height:14px; display:block;}
+.up i{background-position:-559px 0; margin-bottom:3px;}
+.down i{background-position:-559px -17px; }
+.desc{ border-top:1px dashed #eee; padding:0 18px; overflow:hidden;}
+.desc h4{ color:#545454; font-size:14px; padding-top:10px; height:30px; line-height:30px; display:block;}
+.desc p{ color:#767676; font-size:12px;line-height:24px;}
+.tips{background:#e8f1fa; overflow:hidden; border:1px solid #9fc8e4; padding:7px 20px; margin-bottom:32px; display:block;}
+.tips i{background-image:url(/assets/sutongpay/common.png); background-position:-49px -78px; width:20px; height:20px; margin-right:5px; display:inline; float:left;}
+.tips em{ color:#666; font-style:normal; font-size:12px; height:20px; line-height:20px; float:left; display:block;}
+.m25table{margin: auto;width: 350px;font-size:15px;}
+/*手机充值*/
+.phone{padding:32px 90px 0 25px; overflow:hidden;}
+
+/*账户转账*/
+.account{ clear:both; padding:32px 0; overflow:hidden;}
+
+.acco-step2{width:680px; margin:0 auto; padding-top:26px;overflow:hidden;}
+.succ{ height:35px; line-height:35px; display:block; }
+.succ h3{color:#6fc000; font-family:"微软雅黑"; font-size:26px; line-height:35px; display:block; float:left;}
+.succ i{background-image:url(/assets/sutongpay/common.png); background-position:-91px -79px; width:35px; height:35px; margin-left:66px; margin-right:10px;display:inline; float:left;}
+.pz-picbg{background:#fcfcfc;width:200px; height:160px; border:1px dashed #d1d1d2; display:block;}
+.pzbtn{width:200px; margin:10px auto 0; overflow:hidden;}
+.pzbtn h5{ clear:both; font-size:12px; font-weight:normal; color:#666; height:30px; line-height:30px;}
+
+.warn{display:block; color:#999; font-size:12px;height:32px; line-height:32px; }
+.warn i{background-image:url(/assets/sutongpay/common.png); background-position:-173px -88px; width:14px; height:14px; display: inline; float:left; margin-top:10px; margin-right:6px;}
+.yzm{width:160px; height:32px; line-height:32px; display:block;}
+.yzm a{font-size:12px; color:#0169b8; text-decoration:underline;}
+.yzm a:hover{text-decoration:none;}
+/*订单管理*/
+.order-m{padding:22px 0; overflow:hidden;}
+.order-cola{color:#888; font-size:14px;height:32px; line-height:32px; display:block; text-align:right;}
+.order-cola-wa{width:84px;}
+.order-colb{color:#555; font-size:14px;height:32px; line-height:32px; display:block;}
+.order-colb a{padding:0 16px; color:#0269b8; text-decoration:underline;}
+.order-colb a:hover{text-decoration:none;}
+.order-colb-wa{width:600px;}
+.sel-inqu{ border:2px solid #ff7f00; color:#ff6100;position: relative;}
+.sel-inqu i{ background-image:url(/assets/sutongpay/common.png); background-position:-528px 0; float:left; overflow:hidden; display:block; width:13px; height:13px;position:absolute; right:0;bottom: 0;}
+.inqu{color:#555;padding:0 12px; margin:0 6px; height:28px; font-size:14px; display:block; cursor: pointer;}
+.inqu a{color:#555; text-decoration:none;}
+
+.order-m table{width:100%;}
+.order-m table th{ color:#666; font-size:14px; background:#f6f6f6; border-bottom:2px solid #dcdcdc; height:40px; line-height:40px;}
+.order-m table td.first{border-left:1px solid #dcdcdc;}
+.order-m table td.last{border-right:1px solid #dcdcdc;}
+.order-m table tr.white td{ color:#666;font-size:14px; background:#fff;border-bottom:1px solid #efefef; text-align:center; height:44px; line-height:44px;}
+.order-m table tr.grey td{ color:#666;font-size:14px; background:#f9f9f9;border-bottom:1px solid #efefef; text-align:center; height:44px; line-height:44px;}
+
+.page{ border:1px solid #dcdcdc; border-left:0; overflow:hidden; margin-top:16px;}
+.page li{ width:36px; text-align:center;height:32px;border-left:1px solid #dcdcdc;float: right; line-height:32px;}
+.page li a{color:#666;}
+.page li.first{ width:68px;}
+.page li.hover{background:#fd9d2c; color:#fff; font-weight:bold;}
+.page li.hover a{color:#fff;}
+/*******购物车********/
+
+.txtac{text-align:center};
+.bor1{
+    border:1px #dcdcdc solid;
+    display:block;
+}
+/* list */
+.cartlist{
+    display:inline-table;
+    width:100%;
+    border:1px #dcdcdc solid;
+    list-style:none;
+    padding:0;
+    margin:0;
+    }
+.cartlist .ac{
+    text-align:center;
+}
+.listt{
+    background:#f9f9f9;
+    line-height:40px;
+    display:table-row; 
+    color:#999;
+    }
+.listt dd{
+    vertical-align:middle; 
+    display:table-cell;
+    padding-left:10px;
+    border-bottom:3px #e7e7e7 solid;
+    }
+
+.cartlist dd{
+    vertical-align:middle; 
+    display:table-cell;         
+    padding-left:10px;
+    }
+.cartlist dt{
+    vertical-align:middle; 
+    display:table-cell;
+    }
+
+.listc:hover{
+    background:#f5f5f5; 
+}
+.cartlist dl{
+    display:table-row;
+    
+    
+}
+.listc dd{border-bottom:1px #e7e7e7 solid;}
+.listc{
+    height:110px;
+    
+    }
+.listc img{
+    vertical-align:middle;
+}
+.cartlist li{
+    height:110px;
+    display:table-row;
+}
+.pctip{
+    margin-left:20px;
+    font-weight:bold;
+}
+.pctip a{
+    margin-left:20px;
+    font-weight:bold;
+}
+del{
+    color:#999;
+}
+.count{
+    height:26px;
+    line-height:26px;
+    vertical-align:middle;
+    text-align:center;
+    background:#fff;
+    width:100px;
+    display:inline-table;
+    overflow:hidden;
+    margin:0 auto;
+    padding:0;
+    border:1px #cccccc solid;
+}
+.cunt{
+    width:26px;
+    height:26px;
+    text-align:center;
+    background:#f8f8f8;
+    line-height:26px;
+    display:table-cell;
+    margin:0;
+    padding:0;
+    cursor:pointer;
+    vertical-align:middle;  
+}
+.cuntover{
+    width:26px;
+    height:26px;
+    text-align:center;
+    background:#f8f8f8;
+    line-height:26px;
+    display:table-cell;
+    margin:0;
+    padding:0;
+    vertical-align:middle;  
+}
+.count .tr{ width:101px; overflow:hidden}
+.cuntover img{
+    opacity:0.4;
+}
+.cunt :hover{
+    background:#cccccc;
+}
+.count input{
+    border:none;
+    width:47px;
+    height:24px;
+    line-height:26px;
+    text-align:center;
+    display:table-cell;
+}
+.del{width:110px;}
+.del:hover{
+    background:#e5e5e5;
+    cursor:pointer;
+}
+.sale{
+    color:#ff9640;
+    font-weight:bold;
+    font-size:14px;
+}
+.listf{
+    background:#dcdcdc;
+    line-height:60px;
+    display:table-row; 
+    width:110px;
+    color:#000;
+}
+.check{
+    width:15px;
+    height:15px;
+    vertical-align:middle;
+}
+.listf .value{
+    color:#ff4400;
+    font-size:24px;
+    font-family:Arial;
+}
+.countsub{
+    height:60px;
+    width:150px;
+    background:#F40;
+    border:none;
+    color:#fff;
+    cursor:pointer;
+    font-size:24px;
+    font-family: "微软雅黑", "黑体", "宋体";
+    padding:0px;
+    margin:0px;
+    float:right;
+}
+.countsub:hover{
+        background:#F60;
+}
+.back{
+    background:url(/assets/sutongpay//backbg.png);
+    width:112px;
+    height:30px;
+    font-size:14px;
+    color:#999;
+    text-align:center;
+    line-height:30px;
+    text-indent:10px;
+}
+.back a{
+    font-size:14px;
+    color:#999;
+    width:112px;
+    height:30px;
+    line-height:30px;
+    overflow:hidden;
+}
+.back a:hover{
+    font-size:14px;
+    color:#000;
+    text-decoration:none;
+}
+.wid110{
+    width:110px;
+}
+/********弹出红色注释补充CSS*********/
+
+*html .parsley-error-list{ display: inline-block; height:auto; float: left;}
+*html .parsley-error-list li{ display: inline; }
+*+html .parsley-error-list{ display: inline-block; height:auto; float: left;}
+*+html .parsley-error-list li{ display: inline; }
+
+
+.ui-Transaction-none{width:100%;height:125px;display:block;position:relative}
+.ui-Transaction-none .ui-noneimg{position:absolute;left:250px;top:55px;display:block;width:33px;height:32px;background-image:url(/assets/sutongpay/inside-main/allicon.png);background-position:0 -312px;background-repeat:no-repeat;}
+.ui-Transaction-none .ui-nonetxt{position:absolute;left:290px;top:65px;font-size:14px;width:300px}
+.ui-Transaction-none .ui-nonetxt a{font-size:14px}
+a.ui-txt-a{vertical-align:top}
+.ui-txt-a{color:#2597dc;font-size:12px;font-family:"宋体"}
+.ui-txt-a:hover{text-decoration:underline;color:#2597dc}
+
+.ui-timeinput{background-image: url(/assets/sutongpay/inside-main/allicon.png);background-position:-36px -445px;background-repeat:no-repeat}
+table.ui-appcenter-infotab{width:100%;margin-top:10px;margin-bottom:20px;line-height:40px;background-color:#ccc;vertical-align:middle;border-spacing:1;border-collapse:separate;display:inline-table}
+.ui-appcenter-infotab td{background-color:#FFF;padding-left:15px;text-align:left;font-size:14px}
+.ui-appcenter-infotab td .ui-Check01{margin-top:-3px;margin-right:5px;vertical-align:middle;width:15px;height:15px;display:inline-block}
+.ui-appcenter-infotab .ui-tabtit01 td{text-align:center;background-color:#f1f1f1;font-weight:bold;padding:2px}
+.ui-appcenter-infotab .ui-tabtxt01{padding-right:15px;text-align:right;background-color:#f1f1f1}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-rel{position:relative}
+.ui-appcenter-infotab .ui-tabtxt01y{vertical-align:bottom}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-txt-a{position:relative;top:3px}
+*html .ui-appcenter-infotab .ui-tabtxt01y .ui-txt-a{top:14px}
+*+html .ui-appcenter-infotab .ui-tabtxt01y .ui-txt-a{top:14px}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-rel .ui-txtinput01{margin:5px 0}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-CheckControls{position:relative;top:5px}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-rel .ui-Checkimg{position:absolute;float:left;left:82px;top:12px}
+.ui-appcenter-infotab .ui-tabtxt02 td{text-align:center;padding:2px}
+.ui-appcenter-infotab .ui-radio{margin-top:14px;margin-top:11px\0;*margin-top:-1px}
+.ui-appcenter-infotab .ui-radio02{margin-top:14px;margin-top:11px\0;*margin-top:-1px}
+.ui-inside-tab01{table-layout: fixed;}
+.inside-main {
+    text-align: center;
+    margin: 0 auto 0 auto;
+    background-color: #fff;
+    width: 100%;
+}
+/********************内页所有控件相关CSS********************/
+/********相关a标签字体样式*********/
+.ui-txt-a {
+    color: #2597dc;
+    font-size: 12px;
+    font-family: "宋体";
+}
+a.ui-txt-a {
+    vertical-align: top;
+    
+}
+.ui-txt-a:hover {
+    text-decoration: underline;
+    color: #2597dc;
+}
+.ui-txtbig {
+    font-size: 28px;
+    font-weight: bold;
+}
+.ui-text-orange {
+    color: #f77700;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.ui-text-Green {
+    color: #13af0c;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.ui-txt-Gray {
+    color: #ddd;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.ui-sepdased-line {
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+    border-bottom: 1px dashed #999999;
+    margin-bottom: 20px;
+}
+.ui-f28 {
+    font-size: 28px;
+    font-weight: bold;
+}
+/********相关Table样式*********/
+.ui-inside-tab01 .ui-instab-th td {
+    background-color: #f3f2f2;
+    line-height: 35px;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.ui-inside-tab01 .ui-instab-tm td {
+    background-color: #f3f2f2;
+    line-height: 35px;
+    height: 35px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.ui-inside-tab01 .ui-tabView {
+    font-weight: none;
+}
+.ui-inside-tab01 tr td {
+    border-bottom: 1px solid #eee;
+    line-height: 25px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    word-break:break-all;
+}
+/********相关DIV分布样式*********/
+
+.inside-main .ui-rightdiv {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    *width:99%;
+}
+/********资讯DIV分布样式*********/
+.ui-news {
+    display: inline-block;
+    float: left;
+    border: 1px solid #f3f2f2;
+    width:100%;
+}
+.ui-news .ui-news-title {
+    width: 100%;
+    line-height: 40px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #f3f2f2;
+}
+.ui-news .ui-news-title span {
+    position: relative;
+    left: 20px;
+}
+.ui-news li {
+    margin-bottom: 10px;
+}
+.ui-news .ui-newsdimg {
+    width: 15px;
+    height: 15px;
+    background-image: url(/assets/sutongpay/inside-main/my-dian01.jpg);
+    position: relative;
+    float: left;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+.ui-news a {
+    color: #666;
+}
+.ui-news a:hover {
+    color: #333;
+}
+/********广告位DIV样式*********/
+
+.ui-Advertisingdiv {
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+}
+/*******表单样式*********/
+
+input.ui-txtinput01 {
+    border: 1px solid #CCC;
+    padding: 5px 10px;
+    line-height: 14px;
+    width: 160px;
+    color: #666;
+    box-shadow: 2px 2px 2px #eee inset;
+    padding: 8px 10px 2px 10px\0;
+    margin-bottom: 0px;
+
+}
+*html input.ui-txtinput01 {
+    line-height: 17px;
+    height: 19px;
+    margin-top: 0px;
+
+}
+*+html input.ui-txtinput01 {
+    padding: 8px 10px 2px 10px;
+}
+.ui-textarea {
+    width: 422px;
+    height: 79px;
+    line-height: 15px;
+    border: 1px #9c9c9c solid;
+    padding: 1px 3px 0 4px;
+    _padding: 1px 2px 0 5px;
+    overflow: auto;
+    font-family: Arial;
+    -webkit-appearance: textarea;
+    background-color: white;
+    border: 1px solid #CCC;
+    -webkit-user-select: text;
+    -webkit-flex-direction: column;
+    resize: auto;
+    cursor: auto;
+    padding: 2px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #666;
+    padding: 10px;
+}
+.ui-lifepay-select01 {
+    width: auto;
+}
+
+
+
+input[type="file"]{ overflow: hidden; width: 75px; margin-top: 0px; padding-left: 0px; height: 25px; line-height: 25px; *border: solid 0px #fff;}
+
+.ui-timeinput{background-image: url(/assets/sutongpay/inside-main/allicon.png);background-position:-36px -445px;background-repeat:no-repeat}
+table.ui-appcenter-infotab{width:100%;margin-top:10px;margin-bottom:20px;line-height:40px;background-color:#ccc;vertical-align:middle;border-spacing:1;border-collapse:separate;display:inline-table}
+.ui-appcenter-infotab td{background-color:#FFF;padding-left:15px;text-align:left;font-size:14px}
+.ui-appcenter-infotab td .ui-Check01{margin-top:-3px;margin-right:5px;vertical-align:middle;width:15px;height:15px;display:inline-block}
+.ui-appcenter-infotab .ui-tabtit01 td{text-align:center;background-color:#f1f1f1;font-weight:bold;padding:2px}
+.ui-appcenter-infotab .ui-tabtxt01{padding-right:15px;text-align:right;background-color:#f1f1f1}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-rel{position:relative}
+.ui-appcenter-infotab .ui-tabtxt01y{vertical-align:bottom}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-txt-a{position:relative;top:3px}
+*html .ui-appcenter-infotab .ui-tabtxt01y .ui-txt-a{top:14px}
+*+html .ui-appcenter-infotab .ui-tabtxt01y .ui-txt-a{top:14px}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-rel .ui-txtinput01{margin:5px 0}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-CheckControls{position:relative;top:5px}
+.ui-appcenter-infotab .ui-tabtxt01y .ui-rel .ui-Checkimg{position:absolute;float:left;left:82px;top:12px}
+.ui-appcenter-infotab .ui-tabtxt02 td{text-align:center;padding:2px}
+.ui-appcenter-infotab .ui-radio{margin-top:14px;margin-top:11px\0;*margin-top:-1px}
+.ui-appcenter-infotab .ui-radio02{margin-top:14px;margin-top:11px\0;*margin-top:-1px}
+.ui-inside-tab01{table-layout: fixed;}
+
+/*短信验证码*/
+.ui-Downnote {
+    background-color: #FFFDE7;
+    padding: 10px;
+    width: 460px;
+    border: 1px solid #D6C069;
+    position: relative;
+    min-height: 25px;
+    float: left;
+    clear: both;
+    margin-top: 15px;
+}
+
+.ui-Downnote .ui-aggimg01 {
+    width: 19px;
+    height: 8px;
+    font-size: 8px;
+    display: block;
+    background-image: url('/assets/sutongpay/inside-main/downnot-aggimg01.jpg');
+    position: absolute;
+    z-index: 10;
+    float: left;
+    left: 20px;
+    top: -8px;
+}
+
+.ui-Downnote .ui-noteimg01 {
+    width: 14px;
+    height: 14px;
+    display: block;
+    background-image: url('/assets/sutongpay/inside-main/allicon.png');
+    background-position: -72px -48px;
+    position: absolute;
+    left: 0px;
+    top: 12px;
+}
+
+.ui-Downnote .ui-txtnote {
+    width: auto;
+    display: inline-block;
+    float: left;
+    margin-left: 25px;
+    line-height: 21px;
+}
+
+/*安全中心-重置密保问题主页*/
+.ui-titlestyle01 {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #F3F3F3;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-family: "宋体";
+}
+
+.ui-titlestyle01 span {
+    position: relative;
+    left: 20px;
+}
+
+.tradedetail-Money{position: relative; width: 100%; display: inline-block; text-align: right; font-size: 18px; margin-top: 20px;}
+.tradedetail-Money span{ float: right; position: relative; right: 15px;}
+.tradedetail-Money strong{ color: red; margin-left: 10px; margin-right: 5px; font-size: 24px; font-family: "微软雅黑"}
+.tradedetail-Money a.ui-button{ float: right; display: block; top: 45px; right: 15px; position: absolute;}

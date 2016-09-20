@@ -1,0 +1,76 @@
+.pagination {
+    display: inline-block;
+    width:auto;
+    margin-left:auto;
+    margin-right:auto;
+    height:32px;
+    text-align: center;
+}
+
+.pagination span, .pagination a {
+    display:block;
+    float:left;
+    width:auto;
+    height: 20px;
+    padding:6px 15px;
+    line-height: 20px;
+}
+
+.pagination span {
+    color: #333;
+    background: #fff;
+    border: #ccc 1px solid;
+    margin-left: -1px;
+    *margin-left: 0px;
+
+}
+
+.pagination span.current {
+    background: #F4A22D;
+    color:#fff;
+    border:#F4A22D 1px solid;
+    margin-left:-1px;
+    *margin-left: 0px;
+}
+
+.pagination span.current.prev, .pagination span.current.next {
+    color:#ccc;
+    background: #fff;
+    border:#ccc 1px solid;
+    margin-left:-1px;
+    *margin-left: 0px;
+}
+
+.pagination a {
+    color:#2C9AD6;
+    background: #fff;
+    border:#ccc 1px solid;
+    margin-left:-1px;
+    *margin-left: 0px;
+}
+
+.pagination a:hover {
+    background: #f6f6f6;
+    color:#F4A22D;
+}
+
+.pagination .prev, .pagination .next {
+    color:#ccc;
+    background: #fff;
+    border:#ccc 1px solid;
+    margin-left:-1px;
+    *margin-left: 0px;
+}
+
+.pagination a.prev, .pagination a.next {
+    color:#2C9AD6;
+    background: #fff;
+    border:#ccc 1px solid;
+    margin-left:-1px;
+    *margin-left: 0px;
+}
+
+.pagination a.prev:hover, .pagination a.next:hover {
+    color:#F4A22D;
+    background:#f6f6f6;
+}

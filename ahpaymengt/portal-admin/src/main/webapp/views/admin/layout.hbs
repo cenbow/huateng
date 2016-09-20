@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Sutongpay Portal Admin</title>
+    <link rel="stylesheet" href="/assets/app.css?t=${build.number}" type="text/css">
+    <script src="/assets/app.js?t=${build.number}"></script>
+
+    <!-- Le styles -->
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#" style="text-decoration: none;font-size: 25px;padding-top: 8px;">SuTongPay</a>
+            <div class="nav-collapse collapse">
+                <p class="navbar-text pull-right">
+                    {{#if userName}} 欢迎 {{userName}} <a href="/users/logout">注销</a> {{else}}<a href="/users/login" class="navbar-link"> Login</a>{{/if}}
+                </p>
+                <ul class="nav">
+                    <li><a href="/components">组件原型</a></li>
+                    <li><a href="/sites">站点</a></li>
+                    <li><a href="/users">用户</a></li>
+                    <!--<li><a href="/designers">设计师</a></li>
+                    <li><a href="/quotas">配额</a></li>
+                    <li><a href="/cases">案例</a></li>-->
+                    <li><a href="/categories"> 类目</a></li>
+                    <li><a id="js-sync-forest" href="/forest">同步类目</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        {{#block "main"}} Default Main Body {{/block}}
+    </div><!--/row-->
+
+    <hr/>
+
+    <footer>
+        <p>&copy; SuTongPay 2013</p>
+    </footer>
+
+</div><!--/.fluid-container-->
+
+</body>
+</html>

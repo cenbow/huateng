@@ -1,0 +1,254 @@
+{{#component "common-menu"}}
+<div class="ui-my-nav">
+  <ul>
+    {{#match "/mypay/" _PAGE_.path}}
+    <li {{#match "mypay/home" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/mypay/home"> <i class="icon-myleft-nav icon-Account"></i>
+        <p>账户首页</p> <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "mypay/myinfo" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/api/mypay/myinfo/detail">
+        <i class="icon-myleft-nav icon-PersonalCenter"></i>
+        <p>个人中心</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "mypay/security" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/mypay/security/home">
+        <i class="icon-myleft-nav icon-SecurityCenter"></i>
+        <p>安全中心</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "mypay/billcenter" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/mypay/billcenter">
+        <i class="icon-myleft-nav icon-BillingCenter"></i>
+        <p>账单中心</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    {{/match}}
+    {{#match "/trade/" _PAGE_.path}}
+    <li {{#match "trade/tradeinfo" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/trade/tradeinfo">
+        <i class="icon-myleft-nav icon-TransactionInquiries"></i>
+        <p>交易查询</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "trade/paydetail" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/trade/paydetail">
+        <i class="icon-myleft-nav icon-Details"></i>
+        <p>收支明细</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "trade/recharge" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/trade/recharge">
+        <i class="icon-myleft-nav icon-RechargeRecord"></i>
+        <p>充值记录</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "trade/cashapply" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/trade/cashapply">
+        <i class="icon-myleft-nav icon-WithdrawRecord"></i>
+        <p>提现记录</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "trade/buycard" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/trade/buycard">
+        <i class="icon-myleft-nav icon-PurchasedCard"></i>
+        <p>已购卡号</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+
+      {{#if _DATA_.hasOfflineAccount}}
+      <li {{#match "trade/wallet" _PAGE_.path}}class="my-nav-sel"{{/match}}  id="wallet">
+      <a href="/trade/wallet">
+        <i class="icon-myleft-nav icon-MobWallet"></i>
+        <p>手机钱包</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    {{/if}}
+    {{/match}}
+    {{#match "/payment/" _PAGE_.path}}
+    <li {{#match "payment/userinfo_search" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/payment/userinfo_search">
+        <i class="icon-myleft-nav icon-TradingLimit"></i>
+        <p>用户信息查询</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "payment/search" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/payment/search">
+        <i class="icon-myleft-nav icon-TransactionInquiries"></i>
+        <p>订单交易查询</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    <li {{#match "payment/limit_settings" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/payment/limit_settings">
+        <i class="icon-myleft-nav icon-TradingLimit"></i>
+        <p>交易额度设置</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    {{/match}}
+    {{#match "/wingcard/" _PAGE_.path}}
+    <li {{#match "wingcard/account" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/wingcard/account">
+        <i class="icon-myleft-nav icon-Account"></i>
+        <p>翼充卡账户</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+  <!--
+    <li {{#match "wingcard/cardtrade" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/wingcard/cardtrade">
+        <i class="icon-myleft-nav icon-TransactionInquiries"></i>
+        <p>交易查询</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+  -->
+    <li {{#match "wingcard/password" _PAGE_.path}}class="my-nav-sel"{{/match}}>
+      <a href="/wingcard/password">
+        <i class="icon-myleft-nav icon-ModifyPassword"></i>
+        <p>修改卡密码</p>
+        <i class="my-nav-angle"></i>
+      </a>
+    </li>
+    {{/match}}
+  </ul>
+</div>
+{{#dismatch "/wingcard/" _PAGE_.path}}
+<div class="ui-my-line"></div>
+<div class="ui-my-App">
+  <ul>
+    <li>
+      <span class="ui-app-mytitle">我的应用(16)</span>
+    </li>
+  </ul>
+<div id="ui-myuldiv">
+  <ul class="ui-myappul" id="ul01">
+    <li>
+      <a href="/appcenter/lifepay/water">
+        <i class="ui-myappicon-water"></i>
+        <span>缴水费</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/lifepay/elect">
+        <i class="ui-myappicon-Electricity"></i>
+        <span>缴电费</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/lifepay/gas">
+        <i class="ui-myappicon-Gas"></i>
+        <span>缴燃气费</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/lifepay/teladsl">
+        <i class="ui-myappicon-telephone"></i>
+        <span>缴固话/宽带费</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/lifepay/tv">
+        <i class="ui-myappicon-TV"></i>
+        <span>缴有线电视费</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/lifepay/heat">
+        <i class="ui-myappicon-heater"></i>
+        <span>缴暖气费</span>
+      </a>
+    </li>
+    </ul>
+    <ul class="ui-myappul" id="ul02">
+
+    <li>
+      <a href="/appcenter/traffic/sichuan">
+        <i class="ui-myappicon-sichuanTraffic"></i>
+        <span>四川交罚</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/recharge/mobile">
+        <i class="ui-myappicon-mob"></i>
+        <span>手机充值</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/recharge/3g">
+        <i class="ui-myappicon-3G"></i>
+        <span>3G流量卡</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/recharge/11888">
+        <i class="ui-myappicon-11888card"></i>
+        <span>11888卡</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/recharge/qq">
+        <i class="ui-myappicon-QQ"></i>
+        <span>QQ充值</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/recharge/game">
+        <i class="ui-myappicon-Game"></i>
+        <span>游戏充值</span>
+      </a>
+    </li>
+    </ul >
+    <ul class="ui-myappul" id="ul03">
+
+    <li>
+      <a name="transfer">
+        <i class="ui-myappicon-Number"></i>
+        <span>号码转账</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/insurance/insurance">
+        <i class="ui-myappicon-Safety"></i>
+        <span>保险</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/insurance/HCLotter">
+        <i class="ui-myappicon-LotteryTicket"></i>
+        <span>彩票</span>
+      </a>
+    </li>
+    <li>
+      <a href="/appcenter/mall/list">
+        <i class="ui-myappicon-mall"></i>
+        <span>翼商城</span>
+      </a>
+    </li>
+  </ul>
+  </div>
+  <div class="ui-myleft-agg">
+    <div class="ui-Round">
+      <i class="current" name="ul01"></i>
+      <i name="ul02"></i>
+      <i name="ul03"></i>
+   </div>
+    <span class="prew"></span>
+    <span class="next"></span>
+  </div>
+</div>
+{{/dismatch}}
+{{/component}}

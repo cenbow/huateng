@@ -1,0 +1,18 @@
+<div id="{{_ID_}}" class="official-session-menu js-comp" style="{{_STYLE_}}" data-comp-id={{_COMP_ID_}} data-comp-path="{{_COMP_PATH_}}">
+  <div class="span3 dropdown">
+    {{#if _USER_}}
+    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+      <span class="icon-people" style="margin-right:8px;"></span><span>{{_USER_.principal}}</span>
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="first" href="/i">个人主页</a></li>
+      <li><a href="/profile">修改信息</a></li>
+      <li class="divider"></li>
+      <li><a class="last" href="/api/user/logout">退出</a></li>
+    </ul>
+    {{else}}
+    <a href="/login">登录</a> 或 <a href="/regist/telecomstep1">注册</a>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,55 @@
+{{#component "cashier-accountFail"}}
+<div class="gateway-Resultbg">
+	<div class="gateway-Result">
+	<div class="ui-Promptdiv ui-Error">
+		<i></i><span class="Resulttxt01"><strong>充值失败！</strong></span> 
+		<div class="Resulttxt02">
+			<div class="ui-form">
+				<span class="result-title">本次充值的信息如下:</span>
+			</div>
+			<input type="hidden" name="productNo" value="{{ UNIFYID }}"/>
+			<input type="hidden" name="orderAmount" value="{{ ORDERAMOUNT }}"/>
+			<input type="hidden" name="orderSeq" value="{{ ORDERSEQ }}"/>
+			<div class="ui-form">
+				<div class="ui-form-txt01">速通支付账户:</div>
+				<div class="ui-form-item">
+					<strong>{{ UNIFYID }}</strong>
+				</div>
+			</div>
+			<div class="ui-form">			
+				<div class="ui-form-txt01">交易金额:</div>
+				<div class="ui-form-item">
+					<strong>{{ ORDERAMOUNT }}</strong>元
+				</div>
+			</div>
+			<div class="ui-form">
+				<div class="ui-form-txt01">交易流水号:</div>
+				<div class="ui-form-item">
+					<strong>{{ ORDERSEQ }}</strong>
+				</div>
+			</div>
+
+			<div class="ui-a-item">
+				<a class="ui-button ui-button-morange">冻结资金账户</a>
+				<a class="ui-button ui-button-mwhite" href="/account">返回首页</a>
+			</div>
+										
+		</div>
+	</div>
+	<div class="ui-all-note">
+		<div class="ui-noteimg01"></div>
+		<div class="ui-notetxt01"> <span class="ui-txt-a">友情提醒：</span><br />
+
+		为保障您的资金安全，请勿使用他人通过邮件或即时通
+				讯工具（如：QQ、MSN等）提供的购物链接。<br />
+			  如本次充值可疑，非本人授权操作，请点击上方冻结资
+				金锁定帐户按钮，并致电客服。<br/>
+			 速通支付24小时客服热线：<span class="ui-txt-a">4008-0-11888</span><br /><br />
+<span class="ui-txt-a">温馨提示：</span><br />
+如果您想查询历史订单信息，您可以登录"<a href="https://www.sutongpay.com" class="ui-txt-a">www.sutongpay.com</a>"，在交易明细中查询。
+			 </div>
+		</div>
+	</div>
+
+</div>
+{{/component}}

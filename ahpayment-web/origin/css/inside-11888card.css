@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ui-appBuyCard{ position:relative; width:100%; display:inline-block; margin-bottom:25px;}
+.ui-appBuyCard .ui-form-txt01{ width:300px;}
+.ui-appBuyCard .ui-txtinput01{ float:left; margin-right:10px;}
+.ui-appBuyCard .ui-lifepay-select01{ margin-top:-3px; margin-top:-5px\0;}
+.ui-appBuyCard .ui-appBuyCardimg{ position:absolute; float:left; left:0px; top:2px;}
+.ui-3gcard{ width:100%;}
+.ui-3gcard li{ width:380px; float:left; display:inline-block;}
+.ui-3gcard .ui-form-item{ padding-left:20px;}

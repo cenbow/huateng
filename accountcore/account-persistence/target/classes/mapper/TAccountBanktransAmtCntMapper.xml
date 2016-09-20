@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TAccountBanktransAmtCntMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TAccountBanktransAmtCnt" >
+    <id column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="RULE" property="rule" jdbcType="CHAR" />
+    <result column="BANKTRANS_MAX_NUM" property="banktransMaxNum" jdbcType="DECIMAL" />
+    <result column="BANKTRANS_MAX_AMT_SUM" property="banktransMaxAmtSum" jdbcType="DECIMAL" />
+    <result column="MONTH_BANKTRANS_MAX_AMT" property="monthBanktransMaxAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_BANKTRANS_MAX_CNT" property="monthBanktransMaxCnt" jdbcType="DECIMAL" />
+    <result column="YEAR_BANKTRANS_MAX_AMT" property="yearBanktransMaxAmt" jdbcType="DECIMAL" />
+    <result column="YEAR_BANKTRANS_MAX_CNT" property="yearBanktransMaxCnt" jdbcType="DECIMAL" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ACCOUNT_NO, CUSTOMER_NO, RULE, BANKTRANS_MAX_NUM, BANKTRANS_MAX_AMT_SUM, MONTH_BANKTRANS_MAX_AMT, 
+    MONTH_BANKTRANS_MAX_CNT, YEAR_BANKTRANS_MAX_AMT, YEAR_BANKTRANS_MAX_CNT, RESV_FLD1, 
+    RESV_FLD2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_ACCOUNT_BANKTRANS_AMT_CNT
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_ACCOUNT_BANKTRANS_AMT_CNT
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TAccountBanktransAmtCnt" >
+    insert into T_ACCOUNT_BANKTRANS_AMT_CNT (ACCOUNT_NO, CUSTOMER_NO, RULE, 
+      BANKTRANS_MAX_NUM, BANKTRANS_MAX_AMT_SUM, MONTH_BANKTRANS_MAX_AMT, 
+      MONTH_BANKTRANS_MAX_CNT, YEAR_BANKTRANS_MAX_AMT, 
+      YEAR_BANKTRANS_MAX_CNT, RESV_FLD1, RESV_FLD2
+      )
+    values (#{accountNo,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, #{rule,jdbcType=CHAR}, 
+      #{banktransMaxNum,jdbcType=DECIMAL}, #{banktransMaxAmtSum,jdbcType=DECIMAL}, #{monthBanktransMaxAmt,jdbcType=DECIMAL}, 
+      #{monthBanktransMaxCnt,jdbcType=DECIMAL}, #{yearBanktransMaxAmt,jdbcType=DECIMAL}, 
+      #{yearBanktransMaxCnt,jdbcType=DECIMAL}, #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TAccountBanktransAmtCnt" >
+    insert into T_ACCOUNT_BANKTRANS_AMT_CNT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="rule != null" >
+        RULE,
+      </if>
+      <if test="banktransMaxNum != null" >
+        BANKTRANS_MAX_NUM,
+      </if>
+      <if test="banktransMaxAmtSum != null" >
+        BANKTRANS_MAX_AMT_SUM,
+      </if>
+      <if test="monthBanktransMaxAmt != null" >
+        MONTH_BANKTRANS_MAX_AMT,
+      </if>
+      <if test="monthBanktransMaxCnt != null" >
+        MONTH_BANKTRANS_MAX_CNT,
+      </if>
+      <if test="yearBanktransMaxAmt != null" >
+        YEAR_BANKTRANS_MAX_AMT,
+      </if>
+      <if test="yearBanktransMaxCnt != null" >
+        YEAR_BANKTRANS_MAX_CNT,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rule != null" >
+        #{rule,jdbcType=CHAR},
+      </if>
+      <if test="banktransMaxNum != null" >
+        #{banktransMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="banktransMaxAmtSum != null" >
+        #{banktransMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="monthBanktransMaxAmt != null" >
+        #{monthBanktransMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthBanktransMaxCnt != null" >
+        #{monthBanktransMaxCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="yearBanktransMaxAmt != null" >
+        #{yearBanktransMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yearBanktransMaxCnt != null" >
+        #{yearBanktransMaxCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TAccountBanktransAmtCnt" >
+    update T_ACCOUNT_BANKTRANS_AMT_CNT
+    <set >
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="rule != null" >
+        RULE = #{rule,jdbcType=CHAR},
+      </if>
+      <if test="banktransMaxNum != null" >
+        BANKTRANS_MAX_NUM = #{banktransMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="banktransMaxAmtSum != null" >
+        BANKTRANS_MAX_AMT_SUM = #{banktransMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="monthBanktransMaxAmt != null" >
+        MONTH_BANKTRANS_MAX_AMT = #{monthBanktransMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthBanktransMaxCnt != null" >
+        MONTH_BANKTRANS_MAX_CNT = #{monthBanktransMaxCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="yearBanktransMaxAmt != null" >
+        YEAR_BANKTRANS_MAX_AMT = #{yearBanktransMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="yearBanktransMaxCnt != null" >
+        YEAR_BANKTRANS_MAX_CNT = #{yearBanktransMaxCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TAccountBanktransAmtCnt" >
+    update T_ACCOUNT_BANKTRANS_AMT_CNT
+    set CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      RULE = #{rule,jdbcType=CHAR},
+      BANKTRANS_MAX_NUM = #{banktransMaxNum,jdbcType=DECIMAL},
+      BANKTRANS_MAX_AMT_SUM = #{banktransMaxAmtSum,jdbcType=DECIMAL},
+      MONTH_BANKTRANS_MAX_AMT = #{monthBanktransMaxAmt,jdbcType=DECIMAL},
+      MONTH_BANKTRANS_MAX_CNT = #{monthBanktransMaxCnt,jdbcType=DECIMAL},
+      YEAR_BANKTRANS_MAX_AMT = #{yearBanktransMaxAmt,jdbcType=DECIMAL},
+      YEAR_BANKTRANS_MAX_CNT = #{yearBanktransMaxCnt,jdbcType=DECIMAL},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR}
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoTxnAuthMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoTxnAuth" >
+    <id column="SEQ_NO" property="seqNo" jdbcType="VARCHAR" />
+    <result column="TXN_TYPE" property="txnType" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="DIFF_NETWORK_STATUS" property="diffNetworkStatus" jdbcType="VARCHAR" />
+    <result column="HOME_NETWORK_STATUS" property="homeNetworkStatus" jdbcType="VARCHAR" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="VARCHAR" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="VARCHAR" />
+    <result column="CHECK_FLAG" property="checkFlag" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_UID" property="archiveUid" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_FLAG" property="archiveFlag" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="L_SEQ_NO" property="lSeqNo" jdbcType="VARCHAR" />
+    <result column="USER_GRADE" property="userGrade" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SEQ_NO, TXN_TYPE, AREA_CODE, CITY_CODE, DIFF_NETWORK_STATUS, HOME_NETWORK_STATUS, 
+    CREATE_UID, CREATE_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, CHECK_UID, CHECK_TIME, 
+    CHECK_FLAG, ARCHIVE_UID, ARCHIVE_TIME, ARCHIVE_FLAG, REMARK, L_SEQ_NO, USER_GRADE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_INFO_TXN_AUTH
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_INFO_TXN_AUTH
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoTxnAuth" >
+    insert into T_INFO_TXN_AUTH (SEQ_NO, TXN_TYPE, AREA_CODE, 
+      CITY_CODE, DIFF_NETWORK_STATUS, HOME_NETWORK_STATUS, 
+      CREATE_UID, CREATE_TIME, LAST_MODIFY_UID, 
+      LAST_MODIFY_TIME, CHECK_UID, CHECK_TIME, 
+      CHECK_FLAG, ARCHIVE_UID, ARCHIVE_TIME, 
+      ARCHIVE_FLAG, REMARK, L_SEQ_NO, 
+      USER_GRADE)
+    values (#{seqNo,jdbcType=VARCHAR}, #{txnType,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{diffNetworkStatus,jdbcType=VARCHAR}, #{homeNetworkStatus,jdbcType=VARCHAR}, 
+      #{createUid,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{lastModifyUid,jdbcType=VARCHAR}, 
+      #{lastModifyTime,jdbcType=VARCHAR}, #{checkUid,jdbcType=VARCHAR}, #{checkTime,jdbcType=VARCHAR}, 
+      #{checkFlag,jdbcType=VARCHAR}, #{archiveUid,jdbcType=VARCHAR}, #{archiveTime,jdbcType=VARCHAR}, 
+      #{archiveFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{lSeqNo,jdbcType=VARCHAR}, 
+      #{userGrade,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoTxnAuth" >
+    insert into T_INFO_TXN_AUTH
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        SEQ_NO,
+      </if>
+      <if test="txnType != null" >
+        TXN_TYPE,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="diffNetworkStatus != null" >
+        DIFF_NETWORK_STATUS,
+      </if>
+      <if test="homeNetworkStatus != null" >
+        HOME_NETWORK_STATUS,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="archiveUid != null" >
+        ARCHIVE_UID,
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+      <if test="archiveFlag != null" >
+        ARCHIVE_FLAG,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="lSeqNo != null" >
+        L_SEQ_NO,
+      </if>
+      <if test="userGrade != null" >
+        USER_GRADE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null" >
+        #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="diffNetworkStatus != null" >
+        #{diffNetworkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="homeNetworkStatus != null" >
+        #{homeNetworkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveUid != null" >
+        #{archiveUid,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveFlag != null" >
+        #{archiveFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="lSeqNo != null" >
+        #{lSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrade != null" >
+        #{userGrade,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoTxnAuth" >
+    update T_INFO_TXN_AUTH
+    <set >
+      <if test="txnType != null" >
+        TXN_TYPE = #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="diffNetworkStatus != null" >
+        DIFF_NETWORK_STATUS = #{diffNetworkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="homeNetworkStatus != null" >
+        HOME_NETWORK_STATUS = #{homeNetworkStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveUid != null" >
+        ARCHIVE_UID = #{archiveUid,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME = #{archiveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveFlag != null" >
+        ARCHIVE_FLAG = #{archiveFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="lSeqNo != null" >
+        L_SEQ_NO = #{lSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userGrade != null" >
+        USER_GRADE = #{userGrade,jdbcType=CHAR},
+      </if>
+    </set>
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoTxnAuth" >
+    update T_INFO_TXN_AUTH
+    set TXN_TYPE = #{txnType,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      DIFF_NETWORK_STATUS = #{diffNetworkStatus,jdbcType=VARCHAR},
+      HOME_NETWORK_STATUS = #{homeNetworkStatus,jdbcType=VARCHAR},
+      CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=VARCHAR},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=VARCHAR},
+      CHECK_FLAG = #{checkFlag,jdbcType=VARCHAR},
+      ARCHIVE_UID = #{archiveUid,jdbcType=VARCHAR},
+      ARCHIVE_TIME = #{archiveTime,jdbcType=VARCHAR},
+      ARCHIVE_FLAG = #{archiveFlag,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      L_SEQ_NO = #{lSeqNo,jdbcType=VARCHAR},
+      USER_GRADE = #{userGrade,jdbcType=CHAR}
+    where SEQ_NO = #{seqNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByAreaCodeTxnType" resultMap="BaseResultMap" parameterType="java.util.Map" >
+	select
+	<include refid="Base_Column_List" />
+	  from t_info_txn_auth h
+	 where h.archive_flag = '1'
+	   and h.check_flag = '2'
+	   and h.city_code is null
+	   and area_code = #{areaCode,jdbcType=VARCHAR}
+	   and txn_type = #{txnType,jdbcType=VARCHAR}
+	   and rownum = 1
+  </select>
+</mapper>

@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+.showhow-menu{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:18;
+}
+.showhow-pane{
+  width:910px;
+  float:left;
+}
+.side-pane {
+  margin: 33px 0 0 0;
+}
+
+.c-bread {
+  float: left;
+  position: relative;
+  z-index: 11;
+  margin: 0 0 -20px 0;
+}
+.c-bread li {
+
+}
+.c-bread .first {
+  padding: 0 0 0 0px;
+}
+
+
+#J_step {
+  position: relative;
+  z-index: 10;
+  clear: both;
+}
+
+.tab-flow{
+
+}
+.tab-flow .c-tab-ttl{
+  overflow: hidden;
+  zoom: 1;
+  height: 34px;
+  margin: 0;
+  background:url(/assets/sutongpay/play/ysbot01.png) no-repeat left 33px;
+}
+.tab-flow .c-tab-ttl li {
+  float: right;
+  height: 35px;
+  margin-right:0px;
+  background:url(/assets/sutongpay/play/ystiao01.png) no-repeat left top;
+}
+.tab-flow .c-tab-ttl li a {
+  display: block;
+  height:100%;
+  padding: 4px 20px 0 25px;
+  color: #4D4D4D;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -40px;
+}
+.tab-flow .c-tab-ttl .current,
+.tab-flow .c-tab-ttl .first-current,
+.tab-flow .c-tab-ttl .last-current {
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat left -80px;
+}
+.tab-flow .c-tab-ttl .current a,
+.tab-flow .c-tab-ttl .first-current a,
+.tab-flow .c-tab-ttl .last-current a {
+  font-weight: 700;
+  color: #427c9b;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -120px;
+}
+
+
+.tab-flow .c-tab-ctt{
+  display: none;
+  clear: both;
+}
+.tab-flow .c-tab-ctt h3 {
+  display: none;
+}
+.c-tab .current {
+  display: block;
+}
+
+.main-flow-wrap {
+}
+.main-flow{
+  overflow: hidden;
+  zoom: 1;
+  height: 28px;
+  background:url(/assets/sutongpay/play/ysbot01.png) no-repeat left -1px;
+}
+.main-flow a,
+.main-flow a:hover {
+  font-size:12px;
+  font-weight:600;
+  text-decoration:none;
+  color:#fff;
+}
+.main-flow li {
+  float:left;
+  position: relative; z-index: 9;
+  background: #FFA000 url(/assets/sutongpay/play/ystiao01.png) no-repeat left -320px;
+  line-height: 1.0;
+}
+.main-flow li.first {
+  background: #FFA000 url(/assets/sutongpay/play/ystiao01.png) no-repeat left -160px;
+}
+.main-flow li a {
+  display: block;
+  float: left;
+  position: relative; z-index: 10;
+  height: 21px;
+  margin: 0 -15px 0 0;
+  padding: 7px 25px 0;
+  line-height: 12px;
+  *+line-height: 16px;
+  *_line-height: 14px;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -360px;
+}
+.main-flow li.first a {
+  padding: 7px 25px 0 15px;
+}
+.main-flow li.last a {
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -240px;
+}
+.main-flow .current,
+.main-flow .first-current,
+.main-flow .last-current {
+  position: relative; z-index: 11;
+  background: #fff url(/assets/sutongpay/play/ystiao01.png) no-repeat left -400px;
+}
+.main-flow .first-current {
+  background: #fff url(/assets/sutongpay/play/ystiao01.png) no-repeat left -200px;
+}
+.main-flow .current a,
+.main-flow .current a:hover,
+.main-flow .first-current a,
+.main-flow .first-current a:hover,
+.main-flow .last-current a,
+.main-flow .last-current a:hover {
+  color: #427c9b;
+  position: relative; z-index: 12;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -440px;
+}
+.main-flow .first-current a {
+  padding: 7px 25px 0 15px;
+}
+.main-flow .last-current a,
+.main-flow .last-current a:hover {
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -280px;
+}
+
+
+.main-step{
+  clear:both;
+  display: none;
+}
+
+.main-step {
+  height: 28px;
+  background: url(url(/assets/sutongpay/play/ysbot01.png)) no-repeat left -29px;
+}
+.main-step li{
+  float:left;
+  padding:4px 5px 0 5px;
+  *padding:3px 5px 0 5px;
+}
+.main-step li a,
+.main-step li a:hover {
+  display: block;
+  float: left;
+  /* padding: 1px 6px 6px 6px; */
+  padding: 2px 6px 7px 6px;
+  text-decoration: none;
+}
+.main-step .current,
+.main-step .first-current,
+.main-step .last-current {
+}
+.main-step .current a,
+.main-step .first-current a,
+.main-step .last-current a {
+  font-weight: 700;
+  color:#fff;
+  background: #FF6600 url(/assets/sutongpay/play/ystiao01.png) no-repeat center -463px;
+
+}
+
+.main-image{
+  clear:both;
+  overflow: hidden;
+  width: 908px;
+  border: 1px #ccebf2 solid;
+  border-top: none;
+  text-align: center;
+}
+.main-image .loading {
+  width: 220px;
+  height: 19px;
+}
+.main-image div {
+  display: none;
+}
+.main-image div.current {
+  display: block;
+}
+
+
+
+.main{
+  min-width:990px;
+}
+.main-container{
+text-align:center;
+  margin:auto;
+  width:910px;
+  padding:20px 0 20px 0
+}
+.main-body{
+  margin:auto;
+  width:990px;
+  text-align:center;
+  -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px;
+}
+
+
+
+/* bread */
+
+.c-bread li{
+  display:inline;
+}
+.bread{
+  display: none;
+  padding:7px 0 0;
+}

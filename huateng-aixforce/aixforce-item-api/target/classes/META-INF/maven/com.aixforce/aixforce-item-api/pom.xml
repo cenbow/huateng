@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>huateng-aixforce</artifactId>
+        <groupId>com.aixforce</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>aixforce-item-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>aixforce-item-api</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.aixforce</groupId>
+            <artifactId>aixforce-search</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aixforce</groupId>
+            <artifactId>aixforce-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aixforce</groupId>
+            <artifactId>aixforce-user-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

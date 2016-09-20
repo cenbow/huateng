@@ -1,0 +1,249 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ui-my-left .ui-my-nav {
+	width: 100%;
+	float: left;
+}
+.ui-my-left .ui-my-nav ul li {
+	height: 48px;
+	width: 100%;
+	text-align: left;
+	font-size: 14px;
+	position: relative;
+	right: 1px;
+}
+.ui-my-left .ui-my-nav ul li:hover {
+	background-color: #E1EEEE;
+}
+.ui-my-left .ui-my-nav .my-nav-sel {
+	border-bottom: 1px solid #c2ccde;
+	border-top: 1px solid #c2ccde;
+	border-left: 3px solid #F77700;
+	background-color: #FFF;
+	position: relative;
+	right: 0px;
+	width: 177px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel:hover {
+	background-color: #FFF;
+}
+.ui-my-left .ui-my-nav .my-nav-sel a {
+	color: #666;
+	font-weight: bold;
+}
+.ui-my-left .ui-my-nav a {
+	color: #666;
+	display: inline-block;
+	width: 100%;
+}
+.ui-my-left .ui-my-nav .icon-myleft-nav {
+	width: 24px;
+	height:24px;
+	float: left;
+	margin: 10px;
+	background-image:url(/assets/sutongpay/inside-main/allicon.png);
+	background-repeat:no-repeat;
+	margin-left:20px;
+	*display: inline;
+}
+.ui-my-left .ui-my-nav .my-nav-angle {
+	width: 5px;
+	height: 16px;
+	background-image:url(/assets/sutongpay/inside-main/allicon.png);
+	float: right;
+	margin: 15px 12px 15px 10px;
+	background-position: -54px -67px;
+	*display: inline;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-myleft-nav {
+	margin-left: 15px;
+	*display: inline;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .my-nav-angle {
+	background-position: -48px -67px;
+}
+.ui-my-left .ui-my-nav p {
+	float: left;
+	margin: 13px auto;
+}
+.ui-my-left .ui-my-nav .icon-Account {
+	background-position:-24px 0px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-Account{	
+	background-position:0px 0px;
+}
+.ui-my-left .ui-my-nav .icon-PersonalCenter {
+	background-position:-24px -24px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-PersonalCenter{	
+	background-position:0px -24px;
+}
+.ui-my-left .ui-my-nav .icon-SecurityCenter {
+	background-position:-24px -48px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-SecurityCenter{	
+	background-position:0px -48px;
+}
+.ui-my-left .ui-my-nav .icon-BillingCenter {
+	background-position:-24px -72px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-BillingCenter{	
+	background-position:0px -72px;
+}
+.ui-my-left .ui-my-nav .icon-TransactionInquiries {
+	background-position:-24px -96px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-TransactionInquiries {
+	background-position:0px -96px;
+}
+.ui-my-left .ui-my-nav .icon-Details {
+	background-position:-24px -120px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-Details {
+	background-position:0px -120px;
+}
+.ui-my-left .ui-my-nav .icon-RechargeRecord {
+	background-position:-24px -144px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-RechargeRecord {
+	background-position:0px -144px;
+}
+.ui-my-left .ui-my-nav .icon-WithdrawRecord {
+	background-position:-24px -168px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-WithdrawRecord {
+	background-position:0px -168px;
+}
+.ui-my-left .ui-my-nav .icon-MobWallet {
+	background-position:-24px -565px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-MobWallet {
+	background-position:0px -565px;
+}
+.ui-my-left .ui-my-nav .icon-PurchasedCard {
+	background-position:-24px -192px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-PurchasedCard {
+	background-position:0px -192px;
+}
+.ui-my-left .ui-my-nav .icon-ModifyPassword {
+	background-position:-24px -264px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-ModifyPassword {
+	background-position:0px -264px;
+}
+.ui-my-left .ui-my-nav .icon-TradingLimit {
+	background-position:-24px -216px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-TradingLimit {
+	background-position:0px -216px;
+}
+.ui-my-left .ui-my-nav .icon-InformationInquiry {
+	background-position:-24px -216px;
+}
+.ui-my-left .ui-my-nav .my-nav-sel .icon-InformationInquiry {
+	background-position:0px -216px;
+}
+.ui-my-left .ui-my-line {
+	width: 100%;
+	height: 2px;
+	background: url(/assets/sutongpay/inside-main/insidemyleft-line.jpg) center no-repeat;
+	font-size: 2px;
+	line-height: 2px;
+	margin: 10px auto 15px auto;
+	display: block;
+	float: left;
+}
+.ui-my-left .ui-my-App {
+	text-align: left;
+	float: left;
+	position: relative;
+	width: 175px;
+	height: 255px;
+	overflow: hidden;
+}
+.ui-my-left .ui-my-App .ui-app-mytitle {
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+	padding-left: 20px;
+}
+.ui-my-left .ui-my-App .ui-app-mytitle:hover {
+	text-decoration: none;
+}
+#ui-myuldiv{ position: absolute; float: left; position: absolute;  display:inline-block; top: 15px; left: 0px; margin-left: 5px; width: 800px;}
+.ui-myleft-agg{ width: 150px; display: block; position: absolute; top: 230px; left: 12px; text-align: center;}
+.ui-myleft-agg  span{ width: 7px; height: 15px; display: block; font-size: 15px; line-height: 15px; display: block; background-image: url(/assets/sutongpay/inside-main/allicon.png); cursor: pointer;}
+.ui-myleft-agg .prew{ width: 7px; height: 15px; background-position: 0px -880px; float: left; position: relative;left: 0px;}
+.ui-myleft-agg .next{ width: 7px; height: 15px; background-position: -14px -880px; float: right; position: relative;right: 0px;}
+.ui-myleft-agg .ui-Round{ display: inline-block; margin:0 auto; *display: inline; *zoom:1; margin-left: -8px;}
+.ui-myleft-agg .ui-Round i{display: block;
+list-style: none;
+width: 10px;
+height: 10px;
+float: left;
+position: relative;
+*top:12px;
+margin-left: 8px;
+overflow: hidden;
+background-image: url(/assets/sutongpay/inside-main/chooseicon.png);
+background-position: -40px -3px;
+cursor: pointer;
+font-size: 10px;
+line-height: 10px;
+ }
+.ui-myleft-agg .ui-Round .current{background-image: url(/assets/sutongpay/inside-main/chooseicon.png);
+background-position: -30px -3px;
+
+}
+
+
+.ui-my-left .ui-my-App .ui-myappul {
+	margin-top:15px;
+	display: inline-block;
+	width:175px;
+	height: 190px;
+	overflow: hidden;
+	float: left;
+}
+.ui-my-left .ui-myappul li {
+	float: left;
+	text-align: center;
+	margin-bottom: 10px;
+	display:block;
+	height:55px;
+	width:48%;
+}
+.ui-my-left .ui-myappul span {
+	width: 100%;
+	float: left;
+	text-align: center;
+	line-height: 21px;
+	color:#666;
+}
+.ui-my-left .ui-my-App span:hover {
+	text-decoration: underline;
+}
+.ui-my-left .ui-my-App .ui-myappul i:hover{width:32px;  height:32px; display:block; background-image:url(/assets/sutongpay/inside-main/allicon.png); background-repeat: no-repeat; margin:0 auto;}
+.ui-my-left .ui-my-App .ui-myappul i{ width:32px;  height:32px; display:block; background-image:url(/assets/sutongpay/inside-main/allicon.png); background-repeat: no-repeat; margin:0 auto;}
+i.ui-myappicon-water{ background-position:-170px 0px;}
+i.ui-myappicon-3G{ background-position:-170px -256px;}
+i.ui-myappicon-yccard{background-position:-170px -480px;}
+i.ui-myappicon-telephone{background-position:-170px -96px;}
+i.ui-myappicon-heater{ background-position:-170px -160px;}
+i.ui-myappicon-TV{background-position:-170px -128px;}
+i.ui-myappicon-Gas{ background-position:-170px -64px;}
+i.ui-myappicon-QQ{ background-position:-170px -448px;}
+i.ui-myappicon-LotteryTicket{ background-position:-170px -384px;}
+i.ui-myappicon-Game{ background-position:-170px -320px;}
+i.ui-myappicon-Traffic{ background-position:-170px -512px;}
+i.ui-myappicon-Safety{background-position:-170px -416px;}
+i.ui-myappicon-Number{ background-position:-170px -352px;}
+i.ui-myappicon-Electricity{background-position:-170px -32px;}
+i.ui-myappicon-mob{ background-position:-170px -224px;}
+i.ui-myappicon-11888card{background-position:-170px -288px;}
+i.ui-myappicon-sichuanTraffic{ background-position:-170px -192px;}
+i.ui-myappicon-mall{ background-position:-170px -544px;}
+
+

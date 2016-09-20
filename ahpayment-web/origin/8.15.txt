@@ -1,0 +1,8 @@
+翼充卡充值确认页面
+/*******确认信息页-验证*********/
+.ui-tabVerification{ position:relative; vertical-align:top;}
+.ui-tabVerification .ui-txtinput01{ margin-top:3px;}
+.ui-tabVerification .ui-Checkimg{ position:absolute; float:left; left:95px; top:12px;}
+.ui-tabVerification .ui-txt-a{  display:inline-block;}
+.ui-tabVerification .ui-CheckControls{ position:relative; top:6px;}
+这段CSS加载公用CSS内

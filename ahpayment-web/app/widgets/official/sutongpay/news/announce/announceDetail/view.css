@@ -1,0 +1,18 @@
+.announce-detail .articel {
+	padding:30px;
+	font-size:14px;
+	line-height:26px;
+	border-bottom:1px #dcdcdc dashed;		
+}
+.announce-detail .articel p{
+	font-size:14px;
+}
+.announce-detail .page{ border:1px solid #dcdcdc; border-left:0; overflow:hidden; margin-top:16px;margin-right:16px;}
+.announce-detail .page li{  text-align:center;height:32px;border-left:1px solid #dcdcdc;float: left; line-height:32px;}
+.announce-detail .page li a{color:#666;}
+.announce-detail .page li.nomal:hover{color:#999; background:#fcfcfc; width:68px; font-weight:100;}
+.announce-detail .page li.nomal{color:#999; background:#fcfcfc; width:68px}
+.announce-detail .page li.first{ width:68px;}
+.announce-detail .page li:hover{background:#fcfcfc; font-weight:bold;}
+.announce-detail .page li.hover{background:#fd9d2c; color:#fff; font-weight:bold;}
+.announce-detail .page li.hover a{color:#fff;}

@@ -1,0 +1,69 @@
+{{#component "findLoginPwd"}}
+
+<div class="sub-l fl sp-mtop30 sp-mleft250">
+  <form id="findLoginPwd" name="findLoginPwd">
+    <span class="col-wa cola fl sp-mtop12">用户名:</span>
+    <div class="fl sp-mtop12">
+      <input type="text" name="unifyId" maxlength="50" id="unifyId" type="hidden" class="input-w3">
+     <br>
+     <div id="unifyIdMsg" name="unifyIdMsg" class="ui-txtred"></div>
+   </div>
+
+    <div class="cl"></div>
+      <span class="col-wa cola fl sp-mtop12">手机号:</span>
+    <div class="fl sp-mtop12">
+      <input type="text" name="mobileNo" maxlength="11" id="mobileNo" type="hidden" class="input-w3">
+     <br>
+     <div id="mobileNoMsg" name="mobileNoMsg" class="ui-txtred"></div>
+   </div>
+
+   <div class="cl"></div>
+   <span class="col-wa cola fl sp-mtop12">验证码:</span>
+   <div class="fl sp-mtop12">
+     <div style="float:left;">
+       <input type="text" name="vcode" id="vcode" class="yzm-w2 input-w4" maxlength=4>
+
+       <span name="codeflagSpan" id="codeFlagSpan" 
+       style="display:none;margin-left:-17px;">
+       <img id="codeFlag" src="/assets/sutongpay/er.png">
+        <input type="hidden" id="imgCodeFlag" value="false"/>
+     </span>
+     <br>
+     <div id="checkCodMsg" name="checkCodMsg" class="ui-txtred"></div>
+
+   </div>
+   <div style="float:left;">
+
+     <span class="yzm fl sp-mtop14">
+      <img id="codeImg" style="display:none" width="54" height="30">
+      <a name="flushCode">换一张</a></span>
+     
+    </div>
+  </div>
+  <span>
+
+  </span>
+  <div class="cl"></div>
+  <span class="col-wa cola fl sp-mtop12">短信验证码:</span>
+  <div class="fl sp-mtop12">
+   <input type="text" name="verifyCode" id="verifyCode" class="input-w4" maxlength=6>
+   <a id="sendCode" class="ui-button ui-button-sermwhite" title="发送验证码">发送验证码</a>
+ </br>
+ <div id="verifyCodeMsg" name="verifyCodeMsg" class="ui-txtred"></div>
+ <div class="ui-Downnote" style="width:260px;display:none;" name="shortMsg" id="shortMsg"> <span class="ui-aggimg01"></span> <span class="ui-noteimg01"></span> <span class="ui-txtnote" name="uitext" id="uitext">短信已发送到您的手机，请注意查收。</span> </div>
+</div>           
+<div class="cl"></div>
+</form>
+
+<span class="colcenterForget">
+<div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="modifyBtn" name="modifyBtn" class="ui-button ui-button-morange" title="下一步">下一步</a> 
+        <a id="rn" name="rn" class="ui-button ui-button-mwhite" title="返回">返回</a>
+      </div>
+    </div><!--sub-l fl结束 --> 
+  </span>
+
+
+{{/component}}

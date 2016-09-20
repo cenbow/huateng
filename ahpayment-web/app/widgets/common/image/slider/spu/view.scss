@@ -1,0 +1,34 @@
+.image-slider.img-slider-spu {
+    width: 320px;
+    height: 380px;
+    position: absolute;
+    z-index: 20;
+    .able-switchable-nav {
+        position: absolute;
+        bottom: 5px;
+        li {
+            float: left;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            background-color: #FCF2CF;
+            border: 1px solid #EEE;
+            margin-left: 4px;
+        }
+        li:first-child {
+            margin-left: 0;
+        }
+        li.active {
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            border: 1px solid #FF9415;
+            background-color: #FCF2CF;
+        }
+    }
+    .able-switchable-content {
+        width: 320px;
+        height: 320px;
+        border: 1px solid #B6D1E6;
+    }
+}

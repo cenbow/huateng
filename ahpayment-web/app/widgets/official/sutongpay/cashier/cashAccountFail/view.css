@@ -1,0 +1,21 @@
+.gateway-Resultbg{ width:100%; display:inline-block; background-color:#fff; text-align:center;}
+.gateway-Result{ width:1000px; margin:0 auto; display:inline-block;}
+.gateway-Result .ui-Promptdiv {  margin-bottom:20px; display: inline-block; padding-bottom: 25px; padding-top:75px;}
+.gateway-Result .ui-Promptdiv i{ left:407px; top:25px;}
+.gateway-Result .ui-Promptdiv span{ width: auto;}
+.gateway-Result .ui-Promptdiv .Resulttxt01{ width: auto; left:387px; top:27px; position:absolute; float:left; font-size:18px;}
+.gateway-Result .ui-Promptdiv .Resulttxt02{  width: 100%; text-align: center; color: #666; position: relative;  display: inline-block;}
+
+
+
+.gateway-Result .ui-all-note{ font-size:14px; width:auto; display:inline-block; margin:30px auto 70px auto; *display:inline; zoom:1;}
+.gateway-Result .ui-all-note .ui-noteimg01{}
+.gateway-Result .ui-all-note .ui-notetxt01{ line-height: 30px;}
+.gateway-Result .ui-notetxt01 span.ui-txt-a{ font-size: 14px; font-weight: bold;}
+.gateway-Result .ui-notetxt01 span.ui-txt-a:hover{ text-decoration: none;}
+.gateway-Result .ui-notetxt01 .ui-textorange{color: #f77700; font-weight: bold;}
+.Resulttxt02 .ui-form{ display: inline-block; margin:0 auto; width: 100%;}
+.Resulttxt02 .ui-form-txt01{ width: 480px;}
+.Resulttxt02 .result-title{ position: relative; left:340px; font-weight: bold;}
+.Resulttxt02 .ui-a-item{ float: left; position: relative; left: 370px; margin-top: 15px;}
+.Resulttxt02 strong{ margin-right: 5px;}

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogAccountAlterMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogAccountAlter" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="TXN_CHANNEL" property="txnChannel" jdbcType="VARCHAR" />
+    <result column="TXN_TYPE" property="txnType" jdbcType="VARCHAR" />
+    <result column="TXN_DSCPT" property="txnDscpt" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TRANS_SEQ_NO" property="acceptTransSeqNo" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TRANS_DATE" property="acceptTransDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TRANS_TIME" property="acceptTransTime" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TYPE" property="accountType" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="TXN_AMOUNT" property="txnAmount" jdbcType="VARCHAR" />
+    <result column="TXN_TIME" property="txnTime" jdbcType="OTHER" />
+    <result column="MOBILE_PHONE" property="mobilePhone" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="REMARK2" property="remark2" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT1" property="rsvdText1" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT2" property="rsvdText2" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="FEE_AMT" property="feeAmt" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT3" property="rsvdText3" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT4" property="rsvdText4" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT5" property="rsvdText5" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT6" property="rsvdText6" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, TXN_CHANNEL, TXN_TYPE, TXN_DSCPT, ACCEPT_ORG_CODE, ACCEPT_TRANS_SEQ_NO, 
+    ACCEPT_TRANS_DATE, ACCEPT_TRANS_TIME, ACCOUNT_TYPE, CUSTOMER_NO, ACCOUNT_NO, TXN_AMOUNT, 
+    TXN_TIME, MOBILE_PHONE, EMAIL, REMARK, REMARK2, RSVD_TEXT1, RSVD_TEXT2, STATUS, FEE_AMT, 
+    RSVD_TEXT3, RSVD_TEXT4, RSVD_TEXT5, RSVD_TEXT6
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOG_ACCOUNT_ALTER
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from T_LOG_ACCOUNT_ALTER
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogAccountAlter" >
+    insert into T_LOG_ACCOUNT_ALTER (RECORD_NO, TXN_CHANNEL, TXN_TYPE, 
+      TXN_DSCPT, ACCEPT_ORG_CODE, ACCEPT_TRANS_SEQ_NO, 
+      ACCEPT_TRANS_DATE, ACCEPT_TRANS_TIME, ACCOUNT_TYPE, 
+      CUSTOMER_NO, ACCOUNT_NO, TXN_AMOUNT, 
+      TXN_TIME, MOBILE_PHONE, EMAIL, 
+      REMARK, REMARK2, RSVD_TEXT1, 
+      RSVD_TEXT2, STATUS, FEE_AMT, 
+      RSVD_TEXT3, RSVD_TEXT4, RSVD_TEXT5, 
+      RSVD_TEXT6)
+    values (#{recordNo,jdbcType=DECIMAL}, #{txnChannel,jdbcType=VARCHAR}, #{txnType,jdbcType=VARCHAR}, 
+      #{txnDscpt,jdbcType=VARCHAR}, #{acceptOrgCode,jdbcType=VARCHAR}, #{acceptTransSeqNo,jdbcType=VARCHAR}, 
+      #{acceptTransDate,jdbcType=VARCHAR}, #{acceptTransTime,jdbcType=VARCHAR}, #{accountType,jdbcType=VARCHAR}, 
+      #{customerNo,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{txnAmount,jdbcType=VARCHAR}, 
+      #{txnTime,jdbcType=OTHER}, #{mobilePhone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, #{rsvdText1,jdbcType=VARCHAR}, 
+      #{rsvdText2,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{feeAmt,jdbcType=VARCHAR}, 
+      #{rsvdText3,jdbcType=VARCHAR}, #{rsvdText4,jdbcType=VARCHAR}, #{rsvdText5,jdbcType=VARCHAR}, 
+      #{rsvdText6,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountAlter" >
+    insert into T_LOG_ACCOUNT_ALTER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="txnType != null" >
+        TXN_TYPE,
+      </if>
+      <if test="txnDscpt != null" >
+        TXN_DSCPT,
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE,
+      </if>
+      <if test="acceptTransSeqNo != null" >
+        ACCEPT_TRANS_SEQ_NO,
+      </if>
+      <if test="acceptTransDate != null" >
+        ACCEPT_TRANS_DATE,
+      </if>
+      <if test="acceptTransTime != null" >
+        ACCEPT_TRANS_TIME,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="txnAmount != null" >
+        TXN_AMOUNT,
+      </if>
+      <if test="txnTime != null" >
+        TXN_TIME,
+      </if>
+      <if test="mobilePhone != null" >
+        MOBILE_PHONE,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="remark2 != null" >
+        REMARK2,
+      </if>
+      <if test="rsvdText1 != null" >
+        RSVD_TEXT1,
+      </if>
+      <if test="rsvdText2 != null" >
+        RSVD_TEXT2,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="feeAmt != null" >
+        FEE_AMT,
+      </if>
+      <if test="rsvdText3 != null" >
+        RSVD_TEXT3,
+      </if>
+      <if test="rsvdText4 != null" >
+        RSVD_TEXT4,
+      </if>
+      <if test="rsvdText5 != null" >
+        RSVD_TEXT5,
+      </if>
+      <if test="rsvdText6 != null" >
+        RSVD_TEXT6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null" >
+        #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnDscpt != null" >
+        #{txnDscpt,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransSeqNo != null" >
+        #{acceptTransSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransDate != null" >
+        #{acceptTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransTime != null" >
+        #{acceptTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmount != null" >
+        #{txnAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="txnTime != null" >
+        #{txnTime,jdbcType=OTHER},
+      </if>
+      <if test="mobilePhone != null" >
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText1 != null" >
+        #{rsvdText1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText2 != null" >
+        #{rsvdText2,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="feeAmt != null" >
+        #{feeAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText3 != null" >
+        #{rsvdText3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText4 != null" >
+        #{rsvdText4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText5 != null" >
+        #{rsvdText5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText6 != null" >
+        #{rsvdText6,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountAlter" >
+    update T_LOG_ACCOUNT_ALTER
+    <set >
+      <if test="txnChannel != null" >
+        TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="txnType != null" >
+        TXN_TYPE = #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txnDscpt != null" >
+        TXN_DSCPT = #{txnDscpt,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgCode != null" >
+        ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransSeqNo != null" >
+        ACCEPT_TRANS_SEQ_NO = #{acceptTransSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransDate != null" >
+        ACCEPT_TRANS_DATE = #{acceptTransDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTransTime != null" >
+        ACCEPT_TRANS_TIME = #{acceptTransTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmount != null" >
+        TXN_AMOUNT = #{txnAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="txnTime != null" >
+        TXN_TIME = #{txnTime,jdbcType=OTHER},
+      </if>
+      <if test="mobilePhone != null" >
+        MOBILE_PHONE = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        REMARK2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText1 != null" >
+        RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText2 != null" >
+        RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="feeAmt != null" >
+        FEE_AMT = #{feeAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText3 != null" >
+        RSVD_TEXT3 = #{rsvdText3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText4 != null" >
+        RSVD_TEXT4 = #{rsvdText4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText5 != null" >
+        RSVD_TEXT5 = #{rsvdText5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText6 != null" >
+        RSVD_TEXT6 = #{rsvdText6,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogAccountAlter" >
+    update T_LOG_ACCOUNT_ALTER
+    set TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      TXN_TYPE = #{txnType,jdbcType=VARCHAR},
+      TXN_DSCPT = #{txnDscpt,jdbcType=VARCHAR},
+      ACCEPT_ORG_CODE = #{acceptOrgCode,jdbcType=VARCHAR},
+      ACCEPT_TRANS_SEQ_NO = #{acceptTransSeqNo,jdbcType=VARCHAR},
+      ACCEPT_TRANS_DATE = #{acceptTransDate,jdbcType=VARCHAR},
+      ACCEPT_TRANS_TIME = #{acceptTransTime,jdbcType=VARCHAR},
+      ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      TXN_AMOUNT = #{txnAmount,jdbcType=VARCHAR},
+      TXN_TIME = #{txnTime,jdbcType=OTHER},
+      MOBILE_PHONE = #{mobilePhone,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      REMARK2 = #{remark2,jdbcType=VARCHAR},
+      RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+      RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      FEE_AMT = #{feeAmt,jdbcType=VARCHAR},
+      RSVD_TEXT3 = #{rsvdText3,jdbcType=VARCHAR},
+      RSVD_TEXT4 = #{rsvdText4,jdbcType=VARCHAR},
+      RSVD_TEXT5 = #{rsvdText5,jdbcType=VARCHAR},
+      RSVD_TEXT6 = #{rsvdText6,jdbcType=VARCHAR}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

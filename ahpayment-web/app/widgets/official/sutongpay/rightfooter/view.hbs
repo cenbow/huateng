@@ -1,0 +1,16 @@
+{{#component "right-footer"}}
+<div id="floatPanel">
+	<div  class="ctrolPanel">
+		{{!-- <div style="background:#ddd; width: 66px; height: 66px; margin-top:5px;">
+			<img id="customer" style="cursor:pointer" src="/assets/sutongpay/rightools-01.jpg"/>
+		</div> --}}
+		{{#if _USER_}}
+		<div  style="background:#ddd; width: 66px; height: 66px; margin-top:5px;">
+			<a href="/cart/myCart">
+		<img id="cart" style="cursor:pointer" src="/assets/sutongpay/rightools-02.jpg" />
+	        </a>
+		</div>
+		 {{/if}}
+	</div>
+</div>
+{{/component}}

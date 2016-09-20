@@ -1,0 +1,26 @@
+{{#component "suggestions-list-detail"}}
+		<div class="cl"></div>
+
+       <table width="100%" border="0" cellspacing="1" cellpadding="0" class="ui-appcenter-infotab" style="margin-top:0px;">
+	<tr>
+		<td width="170" class="ui-tabtxt01">订单号</td>
+		<td><strong>{{orderNo}}</strong></td>
+	</tr>
+	<tr>
+		<td  class="ui-tabtxt01">用户名</td>
+		<td>{{_USER_.principal}}</td>
+	</tr>
+		<tr>
+			<td  class="ui-tabtxt01">统一帐号</td>
+			<td>{{_USER_.unifyId}}</td>
+		</tr>
+		<tr>
+			<td  class="ui-tabtxt01">创建时间</td>
+			<td>{{createTime}}</td>
+		</tr>
+	</table>
+
+	<div class="ui-sepdased-line" style="font-size:20px;height:40px">投诉建议详情</div>
+	<span style="word-break:break-all">{{suggestionsdetail.context}}
+	</span>
+		{{/component}}

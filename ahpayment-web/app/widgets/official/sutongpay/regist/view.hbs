@@ -1,0 +1,94 @@
+{{#component "registe"}}
+         <div class="reg">
+        <form method="post" name ="regostform" action="/api/user/getques" id="registform">
+
+           <span class="cola fl"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>账户号</span>
+       
+           <input id="unifyId" name="unifyId" type="text" class="input-w3 fl" maxlength="30" placeholder="账号为手机号或者邮箱">
+           <div id="unifyIdMsg" name="unifyIdMsg" class="ui-txtred">账号长度为6到30位</div>
+          
+
+            <div class="cl"></div>
+            <span class="cola fl sp-mtop16"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>登录密码</span>
+            <input name="loginPassword" type="password" id="loginPassword" class="input-w3 fl sp-mtop16" maxlength="20"/>
+      <font class="fl sp-mtop22" style="color:red;" id="loginPasswordResult">
+        密码为6到20位字母和数字组合
+      </font>
+          
+
+           <div class="cl"></div>
+            <span class="cola fl sp-mtop16"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>确认登录密码</span>
+            <input name="r_loginPassword" type="password" id="r_loginPassword" class="input-w3 fl sp-mtop16"  maxlength="20"/>
+      <font class="fl sp-mtop22" style="color:red" id="r_loginPasswordResult">
+        密码为6到20位字母和数字组合
+      </font>
+         
+
+           <div class="cl"></div>
+            <span class="cola fl sp-mtop16"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>联系人姓名</span>
+            <input name="userName" id="userName" type="text" class="input-w3 fl sp-mtop16" maxlength="10">
+            <div id="userNameMsg" name="userNameMsg"  class="ui-txtred" style="margin-top:18px;"></div>
+ <div class="cl"></div>
+            <span class="cola fl sp-mtop12"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>性别</span>
+<div class="select-outer select-wh92 fl sp-mtop12">
+                    <div class="select-inner">
+                        <select name="gender" id="gender" class="select-h">
+                         <option value="1">男</option>
+                         <option value="2">女</option>
+                        </select>
+                     </div>
+             </div>
+
+            <div class="cl"></div>
+            <span class="cola fl sp-mtop16"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>证件类型</span>
+<div class="select-outer select-wh92 fl sp-mtop16">
+                    <div class="select-inner">
+                        <select name="identity" id="identity" class="select-h">
+                         <option value="1">身份证</option>
+                        </select>
+                     </div>
+             </div><!--select-outer select-wh92结束 -->
+           <div class="cl"></div>
+            <span class="cola fl sp-mtop16"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>证件号码</span>
+            <input name="identityNo" type="text" id="identityNo" class="input-w3 fl sp-mtop16">
+            <div id="identityNoMsg" name="identityNoMsg"  class="ui-txtred" style="margin-top:18px;"></div>
+   <div class="cl"></div>
+            <span class="cola fl sp-mtop16"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>密保问题</span>
+<div class="select-outer select-wh165 fl sp-mtop16">
+                    <div class="select-inner">
+                        <select name="question" id="question" class="select-h">    
+                        </select>
+                     </div>
+             </div><!--select-outer select-wh92结束 -->
+           <div class="cl"></div>
+            <span class="cola fl sp-mtop16"><font style="color:red;font-size:20px;margin-top:5px;vertical-align: middle" >*</font>密保答案</span>
+            <input name="answer" type="text" id="answer" class="input-w3 fl sp-mtop16" maxlength="20">
+              <div id="answerMsg" name="answerMsg"  class="ui-txtred" style="margin-top:18px;"></div>
+
+            <div class="cl"></div>
+            <span class="cola fl sp-mtop16">验证码</span>
+            <input name="vcode" id="vcode" type="text" class="input-w7 fl sp-mtop16">
+             <span name="codeflagSpan" id="codeFlagSpan" 
+                      class="ui-Securityimage" style="display:none margin-left:-17px;">
+                    <img id="codeFlag" src="/assets/sutongpay/er.png">
+                    <input id="codeCheckFlag" type="hidden" value="false">
+                </span>
+            <span class="yzm fl sp-mtop16">
+                <img id="codeImg" style="display:none" width="54" height="30">
+            <a name="flushCode">换一张</a></span>
+            <div class="cl"></div>  
+          {{!--  <span class="colc sp-mtop8"><input name="" type="checkbox" value=""> 注册须知</span> --}}
+
+          <span class="colcenter">
+  <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="submitButtn" name="submitButtn" class="ui-button ui-button-morange" title="确定">确定</a> 
+        <a id="retButtn" name="retButtn" class="ui-button ui-button-mwhite" title="返回">返回</a>
+      </div>
+    </div>
+</span>
+
+          </form>
+       </div>   
+{{/component}}

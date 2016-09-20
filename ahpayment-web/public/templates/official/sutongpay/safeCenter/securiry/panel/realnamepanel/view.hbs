@@ -1,0 +1,22 @@
+        <div class="setlist">
+       <div class="fl tp">实名认证</div>
+       {{#equals _DATA_.isRealname "4"}}
+       <div class="fl cp"><div class="fl">通过实名认证，便拥有更多的功能、更高级别的账户资金安全。</div>
+       <div class="fr ctrl">
+       <li>
+       	<a title="查看实名申请记录" 
+           href="/api/security/result">查看实名申请记录</a>
+       </li>
+   		</div></div>
+   		{{else}}
+			<div class="fl" style="background: url('/assets/sutongpay/setscico2.jpg') no-repeat scroll left top transparent;text-indent: 25px;width: 90%;
+text-align: center;"><div class="fl">通过实名认证，便拥有更多的功能、更高级别的账户资金安全。</div>
+       <div class="fr ctrl">
+       <li>
+       	<a title="申请高级实名认证" 
+           href="/api/security/result">申请高级实名认证</a>
+       </li>
+   		</div></div>
+
+   		{{/equals}}
+       </div>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.hub.accountcore.mapper.CommonGoodsMapper">
+
+    <resultMap id="StockResultMap" type="com.huateng.p3.hub.accountcore.models.GoodsStock">
+        <result column="RELATION_ID" property="relationId" jdbcType="VARCHAR"/>
+        <result column="STOCK_ID" property="stockId" jdbcType="VARCHAR"/>
+        <result column="IN_TIME" property="inTime" jdbcType="DATE"/>
+        <result column="IN_OPERATOR" property="inOperator" jdbcType="VARCHAR"/>
+        <result column="OUT_TIME" property="outTime" jdbcType="DATE"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="TXN_CHANNEL" property="txnChannel" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getCommonGoodsObject" parameterType="com.huateng.p3.hub.accountcore.models.CommonGoodsObject"
+            resultType="java.lang.String">
+          select  d.RELATION_ID
+                  from CONSOLE.T_GOODS_DICT_CAT_RELATION d,CONSOLE.T_GOODS_BASIC a
+                  where d.GOODS_NO = a.GOODS_NO
+                <if test="price !=null">
+                    AND   d.GOODS_PRICE = #{price,jdbcType=DECIMAL}
+                </if>
+                <if test="goodsName !=null">
+                    AND   a.GOODS_NAME = #{goodsName,jdbcType=VARCHAR}
+                </if>
+                <if test="skuName1 !=null">
+                    AND  d.FIRST_CAT_SEQ = (select CAT_SEQ from CONSOLE.T_GOODS_DICT_CAT where CAT_NAME = #{skuName1})
+                </if>
+                <if test="skuAttributeName1 !=null">
+                    AND  d.FIRST_CAT_PROP_SEQ = (select CAT_PROP_SEQ from CONSOLE.T_GOODS_DICT_CAT_PROP where PROP_NAME = #{skuAttributeName1})
+                </if>
+                <if test="skuName2 !=null">
+                    AND  d.SECOND_CAT_SEQ = (select CAT_SEQ from CONSOLE.T_GOODS_DICT_CAT where CAT_NAME = #{skuName2})
+                </if>
+                <if test="skuAttributeName2 !=null">
+                    AND  d.SECOND_CAT_PROP_SEQ = (select CAT_PROP_SEQ from CONSOLE.T_GOODS_DICT_CAT_PROP where PROP_NAME = #{skuAttributeName2})
+                </if>
+    </select>
+    <select id="randomGetGoodsStock" parameterType="map" resultMap="StockResultMap">
+          select  RELATION_ID,STOCK_ID,IN_TIME,IN_OPERATOR,OUT_TIME,STATUS,TXN_CHANNEL
+                  from CONSOLE.T_GOODS_STOCK
+                  where  RELATION_ID = #{relationId,jdbcType=VARCHAR} and
+                         STATUS = '0'
+                         order by rand() fetch first ${number} rows only
+                         for update with RR
+    </select>
+    <update id="patchUpdateGoodsStock" parameterType="list" >
+          update  CONSOLE.T_GOODS_STOCK  set STATUS = '1',
+                       OUT_TIME = CURRENT DATE
+                  where  STOCK_ID in
+        <foreach collection="list" item= "item" index ="index"
+                 open= "(" close =")" separator=",">
+            #{item}
+        </foreach >
+    </update>
+</mapper>

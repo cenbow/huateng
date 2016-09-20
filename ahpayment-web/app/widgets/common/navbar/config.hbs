@@ -1,0 +1,207 @@
+<div class="modal w300" id="js-navbar-setting-panel">
+    <div class="modal-header">
+        <button type="button" class="close">&times;</button>
+        <h4>导航条设置</h4>
+    </div>
+    <div class="modal-body">
+        <div class="accordion" id="style-accordion">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <div class="accordion-toggle" data-toggle="collapse" data-parent="#style-accordion"
+                         href="#collapse-base">
+                        <div class="title">文字和背景</div>
+                        <div class="flag icon-flag-open"></div>
+                    </div>
+                </div>
+                <div id="collapse-base" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <div class="row-fluid" id="font-size">
+                            <div class="span3">字大小:</div>
+                            <div class="span7">
+                                <span class="slider js-slider"></span>
+                            </div>
+                            <div class="span2">
+                                <input type="text" class="input-min number" data-min="12" data-max="36" value="14">
+                            </div>
+                        </div>
+                        <div class="row-fluid color-row" id="font-color">
+                            <div class="span3">文字色:</div>
+                            <div class="span7">
+                                <input type="text" class="input-mini js-color-picker"/>
+                            </div>
+                        </div>
+                        <div class="js-arguments" id="background-color">
+                            <div class="row-fluid color-row">
+                                <div class="span3">背景色:</div>
+                                <div class="span7">
+                                    <input type="text" name="0" class="input-mini js-color-picker bg-color" value="#000000"/>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span3">透明度:</div>
+                                <div class="span7">
+                                    <span class="slider js-slider"></span>
+                                </div>
+                                <div class="span2">
+                                    <input type="text" name="1" class="no-px input-min number bg-transparent" data-min="0" data-max="10" value="10">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <div class="accordion-toggle" data-toggle="collapse" data-parent="#style-accordion"
+                         href="#collapse-behavior">
+                        <div class="title">行为配置</div>
+                        <div class="flag icon-flag-close"></div>
+                    </div>
+                </div>
+                <div id="collapse-behavior" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <div class="row-fluid color-row" id="hover-font-color">
+                            <div class="span5">鼠标经过文字色:</div>
+                            <div class="span7">
+                                <input type="text" class="input-mini js-color-picker" value="#000000"/>
+                            </div>
+                        </div>
+                        <div class="js-arguments" id="hover-background-color">
+                            <div class="row-fluid color-row">
+                                <div class="span5">鼠标经过背景色:</div>
+                                <div class="span7">
+                                    <input type="text" name="0" class="input-mini js-color-picker bg-color"/>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span3">透明度:</div>
+                                <div class="span7">
+                                    <span class="slider js-slider"></span>
+                                </div>
+                                <div class="span2">
+                                    <input type="text" name="1" class="no-px input-min number bg-transparent" data-min="0" data-max="10" value="10">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid color-row" id="active-font-color">
+                            <div class="span5">选中文字色:</div>
+                            <div class="span7">
+                                <input type="text" class="input-mini js-color-picker" value="#000000"/>
+                            </div>
+                        </div>
+                        <div class="js-arguments" id="active-background-color">
+                            <div class="row-fluid color-row">
+                                <div class="span5">选中背景色:</div>
+                                <div class="span7">
+                                    <input type="text" name="0" class="input-mini js-color-picker bg-color"/>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span3">透明度:</div>
+                                <div class="span7">
+                                    <span class="slider js-slider"></span>
+                                </div>
+                                <div class="span2">
+                                    <input type="text" name="1" class="no-px input-min number bg-transparent" data-min="0" data-max="10" value="10">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <div class="accordion-toggle" data-toggle="collapse" data-parent="#style-accordion"
+                         href="#collapse-ext">
+                        <div class="title">内部项配置</div>
+                        <div class="flag icon-flag-close"></div>
+                    </div>
+                </div>
+                <div id="collapse-ext" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <div class="row-fluid" id="margin-right">
+                            <div class="span3">项间隔:</div>
+                            <div class="span7">
+                                <span class="slider js-slider"></span>
+                            </div>
+                            <div class="span2">
+                                <input type="text" name="gap" class="input-min number" data-min="0" data-max="50" value="8">
+                            </div>
+                        </div>
+                        <div class="row-fluid" id="padding-top">
+                            <div class="span3">上间距:</div>
+                            <div class="span7">
+                                <span class="slider js-slider"></span>
+                            </div>
+                            <div class="span2">
+                                <input type="text" name="1" class="input-min number" data-min="0" data-max="50" value="0">
+                            </div>
+                        </div>
+                        <div class="row-fluid" id="padding-bottom">
+                            <div class="span3">下间距:</div>
+                            <div class="span7">
+                                <span class="slider js-slider"></span>
+                            </div>
+                            <div class="span2">
+                                <input type="text" name="1" class="input-min number" data-min="0" data-max="50" value="0">
+                            </div>
+                        </div>
+                        导角:
+                        <div class="row-fluid js-arguments" id="border-radius">
+                            <span class="span5">
+                                <div class="row-fluid">
+                                    <div class="span5">
+                                        <input type="text" name="0" class="input-min number" data-min="0" data-max="200"
+                                               value="0">
+                                    </div>
+                                    <div class="span7">
+                                        <div class="top-left"></div>
+                                    </div>
+                                </div>
+                                 <div class="row-fluid">
+
+                                     <div class="span5">
+                                         <input type="text" name="3" class="input-min number" data-min="0"
+                                                data-max="200" value="0">
+                                     </div>
+                                     <div class="span7">
+                                         <div class="bottom-left"></div>
+                                     </div>
+                                 </div>
+                            </span>
+                            <span class="span2">
+                                <label id="link_all_label" class="checkbox">
+                                    <input type="checkbox" id="link_all" checked>联动
+                                </label>
+                            </span>
+                            <span class="span5">
+                                 <div class="row-fluid">
+                                     <div class="span7">
+                                         <div class="top-right"></div>
+                                     </div>
+                                     <div class="span5">
+                                         <input type="text" name="1" class="input-min number" data-min="0"
+                                                data-max="200" value="0">
+                                     </div>
+                                 </div>
+
+                                 <div class="row-fluid">
+                                     <div class="span7">
+                                         <div class="bottom-right"></div>
+                                     </div>
+                                     <div class="span5">
+                                         <input type="text" name="2" class="input-min number" data-min="0"
+                                                data-max="200" value="0">
+                                     </div>
+                                 </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary cancel" id="js-navbar-ok">OK</a>
+    </div>
+</div>

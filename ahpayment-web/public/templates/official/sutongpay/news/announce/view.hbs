@@ -1,0 +1,18 @@
+{{#component "announce"}}
+                <div class="cl"></div>
+                <div class="cl"></div>
+                {{#each _DATA_.data}}
+                 <div class="setlist">
+                 	<div class="fl">
+                 		<a href="/news/announce/announceDetail?id={{id}}">{{announceformat title}}</a>
+                 	</div>
+                 	<div class="fr ctrl" style="width:200px">{{inputDate}}
+                 	</div>
+                 </div>     
+                 {{/each}}
+                <div class="cl"></div>
+                {{#if _DATA_.data}}
+               <span id="js-list-total" style="display:none;">{{_DATA_.total}}</span>
+               <div class="pagination" id="js-list-pagination" style="float: right;"></div>
+               {{/if}}
+{{/component}} 

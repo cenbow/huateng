@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TSmsTempSendMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TSmsTempSend" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="TYPE" property="type" jdbcType="CHAR" />
+    <result column="SENDER" property="sender" jdbcType="VARCHAR" />
+    <result column="RECEIVER" property="receiver" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+    <result column="SEND_TYPE" property="sendType" jdbcType="CHAR" />
+    <result column="BATCH_NO" property="batchNo" jdbcType="DECIMAL" />
+    <result column="PRIORITY" property="priority" jdbcType="CHAR" />
+    <result column="RSVD_FLD" property="rsvdFld" jdbcType="VARCHAR" />
+    <result column="SEND_TIME" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="SEND_FLAG" property="sendFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, CREATE_TIME, TYPE, SENDER, RECEIVER, TITLE, CONTENT, SEND_TYPE, BATCH_NO, 
+    PRIORITY, RSVD_FLD, SEND_TIME, SEND_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_SMS_TEMP_SEND
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from T_SMS_TEMP_SEND
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TSmsTempSend" >
+    insert into T_SMS_TEMP_SEND (RECORD_NO, CREATE_TIME, TYPE, 
+      SENDER, RECEIVER, TITLE, 
+      CONTENT, SEND_TYPE, BATCH_NO, 
+      PRIORITY, RSVD_FLD, SEND_TIME, 
+      SEND_FLAG)
+    values (#{recordNo,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{type,jdbcType=CHAR}, 
+      #{sender,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{sendType,jdbcType=CHAR}, #{batchNo,jdbcType=DECIMAL}, 
+      #{priority,jdbcType=CHAR}, #{rsvdFld,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, 
+      #{sendFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TSmsTempSend" >
+    insert into T_SMS_TEMP_SEND
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="sender != null" >
+        SENDER,
+      </if>
+      <if test="receiver != null" >
+        RECEIVER,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="sendType != null" >
+        SEND_TYPE,
+      </if>
+      <if test="batchNo != null" >
+        BATCH_NO,
+      </if>
+      <if test="priority != null" >
+        PRIORITY,
+      </if>
+      <if test="rsvdFld != null" >
+        RSVD_FLD,
+      </if>
+      <if test="sendTime != null" >
+        SEND_TIME,
+      </if>
+      <if test="sendFlag != null" >
+        SEND_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="sender != null" >
+        #{sender,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null" >
+        #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null" >
+        #{sendType,jdbcType=CHAR},
+      </if>
+      <if test="batchNo != null" >
+        #{batchNo,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=CHAR},
+      </if>
+      <if test="rsvdFld != null" >
+        #{rsvdFld,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendFlag != null" >
+        #{sendFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TSmsTempSend" >
+    update T_SMS_TEMP_SEND
+    <set >
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=CHAR},
+      </if>
+      <if test="sender != null" >
+        SENDER = #{sender,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null" >
+        RECEIVER = #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null" >
+        SEND_TYPE = #{sendType,jdbcType=CHAR},
+      </if>
+      <if test="batchNo != null" >
+        BATCH_NO = #{batchNo,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null" >
+        PRIORITY = #{priority,jdbcType=CHAR},
+      </if>
+      <if test="rsvdFld != null" >
+        RSVD_FLD = #{rsvdFld,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        SEND_TIME = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendFlag != null" >
+        SEND_FLAG = #{sendFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TSmsTempSend" >
+    update T_SMS_TEMP_SEND
+    set CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      TYPE = #{type,jdbcType=CHAR},
+      SENDER = #{sender,jdbcType=VARCHAR},
+      RECEIVER = #{receiver,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      SEND_TYPE = #{sendType,jdbcType=CHAR},
+      BATCH_NO = #{batchNo,jdbcType=DECIMAL},
+      PRIORITY = #{priority,jdbcType=CHAR},
+      RSVD_FLD = #{rsvdFld,jdbcType=VARCHAR},
+      SEND_TIME = #{sendTime,jdbcType=TIMESTAMP},
+      SEND_FLAG = #{sendFlag,jdbcType=CHAR}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

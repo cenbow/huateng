@@ -1,0 +1,18 @@
+{{#component "payment-center"}}
+        <div class="hg"></div>
+        {{#each _DATA_.items}}
+        <div class="card">
+          <div class="image">
+            <a href="/payment/reChargeCard/detail?itemId={{id}}" ><img src="{{mainImage}}"/></a> 
+          </div>
+          <ul class="card_p">
+            <li><span>{{{name}}}</span></li>
+          </ul>
+        </div>
+        {{/each}}
+        <div class="cl"></div>
+        {{#if _DATA_.items}}
+       <span id="js-list-total" style="display:none;">{{_DATA_.total}}</span>
+       <div class="pagination" id="js-list-pagination" style="float: right;"></div>
+       {{/if}}
+{{/component}}

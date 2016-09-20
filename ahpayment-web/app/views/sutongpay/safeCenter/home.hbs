@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="description" content='{{#block "desc"}}速通支付{{/block}}'>
+  <title>
+    速通支付-安全中心
+  </title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/common.css">
+</head>
+<body>
+  <div id="wrapper">
+    {{inject "official/sutongpay/index-header"}}
+    <div class="index-main">
+      <div class="p-main-bg">
+       <div class="p-main">
+        {{inject "official/sutongpay/safeCenter/safeCenter-left"}}
+        <div class="right">
+         {{inject "official/sutongpay/title"}}
+         {{inject "official/sutongpay/safeCenter/wish" true}}
+         {{#inject "official/sutongpay/safeCenter/securiry/panel"}}
+         {"data": {
+         "title":"登录密码",
+         "content":"登录密码是您登录翼支付的唯一凭证，由6-20位英文字母或数字组成，不能包含特殊字符，区分大小写。"
+         ,
+         "button": [
+         {
+         "url": "/safeCenter/loginPwd/re_LoginPassword",
+         "content": "修改"}         
+         ]
+       }}
+       {{/inject}}
+       {{#inject "official/sutongpay/safeCenter/securiry/panel"}}
+       {"data": {
+       "title":"支付密码",
+       "content":"支付密码会在付款、修改账户信息等多处使用，建议支付密码与登录密码不同。",
+       "button": [
+       {
+       "url": "/safeCenter/paypwd/payPwdModify",
+       "content": "修改"
+     },
+     {
+     "url": "/safeCenter/paypwd/reset/way",
+     "content": "重置"
+   }
+   ]
+ }}
+ {{/inject}}    
+ {{#inject "official/sutongpay/safeCenter/securiry/panel"}}
+ {"data": {
+ "title":"密保问题",
+ "content":"设置密保问题可以让您的账户更加安全。",
+ "button": [
+ {
+ "url": "/safeCenter/question/resetQuestion",
+ "content": "重置"}         
+ ]
+}}
+{{/inject}}
+
+{{inject "official/sutongpay/safeCenter/securiry/panel/bindmobpanel" true}}
+
+
+{{inject "official/sutongpay/safeCenter/securiry/panel/realnamepanel" true}}
+
+
+{{#inject "official/sutongpay/safeCenter/securiry/panel"}}
+{"data": {
+"title":"交易限额",
+"content":"设置交易限额，以确保网上交易安全。",
+"button": [
+{
+  "url": "/safeCenter/limit/limitModify",
+  "content": "交易限额设置"}     
+  ]
+}}
+{{/inject}}
+<div>
+</div>
+</div>
+</div>
+
+
+{{inject "official/sutongpay/footer"}}
+<script src="/assets/common.js"></script>
+<script>require("common/init")</script>
+</div>
+
+
+
+
+
+
+
+<div class="" id="cover"></div>
+
+
+
+<div class="popup-modal modalh" id="modal" style="z-index: 10001; top: 109px; left: 320.5px;height :300px;width:700px;" display="none">
+
+  <div class="popup-dialog ee">
+    <div class="popup-dialog-title">
+      <button class="close" type="button" id="close">
+
+        ×
+
+      </button>
+      <font class="h3">
+
+        手机绑定
+
+      </font>
+    </div>
+    <div class="popup-dialog-content" style="height :300px;">
+      <div class="popup-dialog-info-box clearfix">
+        <div class="sub-l fl sp-mtop30">
+          <span class="col-wa cola fl sp-mtop12">手机号:</span>
+          <div class="fl sp-mtop12">
+
+           <input type="text" name="mobileNo" id="mobileNo" class="input-w3" maxLength="11">
+           <br>
+           <div id="mobileNoMsg" name="mobileNoMsg" class="ui-txtred"></div>
+         </div>
+       </div>
+
+       <div class="cl"></div>
+       <span class="col-wa cola fl sp-mtop12">短信验证码:</span>
+       <div class="fl sp-mtop12">
+         <input type="text" name="verifyCode1" id="verifyCode1" class="input-w4" maxlength=6>
+         <a id="sendCode" class="ui-button ui-button-sermwhite" title="发送验证码">发送验证码</a>
+       </br>
+       <div id="verifyCodeMsg1" name="verifyCodeMsg1" class="ui-txtred"></div>
+       <div class="ui-Downnote" style="width:290px;display:none;" name="shortMsg1" id="shortMsg1"> <span class="ui-aggimg01"></span> <span class="ui-noteimg01"></span> <span class="ui-txtnote" name="uitext1" id="uitext1">短信已发送到您的手机，请注意查收。</span> </div>
+     </div>          
+     <div class="cl"></div>
+
+     <span class="colz">
+      <div class="ui-form">
+        <div class="ui-form-txt01"></div>
+        <div class="ui-form-item">
+          <a id="submitButtn" name="submitButtn" class="ui-button ui-button-morange" title="确定">确定</a> 
+          <a id="resetButtn" name="resetButtn" class="ui-button ui-button-mwhite" title="取消">取消</a>
+        </div>
+      </div>
+    </span>
+
+  </div>
+</div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-modal modalh" id="modal2" style="z-index: 10001; top: 109px; left: 320.5px;height :300px;width:700px;">
+
+  <div class="popup-dialog ee">
+    <div class="popup-dialog-title">
+      <button class="close" type="button" id="close2">
+
+        ×
+
+      </button>
+      <font class="h3">
+
+        修改手机绑定
+
+      </font>
+    </div>
+    <div class="popup-dialog-content" style="height :350px;">
+      <div class="popup-dialog-info-box clearfix">
+        <span class="col-wa cola fl sp-mtop12">原绑定手机:</span>
+
+        <span class="col-wa fl sp-mtop12" id="oldmb" style="line-height: 32px;"></span>
+
+      </div> 
+      <div class="cl"></div>
+
+      <span class="col-wa cola fl sp-mtop12">短信验证码:</span>
+      <div class="fl sp-mtop12">
+       <input type="text" name="verifyCode2" id="verifyCode2" class="input-w4" maxlength=6>
+       <a id="sendCode2" class="ui-button ui-button-sermwhite" title="发送验证码">发送验证码</a>
+     </br>
+     <div id="verifyCodeMsg2" name="verifyCodeMsg2" class="ui-txtred"></div>
+     <div class="ui-Downnote" style="width:290px;display:none;" name="shortMsg2" id="shortMsg2"> <span class="ui-aggimg01"></span> <span class="ui-noteimg01"></span> <span class="ui-txtnote" name="uitext2" id="uitext2">短信已发送到您的手机，请注意查收。</span> </div>
+   </div>  
+
+   <div class="cl"></div>
+
+
+   <span class="col-wa cola fl sp-mtop12">手机号:</span>
+   <div class="fl sp-mtop12">
+
+     <input type="text" name="mobileNo2" id="mobileNo2" class="input-w3" maxLength="11">
+     <br>
+     <div id="mobileNoMsg2" name="mobileNoMsg2" class="ui-txtred"></div>
+   </div>
+
+
+   <div class="cl"></div>
+
+
+   <span class="col-wa cola fl sp-mtop12">支付密码:</span>
+   <div class="fl sp-mtop12" style='position:relative;'>
+
+     <input type="password" onkeyup="$(this).value=this.value.replace(/\D/g,'');" 
+     onafterpaste="$(this).value=this.value.replace(/\D/g,'')"
+     name="payPasswd" maxlength="6" id="payPasswd" class="input-w3" readonly="readonly">
+
+
+     <span class="ui-Gray-notes03" style="color:red;" >密码为6位数字</span>
+     <br>
+     <div id="payPwdMsg" name="payPwdMsg" class="ui-txtred"></div>
+   </div>
+   <div class="cl"></div>
+   <span class="colz">
+    <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="submitButtn2" name="submitButtnModify" class="ui-button ui-button-morange" title="确定">确定</a> 
+        <a id="resetButtn2" name="resetButtn2" class="ui-button ui-button-mwhite" title="取消">取消</a>
+      </div>
+    </div>
+  </span>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="popup-modal modalh" id="modal3" style="z-index: 10001; top: 109px; left: 320.5px;height :300px;width:700px;">
+
+  <div class="popup-dialog ee">
+    <div class="popup-dialog-title">
+      <button class="close" type="button" id="close3">
+
+        ×
+
+      </button>
+      <font class="h3">
+
+        手机解绑
+
+      </font>
+    </div>
+    <div class="popup-dialog-content" style="height :270px;">
+      <div class="popup-dialog-info-box clearfix">
+        <span class="col-wa cola fl sp-mtop12">原绑定手机:</span>
+
+        <span class="col-wa fl sp-mtop12" id="oldmb3" style="line-height: 32px;"></span>
+
+      </div> 
+      <div class="cl"></div>
+
+      <span class="col-wa cola fl sp-mtop12">短信验证码:</span>
+      <div class="fl sp-mtop12">
+       <input type="text" name="verifyCode3" id="verifyCode3" class="input-w4" maxlength=6>
+       <a id="sendCode3" class="ui-button ui-button-sermwhite" title="发送验证码">发送验证码</a>
+     </br>
+     <div id="verifyCodeMsg2" name="verifyCodeMsg3" class="ui-txtred"></div>
+     <div class="ui-Downnote" style="width:290px;display:none;" name="shortMsg3" id="shortMsg3"> <span class="ui-aggimg01"></span> <span class="ui-noteimg01"></span> <span class="ui-txtnote" name="uitext3" id="uitext3">短信已发送到您的手机，请注意查收。</span> </div>
+   </div> 
+
+
+   <div class="cl"></div>
+
+
+   <span class="col-wa cola fl sp-mtop12">支付密码:</span>
+   <div class="fl sp-mtop12" style='position:relative;'>
+
+     <input type="password" onkeyup="$(this).value=this.value.replace(/\D/g,'');" 
+     onafterpaste="$(this).value=this.value.replace(/\D/g,'')"
+     name="payPasswd3" maxlength="6" id="payPasswd3" class="input-w3" readonly="readonly">
+
+
+     <span class="ui-Gray-notes03" style="color:red;" >密码为6位数字</span>
+     <br>
+     <div id="payPwdMsg3" name="payPwdMsg3" class="ui-txtred"></div>
+   </div>
+   <div class="cl"></div>
+   <span class="colz">
+    <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="submitButtn3" name="submitButtnModify" class="ui-button ui-button-morange" title="确定">确定</a> 
+        <a id="resetButtn3" name="resetButtn2" class="ui-button ui-button-mwhite" title="取消">取消</a>
+      </div>
+    </div>
+  </span>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

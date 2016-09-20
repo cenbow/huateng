@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoAccountBondMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoAccountBond" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="BOND_ACCOUNT_NO" property="bondAccountNo" jdbcType="VARCHAR" />
+    <result column="BOND_NO" property="bondNo" jdbcType="VARCHAR" />
+    <result column="FUND_ACCOUNT_NO" property="fundAccountNo" jdbcType="VARCHAR" />
+    <result column="BOND_RECORD_NO" property="bondRecordNo" jdbcType="DECIMAL" />
+    <result column="BOND_NAME" property="bondName" jdbcType="VARCHAR" />
+    <result column="BOND_TYPE" property="bondType" jdbcType="CHAR" />
+    <result column="ISSUE_ORG_CODE" property="issueOrgCode" jdbcType="VARCHAR" />
+    <result column="BINDING_TIME" property="bindingTime" jdbcType="TIMESTAMP" />
+    <result column="DOWNLOAD_TIME" property="downloadTime" jdbcType="TIMESTAMP" />
+    <result column="VALID_FLAG" property="validFlag" jdbcType="CHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="TIMESTAMP" />
+    <result column="VALID_DATE" property="validDate" jdbcType="TIMESTAMP" />
+    <result column="PAY_METHOD" property="payMethod" jdbcType="CHAR" />
+    <result column="AMOUNT" property="amount" jdbcType="DECIMAL" />
+    <result column="BALANCE" property="balance" jdbcType="DECIMAL" />
+    <result column="AVAILABLE_BALANCE" property="availableBalance" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, CUSTOMER_NO, BOND_ACCOUNT_NO, BOND_NO, FUND_ACCOUNT_NO, BOND_RECORD_NO, 
+    BOND_NAME, BOND_TYPE, ISSUE_ORG_CODE, BINDING_TIME, DOWNLOAD_TIME, VALID_FLAG, EFFECTIVE_DATE, 
+    VALID_DATE, PAY_METHOD, AMOUNT, BALANCE, AVAILABLE_BALANCE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_INFO_ACCOUNT_BOND
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from T_INFO_ACCOUNT_BOND
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountBond" >
+    insert into T_INFO_ACCOUNT_BOND (RECORD_NO, CUSTOMER_NO, BOND_ACCOUNT_NO, 
+      BOND_NO, FUND_ACCOUNT_NO, BOND_RECORD_NO, 
+      BOND_NAME, BOND_TYPE, ISSUE_ORG_CODE, 
+      BINDING_TIME, DOWNLOAD_TIME, VALID_FLAG, 
+      EFFECTIVE_DATE, VALID_DATE, PAY_METHOD, 
+      AMOUNT, BALANCE, AVAILABLE_BALANCE
+      )
+    values (#{recordNo,jdbcType=DECIMAL}, #{customerNo,jdbcType=VARCHAR}, #{bondAccountNo,jdbcType=VARCHAR}, 
+      #{bondNo,jdbcType=VARCHAR}, #{fundAccountNo,jdbcType=VARCHAR}, #{bondRecordNo,jdbcType=DECIMAL}, 
+      #{bondName,jdbcType=VARCHAR}, #{bondType,jdbcType=CHAR}, #{issueOrgCode,jdbcType=VARCHAR}, 
+      #{bindingTime,jdbcType=TIMESTAMP}, #{downloadTime,jdbcType=TIMESTAMP}, #{validFlag,jdbcType=CHAR}, 
+      #{effectiveDate,jdbcType=TIMESTAMP}, #{validDate,jdbcType=TIMESTAMP}, #{payMethod,jdbcType=CHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{balance,jdbcType=DECIMAL}, #{availableBalance,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountBond" >
+    insert into T_INFO_ACCOUNT_BOND
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="bondAccountNo != null" >
+        BOND_ACCOUNT_NO,
+      </if>
+      <if test="bondNo != null" >
+        BOND_NO,
+      </if>
+      <if test="fundAccountNo != null" >
+        FUND_ACCOUNT_NO,
+      </if>
+      <if test="bondRecordNo != null" >
+        BOND_RECORD_NO,
+      </if>
+      <if test="bondName != null" >
+        BOND_NAME,
+      </if>
+      <if test="bondType != null" >
+        BOND_TYPE,
+      </if>
+      <if test="issueOrgCode != null" >
+        ISSUE_ORG_CODE,
+      </if>
+      <if test="bindingTime != null" >
+        BINDING_TIME,
+      </if>
+      <if test="downloadTime != null" >
+        DOWNLOAD_TIME,
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG,
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="payMethod != null" >
+        PAY_METHOD,
+      </if>
+      <if test="amount != null" >
+        AMOUNT,
+      </if>
+      <if test="balance != null" >
+        BALANCE,
+      </if>
+      <if test="availableBalance != null" >
+        AVAILABLE_BALANCE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bondAccountNo != null" >
+        #{bondAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bondNo != null" >
+        #{bondNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fundAccountNo != null" >
+        #{fundAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bondRecordNo != null" >
+        #{bondRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="bondName != null" >
+        #{bondName,jdbcType=VARCHAR},
+      </if>
+      <if test="bondType != null" >
+        #{bondType,jdbcType=CHAR},
+      </if>
+      <if test="issueOrgCode != null" >
+        #{issueOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bindingTime != null" >
+        #{bindingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadTime != null" >
+        #{downloadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validFlag != null" >
+        #{validFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payMethod != null" >
+        #{payMethod,jdbcType=CHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="availableBalance != null" >
+        #{availableBalance,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountBond" >
+    update T_INFO_ACCOUNT_BOND
+    <set >
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bondAccountNo != null" >
+        BOND_ACCOUNT_NO = #{bondAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bondNo != null" >
+        BOND_NO = #{bondNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fundAccountNo != null" >
+        FUND_ACCOUNT_NO = #{fundAccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bondRecordNo != null" >
+        BOND_RECORD_NO = #{bondRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="bondName != null" >
+        BOND_NAME = #{bondName,jdbcType=VARCHAR},
+      </if>
+      <if test="bondType != null" >
+        BOND_TYPE = #{bondType,jdbcType=CHAR},
+      </if>
+      <if test="issueOrgCode != null" >
+        ISSUE_ORG_CODE = #{issueOrgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bindingTime != null" >
+        BINDING_TIME = #{bindingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadTime != null" >
+        DOWNLOAD_TIME = #{downloadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validFlag != null" >
+        VALID_FLAG = #{validFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payMethod != null" >
+        PAY_METHOD = #{payMethod,jdbcType=CHAR},
+      </if>
+      <if test="amount != null" >
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        BALANCE = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="availableBalance != null" >
+        AVAILABLE_BALANCE = #{availableBalance,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountBond" >
+    update T_INFO_ACCOUNT_BOND
+    set CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      BOND_ACCOUNT_NO = #{bondAccountNo,jdbcType=VARCHAR},
+      BOND_NO = #{bondNo,jdbcType=VARCHAR},
+      FUND_ACCOUNT_NO = #{fundAccountNo,jdbcType=VARCHAR},
+      BOND_RECORD_NO = #{bondRecordNo,jdbcType=DECIMAL},
+      BOND_NAME = #{bondName,jdbcType=VARCHAR},
+      BOND_TYPE = #{bondType,jdbcType=CHAR},
+      ISSUE_ORG_CODE = #{issueOrgCode,jdbcType=VARCHAR},
+      BINDING_TIME = #{bindingTime,jdbcType=TIMESTAMP},
+      DOWNLOAD_TIME = #{downloadTime,jdbcType=TIMESTAMP},
+      VALID_FLAG = #{validFlag,jdbcType=CHAR},
+      EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      PAY_METHOD = #{payMethod,jdbcType=CHAR},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      BALANCE = #{balance,jdbcType=DECIMAL},
+      AVAILABLE_BALANCE = #{availableBalance,jdbcType=DECIMAL}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* 安全中心DIV */
+.ui-SecurityCenterDiv {
+	width: 100%;
+	border-radius: 5px;
+	display: inline-block;
+	border: 1px solid #CFCFCF;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 10px;
+	position: relative;
+	min-height: 100px;
+!important _height:100px;
+}
+*html .ui-SecurityCenterDiv {
+	width: 99%;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-img {
+	position: absolute;
+	left: 20px;
+	top: 15px;
+	width: 62px;
+	height: 60px;
+	float: left;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main {
+	display: inline-block;
+	margin-left: 110px;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main .ui-title {
+	font-size: 14px;
+	font-weight: bold;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main li {
+	margin-bottom: 5px;
+	display: inline-block;
+	width: 100%;
+	float: left;
+	line-height: 21px;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main .ui-bot {
+	margin-top: 10px;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-main a {
+	margin-right: 5px;
+	font-weight: 100;
+}
+.ui-SecurityCenterDiv .ui-SecurityCenter-Result {
+	position: absolute;
+	float: right;
+	top: 10px;
+	right: 20px;
+}
+.ui-SecurityCenterDiv .ui-Resultimg {
+	width: 40px;
+	height: 40px;
+	background: url(/assets/sutongpay/mycenter/Resultimg.jpg) left;
+	display: block;
+}
+.ui-SecurityCenterDiv .ui-Resulttxt {
+	text-align: center;
+	display: block;
+	width: 40px;
+	float: left;
+	color: #A2CF68;
+}
+/* 橘黄色DIV */
+
+.ui-SecurityCenter-sel {
+	border: 2px solid #F3B055;
+}
+.ui-SecurityCenter-sel .ui-Resultimg {
+	background-position: right;
+}
+.ui-SecurityCenter-sel .ui-Resulttxt {
+	color: #F3B055;
+}
+/* 安全中心内页 */
+.ui-Security-maindiv{ position:relative; width:100%; display:inline-block;}
+.ui-Security-maindiv .ui-form-txt01{ width:265px;float: left;
+display: inline-block;
+height: 25px;
+text-align: right;
+font-size: 14px;
+padding-right: 10px;}
+.ui-Security-maindiv .ui-securityimg{ position:absolute; left:25px; top:0px;}
+.ui-txtred{ color: red; line-height: 25px;}
+
+.ui-sepdased-line {
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+    border-bottom: 1px dashed #999;
+    margin-bottom: 20px;
+}
+
+.ui-all-note {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.ui-noteimg01 {
+    width: 50px;
+    height: 50px;
+    display: block;
+    float: left;
+    background-image: url('/assets/sutongpay/inside-main/cardnoteimg.jpg');
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.ui-notetxt01 {
+    width: 650px;
+    display: inline-block;
+    line-height: 21px;
+    float: left;
+    text-align: left;
+}

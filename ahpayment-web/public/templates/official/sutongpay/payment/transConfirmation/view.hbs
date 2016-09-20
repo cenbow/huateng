@@ -1,0 +1,131 @@
+{{#component "transferConfirmation"}}
+<div class="account">
+  <!--存放转账页面传来的数据-->
+  <input id="amount" type="hidden" value="{{amount}}">
+  <input id="transferAmount" type="hidden" value="{{transferAmount}}">
+  <input id="transferPhone" type="hidden" value="{{transPhone}}">
+  <input id="field" type="hidden" value="{{field}}">
+
+
+  <!--step步骤结束 -->
+  <div class="tips2">
+    <div class="sp-mleftf50">小贴士:<br>
+  1. 转出资金须为账户内可提现余额，转入资金可提现至本人银行卡。 <br>
+  2. 初级实名用户号码转账的单笔限额2000元，每日累计限额2000元，每月累计限额20000元；高级实名用户、理财用户号码转账的单笔限额5000元，每日累计限额5000元，每月累计限额30000元。号码转账无次数限制。非实名用户不支持号码转账。
+    </div>
+  </div>
+  <div class="cl"></div>
+
+  </span>
+
+<span class="col-w230 cola fl">收款人账号:</span>
+<span class="colh14 fl"> {{transPhone}}
+</span>
+
+</span>
+
+<div class="cl"></div>
+
+<span class="col-w230 cola fl">转账金额:</span>
+<span class="colh14 fl"> <strong>{{#if transferAmount}}{{transferAmount}}{{else}}0.00{{/if}}</strong> 元
+</span>
+
+</span>
+
+<div class="cl"></div>
+
+<span class="col-w230 cola fl">转账说明:</span>
+<span class="colh14 fl"> {{field}}
+</span>
+
+</span>
+
+<div class="cl"></div>
+
+<span class="col-w230 cola fl">支付账号:</span>
+<span class="colh14 fl">{{_USER_.unifyId}}
+</span>
+
+</span>
+
+<div class="cl"></div>
+
+
+<span class="col-w230 cola fl">可用余额:</span>
+<span class="colh14 fl"> <strong>{{#if amount}}{{amount}}{{else}}0.00{{/if}}</strong> 元
+</span>
+
+<div class="cl"></div>
+
+
+<span class="col-w230 cola fl">支付密码:</span>
+<span class="coll fl">
+ <input name="paymentPwd" type="password" onkeyup="$(this).value=this.value.replace(/\D/g,'');" 
+      onafterpaste="$(this).value=this.value.replace(/\D/g,'')" maxLength="6" class="input-w3" id="paymentPwd" readonly="readonly">
+ <br>
+     <div id="paymentPwdMsg" name="paymentPwdMsg" class="ui-txtred"></div>
+</span>
+
+<div class="cl"></div>
+<span class="col-w230 cola fl">验证码:</span>
+ <span class="colh fl">
+  <div style="float:left;">
+   <input type="text" name="vcode" id="vcode" class="yzm-w2 input-w4" maxlength=4>
+
+       <span name="codeflagSpan" id="codeFlagSpan" 
+       style="display:none;margin-left:-17px;">
+       <img id="codeFlag" src="/assets/sutongpay/er.png">
+        <input type="hidden" id="imgCodeFlag" value="false"/>
+     </span>
+     <br>
+     <div id="checkCodMsg" name="checkCodMsg" class="ui-txtred"></div>
+ </div>
+   <div style="float:left;">
+
+     <span class="yzm fl">
+      <img id="codeImg" style="display:none" width="54" height="30">
+      <a name="flushCode">换一张</a></span>
+     
+    </div>
+ </span> 
+
+ <div class="cl"></div>
+
+<span class="colcenter sp-mtop16">
+ <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="subButton" name="subButton" class="ui-button ui-button-morange" title="立即转账">立即转账</a> 
+        <a id="retButton" name="retButton" class="ui-button ui-button-mwhite" title="返回">返回</a>
+      </div>
+    </div>
+</span>
+
+
+
+
+
+ </div><!--account结束 -->
+
+ <div class="cl"></div>
+
+
+ <div id="dfbKey" style="position:absolute;visibility:hidden;">
+      <img src="/api/softKeyBoard/pwGeneration" border="0" usemap="#Map2"/>
+      <map name="Map2">
+          <area shape="rect" coords="15,26,42,54" href="javascript:clickKeyboard('0')">
+          <area shape="rect" coords="44,26,73,54" href="javascript:clickKeyboard('1')">
+          <area shape="rect" coords="77,26,104,54" href="javascript:clickKeyboard('2')">
+          <area shape="rect" coords="107,26,135,54" href="javascript:clickKeyboard('3')">
+          <area shape="rect" coords="15,58,42,85" href="javascript:clickKeyboard('4')">
+          <area shape="rect" coords="44,58,73,85" href="javascript:clickKeyboard('5')">
+          <area shape="rect" coords="77,58,104,85" href="javascript:clickKeyboard('6')">
+          <area shape="rect" coords="107,58,135,85" href="javascript:clickKeyboard('7')">
+          <area shape="rect" coords="15,89,42,116" href="javascript:clickKeyboard('8')">
+          <area shape="rect" coords="44,89,73,116" href="javascript:clickKeyboard('9')">
+        <area shape="rect" coords="77,89,135,116" href="javascript:clickKeyboard('bak')">
+          <area shape="rect" coords="130,5,142,19" href="javascript:closeKeyboard()">
+          <area shape="rect" coords="15,120,135,147" href="javascript:closeKeyboard()">
+      </map>
+</div>
+ {{/component}}

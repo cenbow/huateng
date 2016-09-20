@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TRealnameApplyMapper">
+    <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TRealnameApply">
+        <id column="SERIAL_NO" property="serialNo" jdbcType="DECIMAL"/>
+        <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="GRADE" property="grade" jdbcType="VARCHAR"/>
+        <result column="PRODUCT_NO" property="productNo" jdbcType="VARCHAR"/>
+        <result column="TRANS_TYPE" property="transType" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="INPUT_UID" property="inputUid" jdbcType="VARCHAR"/>
+        <result column="INPUT_DATE" property="inputDate" jdbcType="TIMESTAMP"/>
+        <result column="ID_TYPE" property="idType" jdbcType="VARCHAR"/>
+        <result column="ID_NO" property="idNo" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="CHAR"/>
+        <result column="CHECK_FLAG" property="checkFlag" jdbcType="CHAR"/>
+        <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR"/>
+        <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR"/>
+        <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP"/>
+        <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP"/>
+        <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="CHAR"/>
+        <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+        <result column="ID_PIC" property="idPic" jdbcType="VARCHAR"/>
+        <result column="LOG_IP" property="logIp" jdbcType="VARCHAR"/>
+        <result column="ACCEPT_CHANNEL" property="acceptChannel" jdbcType="VARCHAR"/>
+        <result column="NATIONALITY" property="nationality" jdbcType="VARCHAR"/>
+        <result column="PROFESSION" property="profession" jdbcType="VARCHAR"/>
+        <result column="CERT_EXPIRY_DATE" property="certExpiryDate" jdbcType="CHAR"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="GENDER" property="gender" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+   SERIAL_NO, CUSTOMER_NO, NAME, GRADE, PRODUCT_NO, TRANS_TYPE, CREATE_TIME, INPUT_UID, INPUT_DATE, 
+    ID_TYPE, ID_NO, STATUS, CHECK_FLAG, CHECK_UID, CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, 
+    ARCHIVE_TIME, ARCHIVED_FLAG, L_RECORD_NO, REMARK, ID_PIC, LOG_IP, ACCEPT_CHANNEL, NATIONALITY, 
+    PROFESSION, CERT_EXPIRY_DATE, ADDRESS , GENDER
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_REALNAME_APPLY
+        where SERIAL_NO = #{serialNo,jdbcType=DECIMAL}
+    </select>
+    <select id="getRealNameUsedIdNoCount" parameterType="string"
+            resultType="java.lang.Integer">
+		select count(1) from CORE.T_REALNAME_APPLY  t
+		where t.id_no =#{idNo,jdbcType=VARCHAR}
+		and t.check_flag in ('1','2') and t.archived_flag='1'
+	</select>
+    <select id="queryAuthenticationSuccessInfo" parameterType="java.lang.String"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_REALNAME_APPLY  t
+        where t.customer_no = #{customerNo,jdbcType=VARCHAR}
+        and t.check_flag = '2' and t.archived_flag='1'
+    </select>
+    <select id="queryAuthenticationApplyInfo" parameterType="java.lang.String"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_REALNAME_APPLY   t
+        where t.customer_no = #{customerNo,jdbcType=VARCHAR}
+        and t.check_flag = '1' and t.archived_flag='1'
+	</select>
+	<select id="queryAuthenticationInfo" parameterType="java.lang.String"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_REALNAME_APPLY   t
+        where t.customer_no = #{customerNo,jdbcType=VARCHAR}
+        and  t.archived_flag='1'
+	</select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CORE.T_REALNAME_APPLY
+    where SERIAL_NO = #{serialNo,jdbcType=DECIMAL}
+  </delete>
+    <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TRealnameApply">
+    insert into CORE.T_REALNAME_APPLY (SERIAL_NO, CUSTOMER_NO, NAME, 
+      GRADE, PRODUCT_NO, TRANS_TYPE, 
+      CREATE_TIME, INPUT_UID, INPUT_DATE, 
+      ID_TYPE, ID_NO, STATUS, 
+      CHECK_FLAG, CHECK_UID, CHECK_TIME, 
+      LAST_MODIFY_UID, LAST_MODIFY_TIME, ARCHIVE_TIME, 
+      ARCHIVED_FLAG, L_RECORD_NO, REMARK, 
+      ID_PIC, LOG_IP, ACCEPT_CHANNEL, 
+      NATIONALITY, PROFESSION, CERT_EXPIRY_DATE, 
+      ADDRESS, GENDER)
+    values (#{serialNo,jdbcType=DECIMAL}, #{customerNo,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{inputUid,jdbcType=VARCHAR}, #{inputDate,jdbcType=TIMESTAMP}, 
+      #{idType,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, 
+      #{checkFlag,jdbcType=CHAR}, #{checkUid,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, 
+      #{lastModifyUid,jdbcType=VARCHAR}, #{lastModifyTime,jdbcType=TIMESTAMP}, #{archiveTime,jdbcType=TIMESTAMP}, 
+      #{archivedFlag,jdbcType=CHAR}, #{lRecordNo,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{idPic,jdbcType=VARCHAR}, #{logIp,jdbcType=VARCHAR}, #{acceptChannel,jdbcType=VARCHAR}, 
+      #{nationality,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{certExpiryDate,jdbcType=CHAR}, 
+      #{address,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TRealnameApply">
+        insert into CORE.T_REALNAME_APPLY
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="serialNo != null">
+                SERIAL_NO,
+            </if>
+            <if test="customerNo != null">
+                CUSTOMER_NO,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="grade != null">
+                GRADE,
+            </if>
+            <if test="productNo != null">
+                PRODUCT_NO,
+            </if>
+            <if test="transType != null">
+                TRANS_TYPE,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="inputUid != null">
+                INPUT_UID,
+            </if>
+            <if test="inputDate != null">
+                INPUT_DATE,
+            </if>
+            <if test="idType != null">
+                ID_TYPE,
+            </if>
+            <if test="idNo != null">
+                ID_NO,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="checkFlag != null">
+                CHECK_FLAG,
+            </if>
+            <if test="checkUid != null">
+                CHECK_UID,
+            </if>
+            <if test="checkTime != null">
+                CHECK_TIME,
+            </if>
+            <if test="lastModifyUid != null">
+                LAST_MODIFY_UID,
+            </if>
+            <if test="lastModifyTime != null">
+                LAST_MODIFY_TIME,
+            </if>
+            <if test="archiveTime != null">
+                ARCHIVE_TIME,
+            </if>
+            <if test="archivedFlag != null">
+                ARCHIVED_FLAG,
+            </if>
+            <if test="lRecordNo != null">
+                L_RECORD_NO,
+            </if>
+            <if test="remark != null">
+                REMARK,
+            </if>
+            <if test="idPic != null">
+                ID_PIC,
+            </if>
+            <if test="logIp != null">
+                LOG_IP,
+            </if>
+            <if test="acceptChannel != null">
+                ACCEPT_CHANNEL,
+            </if>
+            <if test="nationality != null">
+                NATIONALITY,
+            </if>
+            <if test="profession != null">
+                PROFESSION,
+            </if>
+            <if test="certExpiryDate != null">
+                CERT_EXPIRY_DATE,
+            </if>
+            <if test="address != null">
+                ADDRESS,
+            </if>
+            <if test="gender != null">
+                GENDER,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="serialNo != null">
+                #{serialNo,jdbcType=DECIMAL},
+            </if>
+            <if test="customerNo != null">
+                #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="productNo != null">
+                #{productNo,jdbcType=VARCHAR},
+            </if>
+            <if test="transType != null">
+                #{transType,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="inputUid != null">
+                #{inputUid,jdbcType=VARCHAR},
+            </if>
+            <if test="inputDate != null">
+                #{inputDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="idType != null">
+                #{idType,jdbcType=VARCHAR},
+            </if>
+            <if test="idNo != null">
+                #{idNo,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="checkFlag != null">
+                #{checkFlag,jdbcType=CHAR},
+            </if>
+            <if test="checkUid != null">
+                #{checkUid,jdbcType=VARCHAR},
+            </if>
+            <if test="checkTime != null">
+                #{checkTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastModifyUid != null">
+                #{lastModifyUid,jdbcType=VARCHAR},
+            </if>
+            <if test="lastModifyTime != null">
+                #{lastModifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="archiveTime != null">
+                #{archiveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="archivedFlag != null">
+                #{archivedFlag,jdbcType=CHAR},
+            </if>
+            <if test="lRecordNo != null">
+                #{lRecordNo,jdbcType=DECIMAL},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="idPic != null">
+                #{idPic,jdbcType=VARCHAR},
+            </if>
+            <if test="logIp != null">
+                #{logIp,jdbcType=VARCHAR},
+            </if>
+            <if test="acceptChannel != null">
+                #{acceptChannel,jdbcType=VARCHAR},
+            </if>
+            <if test="nationality != null">
+                #{nationality,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="certExpiryDate != null">
+                #{certExpiryDate,jdbcType=CHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.huateng.p3.account.persistence.models.TRealnameApply">
+        update CORE.T_REALNAME_APPLY
+        <set>
+            <if test="customerNo != null">
+                CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="grade != null">
+                GRADE = #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="productNo != null">
+                PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+            </if>
+            <if test="transType != null">
+                TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="inputUid != null">
+                INPUT_UID = #{inputUid,jdbcType=VARCHAR},
+            </if>
+            <if test="inputDate != null">
+                INPUT_DATE = #{inputDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="idType != null">
+                ID_TYPE = #{idType,jdbcType=VARCHAR},
+            </if>
+            <if test="idNo != null">
+                ID_NO = #{idNo,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="checkFlag != null">
+                CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+            </if>
+            <if test="checkUid != null">
+                CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+            </if>
+            <if test="checkTime != null">
+                CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastModifyUid != null">
+                LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+            </if>
+            <if test="lastModifyTime != null">
+                LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="archiveTime != null">
+                ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="archivedFlag != null">
+                ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+            </if>
+            <if test="lRecordNo != null">
+                L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+            </if>
+            <if test="remark != null">
+                REMARK = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="idPic != null">
+                ID_PIC = #{idPic,jdbcType=VARCHAR},
+            </if>
+            <if test="logIp != null">
+                LOG_IP = #{logIp,jdbcType=VARCHAR},
+            </if>
+            <if test="acceptChannel != null">
+                ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+            </if>
+            <if test="nationality != null">
+                NATIONALITY = #{nationality,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                PROFESSION = #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="certExpiryDate != null">
+                CERT_EXPIRY_DATE = #{certExpiryDate,jdbcType=CHAR},
+            </if>
+            <if test="address != null">
+                ADDRESS = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                GENDER = #{gender,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where SERIAL_NO = #{serialNo,jdbcType=DECIMAL}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TRealnameApply">
+    update CORE.T_REALNAME_APPLY
+    set CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      GRADE = #{grade,jdbcType=VARCHAR},
+      PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      INPUT_UID = #{inputUid,jdbcType=VARCHAR},
+      INPUT_DATE = #{inputDate,jdbcType=TIMESTAMP},
+      ID_TYPE = #{idType,jdbcType=VARCHAR},
+      ID_NO = #{idNo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      ID_PIC = #{idPic,jdbcType=VARCHAR},
+      LOG_IP = #{logIp,jdbcType=VARCHAR},
+      ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      PROFESSION = #{profession,jdbcType=VARCHAR},
+      CERT_EXPIRY_DATE = #{certExpiryDate,jdbcType=CHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      GENDER = #{gender,jdbcType=VARCHAR}
+    where SERIAL_NO = #{serialNo,jdbcType=DECIMAL}
+  </update>
+    <update id="updateAuthenticationInfo" parameterType="string">
+      UPDATE CORE.T_REALNAME_APPLY t SET
+        ARCHIVED_FLAG = '2'
+      where t.customer_no =  #{customerNo,jdbcType=VARCHAR}
+      and t.check_flag = '1'
+    </update>
+</mapper>

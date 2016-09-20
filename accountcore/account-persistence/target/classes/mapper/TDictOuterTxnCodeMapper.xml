@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TDictOuterTxnCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TDictOuterTxnCode" >
+    <id column="EXT_TRANS_CODE" property="extTransCode" jdbcType="VARCHAR" />
+    <result column="EXT_TRANS_NAME" property="extTransName" jdbcType="VARCHAR" />
+    <result column="TRANS_MEMO" property="transMemo" jdbcType="VARCHAR" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="VARCHAR" />
+    <result column="UPDATE_UID" property="updateUid" jdbcType="VARCHAR" />
+    <result column="INTERIOR_TRANS_CODE" property="interiorTransCode" jdbcType="VARCHAR" />
+    <result column="ENABLE_FLAG" property="enableFlag" jdbcType="VARCHAR" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="VARCHAR" />   
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="VARCHAR" />
+    <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="VARCHAR" />
+    <result column="L_RECORD_NO" property="lRecordNo" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="ARCHIEVD_FLAG" property="archievdFlag" jdbcType="VARCHAR" />
+    <result column="INVESTMARK" property="investmark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    EXT_TRANS_CODE,EXT_TRANS_NAME,TRANS_MEMO,UPDATE_DATE,UPDATE_TIME,UPDATE_UID,INTERIOR_TRANS_CODE,ENABLE_FLAG,CREATE_UID,
+    CREATE_DATE,CREATE_TIME,LAST_MODIFY_UID,LAST_MODIFY_TIME,ARCHIVE_TIME,ARCHIVED_FLAG,L_RECORD_NO,REMARK,RESV_FLD1,RESV_FLD2,
+    ARCHIEVD_FLAG,INVESTMARK   
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_DICT_OUTER_TXN_CODE
+    where EXT_TRANS_CODE = #{extTransCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_DICT_OUTER_TXN_CODE
+    where EXT_TRANS_CODE = #{extTransCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.TDictOuterTxnCodeMapper" >
+    insert into CORE.T_DICT_OUTER_TXN_CODE ( EXT_TRANS_CODE,EXT_TRANS_NAME,TRANS_MEMO,UPDATE_DATE,UPDATE_TIME,UPDATE_UID,INTERIOR_TRANS_CODE,ENABLE_FLAG,CREATE_UID,
+    CREATE_DATE,CREATE_TIME,LAST_MODIFY_UID,LAST_MODIFY_TIME,ARCHIVE_TIME,ARCHIVED_FLAG,L_RECORD_NO,REMARK,RESV_FLD1,RESV_FLD2,
+    ARCHIEVD_FLAG,INVESTMARK )
+    values (#{extTransCode,jdbcType=VARCHAR}, #{extTransName,jdbcType=VARCHAR}, #{transMemo,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{updateUid,jdbcType=VARCHAR}, 
+      #{interiorTransCode,jdbcType=VARCHAR}, #{enableFlag,jdbcType=VARCHAR}, #{createUid,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR},#{lastModifyUid,jdbcType=VARCHAR}, 
+      #{lastModifyTime,jdbcType=VARCHAR}), #{archiveTime,jdbcType=VARCHAR}), #{archivedFlag,jdbcType=VARCHAR}),
+      #{lRecordNo,jdbcType=VARCHAR}), #{remark,jdbcType=VARCHAR}), #{resvFld1,jdbcType=VARCHAR}),
+      #{resvFld2,jdbcType=VARCHAR}), #{archievdFlag,jdbcType=VARCHAR}), #{investmark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.TDictOuterTxnCodeMapper" >
+    insert into CORE.T_DICT_OUTER_TXN_CODE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="extTransCode != null" >
+        EXT_TRANS_CODE,
+      </if>
+      <if test="extTransName != null" >
+        EXT_TRANS_NAME,
+      </if>
+      <if test="transMemo != null" >
+        TRANS_MEMO,
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID,
+      </if>
+      <if test="interiorTransCode != null" >
+        INTERIOR_TRANS_CODE,
+      </if>
+      <if test="enableFlag != null" >
+        ENABLE_FLAG,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+       <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+       <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+       <if test="archivedFlag != null" >
+        ARCHIVED_FLAG,
+      </if>
+       <if test="lRecordNo != null" >
+        L_RECORD_NO,
+      </if>
+       <if test="remark != null" >
+        REMARK,
+      </if>
+       <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+        <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+        <if test="archievdFlag != null" >
+        ARCHIEVD_FLAG,
+      </if>
+        <if test="investmark != null" >
+        INVESTMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="extTransCode != null" >
+        #{extTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extTransName != null" >
+         #{extTransName,jdbcType=VARCHAR},
+      </if>
+      <if test="transMemo != null" >
+      #{transMemo,jdbcType=VARCHAR}, 
+      </if>
+      <if test="updateDate != null" >
+         #{updateDate,jdbcType=VARCHAR}, 
+      </if>
+      <if test="updateTime != null" >
+      #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUid != null" >
+       #{updateUid,jdbcType=VARCHAR}, 
+      </if>
+      <if test="interiorTransCode != null" >
+        #{interiorTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enableFlag != null" >
+        #{enableFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+         <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="archivedFlag != null" >
+        #{archivedFlag,jdbcType=VARCHAR},
+      </if>
+        <if test="lRecordNo != null" >
+        #{lRecordNo,jdbcType=VARCHAR},
+      </if>
+         <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archievdFlag != null" >
+        #{archievdFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="investmark != null" >
+        #{investmark,jdbcType=VARCHAR},
+      </if>      
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.TDictOuterTxnCodeMapper" >
+    update CORE.T_DICT_OUTER_TXN_CODE
+    <set >
+      <if test="extTransName != null" >
+        EXT_TRANS_NAME = #{extTransName,jdbcType=VARCHAR},
+      </if>
+      <if test="transMemo != null" >
+        TRANS_MEMO = #{transMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUid != null" >
+        UPDATE_UID = #{updateUid,jdbcType=VARCHAR},
+      </if>
+      <if test="interiorTransCode != null" >
+        INTERIOR_TRANS_CODE = #{interiorTransCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enableFlag != null" >
+        ENABLE_FLAG = #{enableFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=VARCHAR},
+      </if>
+        <if test="archiveTime != null" >
+        ARCHIVE_TIME = #{archiveTime,jdbcType=VARCHAR},
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG = #{archivedFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO = #{lRecordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archievdFlag != null" >
+        ARCHIEVD_FLAG = #{archievdFlag,jdbcType=VARCHAR},
+      </if>
+        <if test="investmark != null" >
+        INVESTMARK = #{investmark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EXT_TRANS_CODE = #{extTransCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.TDictOuterTxnCodeMapper" >
+    update CORE.T_DICT_OUTER_TXN_CODE
+    set  EXT_TRANS_NAME = #{extTransName,jdbcType=VARCHAR},    
+        TRANS_MEMO = #{transMemo,jdbcType=VARCHAR},      
+        UPDATE_DATE = #{updateDate,jdbcType=VARCHAR},
+        UPDATE_TIME = #{updateTime,jdbcType=VARCHAR},
+        UPDATE_UID = #{updateUid,jdbcType=VARCHAR},
+        INTERIOR_TRANS_CODE = #{interiorTransCode,jdbcType=VARCHAR},
+        ENABLE_FLAG = #{enableFlag,jdbcType=VARCHAR},
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+        CREATE_DATE = #{createDate,jdbcType=VARCHAR},
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=VARCHAR},
+        ARCHIVE_TIME = #{archiveTime,jdbcType=VARCHAR},
+        ARCHIVED_FLAG = #{archivedFlag,jdbcType=VARCHAR},
+        L_RECORD_NO = #{lRecordNo,jdbcType=VARCHAR},
+        REMARK = #{remark,jdbcType=VARCHAR},
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+        ARCHIEVD_FLAG = #{archievdFlag,jdbcType=VARCHAR},
+        INVESTMARK = #{investmark,jdbcType=VARCHAR}
+    where EXT_TRANS_CODE = #{extTransCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogAccountCardTxnsumMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogAccountCardTxnsum" >
+    <id column="ACCOUNT_ID" property="accountId" jdbcType="VARCHAR" />
+    <id column="TXN_CHANNEL" property="txnChannel" jdbcType="CHAR" />
+    <id column="TYPE" property="type" jdbcType="CHAR" />
+    <result column="LAST_TXN_TIME" property="lastTxnTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_TXN_DATE" property="lastTxnDate" jdbcType="VARCHAR" />
+    <result column="DAY_SUM_CONS_AMT" property="daySumConsAmt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_CONS_CNT" property="daySumConsCnt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_OUT_AMT" property="daySumOutAmt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_OUT_CNT" property="daySumOutCnt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_IN_AMT" property="daySumInAmt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_IN_CNT" property="daySumInCnt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_CASH_AMT" property="daySumCashAmt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_CASH_CNT" property="daySumCashCnt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_CHG_AMT" property="daySumChgAmt" jdbcType="DECIMAL" />
+    <result column="DAY_SUM_CHG_CNT" property="daySumChgCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_CONS_AMT" property="monthSumConsAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_OUT_AMT" property="monthSumOutAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_IN_AMT" property="monthSumInAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_CASH_AMT" property="monthSumCashAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_CHG_AMT" property="monthSumChgAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_CONS_CNT" property="monthSumConsCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_OUT_CNT" property="monthSumOutCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_IN_CNT" property="monthSumInCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_CASH_CNT" property="monthSumCashCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_SUM_CHG_CNT" property="monthSumChgCnt" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT1" property="rsvdAmt1" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT2" property="rsvdAmt2" jdbcType="DECIMAL" />
+    <result column="RSVD_TEXT1" property="rsvdText1" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT2" property="rsvdText2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ACCOUNT_ID, TXN_CHANNEL, TYPE, LAST_TXN_TIME, LAST_TXN_DATE, DAY_SUM_CONS_AMT, DAY_SUM_CONS_CNT, 
+    DAY_SUM_OUT_AMT, DAY_SUM_OUT_CNT, DAY_SUM_IN_AMT, DAY_SUM_IN_CNT, DAY_SUM_CASH_AMT, 
+    DAY_SUM_CASH_CNT, DAY_SUM_CHG_AMT, DAY_SUM_CHG_CNT, MONTH_SUM_CONS_AMT, MONTH_SUM_OUT_AMT, 
+    MONTH_SUM_IN_AMT, MONTH_SUM_CASH_AMT, MONTH_SUM_CHG_AMT, MONTH_SUM_CONS_CNT, MONTH_SUM_OUT_CNT, 
+    MONTH_SUM_IN_CNT, MONTH_SUM_CASH_CNT, MONTH_SUM_CHG_CNT, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, 
+    RSVD_TEXT2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.huateng.p3.account.persistence.models.TLogAccountCardTxnsumKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOG_ACCOUNT_CARD_TXNSUM
+    where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=CHAR}
+      and TYPE = #{type,jdbcType=CHAR}
+  </select>
+
+    <select id="findToCheck" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select TYPE,
+		ACCOUNT_ID,
+        #{txnChannel,jdbcType=VARCHAR},
+		max(LAST_TXN_TIME),
+		max(LAST_TXN_DATE),
+		min(DAY_SUM_CONS_AMT),
+		min(DAY_SUM_CONS_CNT),
+		min(DAY_SUM_OUT_AMT),
+		min(DAY_SUM_OUT_CNT),
+		min(DAY_SUM_IN_AMT),
+		min(DAY_SUM_IN_CNT),
+		min(DAY_SUM_CASH_AMT),
+		min(DAY_SUM_CASH_CNT),
+		min(DAY_SUM_CHG_AMT),
+		min(DAY_SUM_CHG_CNT),
+		min(MONTH_SUM_CONS_AMT),
+		min(MONTH_SUM_OUT_AMT),
+		min(MONTH_SUM_IN_AMT),
+		min(MONTH_SUM_CASH_AMT),
+		min(MONTH_SUM_CHG_AMT),
+		min(MONTH_SUM_CONS_CNT),
+		min(MONTH_SUM_OUT_CNT),
+		min(MONTH_SUM_IN_CNT),
+		min(MONTH_SUM_CASH_CNT),
+		min(MONTH_SUM_CHG_CNT)
+		from
+		T_LOG_ACCOUNT_CARD_TXNSUM  where
+		type=#{type,jdbcType=VARCHAR} and account_id=#{accountId,jdbcType=VARCHAR}
+		and (txn_channel='99' or txn_channel=#{txnChannel,jdbcType=VARCHAR})  group by TYPE,ACCOUNT_ID,#{txnChannel,jdbcType=VARCHAR}
+	</select>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogAccountCardTxnsumKey" >
+    delete from T_LOG_ACCOUNT_CARD_TXNSUM
+    where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=CHAR}
+      and TYPE = #{type,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogAccountCardTxnsum" >
+    insert into T_LOG_ACCOUNT_CARD_TXNSUM (ACCOUNT_ID, TXN_CHANNEL, TYPE, 
+      LAST_TXN_TIME, LAST_TXN_DATE, DAY_SUM_CONS_AMT, 
+      DAY_SUM_CONS_CNT, DAY_SUM_OUT_AMT, DAY_SUM_OUT_CNT, 
+      DAY_SUM_IN_AMT, DAY_SUM_IN_CNT, DAY_SUM_CASH_AMT, 
+      DAY_SUM_CASH_CNT, DAY_SUM_CHG_AMT, DAY_SUM_CHG_CNT, 
+      MONTH_SUM_CONS_AMT, MONTH_SUM_OUT_AMT, MONTH_SUM_IN_AMT, 
+      MONTH_SUM_CASH_AMT, MONTH_SUM_CHG_AMT, MONTH_SUM_CONS_CNT, 
+      MONTH_SUM_OUT_CNT, MONTH_SUM_IN_CNT, MONTH_SUM_CASH_CNT, 
+      MONTH_SUM_CHG_CNT, RSVD_AMT1, RSVD_AMT2, 
+      RSVD_TEXT1, RSVD_TEXT2)
+    values (#{accountId,jdbcType=VARCHAR}, #{txnChannel,jdbcType=CHAR}, #{type,jdbcType=CHAR}, 
+      #{lastTxnTime,jdbcType=TIMESTAMP}, #{lastTxnDate,jdbcType=VARCHAR}, #{daySumConsAmt,jdbcType=DECIMAL}, 
+      #{daySumConsCnt,jdbcType=DECIMAL}, #{daySumOutAmt,jdbcType=DECIMAL}, #{daySumOutCnt,jdbcType=DECIMAL}, 
+      #{daySumInAmt,jdbcType=DECIMAL}, #{daySumInCnt,jdbcType=DECIMAL}, #{daySumCashAmt,jdbcType=DECIMAL}, 
+      #{daySumCashCnt,jdbcType=DECIMAL}, #{daySumChgAmt,jdbcType=DECIMAL}, #{daySumChgCnt,jdbcType=DECIMAL}, 
+      #{monthSumConsAmt,jdbcType=DECIMAL}, #{monthSumOutAmt,jdbcType=DECIMAL}, #{monthSumInAmt,jdbcType=DECIMAL}, 
+      #{monthSumCashAmt,jdbcType=DECIMAL}, #{monthSumChgAmt,jdbcType=DECIMAL}, #{monthSumConsCnt,jdbcType=DECIMAL}, 
+      #{monthSumOutCnt,jdbcType=DECIMAL}, #{monthSumInCnt,jdbcType=DECIMAL}, #{monthSumCashCnt,jdbcType=DECIMAL}, 
+      #{monthSumChgCnt,jdbcType=DECIMAL}, #{rsvdAmt1,jdbcType=DECIMAL}, #{rsvdAmt2,jdbcType=DECIMAL}, 
+      #{rsvdText1,jdbcType=VARCHAR}, #{rsvdText2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountCardTxnsum" >
+    insert into T_LOG_ACCOUNT_CARD_TXNSUM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        ACCOUNT_ID,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="lastTxnTime != null" >
+        LAST_TXN_TIME,
+      </if>
+      <if test="lastTxnDate != null" >
+        LAST_TXN_DATE,
+      </if>
+      <if test="daySumConsAmt != null" >
+        DAY_SUM_CONS_AMT,
+      </if>
+      <if test="daySumConsCnt != null" >
+        DAY_SUM_CONS_CNT,
+      </if>
+      <if test="daySumOutAmt != null" >
+        DAY_SUM_OUT_AMT,
+      </if>
+      <if test="daySumOutCnt != null" >
+        DAY_SUM_OUT_CNT,
+      </if>
+      <if test="daySumInAmt != null" >
+        DAY_SUM_IN_AMT,
+      </if>
+      <if test="daySumInCnt != null" >
+        DAY_SUM_IN_CNT,
+      </if>
+      <if test="daySumCashAmt != null" >
+        DAY_SUM_CASH_AMT,
+      </if>
+      <if test="daySumCashCnt != null" >
+        DAY_SUM_CASH_CNT,
+      </if>
+      <if test="daySumChgAmt != null" >
+        DAY_SUM_CHG_AMT,
+      </if>
+      <if test="daySumChgCnt != null" >
+        DAY_SUM_CHG_CNT,
+      </if>
+      <if test="monthSumConsAmt != null" >
+        MONTH_SUM_CONS_AMT,
+      </if>
+      <if test="monthSumOutAmt != null" >
+        MONTH_SUM_OUT_AMT,
+      </if>
+      <if test="monthSumInAmt != null" >
+        MONTH_SUM_IN_AMT,
+      </if>
+      <if test="monthSumCashAmt != null" >
+        MONTH_SUM_CASH_AMT,
+      </if>
+      <if test="monthSumChgAmt != null" >
+        MONTH_SUM_CHG_AMT,
+      </if>
+      <if test="monthSumConsCnt != null" >
+        MONTH_SUM_CONS_CNT,
+      </if>
+      <if test="monthSumOutCnt != null" >
+        MONTH_SUM_OUT_CNT,
+      </if>
+      <if test="monthSumInCnt != null" >
+        MONTH_SUM_IN_CNT,
+      </if>
+      <if test="monthSumCashCnt != null" >
+        MONTH_SUM_CASH_CNT,
+      </if>
+      <if test="monthSumChgCnt != null" >
+        MONTH_SUM_CHG_CNT,
+      </if>
+      <if test="rsvdAmt1 != null" >
+        RSVD_AMT1,
+      </if>
+      <if test="rsvdAmt2 != null" >
+        RSVD_AMT2,
+      </if>
+      <if test="rsvdText1 != null" >
+        RSVD_TEXT1,
+      </if>
+      <if test="rsvdText2 != null" >
+        RSVD_TEXT2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=CHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="lastTxnTime != null" >
+        #{lastTxnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTxnDate != null" >
+        #{lastTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="daySumConsAmt != null" >
+        #{daySumConsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumConsCnt != null" >
+        #{daySumConsCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumOutAmt != null" >
+        #{daySumOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumOutCnt != null" >
+        #{daySumOutCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumInAmt != null" >
+        #{daySumInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumInCnt != null" >
+        #{daySumInCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumCashAmt != null" >
+        #{daySumCashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumCashCnt != null" >
+        #{daySumCashCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumChgAmt != null" >
+        #{daySumChgAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumChgCnt != null" >
+        #{daySumChgCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumConsAmt != null" >
+        #{monthSumConsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumOutAmt != null" >
+        #{monthSumOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumInAmt != null" >
+        #{monthSumInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumCashAmt != null" >
+        #{monthSumCashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumChgAmt != null" >
+        #{monthSumChgAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumConsCnt != null" >
+        #{monthSumConsCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumOutCnt != null" >
+        #{monthSumOutCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumInCnt != null" >
+        #{monthSumInCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumCashCnt != null" >
+        #{monthSumCashCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumChgCnt != null" >
+        #{monthSumChgCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt1 != null" >
+        #{rsvdAmt1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt2 != null" >
+        #{rsvdAmt2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdText1 != null" >
+        #{rsvdText1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText2 != null" >
+        #{rsvdText2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountCardTxnsum" >
+    update T_LOG_ACCOUNT_CARD_TXNSUM
+    <set >
+      <if test="lastTxnTime != null" >
+        LAST_TXN_TIME = #{lastTxnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTxnDate != null" >
+        LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="daySumConsAmt != null" >
+        DAY_SUM_CONS_AMT = #{daySumConsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumConsCnt != null" >
+        DAY_SUM_CONS_CNT = #{daySumConsCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumOutAmt != null" >
+        DAY_SUM_OUT_AMT = #{daySumOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumOutCnt != null" >
+        DAY_SUM_OUT_CNT = #{daySumOutCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumInAmt != null" >
+        DAY_SUM_IN_AMT = #{daySumInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumInCnt != null" >
+        DAY_SUM_IN_CNT = #{daySumInCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumCashAmt != null" >
+        DAY_SUM_CASH_AMT = #{daySumCashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumCashCnt != null" >
+        DAY_SUM_CASH_CNT = #{daySumCashCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumChgAmt != null" >
+        DAY_SUM_CHG_AMT = #{daySumChgAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="daySumChgCnt != null" >
+        DAY_SUM_CHG_CNT = #{daySumChgCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumConsAmt != null" >
+        MONTH_SUM_CONS_AMT = #{monthSumConsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumOutAmt != null" >
+        MONTH_SUM_OUT_AMT = #{monthSumOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumInAmt != null" >
+        MONTH_SUM_IN_AMT = #{monthSumInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumCashAmt != null" >
+        MONTH_SUM_CASH_AMT = #{monthSumCashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumChgAmt != null" >
+        MONTH_SUM_CHG_AMT = #{monthSumChgAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumConsCnt != null" >
+        MONTH_SUM_CONS_CNT = #{monthSumConsCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumOutCnt != null" >
+        MONTH_SUM_OUT_CNT = #{monthSumOutCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumInCnt != null" >
+        MONTH_SUM_IN_CNT = #{monthSumInCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumCashCnt != null" >
+        MONTH_SUM_CASH_CNT = #{monthSumCashCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthSumChgCnt != null" >
+        MONTH_SUM_CHG_CNT = #{monthSumChgCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt1 != null" >
+        RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt2 != null" >
+        RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdText1 != null" >
+        RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText2 != null" >
+        RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=CHAR}
+      and TYPE = #{type,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogAccountCardTxnsum" >
+    update T_LOG_ACCOUNT_CARD_TXNSUM
+    set LAST_TXN_TIME = #{lastTxnTime,jdbcType=TIMESTAMP},
+      LAST_TXN_DATE = #{lastTxnDate,jdbcType=VARCHAR},
+      DAY_SUM_CONS_AMT = #{daySumConsAmt,jdbcType=DECIMAL},
+      DAY_SUM_CONS_CNT = #{daySumConsCnt,jdbcType=DECIMAL},
+      DAY_SUM_OUT_AMT = #{daySumOutAmt,jdbcType=DECIMAL},
+      DAY_SUM_OUT_CNT = #{daySumOutCnt,jdbcType=DECIMAL},
+      DAY_SUM_IN_AMT = #{daySumInAmt,jdbcType=DECIMAL},
+      DAY_SUM_IN_CNT = #{daySumInCnt,jdbcType=DECIMAL},
+      DAY_SUM_CASH_AMT = #{daySumCashAmt,jdbcType=DECIMAL},
+      DAY_SUM_CASH_CNT = #{daySumCashCnt,jdbcType=DECIMAL},
+      DAY_SUM_CHG_AMT = #{daySumChgAmt,jdbcType=DECIMAL},
+      DAY_SUM_CHG_CNT = #{daySumChgCnt,jdbcType=DECIMAL},
+      MONTH_SUM_CONS_AMT = #{monthSumConsAmt,jdbcType=DECIMAL},
+      MONTH_SUM_OUT_AMT = #{monthSumOutAmt,jdbcType=DECIMAL},
+      MONTH_SUM_IN_AMT = #{monthSumInAmt,jdbcType=DECIMAL},
+      MONTH_SUM_CASH_AMT = #{monthSumCashAmt,jdbcType=DECIMAL},
+      MONTH_SUM_CHG_AMT = #{monthSumChgAmt,jdbcType=DECIMAL},
+      MONTH_SUM_CONS_CNT = #{monthSumConsCnt,jdbcType=DECIMAL},
+      MONTH_SUM_OUT_CNT = #{monthSumOutCnt,jdbcType=DECIMAL},
+      MONTH_SUM_IN_CNT = #{monthSumInCnt,jdbcType=DECIMAL},
+      MONTH_SUM_CASH_CNT = #{monthSumCashCnt,jdbcType=DECIMAL},
+      MONTH_SUM_CHG_CNT = #{monthSumChgCnt,jdbcType=DECIMAL},
+      RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+      RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+      RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+      RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR}
+    where ACCOUNT_ID = #{accountId,jdbcType=VARCHAR}
+      and TXN_CHANNEL = #{txnChannel,jdbcType=CHAR}
+      and TYPE = #{type,jdbcType=CHAR}
+  </update>
+</mapper>

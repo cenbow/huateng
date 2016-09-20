@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="InfoMobileCheckCode">
+    <resultMap id="BaseResultMap" type="InfoMobileCheckCode">
+        <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL"/>
+        <result column="CODE_TYPE" property="codeType" jdbcType="VARCHAR"/>
+        <result column="MOBILE_NO" property="mobileNo" jdbcType="VARCHAR"/>
+        <result column="CHECK_CODE" property="checkCode" jdbcType="VARCHAR"/>
+        <result column="SEND_TIME" property="sendTime" jdbcType="TIMESTAMP"/>
+        <result column="STATUS" property="status" jdbcType="CHAR"/>
+        <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    RECORD_NO, CODE_TYPE, MOBILE_NO, CHECK_CODE, SEND_TIME, STATUS, RESV_FLD1
+    </sql>
+
+    <insert id="insertMobileCheckCode" parameterType="InfoMobileCheckCode">
+        insert into PORTAL.T_INFO_MOBILE_CHECKCODE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="recordNo != null">
+                RECORD_NO,
+            </if>
+            <if test="codeType != null">
+                CODE_TYPE,
+            </if>
+            <if test="mobileNo != null">
+                MOBILE_NO,
+            </if>
+            <if test="checkCode != null">
+                CHECK_CODE,
+            </if>
+            <if test="sendTime != null">
+                SEND_TIME,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="resvFld1 != null">
+                RESV_FLD1,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="recordNo != null">
+                #{recordNo,jdbcType=DECIMAL},
+            </if>
+            <if test="codeType != null">
+                #{codeType,jdbcType=VARCHAR},
+            </if>
+            <if test="mobileNo != null">
+                #{mobileNo,jdbcType=VARCHAR},
+            </if>
+            <if test="checkCode != null">
+                #{checkCode,jdbcType=VARCHAR},
+            </if>
+            <if test="sendTime != null">
+                #{sendTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="resvFld1 != null">
+                #{resvFld1,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateInfoMobileCheckCode" parameterType="InfoMobileCheckCode">
+        update PORTAL.T_INFO_MOBILE_CHECKCODE
+        <set>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="sendTime != null">
+                SEND_TIME = #{sendTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="resvFld1 != null">
+                RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+            </if>
+            <if test="checkCode != null">
+                CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where RECORD_NO = #{recordNo}
+    </update>
+
+    <update id="updateMobileOld" parameterType="InfoMobileCheckCode">
+        update PORTAL.T_INFO_MOBILE_CHECKCODE
+        <set>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+        </set>
+        where MOBILE_NO = #{mobileNo,jdbcType=CHAR}
+    </update>
+
+    <select id="isMobileCodeExisted" parameterType="InfoMobileCheckCode" resultMap="BaseResultMap">
+        <![CDATA[
+        select * from (
+           select * from (
+              select * from PORTAL.T_INFO_MOBILE_CHECKCODE where STATUS <> '2'and MOBILE_NO = #{mobileNo} order by SEND_TIME desc
+           )) mc where mc.CHECK_CODE = #{checkCode}
+		]]>
+    </select>
+
+    <select id="isMobileCheckCodeRight" parameterType="InfoMobileCheckCode" resultType="java.lang.Integer">
+        <![CDATA[
+        select count(*) from (
+           select * from (
+              select * from PORTAL.T_INFO_MOBILE_CHECKCODE where STATUS <> '2' and MOBILE_NO = #{mobileNo} order by SEND_TIME desc
+           )) mc where mc.CHECK_CODE = #{checkCode}
+	    ]]>
+    </select>
+
+</mapper>

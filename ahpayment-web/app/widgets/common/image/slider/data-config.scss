@@ -1,0 +1,18 @@
+#js-image-slider-data-config-panel {
+    .image-list img {
+        width: 86px;
+        height: 70px;
+        margin-top: 5px;
+        border: 1px solid #b5b5b5;
+        margin-left: 2px; /*for scrollable*/
+    }
+    .image-list img:hover {
+        border: 1px solid #80be00;
+    }
+    .image-view {
+        width: 350px;
+        height: 220px;
+        margin-bottom: 10px;
+        border: 1px solid #FFFF11;
+    }
+}

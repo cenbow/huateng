@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+.ui-mobmain-header{ width:100%; text-align:center; 	border-bottom: 3px solid #2A9CD8;}
+.ui-mobmain-header .inside-header{ border-bottom:none;}
+.mobile-main{ position:relative; width:100%; display:block; background:url(../images/mobileChannel/mob-main-bg.jpg) center; height:497px; text-align:center; min-width:980px;}
+.mob-main02{position:relative; width:100%; display:block; min-height:400px; !important _height:400px; text-align:center; min-width:980px; background-color:#f4f4f4; display:inline-block;  z-index:99;}
+.mob-bottom{ width:100%; height:22px; display:block; background-color:#f4f4f4; margin-top:-22px;}
+.mob-main980{ margin:0 auto; height:497px; display:block;  position:relative; width:980px; }
+
+/*手机切换CSS*/
+/*各种高宽值的修改--技巧：减小或增大同一数值*/
+.stepcarousel { WIDTH: 181px; HEIGHT: 324px; }
+.stepcarousel .panel { WIDTH: 181px; HEIGHT: 324px; }
+/*各种高宽值的修改结束*/
+#slider { MARGIN: 0px; OVERFLOW: hidden;  HEIGHT: 324px; position:absolute; left:63px; top:85px;}
+*html #slider { }
+*+html #slider {}
+.stepcarousel { MARGIN: 0px 30px; OVERFLOW: scroll; POSITION: relative; }
+.stepcarousel .belt { LEFT: 0px; POSITION: absolute; TOP: 0px }
+.stepcarousel .panel { FLOAT: left;  OVERFLOW: hidden; }
+/*手机切换CSS结束*/
+
+.mob-ezfimg01{ width:245px; height:55px; display:block; position:absolute; background-image:url(../images/mobileChannel/mob-kud-bg.png); left:575px; top:120px;}
+.mob-biao01{ width:137px; height:48px; display:block; position:absolute; background-image:url(../images/mobileChannel/mob-biao01.png); left:825px; top:228px;}
+.mob-adown01{ width:224px; height:78px; display:block; position:absolute; background:url(../images/mobileChannel/mob-adown.png) 0 0; left:580px; top:210px;}
+.mob-adown01:hover{ background-position:0 -79px;}
+.mob-txt01{ display:block; position:absolute; left:580px; top:315px; text-align:left; color:#515151; width:390px; line-height:20px; text-align:justify; text-justify:inter-ideograph;}
+.mob-new01{ width:980px; height:75px; position:relative; display:inline-block; margin:0 auto; background-image:url(../images/mobileChannel/mob-cp-bgimg.jpg); margin-top:10px; text-align:left; color:#515151;}
+.mob-new-txt01{ position:absolute; left:220px; top:20px;  }
+.mob-new-txt02{ position:absolute; left:570px; top:20px;}
+.mob-new-txt03{ position:absolute; left:790px; top:20px;}
+.mob-cpqh01{ width:980px; min-height:108px;!important _height:108px; display:inline-block; margin:0 auto; margin-top:15px; position:relative; left:0px;  z-index:20; }
+.mob-cpqh01 ul li{ float:left; width:120px; height:108px; display:inline-block; cursor:pointer; }
+.mob-cpqh01 .cpqh-sel{ background-image:url(../images/mobileChannel/mob-cpqh02.jpg); float:left; width:120px; height:108px; position:relative; z-index:20; left:1px; top:4px; }
+.mob-cpqh01 .cpqh-sel02{ background-image:url(../images/mobileChannel/mob-cpqh03.jpg); float:left; width:120px; height:108px; position:relative; z-index:20; left:1px; top:4px; }
+.mob-cpqh01 .cpqh-none{ background-image:url(../images/mobileChannel/mob-cpqh01.jpg); float:left; width:120px; height:108px; position:relative; left:2px;  z-index:-20;}
+
+.cpqh-sel .cpqh-img{ position:relative; top:2px; left:20px; float:left;}
+.cpqh-sel02 .cpqh-img{ position:relative; top:2px; left:20px; float:left;}
+.cpqh-sel .cpqh-txt{position:relative; top:10px; float:left; width:122px; text-align:center; display:block;  color:#FF7E00;}
+.cpqh-sel02 .cpqh-txt{position:relative; top:8px; float:left; width:122px; text-align:center; display:block;  color:#FF7E00;}
+.cpqh-none .cpqh-img{ position:relative; top:22px; left:20px; float:left;}
+.cpqh-none .cpqh-txt{ display:none;}
+.cpqh-div{ width:980px; height:150px; display:block; background:url(../images/mobileChannel/mob-divbg-mid.jpg); position:relative; left:2px; margin:0 auto; margin-bottom:40px;}
+
+.cpqh-div .cqhh-divmid{height:150px; display:block; background:url(../images/mobileChannel/mob-divbg-bot.jpg) no-repeat bottom;}
+.cpqh-div-txt{ text-align:left; margin:20px 20px 20px 35px; width:900px; line-height:25px; color:#515151; float:left;}
+.cqqh-div-top{ width:980px; display:block; height:10px; position:relative; top:0px; font-size:10px; background:url(../images/mobileChannel/mob-divbg-top.jpg) no-repeat; font-size:10px;}
+
+
+.s-ipone,.s-ipone-h,.s-android,.s-android-h,.s-wp,.s-wp-h,.s-hd,.s-hd-h{ background:url(../images/mobileChannel/smenu.png) no-repeat}
+
+.sub-menu{ height:229px; margin:0 auto; width:980px; margin-top:22px;}
+.sub-menu ul li { float:left; display:inline-block; margin-right:8px; width:238px; height:181px; background:url(../images/mobileChannel/bd-bg.jpg) no-repeat; padding-left:1px; cursor:pointer }
+.sub-menu ul li.last{ margin-right:0px;}
+.sub-ipone{ width:236px; height:170px; overflow:hidden}
+.s-ipone{ width:236px; height:213px; background-position:0px 0px;}
+.sub-android{ width:236px; height:170px; overflow:hidden}
+.s-android{ width:236px; height:213px; background-position:-245px 0px; }
+.sub-wp{ width:236px; height:170px; overflow:hidden;}
+.s-wp{ width:236px; height:213px; background-position:-490px 0px;}
+.sub-hd{ width:236px; height:170px; overflow:hidden;}
+.s-hd{ width:236px; height:213px; background-position:-735px 0px;  }
+
+.mob-xzdown{ width:980px; margin:0 auto; height:340px; display:block; position:relative; border:1px solid #CCC; background-color:#FFF; margin-top:-35px; text-align:left; position:relative; z-index:2;}
+.xzdown-bt01{ width:980px; height:35px; display:block; line-height:35px; background:url(../images/mobileChannel/mob-xzdown-bg01.gif) repeat-x; border-bottom:1px solid #CCC; text-align:left;}
+.xzdown-bt01 span{ position:relative; left:30px; font-size:16px; font-weight:bold; color:#515151;}
+.xzdown-img01{ width:200px; height:250px; display:inline; margin-left:170px; margin-top:25px; float:left; text-align:center;}
+.xzdown-main{ width:400px; float:left; height:270px; display:inline-block; margin-left:30px; margin-top:30px; position:relative; z-index:99;}
+.xzdown-main ul li{ width:100%;}
+.xzdown-main-bt01{line-height:30px; }
+.xzdown-main-bt01 span{ font-size:16px; font-weight:bold;  color:#515151; position:relative; left:10px; }
+.brand-sel{ width:274px; height:50px; line-height:50px; display:block; background-image:url(../images/mobileChannel/mob-sel-anniu1.png);
+background-position:0px 0px; cursor:pointer; position:relative; z-index:2; }
+.brand-sel span{ position:relative; left:20px; font-size:14px;  color:#515151;}
+
+.sel01 span{ z-index:100;  position:relative;}
+
+.sel02{ z-index:1;}
+
+.txt-sel{ font-size:14px; color:#515151; position:relative; left:25px; line-height:35px;}
+.mob-sel-tc{ width:464px; min-height:70px; !important _height:70px; background:url(../images/mobileChannel/mob-tc-imgbot.png) no-repeat bottom; padding-bottom:8px; position:absolute; z-index:99; top:-3px; left:5px; }
+.mob-sel-tctop{ width:464px; height:62px; display:inline-block; background-image:url(../images/mobileChannel/mob-tc-imgtop.jpg); position:relative; border:none; }
+.mob-sel-tcmain{ width:464px; min-height:70px; !important _height:70px; display:inline-block; background:url(../images/mobileChannel/mob-tc-imgmid.jpg) repeat-y; position:relative; text-align:center;}
+.br-img ul{ width:444px; margin:0 auto; margin-top:-5px;}
+.br-img ul li{ width:148px; height:47px; float:left; display:inline-block;  margin-top:5px; text-align:center;}
+.br-img-a{ border:1px solid #fff; width:145px; height:45px; display:block;}
+.br-img-a:hover{ border:1px solid #CCC;}
+#br-sel-txt{ position:absolute; z-index:199; left:20px; color:#515151; top:43px; font-size:14px;}
+#br-imgdiv{ top:28px;}
+*html #br-imgdiv{ top:26px;}
+*+html #br-imgdiv{ top:27px;}
+
+#xh-sel-txt {position:absolute; z-index:98; left:20px; color:#515151; top:124px; font-size:14px;}
+#xh-imgdiv{ top:109px; z-index:97;}
+*html #xh-imgdiv{ top:107px; }
+*+html #xh-imgdiv{ top:107px;}
+
+.br-txt ul{ width:430px; margin:0 auto;}
+.br-txt ul li{ text-align:left; }
+.br-txt-a{ color:#515151; margin-right:10px; display:inline-block; font-size:14px;}
+.br-txt-a:hover{ text-decoration:underline; color:#333;}
+
+.mob-anniu01-h38{ background-image:url(../images/mobileChannel/mob-down38h.gif); background-position:0px 0px; background-repeat: no-repeat;
+background-color: transparent; padding: 0; display: inline-block; position: relative; text-align: center; text-decoration: none!important; vertical-align: middle; overflow: visible; cursor: pointer; border: 0;  }
+.mob-anniu02-h38{display:block; cursor: pointer; border: 0; text-decoration: none; overflow: visible; padding:0px 52px 0px 22px;
+background-position:right -88px; color:#FFF; font-weight:bold; background-image:url(../images/mobileChannel/mob-down38h.gif);background-color: transparent; line-height:38px;  font-size:16px; position:relative; height:38px; left:2px; *display:inline; zoom:1}
+
+
+
+.b-down{ position:relative; left:5px; top:10px; display:inline;}
+
+
+.mob-wx{ width:980px; margin:0 auto; margin-bottom:30px; height:200px; display:inline-block; margin-top:15px; position:relative; z-index:1;}
+.mob-codeli{ width:470px; border:1px solid #CCC; float:left; display:inline-block; height:200px; background-color:#FFF;}
+.mob-libt01{ width:100%; height:35px; display:block; line-height:35px; background:url(../images/mobileChannel/mob-xzdown-bg01.gif) repeat-x; border-bottom:1px solid #CCC; text-align:left;}
+.mob-libt01 span{ position:relative; left:30px; font-size:16px; font-weight:bold; color:#515151;}
+.iph-2w{ width:88px; height:87px; display:block; float:left; background-image:url(../images/mobileChannel/iph-2w.jpg);}
+.mob-licodemain01{ width:200px; float:left; position:relative; left:30px; top:20px; text-align:left;}
+.txt01-2w{  text-align:left; font-size:16px; font-weight:bold; display:block; float:left; color:#333; position:relative; top:35px; left:10px;}
+.txt02-2w{ text-align:left; height:20px; line-height:20px; font-size:12px; display:inline-block;  color:#515151; position:relative; top:-20px; left:98px; width:200px; }
+.mob-licodemain02{ width:270px; float:left; position:relative; left:20px; top:20px; text-align:left;}
+
+.mob-libot01{ width:100%; display:inline-block;  position:relative; color:#515151; font-size:12px; top:20px; text-align:left;}
+.mob-libot01 span{ position:relative; left:30px;}
+.mob-SMSli{ width:495px; border:1px solid #CCC; float:left; display:inline-block; height:200px; background-color:#FFF; margin-left:11PX; text-align:center;}
+
+.mob-lisms-iph01{ width:400px; height:75px; display:block; margin:0 auto; clear:both; position:relative; top:15px;}
+.mob-lisms-iph01 ul li{ float:left;}
+.sms-imgli{ width:45px; height:75px; text-align:right; }
+.mob-txt02{ height:28px; line-height:28px; border: 1px solid #CCC; color: #999; font-size: 14px; vertical-align: middle; padding-left:10px; padding-right:10px; margin-top:3px;}
+.sms-txtli{ text-align:left;}
+.sms-txtli span{ color:#515151; position:relative; left:10px; top:5px;}
+.mob-fs01{ width:95px; height:33px; display:block; background-image:url(../images/mobileChannel/mob-fs01.gif); position:relative; left:5px; top:2px;}
+.mob-fs01:hover{ background-position:0 -40px;}
+.img-ipsms{ width:30px; height:34px; display:block; background-image:url(../images/mobileChannel/sms-iphimg.jpg); float:right; margin-right:10px;}
+
+.img-andms{ width:35px; height:40px; display:block; background-image:url(../images/mobileChannel/sms-andimg.jpg); float:right; margin-right:10px;}
+
+.bt-txt-first span{ color:#555; font-size:14px; position:relative; left:20px;}
+.mob-p{ position:relative; font-size:14px; font-weight:bold; top:-10px; color:#515151;}
+
+/*****弹出*****/
+.tan_bei{ width:100%; height:100%; overflow:hidden; margin:0px; background-color:#000;filter:alpha(opacity=20);opacity:0.2;-moz-opacity: 0.2; position:fixed; left:0px; top:0px; z-index:9999; text-align:center; _position:absolute; _height:expression(document.body.scrollHeight); text-align:center; min-width:980px;}
+.mob-tcimg01{ width:430px; min-height:180px;!important _height:180px; display:block; z-index:10000;background-color:#FFF; margin:0 auto; border:2px solid #aaa;  position:relative; padding-bottom:25px; margin:0 auto; margin-top:-40%;}
+.mob-libt03{ width:100%; height:35px; display:block; line-height:35px; background:url(../images/mobileChannel/mob-xzdown-bg01.gif) repeat-x; border-bottom:1px solid #CCC; text-align:left;}
+.mob-libt03 span{ position:relative; left:20px; font-size:14px; display:inline-block; float:left; font-weight:bold; color:#515151;}
+.close{ position:relative; float:right; display:inline-block; right:15px; top:2px; font-size:24px; display:block; line-height:24px; color:#515151;}
+.close:hover{ text-decoration:underline;}
+.mob-tcmain{ width:390px; margin:0 auto; min-height:170px; !important _height:1570px; display:inline-block;}
+.mob-tcmain ul{ position:relative; top:10px; left:30px;}
+.mob-tcmain ul li{ width:100%; line-height:40px; display:block; text-align:left; clear:both; height:40px; position:relative;}
+.tc-txt01{ width:100px; display:inline-block; float:left; text-align:right; color:#515151; font-size:14px; margin-right:5px;}
+.tc-txt02{ width:280px; display:inline-block; float:left; text-align:left;}
+.tc-fon01{ font-size:16px; font-weight:bold; color:#333;}
+.tc-bd01{ width:80px; line-height:22px; height:22px; font-size:12px; border:1px solid #CCC; padding-left:5px; padding-right:5px;}
+.tc-yzdw01{ position:relative; top:7px;}
+*html .tc-yzdw01{  top:1px;}
+*+html .tc-yzdw01{  top:0px;}
+.tc-a01{ color:#01479D; position:relative; top:-2px;}
+.tc-a01:hover{ text-decoration:underline;}
+*html .tc-a01{top:-7px;}
+*+html .tc-a01{top:-7px;}
+.tc-but01{ width:80px; height:25px; padding-top:2px; padding-bottom:2px; cursor:pointer;}
+
+
+.yzf-2w{ width:129px; height:132px; display:block; background-image:url(../images/mobileChannel/yzf-2w.jpg); position:relative; top:-5px; left:18px;}
+.mob-licodemain01 .yzf-2w-note{ float:left; position:absolute; top:30px; left:175px; color:#515151; font-size:14px; width:230px; line-height:28px;}
+.mob-lisms-sms01 ul li{ width:100%; float:left;}
+.img-sms-d{ width:77px; height:99px; display:block; float:left; background-image:url(../images/mobileChannel/SMS-down.jpg); margin-left:40px; margin-top:30px;}
+.sms-txt-input{ float:left; margin-top:50px; margin-left:30px;}
+.sms-txt-a{ float:left; margin-top:50px; margin-left:10px;}
+
+.ui-mobshow{ width:450px; margin-left:-225px;}

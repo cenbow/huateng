@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="description" content='{{#block "desc"}}速通支付{{/block}}'>
+  <title>
+    速通支付-收银台
+  </title>
+</head>
+<body>
+		{{#inject "official/sutongpay/payment/webgate"}}{{/inject}}
+		<script type="text/javascript">
+  		document.getElementById("pay-form").submit();
+  	</script>
+</body>
+</html>

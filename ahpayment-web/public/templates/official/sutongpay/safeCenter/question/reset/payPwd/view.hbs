@@ -1,0 +1,59 @@
+{{#component "changeQuestion-payPwd"}}
+<form name="rstQuestionForm" id="rstQuestionForm">             
+  <div class="sub-l fl sp-mtop30">
+    <span class="col-wa cola fl sp-mtop12">新密保问题:</span>
+    <div class="select-outer select-wh165 fl sp-mtop16">
+      <div class="select-inner">
+       <select name="newQuestion" id="newQuestion" class="select-h"> 
+       </select>
+      </div>
+   </div>
+   <div class="cl"></div>
+   <span class="col-wa cola fl sp-mtop12">新密保答案:</span>
+   <div class="fl sp-mtop12">
+
+     <input type="text" name="newQuestionAnswer" id="newQuestionAnswer" class="input-w3" >
+
+   </div>
+   <div class="cl"></div>
+   <span class="col-wa cola fl sp-mtop12">支付密码:</span>
+   <div class="fl sp-mtop12">
+     <input type="password" name="payPwd" onkeyup="$(this).value=this.value.replace(/\D/g,'');" 
+      onafterpaste="$(this).value=this.value.replace(/\D/g,'')" maxLenght="6" id="payPwd" class="input-w3" readonly="readonly">
+     <br>
+      <div id="pwdMsg" name="pwdMsg" class="ui-txtred"></div>
+   </div>         
+   <div class="cl"></div>
+
+  <span class="colz">
+  <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="submitButtn" name="submitButtn" class="ui-button ui-button-morange" title="确定">确定</a> 
+        <a id="resetButtn" name="resetButtn" class="ui-button ui-button-mwhite" title="取消">取消</a>
+      </div>
+    </div>
+</span>
+  
+</div><!--sub-l fl结束 -->
+
+
+<div id="dfbKey" style="position:absolute;visibility:hidden;">
+      <img src="/api/softKeyBoard/pwGeneration" border="0" usemap="#Map2"/>
+      <map name="Map2">
+          <area shape="rect" coords="15,26,42,54" href="javascript:clickKeyboard('0')">
+          <area shape="rect" coords="44,26,73,54" href="javascript:clickKeyboard('1')">
+          <area shape="rect" coords="77,26,104,54" href="javascript:clickKeyboard('2')">
+          <area shape="rect" coords="107,26,135,54" href="javascript:clickKeyboard('3')">
+          <area shape="rect" coords="15,58,42,85" href="javascript:clickKeyboard('4')">
+          <area shape="rect" coords="44,58,73,85" href="javascript:clickKeyboard('5')">
+          <area shape="rect" coords="77,58,104,85" href="javascript:clickKeyboard('6')">
+          <area shape="rect" coords="107,58,135,85" href="javascript:clickKeyboard('7')">
+          <area shape="rect" coords="15,89,42,116" href="javascript:clickKeyboard('8')">
+          <area shape="rect" coords="44,89,73,116" href="javascript:clickKeyboard('9')">
+        <area shape="rect" coords="77,89,135,116" href="javascript:clickKeyboard('bak')">
+          <area shape="rect" coords="130,5,142,19" href="javascript:closeKeyboard()">
+          <area shape="rect" coords="15,120,135,147" href="javascript:closeKeyboard()">
+      </map>
+</div>
+{{/component}}

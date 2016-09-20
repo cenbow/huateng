@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="description" content="{{desc}}">
+        <title>
+            {{title}}
+        </title>
+        <link rel="stylesheet" href="/assets/common.css?t=${build.number}">
+        <link rel="stylesheet" href="/assets/view.css?t=${build.number}">
+        <!--[if IE 6]>
+        <link href="/assets/ie.css" rel="stylesheet">
+        <![endif]-->
+        <script src="/assets/common.js?t=${build.number}"></script>
+        <script src="/assets/view.js?t=${build.number}"></script>
+    </head>
+
+    <body id="body" style="{{style}}">
+        {{{layout}}}
+    </body>
+</html>

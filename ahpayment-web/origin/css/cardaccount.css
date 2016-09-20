@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* 卡信息 */
+
+.ui-cardaccount-info{ width:100%; height:100px; background-color:#FFF5E0; display:inline-block; position:relative;}
+.ui-cardaccount-info .ui-txt01{ position:absolute; left:20px; top:20px; font-size:14px;}
+.ui-cardaccount-info .ui-txt01 font{ margin-right:20px;}
+.ui-cardaccount-info .ui-txt02{ position:absolute; left:20px; top:40px; font-size:14px;}
+.ui-cardaccount-info .ui-txt02 strong{ margin-left:10px; margin-right:10px;}
+
+/* 卡注释 */
+.ui-cardaccount-note{ width:100%; display:inline-block; margin-bottom:20px;}
+.ui-cardaccount-note .ui-noteimg{ width:50px; height:50px; display:block; float:left; background-image:url(../images/inside-main/cardnoteimg.jpg); margin-right:15px; margin-left:15px;}
+.ui-cardaccount-note .ui-notetxt{ width:650px; display:inline-block; line-height:21px; float:left; text-align:left;}
+/* 卡表单 */
+.ui-cardaccount-form{ display:inline-block}
+.ui-cardaccount-form .ui-form .ui-form-txt01{ width:200px;}

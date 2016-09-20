@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoProductPropertyMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoProductProperty" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PRODUCT_NO" property="productNo" jdbcType="VARCHAR" />
+    <result column="PRODUCT_NAME" property="productName" jdbcType="VARCHAR" />
+    <result column="PRODUCT_CODE" property="productCode" jdbcType="VARCHAR" />
+    <result column="PRODUCT_STATUS" property="productStatus" jdbcType="CHAR" />
+    <result column="TXN_STATUS" property="txnStatus" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+    <result column="ACHIEVED_TIME" property="achievedTime" jdbcType="VARCHAR" />
+    <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="CHAR" />
+    <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="ENLISH_NAME" property="enlishName" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="BANKINGCARD" property="bankingcard" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PRODUCT_NO, PRODUCT_NAME, PRODUCT_CODE, PRODUCT_STATUS, TXN_STATUS, CREATE_TIME, 
+    ACHIEVED_TIME, ARCHIVED_FLAG, LAST_UPDATE_TIME, ACCOUNT_NO, CUSTOMER_NO, AREA_CODE, 
+    CITY_CODE, ENLISH_NAME, EMAIL, BANKINGCARD
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_INFO_PRODUCT_PROPERTY
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+   <select id="queryProductPropertyRecordByConditions"
+            parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+       <include refid="Base_Column_List" />
+        from T_INFO_PRODUCT_PROPERTY
+        where PRODUCT_NO = #{productNo,jdbcType=VARCHAR}
+        and PRODUCT_CODE = #{productCode,jdbcType=VARCHAR}
+        <if test="productStatus != null" >
+           and  PRODUCT_STATUS = #{productStatus,jdbcType=VARCHAR}
+        </if>
+         <if test="txnStatus != null" >
+           and  TXN_STATUS = #{txnStatus,jdbcType=VARCHAR}
+          </if>
+  </select>
+    <select id="queryProductPropertyRecordByConditionsByProduct"
+            parameterType="string" resultMap="BaseResultMap" resultSetType="SCROLL_INSENSITIVE">
+        select
+        <include refid="Base_Column_List" />
+        from T_INFO_PRODUCT_PROPERTY
+        where PRODUCT_NO =#{productNo,jdbcType=VARCHAR}
+    </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_INFO_PRODUCT_PROPERTY
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoProductProperty" >
+    insert into T_INFO_PRODUCT_PROPERTY (ID, PRODUCT_NO, PRODUCT_NAME, 
+      PRODUCT_CODE, PRODUCT_STATUS, TXN_STATUS, 
+      CREATE_TIME, ACHIEVED_TIME, ARCHIVED_FLAG, 
+      LAST_UPDATE_TIME, ACCOUNT_NO, CUSTOMER_NO, 
+      AREA_CODE, CITY_CODE, ENLISH_NAME, 
+      EMAIL, BANKINGCARD)
+    values (#{id,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{productCode,jdbcType=VARCHAR}, #{productStatus,jdbcType=CHAR}, #{txnStatus,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{achievedTime,jdbcType=VARCHAR}, #{archivedFlag,jdbcType=CHAR}, 
+      #{lastUpdateTime,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{customerNo,jdbcType=VARCHAR}, 
+      #{areaCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{enlishName,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{bankingcard,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoProductProperty" >
+    insert into T_INFO_PRODUCT_PROPERTY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO,
+      </if>
+      <if test="productName != null" >
+        PRODUCT_NAME,
+      </if>
+      <if test="productCode != null" >
+        PRODUCT_CODE,
+      </if>
+      <if test="productStatus != null" >
+        PRODUCT_STATUS,
+      </if>
+      <if test="txnStatus != null" >
+        TXN_STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="achievedTime != null" >
+        ACHIEVED_TIME,
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG,
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="enlishName != null" >
+        ENLISH_NAME,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="bankingcard != null" >
+        BANKINGCARD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productStatus != null" >
+        #{productStatus,jdbcType=CHAR},
+      </if>
+      <if test="txnStatus != null" >
+        #{txnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="achievedTime != null" >
+        #{achievedTime,jdbcType=VARCHAR},
+      </if>
+      <if test="archivedFlag != null" >
+        #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enlishName != null" >
+        #{enlishName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="bankingcard != null" >
+        #{bankingcard,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoProductProperty" >
+    update T_INFO_PRODUCT_PROPERTY
+    <set >
+      <if test="productNo != null" >
+        PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productStatus != null" >
+        PRODUCT_STATUS = #{productStatus,jdbcType=CHAR},
+      </if>
+      <if test="txnStatus != null" >
+        TXN_STATUS = #{txnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="achievedTime != null" >
+        ACHIEVED_TIME = #{achievedTime,jdbcType=VARCHAR},
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="enlishName != null" >
+        ENLISH_NAME = #{enlishName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="bankingcard != null" >
+        BANKINGCARD = #{bankingcard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoProductProperty" >
+    update T_INFO_PRODUCT_PROPERTY
+    set PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      PRODUCT_NAME = #{productName,jdbcType=VARCHAR},
+      PRODUCT_CODE = #{productCode,jdbcType=VARCHAR},
+      PRODUCT_STATUS = #{productStatus,jdbcType=CHAR},
+      TXN_STATUS = #{txnStatus,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      ACHIEVED_TIME = #{achievedTime,jdbcType=VARCHAR},
+      ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      ENLISH_NAME = #{enlishName,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      BANKINGCARD = #{bankingcard,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

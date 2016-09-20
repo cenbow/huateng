@@ -1,0 +1,19 @@
+<div class="app-modal page-panel hide" id="js-page-panel">
+    <div class="menu-icon"></div>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4>页面管理</h4>
+    </div>
+    <div class="modal-body none scrollable">
+        <p class="app-introduction">你可以在此编辑各个页面、调整顺序、新增页面等，在这儿所建的页面将出现在导航菜单中。</p>
+        <ul class="app-list unstyled" id="js-page-list">
+            {{#each data}}
+            <li data-page-id="{{id}}"><span>{{name}}</span><div class="setting hide"><div class="icon-setting-small"></div>设置</div></li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary" id="js-new-page">+ 新建页面</a>
+    </div>
+</div>

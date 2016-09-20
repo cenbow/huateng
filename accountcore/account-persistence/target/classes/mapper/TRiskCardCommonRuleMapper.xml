@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TRiskCardCommonRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TRiskCardCommonRule" >
+    <id column="RECORD_NO" property="recordNo" jdbcType="DECIMAL" />
+    <result column="RULE_TYPE" property="ruleType" jdbcType="CHAR" />
+    <result column="TXN_CHANNEL" property="txnChannel" jdbcType="VARCHAR" />
+    <result column="CARD_TYPE" property="cardType" jdbcType="CHAR" />
+    <result column="CARD_GRADE" property="cardGrade" jdbcType="CHAR" />
+    <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+    <result column="CONSUME_TXN_MAX_NUM" property="consumeTxnMaxNum" jdbcType="DECIMAL" />
+    <result column="CONSUME_TXN_MAX_AMT" property="consumeTxnMaxAmt" jdbcType="DECIMAL" />
+    <result column="CONSUME_TXN_MIN_AMT" property="consumeTxnMinAmt" jdbcType="DECIMAL" />
+    <result column="CONSUME_TXN_MAX_AMT_SUM" property="consumeTxnMaxAmtSum" jdbcType="DECIMAL" />
+    <result column="CHARGE_TXN_MAX_NUM" property="chargeTxnMaxNum" jdbcType="DECIMAL" />
+    <result column="CHARGE_TXN_MAX_AMT" property="chargeTxnMaxAmt" jdbcType="DECIMAL" />
+    <result column="CHARGE_TXN_MIN_AMT" property="chargeTxnMinAmt" jdbcType="DECIMAL" />
+    <result column="CHARGE_TXN_MAX_AMT_SUM" property="chargeTxnMaxAmtSum" jdbcType="DECIMAL" />
+    <result column="WITHDRAW_TXN_MAX_NUM" property="withdrawTxnMaxNum" jdbcType="DECIMAL" />
+    <result column="WITHDRAW_TXN_MAX_AMT" property="withdrawTxnMaxAmt" jdbcType="DECIMAL" />
+    <result column="WITHDRAW_TXN_MIN_AMT" property="withdrawTxnMinAmt" jdbcType="DECIMAL" />
+    <result column="WITHDRAW_TXN_MAX_AMT_SUM" property="withdrawTxnMaxAmtSum" jdbcType="DECIMAL" />
+    <result column="TRANSFER_TXN_MAX_NUM" property="transferTxnMaxNum" jdbcType="DECIMAL" />
+    <result column="TRANSFER_TXN_MAX_AMT" property="transferTxnMaxAmt" jdbcType="DECIMAL" />
+    <result column="TRANSFER_TXN_MIN_AMT" property="transferTxnMinAmt" jdbcType="DECIMAL" />
+    <result column="TRANSFER_TXN_MAX_AMT_SUM" property="transferTxnMaxAmtSum" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_CONS_AMT" property="monthMaxConsAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_OUT_AMT" property="monthMaxOutAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_IN_AMT" property="monthMaxInAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_CASH_AMT" property="monthMaxCashAmt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_CHG_AMT" property="monthMaxChgAmt" jdbcType="DECIMAL" />
+    <result column="RSVD_NUM1" property="rsvdNum1" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT1" property="rsvdAmt1" jdbcType="DECIMAL" />
+    <result column="RSVD_NUM2" property="rsvdNum2" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT2" property="rsvdAmt2" jdbcType="DECIMAL" />
+    <result column="RSVD_NUM3" property="rsvdNum3" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT3" property="rsvdAmt3" jdbcType="DECIMAL" />
+    <result column="RSVD_NUM4" property="rsvdNum4" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT4" property="rsvdAmt4" jdbcType="DECIMAL" />
+    <result column="RSVD_NUM5" property="rsvdNum5" jdbcType="DECIMAL" />
+    <result column="RSVD_AMT5" property="rsvdAmt5" jdbcType="DECIMAL" />
+    <result column="USE_FLAG" property="useFlag" jdbcType="CHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="TIMESTAMP" />
+    <result column="VALID_DATE" property="validDate" jdbcType="TIMESTAMP" />
+    <result column="CREATE_UID" property="createUid" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_FLAG" property="checkFlag" jdbcType="CHAR" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_MODIFY_UID" property="lastModifyUid" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFY_TIME" property="lastModifyTime" jdbcType="TIMESTAMP" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="ARCHIVE_TIME" property="archiveTime" jdbcType="TIMESTAMP" />
+    <result column="ARCHIVED_FLAG" property="archivedFlag" jdbcType="CHAR" />
+    <result column="L_RECORD_NO" property="lRecordNo" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="MONTH_MAX_CONS_CNT" property="monthMaxConsCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_OUT_CNT" property="monthMaxOutCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_IN_CNT" property="monthMaxInCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_CASH_CNT" property="monthMaxCashCnt" jdbcType="DECIMAL" />
+    <result column="MONTH_MAX_CHG_CNT" property="monthMaxChgCnt" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RECORD_NO, RULE_TYPE, TXN_CHANNEL, CARD_TYPE, CARD_GRADE, CARD_NO, CONSUME_TXN_MAX_NUM, 
+    CONSUME_TXN_MAX_AMT, CONSUME_TXN_MIN_AMT, CONSUME_TXN_MAX_AMT_SUM, CHARGE_TXN_MAX_NUM, 
+    CHARGE_TXN_MAX_AMT, CHARGE_TXN_MIN_AMT, CHARGE_TXN_MAX_AMT_SUM, WITHDRAW_TXN_MAX_NUM, 
+    WITHDRAW_TXN_MAX_AMT, WITHDRAW_TXN_MIN_AMT, WITHDRAW_TXN_MAX_AMT_SUM, TRANSFER_TXN_MAX_NUM, 
+    TRANSFER_TXN_MAX_AMT, TRANSFER_TXN_MIN_AMT, TRANSFER_TXN_MAX_AMT_SUM, MONTH_MAX_CONS_AMT, 
+    MONTH_MAX_OUT_AMT, MONTH_MAX_IN_AMT, MONTH_MAX_CASH_AMT, MONTH_MAX_CHG_AMT, RSVD_NUM1, 
+    RSVD_AMT1, RSVD_NUM2, RSVD_AMT2, RSVD_NUM3, RSVD_AMT3, RSVD_NUM4, RSVD_AMT4, RSVD_NUM5, 
+    RSVD_AMT5, USE_FLAG, EFFECTIVE_DATE, VALID_DATE, CREATE_UID, CREATE_TIME, CHECK_FLAG, 
+    CHECK_UID, CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, RESV_FLD1, RESV_FLD2, ARCHIVE_TIME, 
+    ARCHIVED_FLAG, L_RECORD_NO, REMARK, MONTH_MAX_CONS_CNT, MONTH_MAX_OUT_CNT, MONTH_MAX_IN_CNT, 
+    MONTH_MAX_CASH_CNT, MONTH_MAX_CHG_CNT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_RISK_CARD_COMMON_RULE
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from T_RISK_CARD_COMMON_RULE
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TRiskCardCommonRule" >
+    insert into T_RISK_CARD_COMMON_RULE (RECORD_NO, RULE_TYPE, TXN_CHANNEL, 
+      CARD_TYPE, CARD_GRADE, CARD_NO, 
+      CONSUME_TXN_MAX_NUM, CONSUME_TXN_MAX_AMT, CONSUME_TXN_MIN_AMT, 
+      CONSUME_TXN_MAX_AMT_SUM, CHARGE_TXN_MAX_NUM, CHARGE_TXN_MAX_AMT, 
+      CHARGE_TXN_MIN_AMT, CHARGE_TXN_MAX_AMT_SUM, WITHDRAW_TXN_MAX_NUM, 
+      WITHDRAW_TXN_MAX_AMT, WITHDRAW_TXN_MIN_AMT, WITHDRAW_TXN_MAX_AMT_SUM, 
+      TRANSFER_TXN_MAX_NUM, TRANSFER_TXN_MAX_AMT, TRANSFER_TXN_MIN_AMT, 
+      TRANSFER_TXN_MAX_AMT_SUM, MONTH_MAX_CONS_AMT, 
+      MONTH_MAX_OUT_AMT, MONTH_MAX_IN_AMT, MONTH_MAX_CASH_AMT, 
+      MONTH_MAX_CHG_AMT, RSVD_NUM1, RSVD_AMT1, 
+      RSVD_NUM2, RSVD_AMT2, RSVD_NUM3, 
+      RSVD_AMT3, RSVD_NUM4, RSVD_AMT4, 
+      RSVD_NUM5, RSVD_AMT5, USE_FLAG, 
+      EFFECTIVE_DATE, VALID_DATE, CREATE_UID, 
+      CREATE_TIME, CHECK_FLAG, CHECK_UID, 
+      CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, 
+      RESV_FLD1, RESV_FLD2, ARCHIVE_TIME, 
+      ARCHIVED_FLAG, L_RECORD_NO, REMARK, 
+      MONTH_MAX_CONS_CNT, MONTH_MAX_OUT_CNT, MONTH_MAX_IN_CNT, 
+      MONTH_MAX_CASH_CNT, MONTH_MAX_CHG_CNT)
+    values (#{recordNo,jdbcType=DECIMAL}, #{ruleType,jdbcType=CHAR}, #{txnChannel,jdbcType=VARCHAR}, 
+      #{cardType,jdbcType=CHAR}, #{cardGrade,jdbcType=CHAR}, #{cardNo,jdbcType=VARCHAR}, 
+      #{consumeTxnMaxNum,jdbcType=DECIMAL}, #{consumeTxnMaxAmt,jdbcType=DECIMAL}, #{consumeTxnMinAmt,jdbcType=DECIMAL}, 
+      #{consumeTxnMaxAmtSum,jdbcType=DECIMAL}, #{chargeTxnMaxNum,jdbcType=DECIMAL}, #{chargeTxnMaxAmt,jdbcType=DECIMAL}, 
+      #{chargeTxnMinAmt,jdbcType=DECIMAL}, #{chargeTxnMaxAmtSum,jdbcType=DECIMAL}, #{withdrawTxnMaxNum,jdbcType=DECIMAL}, 
+      #{withdrawTxnMaxAmt,jdbcType=DECIMAL}, #{withdrawTxnMinAmt,jdbcType=DECIMAL}, #{withdrawTxnMaxAmtSum,jdbcType=DECIMAL}, 
+      #{transferTxnMaxNum,jdbcType=DECIMAL}, #{transferTxnMaxAmt,jdbcType=DECIMAL}, #{transferTxnMinAmt,jdbcType=DECIMAL}, 
+      #{transferTxnMaxAmtSum,jdbcType=DECIMAL}, #{monthMaxConsAmt,jdbcType=DECIMAL}, 
+      #{monthMaxOutAmt,jdbcType=DECIMAL}, #{monthMaxInAmt,jdbcType=DECIMAL}, #{monthMaxCashAmt,jdbcType=DECIMAL}, 
+      #{monthMaxChgAmt,jdbcType=DECIMAL}, #{rsvdNum1,jdbcType=DECIMAL}, #{rsvdAmt1,jdbcType=DECIMAL}, 
+      #{rsvdNum2,jdbcType=DECIMAL}, #{rsvdAmt2,jdbcType=DECIMAL}, #{rsvdNum3,jdbcType=DECIMAL}, 
+      #{rsvdAmt3,jdbcType=DECIMAL}, #{rsvdNum4,jdbcType=DECIMAL}, #{rsvdAmt4,jdbcType=DECIMAL}, 
+      #{rsvdNum5,jdbcType=DECIMAL}, #{rsvdAmt5,jdbcType=DECIMAL}, #{useFlag,jdbcType=CHAR}, 
+      #{effectiveDate,jdbcType=TIMESTAMP}, #{validDate,jdbcType=TIMESTAMP}, #{createUid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{checkFlag,jdbcType=CHAR}, #{checkUid,jdbcType=VARCHAR}, 
+      #{checkTime,jdbcType=TIMESTAMP}, #{lastModifyUid,jdbcType=VARCHAR}, #{lastModifyTime,jdbcType=TIMESTAMP}, 
+      #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, #{archiveTime,jdbcType=TIMESTAMP}, 
+      #{archivedFlag,jdbcType=CHAR}, #{lRecordNo,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, 
+      #{monthMaxConsCnt,jdbcType=DECIMAL}, #{monthMaxOutCnt,jdbcType=DECIMAL}, #{monthMaxInCnt,jdbcType=DECIMAL}, 
+      #{monthMaxCashCnt,jdbcType=DECIMAL}, #{monthMaxChgCnt,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TRiskCardCommonRule" >
+    insert into T_RISK_CARD_COMMON_RULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        RECORD_NO,
+      </if>
+      <if test="ruleType != null" >
+        RULE_TYPE,
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL,
+      </if>
+      <if test="cardType != null" >
+        CARD_TYPE,
+      </if>
+      <if test="cardGrade != null" >
+        CARD_GRADE,
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="consumeTxnMaxNum != null" >
+        CONSUME_TXN_MAX_NUM,
+      </if>
+      <if test="consumeTxnMaxAmt != null" >
+        CONSUME_TXN_MAX_AMT,
+      </if>
+      <if test="consumeTxnMinAmt != null" >
+        CONSUME_TXN_MIN_AMT,
+      </if>
+      <if test="consumeTxnMaxAmtSum != null" >
+        CONSUME_TXN_MAX_AMT_SUM,
+      </if>
+      <if test="chargeTxnMaxNum != null" >
+        CHARGE_TXN_MAX_NUM,
+      </if>
+      <if test="chargeTxnMaxAmt != null" >
+        CHARGE_TXN_MAX_AMT,
+      </if>
+      <if test="chargeTxnMinAmt != null" >
+        CHARGE_TXN_MIN_AMT,
+      </if>
+      <if test="chargeTxnMaxAmtSum != null" >
+        CHARGE_TXN_MAX_AMT_SUM,
+      </if>
+      <if test="withdrawTxnMaxNum != null" >
+        WITHDRAW_TXN_MAX_NUM,
+      </if>
+      <if test="withdrawTxnMaxAmt != null" >
+        WITHDRAW_TXN_MAX_AMT,
+      </if>
+      <if test="withdrawTxnMinAmt != null" >
+        WITHDRAW_TXN_MIN_AMT,
+      </if>
+      <if test="withdrawTxnMaxAmtSum != null" >
+        WITHDRAW_TXN_MAX_AMT_SUM,
+      </if>
+      <if test="transferTxnMaxNum != null" >
+        TRANSFER_TXN_MAX_NUM,
+      </if>
+      <if test="transferTxnMaxAmt != null" >
+        TRANSFER_TXN_MAX_AMT,
+      </if>
+      <if test="transferTxnMinAmt != null" >
+        TRANSFER_TXN_MIN_AMT,
+      </if>
+      <if test="transferTxnMaxAmtSum != null" >
+        TRANSFER_TXN_MAX_AMT_SUM,
+      </if>
+      <if test="monthMaxConsAmt != null" >
+        MONTH_MAX_CONS_AMT,
+      </if>
+      <if test="monthMaxOutAmt != null" >
+        MONTH_MAX_OUT_AMT,
+      </if>
+      <if test="monthMaxInAmt != null" >
+        MONTH_MAX_IN_AMT,
+      </if>
+      <if test="monthMaxCashAmt != null" >
+        MONTH_MAX_CASH_AMT,
+      </if>
+      <if test="monthMaxChgAmt != null" >
+        MONTH_MAX_CHG_AMT,
+      </if>
+      <if test="rsvdNum1 != null" >
+        RSVD_NUM1,
+      </if>
+      <if test="rsvdAmt1 != null" >
+        RSVD_AMT1,
+      </if>
+      <if test="rsvdNum2 != null" >
+        RSVD_NUM2,
+      </if>
+      <if test="rsvdAmt2 != null" >
+        RSVD_AMT2,
+      </if>
+      <if test="rsvdNum3 != null" >
+        RSVD_NUM3,
+      </if>
+      <if test="rsvdAmt3 != null" >
+        RSVD_AMT3,
+      </if>
+      <if test="rsvdNum4 != null" >
+        RSVD_NUM4,
+      </if>
+      <if test="rsvdAmt4 != null" >
+        RSVD_AMT4,
+      </if>
+      <if test="rsvdNum5 != null" >
+        RSVD_NUM5,
+      </if>
+      <if test="rsvdAmt5 != null" >
+        RSVD_AMT5,
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG,
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID,
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME,
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG,
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="monthMaxConsCnt != null" >
+        MONTH_MAX_CONS_CNT,
+      </if>
+      <if test="monthMaxOutCnt != null" >
+        MONTH_MAX_OUT_CNT,
+      </if>
+      <if test="monthMaxInCnt != null" >
+        MONTH_MAX_IN_CNT,
+      </if>
+      <if test="monthMaxCashCnt != null" >
+        MONTH_MAX_CASH_CNT,
+      </if>
+      <if test="monthMaxChgCnt != null" >
+        MONTH_MAX_CHG_CNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="ruleType != null" >
+        #{ruleType,jdbcType=CHAR},
+      </if>
+      <if test="txnChannel != null" >
+        #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=CHAR},
+      </if>
+      <if test="cardGrade != null" >
+        #{cardGrade,jdbcType=CHAR},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeTxnMaxNum != null" >
+        #{consumeTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeTxnMaxAmt != null" >
+        #{consumeTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeTxnMinAmt != null" >
+        #{consumeTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeTxnMaxAmtSum != null" >
+        #{consumeTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMaxNum != null" >
+        #{chargeTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMaxAmt != null" >
+        #{chargeTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMinAmt != null" >
+        #{chargeTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMaxAmtSum != null" >
+        #{chargeTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMaxNum != null" >
+        #{withdrawTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMaxAmt != null" >
+        #{withdrawTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMinAmt != null" >
+        #{withdrawTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMaxAmtSum != null" >
+        #{withdrawTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMaxNum != null" >
+        #{transferTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMaxAmt != null" >
+        #{transferTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMinAmt != null" >
+        #{transferTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMaxAmtSum != null" >
+        #{transferTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxConsAmt != null" >
+        #{monthMaxConsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxOutAmt != null" >
+        #{monthMaxOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxInAmt != null" >
+        #{monthMaxInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxCashAmt != null" >
+        #{monthMaxCashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxChgAmt != null" >
+        #{monthMaxChgAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum1 != null" >
+        #{rsvdNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt1 != null" >
+        #{rsvdAmt1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum2 != null" >
+        #{rsvdNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt2 != null" >
+        #{rsvdAmt2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum3 != null" >
+        #{rsvdNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt3 != null" >
+        #{rsvdAmt3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum4 != null" >
+        #{rsvdNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt4 != null" >
+        #{rsvdAmt4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum5 != null" >
+        #{rsvdNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt5 != null" >
+        #{rsvdAmt5,jdbcType=DECIMAL},
+      </if>
+      <if test="useFlag != null" >
+        #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="monthMaxConsCnt != null" >
+        #{monthMaxConsCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxOutCnt != null" >
+        #{monthMaxOutCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxInCnt != null" >
+        #{monthMaxInCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxCashCnt != null" >
+        #{monthMaxCashCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxChgCnt != null" >
+        #{monthMaxChgCnt,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TRiskCardCommonRule" >
+    update T_RISK_CARD_COMMON_RULE
+    <set >
+      <if test="ruleType != null" >
+        RULE_TYPE = #{ruleType,jdbcType=CHAR},
+      </if>
+      <if test="txnChannel != null" >
+        TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        CARD_TYPE = #{cardType,jdbcType=CHAR},
+      </if>
+      <if test="cardGrade != null" >
+        CARD_GRADE = #{cardGrade,jdbcType=CHAR},
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeTxnMaxNum != null" >
+        CONSUME_TXN_MAX_NUM = #{consumeTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeTxnMaxAmt != null" >
+        CONSUME_TXN_MAX_AMT = #{consumeTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeTxnMinAmt != null" >
+        CONSUME_TXN_MIN_AMT = #{consumeTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeTxnMaxAmtSum != null" >
+        CONSUME_TXN_MAX_AMT_SUM = #{consumeTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMaxNum != null" >
+        CHARGE_TXN_MAX_NUM = #{chargeTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMaxAmt != null" >
+        CHARGE_TXN_MAX_AMT = #{chargeTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMinAmt != null" >
+        CHARGE_TXN_MIN_AMT = #{chargeTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="chargeTxnMaxAmtSum != null" >
+        CHARGE_TXN_MAX_AMT_SUM = #{chargeTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMaxNum != null" >
+        WITHDRAW_TXN_MAX_NUM = #{withdrawTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMaxAmt != null" >
+        WITHDRAW_TXN_MAX_AMT = #{withdrawTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMinAmt != null" >
+        WITHDRAW_TXN_MIN_AMT = #{withdrawTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawTxnMaxAmtSum != null" >
+        WITHDRAW_TXN_MAX_AMT_SUM = #{withdrawTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMaxNum != null" >
+        TRANSFER_TXN_MAX_NUM = #{transferTxnMaxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMaxAmt != null" >
+        TRANSFER_TXN_MAX_AMT = #{transferTxnMaxAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMinAmt != null" >
+        TRANSFER_TXN_MIN_AMT = #{transferTxnMinAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="transferTxnMaxAmtSum != null" >
+        TRANSFER_TXN_MAX_AMT_SUM = #{transferTxnMaxAmtSum,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxConsAmt != null" >
+        MONTH_MAX_CONS_AMT = #{monthMaxConsAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxOutAmt != null" >
+        MONTH_MAX_OUT_AMT = #{monthMaxOutAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxInAmt != null" >
+        MONTH_MAX_IN_AMT = #{monthMaxInAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxCashAmt != null" >
+        MONTH_MAX_CASH_AMT = #{monthMaxCashAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxChgAmt != null" >
+        MONTH_MAX_CHG_AMT = #{monthMaxChgAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum1 != null" >
+        RSVD_NUM1 = #{rsvdNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt1 != null" >
+        RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum2 != null" >
+        RSVD_NUM2 = #{rsvdNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt2 != null" >
+        RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum3 != null" >
+        RSVD_NUM3 = #{rsvdNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt3 != null" >
+        RSVD_AMT3 = #{rsvdAmt3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum4 != null" >
+        RSVD_NUM4 = #{rsvdNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt4 != null" >
+        RSVD_AMT4 = #{rsvdAmt4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdNum5 != null" >
+        RSVD_NUM5 = #{rsvdNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="rsvdAmt5 != null" >
+        RSVD_AMT5 = #{rsvdAmt5,jdbcType=DECIMAL},
+      </if>
+      <if test="useFlag != null" >
+        USE_FLAG = #{useFlag,jdbcType=CHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUid != null" >
+        CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkFlag != null" >
+        CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifyUid != null" >
+        LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null" >
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveTime != null" >
+        ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="archivedFlag != null" >
+        ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      </if>
+      <if test="lRecordNo != null" >
+        L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="monthMaxConsCnt != null" >
+        MONTH_MAX_CONS_CNT = #{monthMaxConsCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxOutCnt != null" >
+        MONTH_MAX_OUT_CNT = #{monthMaxOutCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxInCnt != null" >
+        MONTH_MAX_IN_CNT = #{monthMaxInCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxCashCnt != null" >
+        MONTH_MAX_CASH_CNT = #{monthMaxCashCnt,jdbcType=DECIMAL},
+      </if>
+      <if test="monthMaxChgCnt != null" >
+        MONTH_MAX_CHG_CNT = #{monthMaxChgCnt,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TRiskCardCommonRule" >
+    update T_RISK_CARD_COMMON_RULE
+    set RULE_TYPE = #{ruleType,jdbcType=CHAR},
+      TXN_CHANNEL = #{txnChannel,jdbcType=VARCHAR},
+      CARD_TYPE = #{cardType,jdbcType=CHAR},
+      CARD_GRADE = #{cardGrade,jdbcType=CHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      CONSUME_TXN_MAX_NUM = #{consumeTxnMaxNum,jdbcType=DECIMAL},
+      CONSUME_TXN_MAX_AMT = #{consumeTxnMaxAmt,jdbcType=DECIMAL},
+      CONSUME_TXN_MIN_AMT = #{consumeTxnMinAmt,jdbcType=DECIMAL},
+      CONSUME_TXN_MAX_AMT_SUM = #{consumeTxnMaxAmtSum,jdbcType=DECIMAL},
+      CHARGE_TXN_MAX_NUM = #{chargeTxnMaxNum,jdbcType=DECIMAL},
+      CHARGE_TXN_MAX_AMT = #{chargeTxnMaxAmt,jdbcType=DECIMAL},
+      CHARGE_TXN_MIN_AMT = #{chargeTxnMinAmt,jdbcType=DECIMAL},
+      CHARGE_TXN_MAX_AMT_SUM = #{chargeTxnMaxAmtSum,jdbcType=DECIMAL},
+      WITHDRAW_TXN_MAX_NUM = #{withdrawTxnMaxNum,jdbcType=DECIMAL},
+      WITHDRAW_TXN_MAX_AMT = #{withdrawTxnMaxAmt,jdbcType=DECIMAL},
+      WITHDRAW_TXN_MIN_AMT = #{withdrawTxnMinAmt,jdbcType=DECIMAL},
+      WITHDRAW_TXN_MAX_AMT_SUM = #{withdrawTxnMaxAmtSum,jdbcType=DECIMAL},
+      TRANSFER_TXN_MAX_NUM = #{transferTxnMaxNum,jdbcType=DECIMAL},
+      TRANSFER_TXN_MAX_AMT = #{transferTxnMaxAmt,jdbcType=DECIMAL},
+      TRANSFER_TXN_MIN_AMT = #{transferTxnMinAmt,jdbcType=DECIMAL},
+      TRANSFER_TXN_MAX_AMT_SUM = #{transferTxnMaxAmtSum,jdbcType=DECIMAL},
+      MONTH_MAX_CONS_AMT = #{monthMaxConsAmt,jdbcType=DECIMAL},
+      MONTH_MAX_OUT_AMT = #{monthMaxOutAmt,jdbcType=DECIMAL},
+      MONTH_MAX_IN_AMT = #{monthMaxInAmt,jdbcType=DECIMAL},
+      MONTH_MAX_CASH_AMT = #{monthMaxCashAmt,jdbcType=DECIMAL},
+      MONTH_MAX_CHG_AMT = #{monthMaxChgAmt,jdbcType=DECIMAL},
+      RSVD_NUM1 = #{rsvdNum1,jdbcType=DECIMAL},
+      RSVD_AMT1 = #{rsvdAmt1,jdbcType=DECIMAL},
+      RSVD_NUM2 = #{rsvdNum2,jdbcType=DECIMAL},
+      RSVD_AMT2 = #{rsvdAmt2,jdbcType=DECIMAL},
+      RSVD_NUM3 = #{rsvdNum3,jdbcType=DECIMAL},
+      RSVD_AMT3 = #{rsvdAmt3,jdbcType=DECIMAL},
+      RSVD_NUM4 = #{rsvdNum4,jdbcType=DECIMAL},
+      RSVD_AMT4 = #{rsvdAmt4,jdbcType=DECIMAL},
+      RSVD_NUM5 = #{rsvdNum5,jdbcType=DECIMAL},
+      RSVD_AMT5 = #{rsvdAmt5,jdbcType=DECIMAL},
+      USE_FLAG = #{useFlag,jdbcType=CHAR},
+      EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      VALID_DATE = #{validDate,jdbcType=TIMESTAMP},
+      CREATE_UID = #{createUid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CHECK_FLAG = #{checkFlag,jdbcType=CHAR},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_UID = #{lastModifyUid,jdbcType=VARCHAR},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      ARCHIVE_TIME = #{archiveTime,jdbcType=TIMESTAMP},
+      ARCHIVED_FLAG = #{archivedFlag,jdbcType=CHAR},
+      L_RECORD_NO = #{lRecordNo,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      MONTH_MAX_CONS_CNT = #{monthMaxConsCnt,jdbcType=DECIMAL},
+      MONTH_MAX_OUT_CNT = #{monthMaxOutCnt,jdbcType=DECIMAL},
+      MONTH_MAX_IN_CNT = #{monthMaxInCnt,jdbcType=DECIMAL},
+      MONTH_MAX_CASH_CNT = #{monthMaxCashCnt,jdbcType=DECIMAL},
+      MONTH_MAX_CHG_CNT = #{monthMaxChgCnt,jdbcType=DECIMAL}
+    where RECORD_NO = #{recordNo,jdbcType=DECIMAL}
+  </update>
+  <select id="findCardRisk" parameterType="java.util.Map"
+            resultMap="BaseResultMap">
+		select (case when ss.qq is null then 0 else 1 end) as EXIST_RISK_RULE,
+		(case when ss.qq is null then 999 else ss.aa end) as
+		CONSUME_TXN_MAX_NUM,
+		(case when ss.qq is null then 999999999999 else
+		ss.bb end) as
+		CONSUME_TXN_MAX_AMT,
+		(case when ss.qq is null then 0 else
+		ss.cc end) as
+		CONSUME_TXN_MIN_AMT,
+		(case when ss.qq is null then
+		999999999999 else ss.dd end) as
+		CONSUME_TXN_MAX_AMT_SUM,
+
+		(case when
+		ss.qq is null then 999 else ss.ee
+		end) as CHARGE_TXN_MAX_NUM,
+		(case when
+		ss.qq is null then 999999999999 else ss.ff
+		end) as
+		CHARGE_TXN_MAX_AMT,
+		(case when ss.qq is null then 0 else ss.gg
+		end) as
+		CHARGE_TXN_MIN_AMT,
+		(case when ss.qq is null then 999999999999 else
+		ss.hh
+		end) as
+		CHARGE_TXN_MAX_AMT_SUM,
+
+		(case when ss.qq is null then 999 else
+		ss.ii
+		end) as WITHDRAW_TXN_MAX_NUM,
+		(case when ss.qq is null then
+		999999999999
+		else ss.jj end) as
+		WITHDRAW_TXN_MAX_AMT,
+		(case when ss.qq is
+		null then
+		0 else ss.kk end) as
+		WITHDRAW_TXN_MIN_AMT,
+		(case when ss.qq is
+		null
+		then 999999999999 else
+		ss.ll end) as WITHDRAW_TXN_MAX_AMT_SUM,
+
+		(case when ss.qq is
+		null then 999 else ss.mm end) as
+		TRANSFER_TXN_MAX_NUM,
+		(case when ss.qq
+		is null then 999999999999 else
+		ss.nn end) as
+		TRANSFER_TXN_MAX_AMT,
+		(case when
+		ss.qq is null then 0 else
+		ss.oo end) as
+		TRANSFER_TXN_MIN_AMT,
+		(case
+		when ss.qq is null then
+		999999999999 else
+		ss.pp end) as TRANSFER_TXN_MAX_AMT_SUM,
+
+		(case
+		when
+		ss.qq is null then 999999999999 else ss.rr end) as
+		MONTH_MAX_CONS_AMT,
+		(case
+		when ss.qq is null then 999999999999 else
+		ss.ss end) as
+		MONTH_MAX_OUT_AMT,
+		(case
+		when ss.qq is null then
+		999999999999 else ss.tt
+		end) as MONTH_MAX_IN_AMT,
+		(case
+		when ss.qq is
+		null then 999999999999 else
+		ss.uu end) as MONTH_MAX_CASH_AMT,
+		(case
+		when ss.qq is null then
+		999999999999 else ss.vv end) as
+		MONTH_MAX_CHG_AMT,
+
+		(case
+		when ss.qq is
+		null then
+		999 else ss.ww end) as
+		MONTH_MAX_CONS_CNT,
+
+		(case
+		when ss.qq is
+		null then
+		999 else ss.xx end) as
+		MONTH_MAX_OUT_CNT,
+
+		(case
+		when ss.qq is
+		null then
+		999 else ss.yy end) as
+		MONTH_MAX_IN_CNT,
+
+		(case
+		when ss.qq is
+		null then
+		999 else ss.zz end) as
+		MONTH_MAX_CASH_CNT,
+
+		(case
+		when ss.qq is
+		null then
+		999 else ss.yz end) as
+		MONTH_MAX_CHG_CNT
+
+		from (
+		select
+		min(CONSUME_TXN_MAX_NUM) as aa,
+		min(CONSUME_TXN_MAX_AMT) as
+		bb,
+		max(CONSUME_TXN_MIN_AMT) as cc,
+		min(CONSUME_TXN_MAX_AMT_SUM) as dd,
+		min(CHARGE_TXN_MAX_NUM) as ee,
+		min(CHARGE_TXN_MAX_AMT) as ff,
+		max(CHARGE_TXN_MIN_AMT) as gg,
+		min(CHARGE_TXN_MAX_AMT_SUM) as hh,
+		min(WITHDRAW_TXN_MAX_NUM) as ii,
+		min(WITHDRAW_TXN_MAX_AMT) as jj,
+		max(WITHDRAW_TXN_MIN_AMT) as kk,
+		min(WITHDRAW_TXN_MAX_AMT_SUM) as ll,
+		min(TRANSFER_TXN_MAX_NUM) as mm,
+		min(TRANSFER_TXN_MAX_AMT) as nn,
+		max(TRANSFER_TXN_MIN_AMT) as oo,
+		min(TRANSFER_TXN_MAX_AMT_SUM) as pp,
+		min(MONTH_MAX_CONS_AMT) as rr,
+		min(MONTH_MAX_OUT_AMT) as ss,
+		min(MONTH_MAX_IN_AMT) as tt,
+		min(MONTH_MAX_CASH_AMT) as uu,
+		min(MONTH_MAX_CHG_AMT) as vv,
+
+		min(MONTH_MAX_CONS_CNT) as ww,
+		min(MONTH_MAX_OUT_CNT) as xx,
+		min(MONTH_MAX_IN_CNT) as yy,
+		min(MONTH_MAX_CASH_CNT) as zz,
+		min(MONTH_MAX_CHG_CNT) as yz,
+
+		min(RECORD_NO) as qq
+		from
+		T_RISK_CARD_COMMON_RULE
+		where use_flag='1'
+		and
+		check_flag='2' and
+		ARCHIVED_FLAG='1'
+			<![CDATA[
+			and EFFECTIVE_DATE<=#{currentDate,jdbcType=TIMESTAMP} and
+			VALID_DATE>=#{currentDate,jdbcType=TIMESTAMP}
+			]]>
+		and (TXN_CHANNEL=#{txnChannel,jdbcType=VARCHAR} or txn_channel is null)
+		and
+		(
+		CARD_NO=#{cardNo,jdbcType=VARCHAR} or
+		(
+		CARD_NO
+		is null and
+		(
+		(CARD_TYPE=#{cardType,jdbcType=VARCHAR} and
+		CARD_GRADE is null)
+		or
+		(CARD_TYPE is null and CARD_GRADE =#{grade,jdbcType=VARCHAR})
+		or
+		(CARD_TYPE=#{cardType,jdbcType=VARCHAR} and CARD_GRADE =#{grade,jdbcType=VARCHAR})
+		)
+		)
+		)
+		) ss
+	</select>
+
+
+</mapper>

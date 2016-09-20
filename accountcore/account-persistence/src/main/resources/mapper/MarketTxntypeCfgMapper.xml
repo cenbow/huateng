@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.MarketTxntypeCfgMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.MarketTxntypeCfg" >
+    <id column="MARKETTXNTYPEID" property="markettxntypeid" jdbcType="VARCHAR" />
+    <result column="MARKETCFGID" property="marketcfgid" jdbcType="VARCHAR" />
+    <result column="OUTTXNTYPE" property="outtxntype" jdbcType="VARCHAR" />
+    <result column="TXNTYPE" property="txntype" jdbcType="VARCHAR" />
+    <result column="VALIDFLAG" property="validflag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    MARKETTXNTYPEID, MARKETCFGID, OUTTXNTYPE, TXNTYPE, VALIDFLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from  MARKET_TXNTYPE_CFG
+    where MARKETTXNTYPEID = #{markettxntypeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from  MARKET_TXNTYPE_CFG
+    where MARKETTXNTYPEID = #{markettxntypeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.MarketTxntypeCfg" >
+    insert into  MARKET_TXNTYPE_CFG (MARKETTXNTYPEID, MARKETCFGID, OUTTXNTYPE, 
+      TXNTYPE, VALIDFLAG)
+    values (#{markettxntypeid,jdbcType=VARCHAR}, #{marketcfgid,jdbcType=VARCHAR}, #{outtxntype,jdbcType=VARCHAR}, 
+      #{txntype,jdbcType=VARCHAR}, #{validflag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.MarketTxntypeCfg" >
+    insert into  MARKET_TXNTYPE_CFG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="markettxntypeid != null" >
+        MARKETTXNTYPEID,
+      </if>
+      <if test="marketcfgid != null" >
+        MARKETCFGID,
+      </if>
+      <if test="outtxntype != null" >
+        OUTTXNTYPE,
+      </if>
+      <if test="txntype != null" >
+        TXNTYPE,
+      </if>
+      <if test="validflag != null" >
+        VALIDFLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="markettxntypeid != null" >
+        #{markettxntypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="marketcfgid != null" >
+        #{marketcfgid,jdbcType=VARCHAR},
+      </if>
+      <if test="outtxntype != null" >
+        #{outtxntype,jdbcType=VARCHAR},
+      </if>
+      <if test="txntype != null" >
+        #{txntype,jdbcType=VARCHAR},
+      </if>
+      <if test="validflag != null" >
+        #{validflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.MarketTxntypeCfg" >
+    update  MARKET_TXNTYPE_CFG
+    <set >
+      <if test="marketcfgid != null" >
+        MARKETCFGID = #{marketcfgid,jdbcType=VARCHAR},
+      </if>
+      <if test="outtxntype != null" >
+        OUTTXNTYPE = #{outtxntype,jdbcType=VARCHAR},
+      </if>
+      <if test="txntype != null" >
+        TXNTYPE = #{txntype,jdbcType=VARCHAR},
+      </if>
+      <if test="validflag != null" >
+        VALIDFLAG = #{validflag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MARKETTXNTYPEID = #{markettxntypeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.MarketTxntypeCfg" >
+    update  MARKET_TXNTYPE_CFG
+    set MARKETCFGID = #{marketcfgid,jdbcType=VARCHAR},
+      OUTTXNTYPE = #{outtxntype,jdbcType=VARCHAR},
+      TXNTYPE = #{txntype,jdbcType=VARCHAR},
+      VALIDFLAG = #{validflag,jdbcType=VARCHAR}
+    where MARKETTXNTYPEID = #{markettxntypeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,174 @@
+{{#component "myinfo-security-real-upload"}}
+  <div class="ui-Security-maindiv" style="display:table"> 
+
+    <form id="realForm" method="post" action="/api/security/realName">    
+    <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;账户名:
+      </div>
+      <div class="ui-form-item">
+        <span class="ui-form-txt02" id="accountName">{{_USER_.unifyId}}</span>
+      </div>
+    </div>
+
+
+    <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;真实姓名:
+      </div>
+      <div class="ui-form-item">
+        <input name="realName" id="realName" type="text" 
+        class="ui-txtinput01" style="width:90px;"
+        value=""
+        maxlength="15"
+        data-required="true" 
+        data-required-message="姓名不能为空"
+        data-regexp="^[\u4E00-\u9FA5\uF900-\uFA2D]+$" 
+        data-regexp-message="请输入15个汉字之内的姓名"
+        data-error-container="#realNameResult"/> 
+        <span style="color:red;" id="realNameResult"></span>     
+      </div>
+      
+    </div>
+
+    
+    <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;国籍:
+      </div>
+      <div class="ui-form-item" id="nationdiv">
+        <span class="ui-form-txt02" id="nation1" name="nation1"></span>
+        <input type="hidden" value="" name="nation" id="nation"/>
+      </div>
+    </div>
+
+    <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;职业:
+      </div>
+      <div class="ui-form-item" id="profdiv">
+        <span class="ui-form-txt02" id="profession1" name="profession1"></span>
+        <input type="hidden" value="" name="profession" id="profession"/>
+      </div>
+    </div>
+
+    <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;身份证号码:
+      </div>
+      <div class="ui-form-item">
+        <input name="idNo" id="idNo" type="text" 
+        class="ui-txtinput01" style="width:190px;"
+        value=""
+        data-required="true" 
+        maxlength="18"
+        data-required-message="身份证号码不能为空"
+        data-regexp="^(([1-9][0-9]{5}(19[0-9]{2}|200[0-9]|201[1-3])(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[01])[0-9]{3}[0-9xX])|([1-9][0-9]{5}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[01])[0-9]{3}))$" 
+        data-regexp-message="身份证号码有误"
+        data-error-container="#idNoResult"/>
+        <span style="color:red;" id="idNoResult"></span>
+      <span style="color:red;" id="checkDate"></span>
+      </div>
+      
+    </div>
+    <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;身份证类型:
+      </div>
+      <div class="ui-form-item">
+        <span class="ui-form-txt02"><font style="color:red">*</font>二代身份证</span>
+        <input type="hidden" value="1" name="idType" id="idType" />    
+      </div>
+    </div>
+     <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;证件有效期:
+      </div>
+      <div class="ui-form-item">
+        <input name="valid" id="valid" type="text" 
+        class="ui-txtinput01 ui-timeinput portal-datepicker" readOnly style="cursor:pointer"
+        maxlength='8' value=""
+        data-required="true" 
+        data-required-message="证件有效期不能为空"
+        data-error-container="#validResult"/> 
+         <span style="color:red;" id="validResult"></span>
+        </br>
+        如：20130101
+
+      </div>
+
+      
+    </div>
+
+     <div class="ui-form">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;地址:
+      </div>
+      <div class="ui-form-item">
+        <input name="address" id="address" type="text" 
+        class="ui-txtinput01" style="width:190px;"
+        value=""
+        maxlength="200"
+        data-required="true" 
+        data-required-message="地址不能为空"
+        data-error-container="#addressResult"/> </span>
+        <span style="color:red;" id="addressResult"></span> 
+      </div>
+    </div>
+
+    <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <span id="imgDiv"></span>
+        <span id="imgUploadDiv"><input type="hidden" name="imgPath" id="imgPath">
+        </span>
+      </div>
+    </div>
+    </form>
+    <div class="ui-form">
+      <form id="imgUpload" method="post" action="/api/security/uploadImg"
+      enctype="multipart/form-data">
+      <div class="ui-form-txt01">
+        <font style="color:red">*</font>&nbsp;身份证图片正面:
+      </div>
+      <div class="ui-form-item " style="position: relative;">
+        <input name="img" id="img" type="file"
+        data-required="true" 
+        data-required-message="请上传身份证正面图片"
+        data-error-container="#idNoImgResult" class="ui-fileimg">
+        <a class="ui-button ui-button-mwhite css-button">添加图片</a>
+        <span style="color:red;" id="idNoImgResult"></span>
+        <br />
+        <span class="ui-form-txt02" style="font-size:12px;">证件必须是清晰彩色原件电子版，可以是扫描或者数码拍摄照片。<br />
+          仅支持.JPG的图片格式。<font style="color:#F00">图片大小必须小于3M。</font>
+        </span>
+      </div>
+      </form>
+      
+    </div>
+    <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="nextStepButtn" class="ui-button ui-button-morange">下一步</a> 
+      </div>
+    </div>
+  </div>
+  <div class="ui-sepdased-line"></div>
+  <div class="ui-all-note">
+    <div class="ui-noteimg01" ></div>
+    <div class="ui-notetxt01"> 温馨提示:<br />
+      1. 速通账户实名等级分为未验证、高级实名认证两级，其中：<br />
+      1). 未验证：客户填写的身份信息未经验证<br />
+      2). 高级实名认证：客户在速通支付网站，且通过速通客服审核<br />
+      2. 您在提交证件信息后，速通客服会在3~5个工作日内完成审核处理。<br />
+      3. 实名信息仅用于客户身份鉴别，不对外泄露，请放心提交。<br />
+      4. 连续两次实名认证申请审核失败的用户，将无法再次提交实名认证申请。<br />
+      5. 同一个身份证最多只能申请3个高级实名认证账户。 </div>
+    </div>
+  </div>
+{{/component}}
+<style type="text/css">
+.inside-main{display:inline-block;}
+
+.inside-main{display: table\0;}
+</style>

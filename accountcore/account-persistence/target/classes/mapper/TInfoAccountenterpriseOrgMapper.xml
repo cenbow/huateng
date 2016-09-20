@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoAccountenterpriseOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoAccountenterpriseOrg" >
+    <id column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="MOBILE_PHONE" property="mobilePhone" jdbcType="VARCHAR" />
+    <result column="EMAIL_ADDRESS" property="emailAddress" jdbcType="VARCHAR" />
+    <result column="ENTERPRISE_CUSTOMERNO" property="enterpriseCustomerno" jdbcType="VARCHAR" />
+    <result column="PRODUCT_NO" property="productNo" jdbcType="VARCHAR" />
+    <result column="ORG_SNAME" property="orgSname" jdbcType="VARCHAR" />
+    <result column="BINDSTATUS" property="bindstatus" jdbcType="VARCHAR" />
+    <result column="OPEN_TIME" property="openTime" jdbcType="TIMESTAMP" />
+    <result column="CLOSE_TIME" property="closeTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ORG_CODE, MOBILE_PHONE, EMAIL_ADDRESS, ENTERPRISE_CUSTOMERNO, PRODUCT_NO, ORG_SNAME, 
+    BINDSTATUS, OPEN_TIME, CLOSE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_INFO_ACCOUNTENTERPRISE_ORG
+    where ORG_CODE = #{orgCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_INFO_ACCOUNTENTERPRISE_ORG
+    where ORG_CODE = #{orgCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountenterpriseOrg" >
+    insert into T_INFO_ACCOUNTENTERPRISE_ORG (ORG_CODE, MOBILE_PHONE, EMAIL_ADDRESS, 
+      ENTERPRISE_CUSTOMERNO, PRODUCT_NO, ORG_SNAME, 
+      BINDSTATUS, OPEN_TIME, CLOSE_TIME
+      )
+    values (#{orgCode,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{emailAddress,jdbcType=VARCHAR}, 
+      #{enterpriseCustomerno,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, #{orgSname,jdbcType=VARCHAR}, 
+      #{bindstatus,jdbcType=VARCHAR}, #{openTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountenterpriseOrg" >
+    insert into T_INFO_ACCOUNTENTERPRISE_ORG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="mobilePhone != null" >
+        MOBILE_PHONE,
+      </if>
+      <if test="emailAddress != null" >
+        EMAIL_ADDRESS,
+      </if>
+      <if test="enterpriseCustomerno != null" >
+        ENTERPRISE_CUSTOMERNO,
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO,
+      </if>
+      <if test="orgSname != null" >
+        ORG_SNAME,
+      </if>
+      <if test="bindstatus != null" >
+        BINDSTATUS,
+      </if>
+      <if test="openTime != null" >
+        OPEN_TIME,
+      </if>
+      <if test="closeTime != null" >
+        CLOSE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null" >
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddress != null" >
+        #{emailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseCustomerno != null" >
+        #{enterpriseCustomerno,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSname != null" >
+        #{orgSname,jdbcType=VARCHAR},
+      </if>
+      <if test="bindstatus != null" >
+        #{bindstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null" >
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closeTime != null" >
+        #{closeTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountenterpriseOrg" >
+    update T_INFO_ACCOUNTENTERPRISE_ORG
+    <set >
+      <if test="mobilePhone != null" >
+        MOBILE_PHONE = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddress != null" >
+        EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseCustomerno != null" >
+        ENTERPRISE_CUSTOMERNO = #{enterpriseCustomerno,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null" >
+        PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSname != null" >
+        ORG_SNAME = #{orgSname,jdbcType=VARCHAR},
+      </if>
+      <if test="bindstatus != null" >
+        BINDSTATUS = #{bindstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null" >
+        OPEN_TIME = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="closeTime != null" >
+        CLOSE_TIME = #{closeTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ORG_CODE = #{orgCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoAccountenterpriseOrg" >
+    update T_INFO_ACCOUNTENTERPRISE_ORG
+    set MOBILE_PHONE = #{mobilePhone,jdbcType=VARCHAR},
+      EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+      ENTERPRISE_CUSTOMERNO = #{enterpriseCustomerno,jdbcType=VARCHAR},
+      PRODUCT_NO = #{productNo,jdbcType=VARCHAR},
+      ORG_SNAME = #{orgSname,jdbcType=VARCHAR},
+      BINDSTATUS = #{bindstatus,jdbcType=VARCHAR},
+      OPEN_TIME = #{openTime,jdbcType=TIMESTAMP},
+      CLOSE_TIME = #{closeTime,jdbcType=TIMESTAMP}
+    where ORG_CODE = #{orgCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

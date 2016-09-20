@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoCustomerMapper">
+    <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoCustomer">
+        <id column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR"/>
+        <result column="UNIFY_ID" property="unifyId" jdbcType="VARCHAR"/>
+        <result column="IS_REALNAME" property="isRealname" jdbcType="CHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="IS_REQUEST_CERTIFICATE" property="isRequestCertificate" jdbcType="CHAR"/>
+        <result column="REGISTER_TYPE" property="registerType" jdbcType="CHAR"/>
+        <result column="MOBILE_NO" property="mobileNo" jdbcType="VARCHAR"/>
+        <result column="EMAIL_ADDRESS" property="emailAddress" jdbcType="VARCHAR"/>
+        <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
+        <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR"/>
+        <result column="WEB_LOGIN_PASSWORD" property="webLoginPassword" jdbcType="VARCHAR"/>
+        <result column="IVR_PASSWORD" property="ivrPassword" jdbcType="VARCHAR"/>
+        <result column="ACCOUNT_QUERY_PASSWORD" property="accountQueryPassword" jdbcType="VARCHAR"/>
+        <result column="GENDER" property="gender" jdbcType="CHAR"/>
+        <result column="IDENTIFY_TYPE" property="identifyType" jdbcType="CHAR"/>
+        <result column="IDENTIFY_NO" property="identifyNo" jdbcType="VARCHAR"/>
+        <result column="HOME_TELEPHONE" property="homeTelephone" jdbcType="VARCHAR"/>
+        <result column="OFFICE_TELEPHONE" property="officeTelephone" jdbcType="VARCHAR"/>
+        <result column="OTHER_TELEPHONE" property="otherTelephone" jdbcType="VARCHAR"/>
+        <result column="APANAGE" property="apanage" jdbcType="VARCHAR"/>
+        <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR"/>
+        <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR"/>
+        <result column="CONTACT_ADDRESS" property="contactAddress" jdbcType="VARCHAR"/>
+        <result column="CONTACT_ZIPCODE" property="contactZipcode" jdbcType="VARCHAR"/>
+        <result column="ORGANIZATION_ADDRESS" property="organizationAddress" jdbcType="VARCHAR"/>
+        <result column="ORGANIZATION_ZIPCODE" property="organizationZipcode" jdbcType="VARCHAR"/>
+        <result column="PWD_ERR_COUNT" property="pwdErrCount" jdbcType="DECIMAL"/>
+        <result column="LOCK_TIME_LIMIT" property="lockTimeLimit" jdbcType="TIMESTAMP"/>
+        <result column="ORGANIZATION_CODE" property="organizationCode" jdbcType="VARCHAR"/>
+        <result column="QUESTION" property="question" jdbcType="VARCHAR"/>
+        <result column="ANSWER" property="answer" jdbcType="VARCHAR"/>
+        <result column="ACTIVE_ADDRESS" property="activeAddress" jdbcType="VARCHAR"/>
+        <result column="ACTIVE_CODE" property="activeCode" jdbcType="VARCHAR"/>
+        <result column="ACTIVE_STATUS" property="activeStatus" jdbcType="CHAR"/>
+        <result column="REGISTE_DATE" property="registeDate" jdbcType="TIMESTAMP"/>
+        <result column="IS_CLOSING_ACCOUNT" property="isClosingAccount" jdbcType="CHAR"/>
+        <result column="REGISTE_ORG_CODE" property="registeOrgCode" jdbcType="VARCHAR"/>
+        <result column="REGISTE_UID" property="registeUid" jdbcType="VARCHAR"/>
+        <result column="MANAGER" property="manager" jdbcType="VARCHAR"/>
+        <result column="LAST_SUCCESS_LOGIN_TIME" property="lastSuccessLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_SUCCESS_LOGIN_IP" property="lastSuccessLoginIp" jdbcType="VARCHAR"/>
+        <result column="LAST_FAIL_LOGIN_TIME" property="lastFailLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_FAIL_LOGIN_IP" property="lastFailLoginIp" jdbcType="VARCHAR"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="CUSTOMER_STATUS" property="customerStatus" jdbcType="CHAR"/>
+        <result column="CLOSE_TIME" property="closeTime" jdbcType="TIMESTAMP"/>
+        <result column="ACTIVE_TIME_LIMIT" property="activeTimeLimit" jdbcType="TIMESTAMP"/>
+        <result column="ACTIVE_TIME" property="activeTime" jdbcType="TIMESTAMP"/>
+        <result column="CUSTOMER_GRADE" property="customerGrade" jdbcType="CHAR"/>
+        <result column="CUSTOMER_TYPE" property="customerType" jdbcType="CHAR"/>
+        <result column="NATIONALITY" property="nationality" jdbcType="VARCHAR"/>
+        <result column="PROFESSION" property="profession" jdbcType="VARCHAR"/>
+        <result column="IDENTIFY_EXPIRED_DATE" property="identifyExpiredDate" jdbcType="CHAR"/>
+        <result column="BLACKLIST_FLAG" property="blacklistFlag" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.huateng.p3.account.persistence.models.TInfoCustomer"
+               extends="BaseResultMap">
+        <result column="PORTRAIT" property="portrait" jdbcType="BLOB"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    CUSTOMER_NO, UNIFY_ID, IS_REALNAME, NAME, IS_REQUEST_CERTIFICATE, REGISTER_TYPE, 
+     MOBILE_NO, EMAIL_ADDRESS, USER_NAME, NICK_NAME, WEB_LOGIN_PASSWORD, IVR_PASSWORD,
+    ACCOUNT_QUERY_PASSWORD, GENDER, IDENTIFY_TYPE, IDENTIFY_NO, HOME_TELEPHONE, OFFICE_TELEPHONE, OTHER_TELEPHONE, APANAGE, 
+    AREA_CODE, CITY_CODE, CONTACT_ADDRESS, CONTACT_ZIPCODE, ORGANIZATION_ADDRESS, ORGANIZATION_ZIPCODE, 
+    PWD_ERR_COUNT, LOCK_TIME_LIMIT, ORGANIZATION_CODE, QUESTION, ANSWER, ACTIVE_ADDRESS, ACTIVE_CODE, 
+    ACTIVE_STATUS, REGISTE_DATE, IS_CLOSING_ACCOUNT, REGISTE_ORG_CODE, REGISTE_UID, MANAGER, LAST_SUCCESS_LOGIN_TIME, 
+    LAST_SUCCESS_LOGIN_IP, LAST_FAIL_LOGIN_TIME, LAST_FAIL_LOGIN_IP, LAST_UPDATE_TIME, 
+    CUSTOMER_STATUS, CLOSE_TIME, ACTIVE_TIME_LIMIT, ACTIVE_TIME, CUSTOMER_GRADE, CUSTOMER_TYPE, NATIONALITY, PROFESSION, 
+    IDENTIFY_EXPIRED_DATE
+    </sql>
+    <sql id="Base_Column_List_A">
+    a.CUSTOMER_NO, a.UNIFY_ID, a.IS_REALNAME, a.NAME, a.IS_REQUEST_CERTIFICATE, a.REGISTER_TYPE, 
+    a.MOBILE_NO, a.EMAIL_ADDRESS, a.USER_NAME, a.NICK_NAME, a.WEB_LOGIN_PASSWORD, a.IVR_PASSWORD,
+    a.ACCOUNT_QUERY_PASSWORD, a.GENDER, a.IDENTIFY_TYPE, a.IDENTIFY_NO, a.HOME_TELEPHONE, a.OFFICE_TELEPHONE, a.OTHER_TELEPHONE, a.APANAGE, 
+    a.AREA_CODE, a.CITY_CODE, a.CONTACT_ADDRESS, a.CONTACT_ZIPCODE, a.ORGANIZATION_ADDRESS, a.ORGANIZATION_ZIPCODE, 
+    a.PWD_ERR_COUNT, a.LOCK_TIME_LIMIT, a.ORGANIZATION_CODE, a.QUESTION, a.ANSWER, a.ACTIVE_ADDRESS, a.ACTIVE_CODE, 
+    a.ACTIVE_STATUS, a.REGISTE_DATE, a.IS_CLOSING_ACCOUNT, a.REGISTE_ORG_CODE, a.REGISTE_UID, a.MANAGER, a.LAST_SUCCESS_LOGIN_TIME, 
+    a.LAST_SUCCESS_LOGIN_IP, a.LAST_FAIL_LOGIN_TIME, a.LAST_FAIL_LOGIN_IP, a.LAST_UPDATE_TIME, 
+    a.CUSTOMER_STATUS, CLOSE_TIME, a.ACTIVE_TIME_LIMIT, a.ACTIVE_TIME, a.CUSTOMER_GRADE, a.CUSTOMER_TYPE, a.NATIONALITY, a.PROFESSION, 
+    a.IDENTIFY_EXPIRED_DATE
+    </sql>
+    
+    <sql id="Blob_Column_List">
+    PORTRAIT
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from core.t_info_customer 
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+    </select>
+
+    <select id="checkClosedCustomerByUnifyId" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select <include refid="Base_Column_List"/>
+		from
+		core.t_info_customer 
+		where
+		 unify_id='X_'||#{unifyId,jdbcType=VARCHAR}||'_'||to_char(sysdate,'yyyyMMdd')
+	</select>
+
+    <select id="findCustomerByCustomerNo" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from core.t_info_customer 
+        where CUSTOMER_STATUS!='9' and CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="findCustomerByCustomerNoForUpdate" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from core.t_info_customer 
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+        and CUSTOMER_STATUS!='9'
+       
+    </select>
+    
+    <select id="findCustomerByCustomerNoIgnoreStatus" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from core.t_info_customer 
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+    </select>
+    <select id="findCustomerByUnifyId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from core.T_INFO_CUSTOMER
+        where CUSTOMER_STATUS!='9' AND UNIFY_ID = #{unifyId,jdbcType=VARCHAR}
+    </select>
+    <select id="findCustomerByUnifyIdForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from core.T_INFO_CUSTOMER
+        where UNIFY_ID = #{unifyId,jdbcType=VARCHAR}
+        and CUSTOMER_STATUS!='9' 
+       
+    </select>
+    <select id="findBlackCustomer" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select<include refid="Base_Column_List"/>,
+        (
+        select customer_no from
+        RISK.T_RISK_BLACK_CUSTOMER
+        where
+        CUSTOMER_NO=#{value,jdbcType=VARCHAR}
+        and
+        USE_FLAG='1' and
+        <![CDATA[
+				EFFECTIVE_DATE<=sysdate and
+				VALID_DATE>=sysdate and
+			]]>
+        CHECK_FLAG='2' and
+        ARCHIVED_FLAG ='1'
+        ) as BLACKLIST_FLAG
+        from
+        core.t_info_customer  c
+        where
+        c.CUSTOMER_NO=#{customerNo,jdbcType=VARCHAR} and c.CUSTOMER_STATUS!='9'
+    </select>
+    <select id="findBlackCustomerForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select<include refid="Base_Column_List"/>,
+        (
+        select customer_no from
+        RISK.T_RISK_BLACK_CUSTOMER
+        where
+        CUSTOMER_NO=#{value,jdbcType=VARCHAR}
+        and
+        USE_FLAG='1' and
+        <![CDATA[
+				EFFECTIVE_DATE<=sysdate and
+				VALID_DATE>=sysdate and
+			]]>
+        CHECK_FLAG='2' and
+        ARCHIVED_FLAG ='1'
+        ) as BLACKLIST_FLAG
+        from
+        core.t_info_customer  c
+        where
+        c.CUSTOMER_NO=#{customerNo,jdbcType=VARCHAR} and c.CUSTOMER_STATUS!='9'  
+    </select>
+    <select id="findCustomerByCardNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List_A"/>
+		from
+		core.t_info_customer  a join T_INFO_ACCOUNT_CARD c
+		 on	a.customer_no=c.customer_no
+		 where c.card_no=#{cardNo,jdbcType=VARCHAR}
+		  and c.BINDING_FLAG='1'
+		  and a.CUSTOMER_STATUS!='9' 
+	</select>
+
+    <select id="findCustomerByAccountNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List_A"/>
+		from
+		core.t_info_customer  a join T_INFO_ACCOUNT c
+		 on	a.customer_no=c.customer_no
+		 where c.account_no=#{accountNo,jdbcType=VARCHAR}
+		  and c.CUSTOMER_STATUS !='9'
+		  and a.CUSTOMER_STATUS!='9'
+	</select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from core.t_info_customer 
+    where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoCustomer">
+    insert into core.t_info_customer  (CUSTOMER_NO, UNIFY_ID, IS_REALNAME, 
+      NAME, IS_REQUEST_CERTIFICATE, REGISTER_TYPE, 
+      MOBILE_NO, EMAIL_ADDRESS,
+      USER_NAME, NICK_NAME, WEB_LOGIN_PASSWORD, 
+      IVR_PASSWORD, ACCOUNT_QUERY_PASSWORD, GENDER, 
+      IDENTIFY_TYPE, IDENTIFY_NO, HOME_TELEPHONE, 
+      OFFICE_TELEPHONE, OTHER_TELEPHONE, APANAGE, 
+      AREA_CODE, CITY_CODE, CONTACT_ADDRESS, 
+      CONTACT_ZIPCODE, ORGANIZATION_ADDRESS, ORGANIZATION_ZIPCODE, 
+      PWD_ERR_COUNT, LOCK_TIME_LIMIT, ORGANIZATION_CODE, 
+      QUESTION, ANSWER, ACTIVE_ADDRESS, 
+      ACTIVE_CODE, ACTIVE_STATUS, REGISTE_DATE, 
+      IS_CLOSING_ACCOUNT, REGISTE_ORG_CODE, REGISTE_UID, 
+      MANAGER, LAST_SUCCESS_LOGIN_TIME, LAST_SUCCESS_LOGIN_IP, 
+      LAST_FAIL_LOGIN_TIME, LAST_FAIL_LOGIN_IP, LAST_UPDATE_TIME, 
+      CUSTOMER_STATUS, CLOSE_TIME, ACTIVE_TIME_LIMIT, 
+      ACTIVE_TIME, CUSTOMER_GRADE, CUSTOMER_TYPE, 
+      NATIONALITY, PROFESSION, IDENTIFY_EXPIRED_DATE, 
+      PORTRAIT)
+    values (#{customerNo,jdbcType=VARCHAR}, #{unifyId,jdbcType=VARCHAR}, #{isRealname,jdbcType=CHAR}, 
+      #{name,jdbcType=VARCHAR}, #{isRequestCertificate,jdbcType=CHAR}, #{registerType,jdbcType=CHAR}, 
+      #{mobileNo,jdbcType=VARCHAR}, #{emailAddress,jdbcType=VARCHAR},
+      #{userName,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{webLoginPassword,jdbcType=VARCHAR}, 
+      #{ivrPassword,jdbcType=VARCHAR}, #{accountQueryPassword,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR}, 
+      #{identifyType,jdbcType=CHAR}, #{identifyNo,jdbcType=VARCHAR}, #{homeTelephone,jdbcType=VARCHAR}, 
+      #{officeTelephone,jdbcType=VARCHAR}, #{otherTelephone,jdbcType=VARCHAR}, #{apanage,jdbcType=VARCHAR}, 
+      #{areaCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{contactAddress,jdbcType=VARCHAR}, 
+      #{contactZipcode,jdbcType=VARCHAR}, #{organizationAddress,jdbcType=VARCHAR}, #{organizationZipcode,jdbcType=VARCHAR}, 
+      #{pwdErrCount,jdbcType=DECIMAL}, #{lockTimeLimit,jdbcType=TIMESTAMP}, #{organizationCode,jdbcType=VARCHAR}, 
+      #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{activeAddress,jdbcType=VARCHAR}, 
+      #{activeCode,jdbcType=VARCHAR}, #{activeStatus,jdbcType=CHAR}, #{registeDate,jdbcType=TIMESTAMP}, 
+      #{isClosingAccount,jdbcType=CHAR}, #{registeOrgCode,jdbcType=VARCHAR}, #{registeUid,jdbcType=VARCHAR}, 
+      #{manager,jdbcType=VARCHAR}, #{lastSuccessLoginTime,jdbcType=TIMESTAMP}, #{lastSuccessLoginIp,jdbcType=VARCHAR}, 
+      #{lastFailLoginTime,jdbcType=TIMESTAMP}, #{lastFailLoginIp,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
+      #{customerStatus,jdbcType=CHAR}, #{closeTime,jdbcType=TIMESTAMP}, #{activeTimeLimit,jdbcType=TIMESTAMP}, 
+      #{activeTime,jdbcType=TIMESTAMP}, #{customerGrade,jdbcType=CHAR}, #{customerType,jdbcType=CHAR}, 
+      #{nationality,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{identifyExpiredDate,jdbcType=CHAR}, 
+      #{portrait,jdbcType=BLOB})
+  </insert>
+    <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoCustomer">
+        insert into core.t_info_customer 
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="customerNo != null">
+                CUSTOMER_NO,
+            </if>
+            <if test="unifyId != null">
+                UNIFY_ID,
+            </if>
+            <if test="isRealname != null">
+                IS_REALNAME,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="isRequestCertificate != null">
+                IS_REQUEST_CERTIFICATE,
+            </if>
+            <if test="registerType != null">
+                REGISTER_TYPE,
+            </if>
+            <if test="mobileNo != null">
+                MOBILE_NO,
+            </if>
+            <if test="emailAddress != null">
+                EMAIL_ADDRESS,
+            </if>
+            <if test="userName != null">
+                USER_NAME,
+            </if>
+            <if test="nickName != null">
+                NICK_NAME,
+            </if>
+            <if test="webLoginPassword != null">
+                WEB_LOGIN_PASSWORD,
+            </if>
+            <if test="ivrPassword != null">
+                IVR_PASSWORD,
+            </if>
+            <if test="accountQueryPassword != null">
+                ACCOUNT_QUERY_PASSWORD,
+            </if>
+            <if test="gender != null">
+                GENDER,
+            </if>
+            <if test="identifyType != null">
+                IDENTIFY_TYPE,
+            </if>
+            <if test="identifyNo != null">
+                IDENTIFY_NO,
+            </if>
+            <if test="homeTelephone != null">
+                HOME_TELEPHONE,
+            </if>
+            <if test="officeTelephone != null">
+                OFFICE_TELEPHONE,
+            </if>
+            <if test="otherTelephone != null">
+                OTHER_TELEPHONE,
+            </if>
+            <if test="apanage != null">
+                APANAGE,
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE,
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE,
+            </if>
+            <if test="contactAddress != null">
+                CONTACT_ADDRESS,
+            </if>
+            <if test="contactZipcode != null">
+                CONTACT_ZIPCODE,
+            </if>
+            <if test="organizationAddress != null">
+                ORGANIZATION_ADDRESS,
+            </if>
+            <if test="organizationZipcode != null">
+                ORGANIZATION_ZIPCODE,
+            </if>
+            <if test="pwdErrCount != null">
+                PWD_ERR_COUNT,
+            </if>
+            <if test="lockTimeLimit != null">
+                LOCK_TIME_LIMIT,
+            </if>
+            <if test="organizationCode != null">
+                ORGANIZATION_CODE,
+            </if>
+            <if test="question != null">
+                QUESTION,
+            </if>
+            <if test="answer != null">
+                ANSWER,
+            </if>
+            <if test="activeAddress != null">
+                ACTIVE_ADDRESS,
+            </if>
+            <if test="activeCode != null">
+                ACTIVE_CODE,
+            </if>
+            <if test="activeStatus != null">
+                ACTIVE_STATUS,
+            </if>
+            <if test="registeDate != null">
+                REGISTE_DATE,
+            </if>
+            <if test="isClosingAccount != null">
+                IS_CLOSING_ACCOUNT,
+            </if>
+            <if test="registeOrgCode != null">
+                REGISTE_ORG_CODE,
+            </if>
+            <if test="registeUid != null">
+                REGISTE_UID,
+            </if>
+            <if test="manager != null">
+                MANAGER,
+            </if>
+            <if test="lastSuccessLoginTime != null">
+                LAST_SUCCESS_LOGIN_TIME,
+            </if>
+            <if test="lastSuccessLoginIp != null">
+                LAST_SUCCESS_LOGIN_IP,
+            </if>
+            <if test="lastFailLoginTime != null">
+                LAST_FAIL_LOGIN_TIME,
+            </if>
+            <if test="lastFailLoginIp != null">
+                LAST_FAIL_LOGIN_IP,
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME,
+            </if>
+            <if test="customerStatus != null">
+                CUSTOMER_STATUS,
+            </if>
+            <if test="closeTime != null">
+                CLOSE_TIME,
+            </if>
+            <if test="activeTimeLimit != null">
+                ACTIVE_TIME_LIMIT,
+            </if>
+            <if test="activeTime != null">
+                ACTIVE_TIME,
+            </if>
+            <if test="customerGrade != null">
+                CUSTOMER_GRADE,
+            </if>
+            <if test="customerType != null">
+                CUSTOMER_TYPE,
+            </if>
+            <if test="nationality != null">
+                NATIONALITY,
+            </if>
+            <if test="profession != null">
+                PROFESSION,
+            </if>
+            <if test="identifyExpiredDate != null">
+                IDENTIFY_EXPIRED_DATE,
+            </if>
+            <if test="portrait != null">
+                PORTRAIT,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="customerNo != null">
+                #{customerNo,jdbcType=VARCHAR},
+            </if>
+            <if test="unifyId != null">
+                #{unifyId,jdbcType=VARCHAR},
+            </if>
+            <if test="isRealname != null">
+                #{isRealname,jdbcType=CHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="isRequestCertificate != null">
+                #{isRequestCertificate,jdbcType=CHAR},
+            </if>
+            <if test="registerType != null">
+                #{registerType,jdbcType=CHAR},
+            </if>
+            <if test="mobileNo != null">
+                #{mobileNo,jdbcType=VARCHAR},
+            </if>
+            <if test="emailAddress != null">
+                #{emailAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="webLoginPassword != null">
+                #{webLoginPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="ivrPassword != null">
+                #{ivrPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="accountQueryPassword != null">
+                #{accountQueryPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=CHAR},
+            </if>
+            <if test="identifyType != null">
+                #{identifyType,jdbcType=CHAR},
+            </if>
+            <if test="identifyNo != null">
+                #{identifyNo,jdbcType=VARCHAR},
+            </if>
+            <if test="homeTelephone != null">
+                #{homeTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="officeTelephone != null">
+                #{officeTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="otherTelephone != null">
+                #{otherTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="apanage != null">
+                #{apanage,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="contactAddress != null">
+                #{contactAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="contactZipcode != null">
+                #{contactZipcode,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationAddress != null">
+                #{organizationAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationZipcode != null">
+                #{organizationZipcode,jdbcType=VARCHAR},
+            </if>
+            <if test="pwdErrCount != null">
+                #{pwdErrCount,jdbcType=DECIMAL},
+            </if>
+            <if test="lockTimeLimit != null">
+                #{lockTimeLimit,jdbcType=TIMESTAMP},
+            </if>
+            <if test="organizationCode != null">
+                #{organizationCode,jdbcType=VARCHAR},
+            </if>
+            <if test="question != null">
+                #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="answer != null">
+                #{answer,jdbcType=VARCHAR},
+            </if>
+            <if test="activeAddress != null">
+                #{activeAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="activeCode != null">
+                #{activeCode,jdbcType=VARCHAR},
+            </if>
+            <if test="activeStatus != null">
+                #{activeStatus,jdbcType=CHAR},
+            </if>
+            <if test="registeDate != null">
+                #{registeDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isClosingAccount != null">
+                #{isClosingAccount,jdbcType=CHAR},
+            </if>
+            <if test="registeOrgCode != null">
+                #{registeOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="registeUid != null">
+                #{registeUid,jdbcType=VARCHAR},
+            </if>
+            <if test="manager != null">
+                #{manager,jdbcType=VARCHAR},
+            </if>
+            <if test="lastSuccessLoginTime != null">
+                #{lastSuccessLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastSuccessLoginIp != null">
+                #{lastSuccessLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="lastFailLoginTime != null">
+                #{lastFailLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastFailLoginIp != null">
+                #{lastFailLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerStatus != null">
+                #{customerStatus,jdbcType=CHAR},
+            </if>
+            <if test="closeTime != null">
+                #{closeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="activeTimeLimit != null">
+                #{activeTimeLimit,jdbcType=TIMESTAMP},
+            </if>
+            <if test="activeTime != null">
+                #{activeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerGrade != null">
+                #{customerGrade,jdbcType=CHAR},
+            </if>
+            <if test="customerType != null">
+                #{customerType,jdbcType=CHAR},
+            </if>
+            <if test="nationality != null">
+                #{nationality,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="identifyExpiredDate != null">
+                #{identifyExpiredDate,jdbcType=CHAR},
+            </if>
+            <if test="portrait != null">
+                #{portrait,jdbcType=BLOB},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.huateng.p3.account.persistence.models.TInfoCustomer">
+        update core.t_info_customer 
+        <set>
+            <if test="unifyId != null">
+                UNIFY_ID = #{unifyId,jdbcType=VARCHAR},
+            </if>
+            <if test="isRealname != null">
+                IS_REALNAME = #{isRealname,jdbcType=CHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="isRequestCertificate != null">
+                IS_REQUEST_CERTIFICATE = #{isRequestCertificate,jdbcType=CHAR},
+            </if>
+            <if test="registerType != null">
+                REGISTER_TYPE = #{registerType,jdbcType=CHAR},
+            </if>
+            <if test="mobileNo != null">
+                MOBILE_NO = #{mobileNo,jdbcType=VARCHAR},
+            </if>
+            <if test="emailAddress != null">
+                EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                USER_NAME = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                NICK_NAME = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="webLoginPassword != null">
+                WEB_LOGIN_PASSWORD = #{webLoginPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="ivrPassword != null">
+                IVR_PASSWORD = #{ivrPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="accountQueryPassword != null">
+                ACCOUNT_QUERY_PASSWORD = #{accountQueryPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                GENDER = #{gender,jdbcType=CHAR},
+            </if>
+            <if test="identifyType != null">
+                IDENTIFY_TYPE = #{identifyType,jdbcType=CHAR},
+            </if>
+            <if test="identifyNo != null">
+                IDENTIFY_NO = #{identifyNo,jdbcType=VARCHAR},
+            </if>
+            <if test="homeTelephone != null">
+                HOME_TELEPHONE = #{homeTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="officeTelephone != null">
+                OFFICE_TELEPHONE = #{officeTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="otherTelephone != null">
+                OTHER_TELEPHONE = #{otherTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="apanage != null">
+                APANAGE = #{apanage,jdbcType=VARCHAR},
+            </if>
+            <if test="areaCode != null">
+                AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="contactAddress != null">
+                CONTACT_ADDRESS = #{contactAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="contactZipcode != null">
+                CONTACT_ZIPCODE = #{contactZipcode,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationAddress != null">
+                ORGANIZATION_ADDRESS = #{organizationAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationZipcode != null">
+                ORGANIZATION_ZIPCODE = #{organizationZipcode,jdbcType=VARCHAR},
+            </if>
+            <if test="pwdErrCount != null">
+                PWD_ERR_COUNT = #{pwdErrCount,jdbcType=DECIMAL},
+            </if>
+            <if test="lockTimeLimit != null">
+                LOCK_TIME_LIMIT = #{lockTimeLimit,jdbcType=TIMESTAMP},
+            </if>
+            <if test="organizationCode != null">
+                ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+            </if>
+            <if test="question != null">
+                QUESTION = #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="answer != null">
+                ANSWER = #{answer,jdbcType=VARCHAR},
+            </if>
+            <if test="activeAddress != null">
+                ACTIVE_ADDRESS = #{activeAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="activeCode != null">
+                ACTIVE_CODE = #{activeCode,jdbcType=VARCHAR},
+            </if>
+            <if test="activeStatus != null">
+                ACTIVE_STATUS = #{activeStatus,jdbcType=CHAR},
+            </if>
+            <if test="registeDate != null">
+                REGISTE_DATE = #{registeDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isClosingAccount != null">
+                IS_CLOSING_ACCOUNT = #{isClosingAccount,jdbcType=CHAR},
+            </if>
+            <if test="registeOrgCode != null">
+                REGISTE_ORG_CODE = #{registeOrgCode,jdbcType=VARCHAR},
+            </if>
+            <if test="registeUid != null">
+                REGISTE_UID = #{registeUid,jdbcType=VARCHAR},
+            </if>
+            <if test="manager != null">
+                MANAGER = #{manager,jdbcType=VARCHAR},
+            </if>
+            <if test="lastSuccessLoginTime != null">
+                LAST_SUCCESS_LOGIN_TIME = #{lastSuccessLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastSuccessLoginIp != null">
+                LAST_SUCCESS_LOGIN_IP = #{lastSuccessLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="lastFailLoginTime != null">
+                LAST_FAIL_LOGIN_TIME = #{lastFailLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastFailLoginIp != null">
+                LAST_FAIL_LOGIN_IP = #{lastFailLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerStatus != null">
+                CUSTOMER_STATUS = #{customerStatus,jdbcType=CHAR},
+            </if>
+            <if test="closeTime != null">
+                CLOSE_TIME = #{closeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="activeTimeLimit != null">
+                ACTIVE_TIME_LIMIT = #{activeTimeLimit,jdbcType=TIMESTAMP},
+            </if>
+            <if test="activeTime != null">
+                ACTIVE_TIME = #{activeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerGrade != null">
+                CUSTOMER_GRADE = #{customerGrade,jdbcType=CHAR},
+            </if>
+            <if test="customerType != null">
+                CUSTOMER_TYPE = #{customerType,jdbcType=CHAR},
+            </if>
+            <if test="nationality != null">
+                NATIONALITY = #{nationality,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                PROFESSION = #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="identifyExpiredDate != null">
+                IDENTIFY_EXPIRED_DATE = #{identifyExpiredDate,jdbcType=CHAR},
+            </if>
+            <if test="portrait != null">
+                PORTRAIT = #{portrait,jdbcType=BLOB},
+            </if>
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+    </update>
+    
+    <update id="updateWithSynchronize"
+            parameterType="com.huateng.p3.account.persistence.models.TInfoCustomer">
+        update core.t_info_customer 
+        <set>
+           	<if test="isRealname != null">
+                IS_REALNAME = #{isRealname,jdbcType=CHAR},
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+           	<if test="registerType != null">
+                REGISTER_TYPE = #{registerType,jdbcType=CHAR},
+            </if>           
+            <if test="mobileNo != null">
+                MOBILE_NO = #{mobileNo,jdbcType=VARCHAR},
+            </if>
+            <if test="emailAddress != null">
+                EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                USER_NAME = #{userName,jdbcType=VARCHAR},
+            </if>
+           	<if test="gender != null">
+                GENDER = #{gender,jdbcType=CHAR},
+            </if>            
+            <if test="identifyType != null">
+                IDENTIFY_TYPE = #{identifyType,jdbcType=CHAR},
+            </if>
+            <if test="identifyNo != null">
+                IDENTIFY_NO = #{identifyNo,jdbcType=VARCHAR},
+            </if>            
+            <if test="homeTelephone != null">
+                HOME_TELEPHONE = #{homeTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="officeTelephone != null">
+                OFFICE_TELEPHONE = #{officeTelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="otherTelephone != null">
+                OTHER_TELEPHONE = #{otherTelephone,jdbcType=VARCHAR},
+            </if>           
+            <if test="areaCode != null">
+                AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+            </if>
+            <if test="cityCode != null">
+                CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="contactAddress != null">
+                CONTACT_ADDRESS = #{contactAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="contactZipcode != null">
+                CONTACT_ZIPCODE = #{contactZipcode,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationAddress != null">
+                ORGANIZATION_ADDRESS = #{organizationAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationZipcode != null">
+                ORGANIZATION_ZIPCODE = #{organizationZipcode,jdbcType=VARCHAR},
+            </if>            
+            <if test="question != null">
+                QUESTION = #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="answer != null">
+                ANSWER = #{answer,jdbcType=VARCHAR},
+            </if>            
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="customerStatus != null">
+                CUSTOMER_STATUS = #{customerStatus,jdbcType=CHAR},
+            </if>
+            <if test="customerGrade != null">
+                CUSTOMER_GRADE = #{customerGrade,jdbcType=CHAR},
+            </if>
+            <if test="customerType != null">
+                CUSTOMER_TYPE = #{customerType,jdbcType=CHAR},
+            </if>
+            
+            
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+    </update>
+    
+    <update id="updateByPrimaryKeyWithBLOBs"
+            parameterType="com.huateng.p3.account.persistence.models.TInfoCustomer">
+    update core.t_info_customer 
+    set UNIFY_ID = #{unifyId,jdbcType=VARCHAR},
+      IS_REALNAME = #{isRealname,jdbcType=CHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      IS_REQUEST_CERTIFICATE = #{isRequestCertificate,jdbcType=CHAR},
+      REGISTER_TYPE = #{registerType,jdbcType=CHAR},
+      MOBILE_NO = #{mobileNo,jdbcType=VARCHAR},
+      EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      WEB_LOGIN_PASSWORD = #{webLoginPassword,jdbcType=VARCHAR},
+      IVR_PASSWORD = #{ivrPassword,jdbcType=VARCHAR},
+      ACCOUNT_QUERY_PASSWORD = #{accountQueryPassword,jdbcType=VARCHAR},
+      GENDER = #{gender,jdbcType=CHAR},
+      IDENTIFY_TYPE = #{identifyType,jdbcType=CHAR},
+      IDENTIFY_NO = #{identifyNo,jidentifyNoype=VARCHAR},
+      HOME_TELEPHONE = #{homeTelephone,jdbcType=VARCHAR},
+      OFFICE_TELEPHONE = #{officeTelephone,jdbcType=VARCHAR},
+      OTHER_TELEPHONE = #{otherTelephone,jdbcType=VARCHAR},
+      APANAGE = #{apanage,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      CONTACT_ADDRESS = #{contactAddress,jdbcType=VARCHAR},
+      CONTACT_ZIPCODE = #{contactZipcode,jdbcType=VARCHAR},
+      ORGANIZATION_ADDRESS = #{organizationAddress,jdbcType=VARCHAR},
+      ORGANIZATION_ZIPCODE = #{organizationZipcode,jdbcType=VARCHAR},
+      PWD_ERR_COUNT = #{pwdErrCount,jdbcType=DECIMAL},
+      LOCK_TIME_LIMIT = #{lockTimeLimit,jdbcType=TIMESTAMP},
+      ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+      QUESTION = #{question,jdbcType=VARCHAR},
+      ANSWER = #{answer,jdbcType=VARCHAR},
+      ACTIVE_ADDRESS = #{activeAddress,jdbcType=VARCHAR},
+      ACTIVE_CODE = #{activeCode,jdbcType=VARCHAR},
+      ACTIVE_STATUS = #{activeStatus,jdbcType=CHAR},
+      REGISTE_DATE = #{registeDate,jdbcType=TIMESTAMP},
+      IS_CLOSING_ACCOUNT = #{isClosingAccount,jdbcType=CHAR},
+      REGISTE_ORG_CODE = #{registeOrgCode,jdbcType=VARCHAR},
+      REGISTE_UID = #{registeUid,jdbcType=VARCHAR},
+      MANAGER = #{manager,jdbcType=VARCHAR},
+      LAST_SUCCESS_LOGIN_TIME = #{lastSuccessLoginTime,jdbcType=TIMESTAMP},
+      LAST_SUCCESS_LOGIN_IP = #{lastSuccessLoginIp,jdbcType=VARCHAR},
+      LAST_FAIL_LOGIN_TIME = #{lastFailLoginTime,jdbcType=TIMESTAMP},
+      LAST_FAIL_LOGIN_IP = #{lastFailLoginIp,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      CUSTOMER_STATUS = #{customerStatus,jdbcType=CHAR},
+      CLOSE_TIME = #{closeTime,jdbcType=TIMESTAMP},
+      ACTIVE_TIME_LIMIT = #{activeTimeLimit,jdbcType=TIMESTAMP},
+      ACTIVE_TIME = #{activeTime,jdbcType=TIMESTAMP},
+      CUSTOMER_GRADE = #{customerGrade,jdbcType=CHAR},
+      CUSTOMER_TYPE = #{customerType,jdbcType=CHAR},
+      NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      PROFESSION = #{profession,jdbcType=VARCHAR},
+      IDENTIFY_EXPIRED_DATE = #{identifyExpiredDate,jdbcType=CHAR},
+      PORTRAIT = #{portrait,jdbcType=BLOB}
+    where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoCustomer">
+    update core.t_info_customer 
+    set UNIFY_ID = #{unifyId,jdbcType=VARCHAR},
+      IS_REALNAME = #{isRealname,jdbcType=CHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      IS_REQUEST_CERTIFICATE = #{isRequestCertificate,jdbcType=CHAR},
+      REGISTER_TYPE = #{registerType,jdbcType=CHAR},
+      MOBILE_NO = #{mobileNo,jdbcType=VARCHAR},
+      EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      WEB_LOGIN_PASSWORD = #{webLoginPassword,jdbcType=VARCHAR},
+      IVR_PASSWORD = #{ivrPassword,jdbcType=VARCHAR},
+      ACCOUNT_QUERY_PASSWORD = #{accountQueryPassword,jdbcType=VARCHAR},
+      GENDER = #{gender,jdbcType=CHAR},
+      IDENTIFY_TYPE = #{identifyType,jdbcType=CHAR},
+      IDENTIFY_NO = #{identifyNo,jdbcType=VARCHAR},
+      HOME_TELEPHONE = #{homeTelephone,jdbcType=VARCHAR},
+      OFFICE_TELEPHONE = #{officeTelephone,jdbcType=VARCHAR},
+      OTHER_TELEPHONE = #{otherTelephone,jdbcType=VARCHAR},
+      APANAGE = #{apanage,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      CONTACT_ADDRESS = #{contactAddress,jdbcType=VARCHAR},
+      CONTACT_ZIPCODE = #{contactZipcode,jdbcType=VARCHAR},
+      ORGANIZATION_ADDRESS = #{organizationAddress,jdbcType=VARCHAR},
+      ORGANIZATION_ZIPCODE = #{organizationZipcode,jdbcType=VARCHAR},
+      PWD_ERR_COUNT = #{pwdErrCount,jdbcType=DECIMAL},
+      LOCK_TIME_LIMIT = #{lockTimeLimit,jdbcType=TIMESTAMP},
+      ORGANIZATION_CODE = #{organizationCode,jdbcType=VARCHAR},
+      QUESTION = #{question,jdbcType=VARCHAR},
+      ANSWER = #{answer,jdbcType=VARCHAR},
+      ACTIVE_ADDRESS = #{activeAddress,jdbcType=VARCHAR},
+      ACTIVE_CODE = #{activeCode,jdbcType=VARCHAR},
+      ACTIVE_STATUS = #{activeStatus,jdbcType=CHAR},
+      REGISTE_DATE = #{registeDate,jdbcType=TIMESTAMP},
+      IS_CLOSING_ACCOUNT = #{isClosingAccount,jdbcType=CHAR},
+      REGISTE_ORG_CODE = #{registeOrgCode,jdbcType=VARCHAR},
+      REGISTE_UID = #{registeUid,jdbcType=VARCHAR},
+      MANAGER = #{manager,jdbcType=VARCHAR},
+      LAST_SUCCESS_LOGIN_TIME = #{lastSuccessLoginTime,jdbcType=TIMESTAMP},
+      LAST_SUCCESS_LOGIN_IP = #{lastSuccessLoginIp,jdbcType=VARCHAR},
+      LAST_FAIL_LOGIN_TIME = #{lastFailLoginTime,jdbcType=TIMESTAMP},
+      LAST_FAIL_LOGIN_IP = #{lastFailLoginIp,jdbcType=VARCHAR},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      CUSTOMER_STATUS = #{customerStatus,jdbcType=CHAR},
+      CLOSE_TIME = #{closeTime,jdbcType=TIMESTAMP},
+      ACTIVE_TIME_LIMIT = #{activeTimeLimit,jdbcType=TIMESTAMP},
+      ACTIVE_TIME = #{activeTime,jdbcType=TIMESTAMP},
+      CUSTOMER_GRADE = #{customerGrade,jdbcType=CHAR},
+      CUSTOMER_TYPE = #{customerType,jdbcType=CHAR},
+      NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      PROFESSION = #{profession,jdbcType=VARCHAR},
+      IDENTIFY_EXPIRED_DATE = #{identifyExpiredDate,jdbcType=CHAR}
+    where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR}
+    </update>
+    <update id="closeCustomer" parameterType="com.huateng.p3.account.persistence.models.TInfoCustomer" >
+        update core.t_info_customer  set
+        IS_CLOSING_ACCOUNT =#{isClosingAccount,jdbcType=CHAR},
+        CUSTOMER_STATUS=#{customerStatus,jdbcType=CHAR},
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+        CLOSE_TIME=#{closeTime,jdbcType=TIMESTAMP},
+        mobile_no= #{mobileNo,jdbcType=VARCHAR},
+        USER_NAME=#{userName,jdbcType=VARCHAR},
+        email_address=#{emailAddress,jdbcType=VARCHAR}
+        where
+        customer_no=#{customerNo,jdbcType=VARCHAR}
+        and CUSTOMER_STATUS!='9'
+    </update>
+    <select id="findCustomerByCardNoForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List_A"/>
+		from
+		core.t_info_customer  a join T_INFO_ACCOUNT_CARD c
+		 on	a.customer_no=c.customer_no
+		 where c.card_no=#{cardNo,jdbcType=VARCHAR}
+		  and c.BINDING_FLAG='1'
+		  and a.CUSTOMER_STATUS!='9'  
+	</select>
+    <select id="findCustomerByAccountNoForUpdate" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List_A"/>
+		from
+		core.t_info_customer  a join T_INFO_ACCOUNT c
+		 on	a.customer_no=c.customer_no
+		 where c.account_no=#{accountNo,jdbcType=VARCHAR}
+		  and c.CUSTOMER_STATUS !='9'
+		  and a.CUSTOMER_STATUS!='9'  
+	</select>
+</mapper>

@@ -1,0 +1,71 @@
+.accordion-group {
+    margin-bottom: 0;
+    border-top: 1px solid #E5E5E5;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border:0;
+    border-radius: 0;
+    .accordion-heading .accordion-toggle {
+        padding: 0;
+        background: url(/assets/icon-loop2.png) repeat-x;
+        background-position: 0 0;
+        height: 30px;
+    .title{
+        padding-left: 14px;
+        padding-top: 5px;
+        font-size: 14px;
+    }
+    .icon-flag-open{
+        margin-left: 198px;
+        margin-top: -24px;
+    }
+    .icon-flag-close{
+        margin-left: 198px;
+        margin-top: -24px;
+    }
+        }
+    .accordion-inner {
+        border-top: 0;
+    }
+    .input-min{
+        margin-left: -4px;
+    }
+    #link_all_label {
+        width: 30px;
+        padding: 18px 12px 12px 10px;
+    }
+    .ui-spinner {
+        background: none;
+        border: 0;
+    }
+    .ui-spinner-input {
+        margin: 0;
+        margin-left: 0;
+    }
+    .top-left {
+        border-top-left-radius: 5px;
+        margin-left: 6px;
+        border: #ccc solid;
+        border-width: 3px 0 0 3px;
+        height: 20px;
+    }
+    .top-right {
+        border-top-right-radius: 5px;
+        border: #ccc solid;
+        border-width: 3px 3px 0 0;
+        height: 20px;
+    }
+    .bottom-left {
+        border-bottom-left-radius: 5px;
+        margin-left: 6px;
+        border: #ccc solid;
+        border-width: 0 0 3px 3px;
+        height: 20px;
+    }
+    .bottom-right {
+        border-bottom-right-radius: 5px;
+        border: #ccc solid;
+        border-width: 0 3px 3px 0;
+        height: 20px;
+    }
+}

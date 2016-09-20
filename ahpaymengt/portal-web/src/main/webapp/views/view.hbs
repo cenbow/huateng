@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="翼支付">
+    <title>
+        {{title}}
+    </title>
+    <base href="http://{{_SITE_.hrefBase}}/"/>
+    <link rel="stylesheet" href="/assets/common.css?t=${build.number}">
+    <!--[if IE 6]>
+    <link href="/assets/ie.css" rel="stylesheet">
+    <![endif]-->
+    <script src="/assets/common.js?t=${build.number}"></script>
+</head>
+
+<body id="body" style="{{style}}">
+<div class="global-header">{{{preview_bar}}}</div>
+<div class="page">
+    {{{header}}}
+    {{{body}}}
+    {{{footer}}}
+</div>
+<input id="siteId" type="hidden" value="{{siteId}}">
+<input id="siteInstanceId" type="hidden" value="{{siteInstanceId}}">
+
+<script type="text/javascript">
+    require("common/init")
+</script>
+</body>
+</html>

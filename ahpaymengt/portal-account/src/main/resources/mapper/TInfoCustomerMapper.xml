@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TInfoCustomer">
+    <resultMap id="BaseResultMap" type="TInfoCustomer">
+        <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR"/>
+        <result column="UNIFY_ID" property="unifyId" jdbcType="VARCHAR"/>
+        <result column="IS_REALNAME" property="isRealname" jdbcType="CHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="IS_REQUEST_CERTIFICATE" property="isRequestCertificate" jdbcType="CHAR"/>
+        <result column="REGISTER_TYPE" property="registerType" jdbcType="CHAR"/>
+        <result column="MOBILE_PHONE" property="mobilePhone" jdbcType="VARCHAR"/>
+        <result column="EMAIL_ADDRESS" property="emailAddress" jdbcType="VARCHAR"/>
+        <result column="LOGIN_ID" property="loginId" jdbcType="VARCHAR"/>
+        <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR"/>
+        <result column="PINKEY" property="pinkey" jdbcType="VARCHAR"/>
+        <result column="IVR_PINKEY" property="ivrPinkey" jdbcType="VARCHAR"/>
+        <result column="QUERY_PINKEY" property="queryPinkey" jdbcType="VARCHAR"/>
+        <result column="GENDER" property="gender" jdbcType="CHAR"/>
+        <result column="ID_TYPE" property="idType" jdbcType="CHAR"/>
+        <result column="ID_NO" property="idNo" jdbcType="VARCHAR"/>
+        <result column="HOME_PHONE" property="homePhone" jdbcType="VARCHAR"/>
+        <result column="OFFICE_PHONE" property="officePhone" jdbcType="VARCHAR"/>
+        <result column="OTHER_PHONE" property="otherPhone" jdbcType="VARCHAR"/>
+        <result column="APANAGE" property="apanage" jdbcType="VARCHAR"/>
+        <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR"/>
+        <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR"/>
+        <result column="CONTACT_ADDRESS" property="contactAddress" jdbcType="VARCHAR"/>
+        <result column="CONTACT_ZIPCODE" property="contactZipcode" jdbcType="VARCHAR"/>
+        <result column="UNIT_ADDRESS" property="unitAddress" jdbcType="VARCHAR"/>
+        <result column="UNIT_ZIPCODE" property="unitZipcode" jdbcType="VARCHAR"/>
+        <result column="PWD_ERR_NUM" property="pwdErrNum" jdbcType="DECIMAL"/>
+        <result column="LOCK_TIME_LIMIT" property="lockTimeLimit" jdbcType="TIMESTAMP"/>
+        <result column="UNIT_CODE" property="unitCode" jdbcType="VARCHAR"/>
+        <result column="QUESTION" property="question" jdbcType="VARCHAR"/>
+        <result column="ANSWER" property="answer" jdbcType="VARCHAR"/>
+        <result column="ACTIVE_ADDRESS" property="activeAddress" jdbcType="VARCHAR"/>
+        <result column="ACTIVE_CODE" property="activeCode" jdbcType="VARCHAR"/>
+        <result column="ACTIVE_STATUS" property="activeStatus" jdbcType="CHAR"/>
+        <result column="REGISTER_TIME" property="registerTime" jdbcType="TIMESTAMP"/>
+        <result column="IS_CLOSED" property="isClosed" jdbcType="CHAR"/>
+        <result column="ACCEPT_ORG_CODE" property="acceptOrgCode" jdbcType="VARCHAR"/>
+        <result column="ACCEPT_UID" property="acceptUid" jdbcType="VARCHAR"/>
+        <result column="MANAGER" property="manager" jdbcType="VARCHAR"/>
+        <result column="LAST_SUCCESS_LOGIN_TIME" property="lastSuccessLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_SUCCESS_LOGIN_IP" property="lastSuccessLoginIp" jdbcType="VARCHAR"/>
+        <result column="LAST_FAIL_LOGIN_TIME" property="lastFailLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_FAIL_LOGIN_IP" property="lastFailLoginIp" jdbcType="VARCHAR"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="STATUS" property="status" jdbcType="CHAR"/>
+        <result column="CLOSE_TIME" property="closeTime" jdbcType="TIMESTAMP"/>
+        <result column="ACTIVE_TIME_LIMIT" property="activeTimeLimit" jdbcType="TIMESTAMP"/>
+        <result column="ACTIVE_TIME" property="activeTime" jdbcType="TIMESTAMP"/>
+        <result column="GRADE" property="grade" jdbcType="CHAR"/>
+        <result column="TYPE" property="type" jdbcType="CHAR"/>
+        <result column="NATIONALITY" property="nationality" jdbcType="VARCHAR"/>
+        <result column="PROFESSION" property="profession" jdbcType="VARCHAR"/>
+        <result column="CERT_EXPIRY_DATE" property="certExpiryDate" jdbcType="CHAR"/>
+    </resultMap>
+
+
+
+
+    <resultMap id="ResultMapWithBLOBs" type="TInfoCustomer" extends="BaseResultMap">
+        <result column="PORTRAIT" property="portrait" jdbcType="BLOB"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        CUSTOMER_NO, UNIFY_ID, IS_REALNAME,
+        NAME, IS_REQUEST_CERTIFICATE, REGISTER_TYPE,
+        MOBILE_PHONE, EMAIL_ADDRESS,
+        LOGIN_ID, NICK_NAME, PINKEY,
+        IVR_PINKEY, QUERY_PINKEY, GENDER,
+        ID_TYPE, ID_NO, HOME_PHONE,
+        OFFICE_PHONE, OTHER_PHONE, APANAGE,
+        AREA_CODE, CITY_CODE, CONTACT_ADDRESS,
+        CONTACT_ZIPCODE, UNIT_ADDRESS, UNIT_ZIPCODE,
+        PWD_ERR_NUM, LOCK_TIME_LIMIT, UNIT_CODE,
+        QUESTION, ANSWER, ACTIVE_ADDRESS,
+        ACTIVE_CODE, ACTIVE_STATUS, REGISTER_TIME,
+        IS_CLOSED, ACCEPT_ORG_CODE, ACCEPT_UID,
+        MANAGER, LAST_SUCCESS_LOGIN_TIME, LAST_SUCCESS_LOGIN_IP,
+        LAST_FAIL_LOGIN_TIME, LAST_FAIL_LOGIN_IP, LAST_UPDATE_TIME,
+        STATUS, CLOSE_TIME, ACTIVE_TIME_LIMIT,
+        ACTIVE_TIME, GRADE, TYPE,NATIONALITY,PROFESSION,CERT_EXPIRY_DATE
+    </sql>
+
+    <update id="updatePwdById" parameterType="TInfoCustomer">
+        update CORE.T_INFO_CUSTOMER
+        <set >
+            <if test="pinkey != null" >
+                PINKEY = #{pinkey,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null" >
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR} and status!='9'
+    </update>
+
+    <update id="updateQuestionById" parameterType="TInfoCustomer">
+        update CORE.T_INFO_CUSTOMER
+        <set >
+            <if test="question != null" >
+                QUESTION = #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="answer != null" >
+                ANSWER = #{answer,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null" >
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR} and status!='9'
+    </update>
+
+
+    <update id="updateLoginFail" parameterType="TInfoCustomer">
+        update CORE.T_INFO_CUSTOMER
+        <set >
+            <if test="lastFailLoginTime != null" >
+                LAST_FAIL_LOGIN_TIME = #{lastFailLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastFailLoginIp != null" >
+                LAST_FAIL_LOGIN_IP = #{lastFailLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="pwdErrNum != null" >
+                PWD_ERR_NUM = #{pwdErrNum,jdbcType=DECIMAL},
+            </if>
+            <if test="lockTimeLimit != null" >
+                LOCK_TIME_LIMIT = #{lockTimeLimit,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR} and status!='9'
+    </update>
+
+    <update id="updateLoginSuccess" parameterType="TInfoCustomer">
+        update CORE.T_INFO_CUSTOMER
+        <set >
+            <if test="lastSuccessLoginTime != null" >
+                LAST_SUCCESS_LOGIN_TIME = #{lastSuccessLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastSuccessLoginIp != null" >
+                LAST_SUCCESS_LOGIN_IP = #{lastSuccessLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="pwdErrNum != null" >
+                PWD_ERR_NUM = #{pwdErrNum,jdbcType=DECIMAL},
+            </if>
+            <if test="lockTimeLimit != null" >
+                LOCK_TIME_LIMIT = #{lockTimeLimit,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR} and status!='9'
+    </update>
+
+    <update id="updateCustomerInfo" parameterType="TInfoCustomer">
+        update CORE.T_INFO_CUSTOMER
+        <set >
+            <if test="nickName != null" >
+                NICK_NAME = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null" >
+                GENDER = #{gender,jdbcType=CHAR},
+            </if>
+            <if test="homePhone != null" >
+                HOME_PHONE = #{homePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="officePhone != null" >
+                OFFICE_PHONE = #{officePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilePhone != null" >
+                MOBILE_PHONE = #{mobilePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="otherPhone != null" >
+                OTHER_PHONE = #{otherPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="apanage != null" >
+                APANAGE = #{apanage,jdbcType=VARCHAR},
+            </if>
+            <if test="contactAddress != null" >
+                CONTACT_ADDRESS = #{contactAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="contactZipcode != null" >
+                CONTACT_ZIPCODE = #{contactZipcode,jdbcType=VARCHAR},
+            </if>
+            <if test="unitAddress != null" >
+                UNIT_ADDRESS = #{unitAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="unitZipcode != null" >
+                UNIT_ZIPCODE = #{unitZipcode,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null" >
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="emailAddress != null" >
+                EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="lastFailLoginTime != null" >
+                LAST_FAIL_LOGIN_TIME = #{lastFailLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastFailLoginIp != null" >
+                LAST_FAIL_LOGIN_IP = #{lastFailLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="lastSuccessLoginTime != null" >
+                LAST_SUCCESS_LOGIN_TIME = #{lastSuccessLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastSuccessLoginIp != null" >
+                LAST_SUCCESS_LOGIN_IP = #{lastSuccessLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="pwdErrNum != null" >
+                PWD_ERR_NUM = #{pwdErrNum,jdbcType=DECIMAL},
+            </if>
+            <if test="lockTimeLimit != null" >
+                LOCK_TIME_LIMIT = #{lockTimeLimit,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR} and status!='9'
+    </update>
+
+
+
+    <select id="findTInfoCustomerByUnifyId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_CUSTOMER
+        where UNIFY_ID = #{unifyId,jdbcType=VARCHAR} and status!='9'
+    </select>
+
+    <select id="findFundAccountNoByCustomerNo" resultType="java.lang.String" parameterType="java.lang.String">
+        select
+        ACCOUNT_NO
+        from CORE.T_INFO_ACCOUNT
+        where CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR} AND TYPE = '1' AND STATUS = '1'
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_CUSTOMER
+        where CUSTOMER_NO = #{primaryKey,jdbcType=VARCHAR} and status!='9'
+    </select>
+
+    <update id="updateCustomerPinkey" parameterType="java.util.Map" >
+          update T_INFO_CUSTOMER set
+              PINKEY = #{pinkey}
+              where UNIFY_ID = #{unifyId}and status!='9'
+    </update>
+
+    <!-- 从t_realname_apply 读取姓名，证件类型和证件号码更新门户表信息  -->
+    <resultMap id="mapResult" type="java.util.Map">
+        <result property="name" column="name" />
+        <result property="id_no" column="idNo" />
+        <result property="id_type" column="idType" />
+    </resultMap>
+
+    <select id="getTInfoCustomerFromTRealByTCustomer" parameterType="java.lang.String"
+            resultMap="mapResult">
+	select name ,id_no idNo,id_type idType from t_realname_apply
+	where customer_no = #{customerNo}
+	and check_flag = '2'
+	and archived_flag='1'
+	</select>
+
+
+</mapper>

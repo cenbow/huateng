@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="description" content='{{#block "desc"}}速通支付{{/block}}'>
+
+  <title>
+    速通支付-个人中心
+  </title>
+  <link rel="stylesheet" href="/assets/bootstrap.css">
+  <link rel="stylesheet" href="/assets/app.css">
+  <link rel="stylesheet" href="/assets/common.css">
+</head>
+<body>
+  <div id="wrapper">
+    {{inject "official/sutongpay/index-header"}}
+    <div class="a-main-bg">
+       <div class="a-main">
+  {{inject "official/sutongpay/individualCenter" true}}
+    </div>
+      </div>
+  {{inject "official/sutongpay/rightfooter"}}
+ {{inject "official/sutongpay/footer"}}
+    <script src="/assets/common.js"></script>
+    <script>require("common/init")</script>
+  </div>
+
+  {{inject "official/sutongpay/individualCenter/myCard/unbind"}}
+</body>
+</html>

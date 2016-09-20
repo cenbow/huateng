@@ -1,0 +1,35 @@
+<div class="modal w500" id="js-image-slider-data-config-panel">
+    <div class="modal-header">
+        <button type="button" class="close">&times;</button>
+        <h4>图片组内容设置</h4>
+    </div>
+    <div class="modal-body">
+        <p class="bottom-line">你可以在此配置图片或调整顺序。</p>
+
+        <div class="row-fluid">
+            <div class="span3 image-list right-line">
+                <button class="btn btn-primary" id="js-change-images">添加图片</button>
+                <div id="js-image-slider-data-scroll" style="height: 340px">
+                {{#each images}}
+                <img alt="{{title}}" src="{{src}}" href="{{href}}">
+                {{/each}}
+                </div>
+            </div>
+            <div class="span9">
+                <img class="image-view">
+
+                <form id="js-form-image-setting">
+                    <label>标题</label>
+                    <input type="text" name="title">
+                    <label>链接</label>
+                    <input type="text" name="href">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn cancel">取消</button>
+        <button class="btn btn-primary js-ok">确定</button>
+    </div>
+</div>
+

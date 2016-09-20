@@ -1,0 +1,6 @@
+所有应用中心左边菜单栏有改动
+inside-leftapp.css修改
+appleftlist.png图片添加
+DIV class="ui-appleft-show"这个DIV内结构有改动
+对应JS也有改动
+改之前先叫我下

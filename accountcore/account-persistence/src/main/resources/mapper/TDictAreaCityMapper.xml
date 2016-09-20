@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TDictAreaCityMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TDictAreaCity" >
+    <id column="CURRENT_CODE" property="currentCode" jdbcType="VARCHAR" />
+    <result column="TELE_CODE" property="teleCode" jdbcType="VARCHAR" />
+    <result column="CURRENT_NAME" property="currentName" jdbcType="VARCHAR" />
+    <result column="PARENET_CODE" property="parenetCode" jdbcType="VARCHAR" />
+    <result column="CODE_FLAG" property="codeFlag" jdbcType="CHAR" />
+    <result column="MOBILE_H_CITY" property="mobileHCity" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CURRENT_CODE, TELE_CODE, CURRENT_NAME, PARENET_CODE, CODE_FLAG, MOBILE_H_CITY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from COMMON.T_DICT_AREA_CITY
+    where CURRENT_CODE = #{currentCode,jdbcType=VARCHAR}
+  </select>
+  <select id="queryAreaCityCodeByProductNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select  
+		y.CURRENT_CODE, y.TELE_CODE, y.CURRENT_NAME, y.PARENET_CODE, y.CODE_FLAG, y.MOBILE_H_CITY
+		from COMMON.T_DICT_AREA_CITY y, t_info_mobile_h h
+		where y.tele_code = h.tele_code and h.mobile_h_code=#{mobileNo,jdbcType=VARCHAR}
+		and y.mobile_h_city LIKE ('%' || h.city_name || '%') and rownum = 1
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from COMMON.T_DICT_AREA_CITY
+    where CURRENT_CODE = #{currentCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TDictAreaCity" >
+    insert into COMMON.T_DICT_AREA_CITY (CURRENT_CODE, TELE_CODE, CURRENT_NAME, 
+      PARENET_CODE, CODE_FLAG, MOBILE_H_CITY
+      )
+    values (#{currentCode,jdbcType=VARCHAR}, #{teleCode,jdbcType=VARCHAR}, #{currentName,jdbcType=VARCHAR}, 
+      #{parenetCode,jdbcType=VARCHAR}, #{codeFlag,jdbcType=CHAR}, #{mobileHCity,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TDictAreaCity" >
+    insert into COMMON.T_DICT_AREA_CITY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="currentCode != null" >
+        CURRENT_CODE,
+      </if>
+      <if test="teleCode != null" >
+        TELE_CODE,
+      </if>
+      <if test="currentName != null" >
+        CURRENT_NAME,
+      </if>
+      <if test="parenetCode != null" >
+        PARENET_CODE,
+      </if>
+      <if test="codeFlag != null" >
+        CODE_FLAG,
+      </if>
+      <if test="mobileHCity != null" >
+        MOBILE_H_CITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="currentCode != null" >
+        #{currentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="teleCode != null" >
+        #{teleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="currentName != null" >
+        #{currentName,jdbcType=VARCHAR},
+      </if>
+      <if test="parenetCode != null" >
+        #{parenetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="codeFlag != null" >
+        #{codeFlag,jdbcType=CHAR},
+      </if>
+      <if test="mobileHCity != null" >
+        #{mobileHCity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TDictAreaCity" >
+    update COMMON.T_DICT_AREA_CITY
+    <set >
+      <if test="teleCode != null" >
+        TELE_CODE = #{teleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="currentName != null" >
+        CURRENT_NAME = #{currentName,jdbcType=VARCHAR},
+      </if>
+      <if test="parenetCode != null" >
+        PARENET_CODE = #{parenetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="codeFlag != null" >
+        CODE_FLAG = #{codeFlag,jdbcType=CHAR},
+      </if>
+      <if test="mobileHCity != null" >
+        MOBILE_H_CITY = #{mobileHCity,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CURRENT_CODE = #{currentCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TDictAreaCity" >
+    update COMMON.T_DICT_AREA_CITY
+    set TELE_CODE = #{teleCode,jdbcType=VARCHAR},
+      CURRENT_NAME = #{currentName,jdbcType=VARCHAR},
+      PARENET_CODE = #{parenetCode,jdbcType=VARCHAR},
+      CODE_FLAG = #{codeFlag,jdbcType=CHAR},
+      MOBILE_H_CITY = #{mobileHCity,jdbcType=VARCHAR}
+    where CURRENT_CODE = #{currentCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

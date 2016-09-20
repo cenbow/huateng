@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TDictNewOldRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TDictNewOldRelation" >
+    <id column="NEW_TABLE_NAME" property="newTableName" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="CHAR" />
+    <result column="END_DATE" property="endDate" jdbcType="CHAR" />
+    <result column="OLD_TABLE_NAME" property="oldTableName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    NEW_TABLE_NAME, START_DATE, END_DATE, OLD_TABLE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from CORE.T_DICT_NEW_OLD_RELATION
+    where NEW_TABLE_NAME = #{newTableName,jdbcType=VARCHAR}
+</select>
+ <select id="selectByOldTableName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from CORE.T_DICT_NEW_OLD_RELATION
+        where OLD_TABLE_NAME = #{oldTableName,jdbcType=VARCHAR}
+ </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_DICT_NEW_OLD_RELATION
+    where NEW_TABLE_NAME = #{newTableName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TDictNewOldRelation" >
+    insert into CORE.T_DICT_NEW_OLD_RELATION (NEW_TABLE_NAME, START_DATE, END_DATE, 
+      OLD_TABLE_NAME)
+    values (#{newTableName,jdbcType=VARCHAR}, #{startDate,jdbcType=CHAR}, #{endDate,jdbcType=CHAR}, 
+      #{oldTableName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TDictNewOldRelation" >
+    insert into CORE.T_DICT_NEW_OLD_RELATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="newTableName != null" >
+        NEW_TABLE_NAME,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="oldTableName != null" >
+        OLD_TABLE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="newTableName != null" >
+        #{newTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=CHAR},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=CHAR},
+      </if>
+      <if test="oldTableName != null" >
+        #{oldTableName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TDictNewOldRelation" >
+    update CORE.T_DICT_NEW_OLD_RELATION
+    <set >
+      <if test="startDate != null" >
+        START_DATE = #{startDate,jdbcType=CHAR},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=CHAR},
+      </if>
+      <if test="oldTableName != null" >
+        OLD_TABLE_NAME = #{oldTableName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NEW_TABLE_NAME = #{newTableName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TDictNewOldRelation" >
+    update CORE.T_DICT_NEW_OLD_RELATION
+    set START_DATE = #{startDate,jdbcType=CHAR},
+      END_DATE = #{endDate,jdbcType=CHAR},
+      OLD_TABLE_NAME = #{oldTableName,jdbcType=VARCHAR}
+    where NEW_TABLE_NAME = #{newTableName,jdbcType=VARCHAR}
+  </update>
+</mapper>

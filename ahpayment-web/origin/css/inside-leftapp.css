@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* appleft主体样式 */
+.ui-appleft-show {
+	border-bottom: 1px solid #D8D8D8;
+}
+.ui-appleft-show li{
+	display:inline-block;
+	width:100%;
+}
+.ui-appleft-title {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	border-top: 1px solid #D8D8D8;
+	display: block;
+	float: left;
+	outline: none;
+}
+.ui-appleft-title span {
+	position: relative;
+	left: 25px;
+	float: left;
+}
+.ui-appleft-title .ui-iconleft {
+	float: right;
+	width: 9px;
+	height: 5px;
+	background: url(../images/inside-main/left-agg.png) no-repeat bottom;
+	background-position: bottom;
+	margin-top: 19px;
+	margin-right: 25px;
+	font-size: 5px;
+}
+.ui-appleft-main {
+	display:none;
+	float: right;
+	padding-bottom:10px;
+}
+*html .ui-appleft-main {
+	float: none;
+}
+.ui-appleft-main i {
+	width: 22px;
+	height: 22px;
+	background-image:url(../images/inside-main/appleftlist.png);
+	margin-left: 10px;
+	margin-top: 5px;
+	float: left;
+	display:block;
+	background-repeat:no-repeat;
+}
+.ui-appleft-main span{
+	margin-left:15px;
+}
+.ui-appleft-main .icon-leftwater {
+	background-position: 0px 0px;
+}
+.ui-appleft-main li {
+	float: right;
+	clear: both;
+	width: 160px;
+	float: right;
+	height: 35px;
+	line-height: 35px;
+	text-align: left;
+	margin-right: 1px;
+}
+.ui-appleft-main li a {
+	display: block;
+	color:#666;
+}
+.ui-appleft-main .ui-appleft-sel {
+	border: 1px solid #c2ccde;
+	border-right: none;
+	background-color: #fff;
+	width: 161px;
+	margin-right: 0px;
+}
+.ui-appleft-main .ui-appleft-hover {
+	background-color: #E8EFEF;
+}
+.ui-appleftselli .ui-appleft-main{
+	display:inline-block;
+}
+.ui-appleftselli .ui-appleft-title i {
+	background-position: top;
+}
+/*****确认信息TAB******/
+.ui-appcenter-infotab{ width:100%; margin-top:10px; margin-bottom:20px; line-height:40px; background-color:#CCCCCC;}
+.ui-appcenter-infotab td{ background-color:#FFF;}
+
+/* appleft所有img图标样式 */
+.ui-appleft-main i.icon-leftwater{ background-position:-273px 0px;}
+.ui-appleft-main i.icon-leftElectricity{ background-position:-67px 0px;}
+.ui-appleft-main i.icon-leftGas{ background-position:-227px 0px;}
+.ui-appleft-main i.icon-lefttelephone{ background-position:-319px 0px;}
+.ui-appleft-main i.icon-leftTV{ background-position:-296px 0px;}
+.ui-appleft-main i.icon-leftHeater{ background-position:-182px 0px;}
+.ui-appleft-main i.icon-leftTraffic{ background-position:-135px 0px;}
+.ui-appleft-main i.icon-leftSichuanTraffic{ background-position:-342px 0px;}
+.ui-appleft-main i.icon-leftMobile{ background-position:-159px 0px;}
+.ui-appleft-main i.icon-left11888card{ background-position:-89px 0px;}
+.ui-appleft-main i.icon-leftYCcard{ background-position:-251px 0px;}
+.ui-appleft-main i.icon-leftGame{ background-position:0px 0px;}
+.ui-appleft-main i.icon-leftQQ{ background-position:-205px 0px;}
+.ui-appleft-main i.icon-left3G{ background-position:-365px 0px;}
+.ui-appleft-main i.icon-leftNumber{ background-position:-112px 0px;}
+.ui-appleft-main i.icon-leftLotteryTicket{ background-position:-44px 0px;}
+.ui-appleft-main i.icon-leftSafety{ background-position:-23px 0px;}

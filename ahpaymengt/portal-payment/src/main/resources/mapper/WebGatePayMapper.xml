@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="WebGatePay" >
+    <resultMap id="BaseResultMap" type="WebGatePay" >
+        <result column="ORDERSEQ" property="orderNo" jdbcType="VARCHAR" />
+        <result column="ORDERREQTRANSEQ" property="orderReqTranSeq" jdbcType="VARCHAR" />
+        <result column="SUBORDERREQTRANSEQ" property="subOrderReqTranSeq" jdbcType="VARCHAR"/>
+        <result column="MERCHANTID" property="merchantId" jdbcType="VARCHAR" />
+        <result column="UPTRANSEQ" property="upTranSeq" jdbcType="VARCHAR" />
+        <result column="ORDERAMOUNT" property="orderAmount" jdbcType="DECIMAL" />
+        <result column="PRODUCTAMOUNT" property="productAmount" jdbcType="DECIMAL" />
+        <result column="ATTACHAMOUNT" property="attachAmount" jdbcType="DECIMAL" />
+        <result column="TRANDATE" property="tranDate" jdbcType="VARCHAR" />
+        <result column="CURTYPE" property="curType" jdbcType="VARCHAR" />
+        <result column="ENCODETYPE" property="encodeType" jdbcType="CHAR" />
+        <result column="STATUS" property="status" jdbcType="CHAR" />
+        <result column="LEVEL" property="level" jdbcType="VARCHAR"/>
+        <result column="FEETYPE" property="feeType" jdbcType="VARCHAR" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="TXTN1" property="txt1" jdbcType="VARCHAR" />
+        <result column="TXTN2" property="txt2" jdbcType="VARCHAR" />
+        <result column="TXTN3" property="txt3" jdbcType="VARCHAR" />
+        <result column="RETNCODE" property="returnCode" jdbcType="VARCHAR" />
+        <result column="RETNINFO" property="returnInfo" jdbcType="VARCHAR" />
+        <result column="UNIFYID" property="unifyId" jdbcType="VARCHAR" />
+        <result column="BUSICODE" property="businessCode" jdbcType="VARCHAR" />
+        <result column="BANKID" property="bankId" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    ORDERSEQ, ORDERREQTRANSEQ,SUBORDERREQTRANSEQ, MERCHANTID, UPTRANSEQ, ORDERAMOUNT, PRODUCTAMOUNT,
+    ATTACHAMOUNT, TRANDATE, CURTYPE, ENCODETYPE, STATUS, FEETYPE,LEVEL, CREATE_TIME, TXTN1,
+    TXTN2, TXTN3, RETNCODE, RETNINFO, UNIFYID, BUSICODE,
+    BANKID
+  </sql>
+    <select id="findPortWebGatePayInfo" resultMap="BaseResultMap" parameterType="WebGatePay" >
+        select
+        <include refid="Base_Column_List" />
+        from PORTAL.T_PORT_GATEWAY_PAY
+        where    1 = 1
+        <if test="orderNo != null" >
+            AND ORDERSEQ = #{orderNo,jdbcType=VARCHAR}
+        </if>
+        <if test="orderReqTranSeq != null" >
+            AND ORDERREQTRANSEQ = #{orderReqTranSeq,jdbcType=VARCHAR}
+        </if>
+        <if test="subOrderReqTranSeq != null" >
+            AND SUBORDERREQTRANSEQ = #{subOrderReqTranSeq,jdbcType=VARCHAR}
+        </if>
+        <if test="level != null" >
+            AND LEVEL = #{level,jdbcType=VARCHAR}
+        </if>
+        <if test="merchantId != null" >
+            AND MERCHANTID = #{merchantId,jdbcType=VARCHAR}
+        </if>
+        <if test="unifyId != null" >
+            AND UNIFYID = #{unifyId,jdbcType=VARCHAR}
+        </if>
+        <if test="upTranSeq != null" >
+            AND UPTRANSEQ = #{upTranSeq,jdbcType=VARCHAR}
+        </if>
+
+    </select>
+    
+    
+     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from PORTAL.T_PORT_GATEWAY_PAY
+        where ORDERSEQ = #{orderNo,jdbcType=VARCHAR}
+        
+    </select>
+    
+    
+    <insert id="doInsertPortWebGatePay" parameterType="WebGatePay" >
+        insert into PORTAL.T_PORT_GATEWAY_PAY
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="orderNo != null" >
+                ORDERSEQ,
+            </if>
+            <if test="orderReqTranSeq != null" >
+                ORDERREQTRANSEQ,
+            </if>
+            <if test="subOrderReqTranSeq != null" >
+               SUBORDERREQTRANSEQ,
+            </if>
+            <if test="merchantId != null" >
+                MERCHANTID,
+            </if>
+            <if test="upTranSeq != null" >
+                UPTRANSEQ,
+            </if>
+            <if test="orderAmount != null" >
+                ORDERAMOUNT,
+            </if>
+            <if test="productAmount != null" >
+                PRODUCTAMOUNT,
+            </if>
+            <if test="attachAmount != null" >
+                ATTACHAMOUNT,
+            </if>
+            <if test="tranDate != null" >
+                TRANDATE,
+            </if>
+            <if test="curType != null" >
+                CURTYPE,
+            </if>
+            <if test="encodeType != null" >
+                ENCODETYPE,
+            </if>
+            <if test="status != null" >
+                STATUS,
+            </if>
+            <if test="feeType != null" >
+                FEETYPE,
+            </if>
+            <if test="level != null" >
+                LEVEL,
+            </if>
+            <if test="createTime != null" >
+                CREATE_TIME,
+            </if>
+            <if test="txt1 != null" >
+                TXTN1,
+            </if>
+            <if test="txt2 != null" >
+                TXTN2,
+            </if>
+            <if test="txt3 != null" >
+                TXTN3,
+            </if>
+            <if test="returnCode != null" >
+                RETNCODE,
+            </if>
+            <if test="returnInfo != null" >
+                RETNINFO,
+            </if>
+            <if test="unifyId != null" >
+                UNIFYID,
+            </if>
+            <if test="businessCode != null" >
+                BUSICODE,
+            </if>
+            <if test="bankId != null" >
+                BANKID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="orderNo != null" >
+                #{orderNo,jdbcType=VARCHAR},
+            </if>
+            <if test="orderReqTranSeq != null" >
+                #{orderReqTranSeq,jdbcType=VARCHAR},
+            </if>
+            <if test="subOrderReqTranSeq != null" >
+                #{subOrderReqTranSeq,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantId != null" >
+                #{merchantId,jdbcType=VARCHAR},
+            </if>
+            <if test="upTranSeq != null" >
+                #{upTranSeq,jdbcType=VARCHAR},
+            </if>
+            <if test="orderAmount != null" >
+                #{orderAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="productAmount != null" >
+                #{productAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="attachAmount != null" >
+                #{attachAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="tranDate != null" >
+                #{tranDate,jdbcType=VARCHAR},
+            </if>
+            <if test="curType != null" >
+                #{curType,jdbcType=VARCHAR},
+            </if>
+            <if test="encodeType != null" >
+                #{encodeType,jdbcType=CHAR},
+            </if>
+            <if test="status != null" >
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="feeType != null" >
+                #{feeType,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null" >
+                #{level,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="txt1 != null" >
+                #{txt1,jdbcType=VARCHAR},
+            </if>
+            <if test="txt2 != null" >
+                #{txt2,jdbcType=VARCHAR},
+            </if>
+            <if test="txt3 != null" >
+                #{txt3,jdbcType=VARCHAR},
+            </if>
+            <if test="returnCode != null" >
+                #{returnCode,jdbcType=VARCHAR},
+            </if>
+            <if test="returnInfo != null" >
+                #{returnInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="unifyId != null" >
+                #{unifyId,jdbcType=VARCHAR},
+            </if>
+            <if test="businessCode != null" >
+                #{businessCode,jdbcType=VARCHAR},
+            </if>
+            <if test="bankId != null" >
+                #{bankId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updatePortWebGatePay" parameterType="WebGatePay" >
+        update PORTAL.T_PORT_GATEWAY_PAY
+        <set >
+            <if test="upTranSeq != null" >
+                UPTRANSEQ = #{upTranSeq,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null" >
+                LEVEL = #{level,jdbcType=VARCHAR},
+            </if>
+            <if test="tranDate != null" >
+                TRANDATE = #{tranDate,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null" >
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="txt1 != null" >
+                TXTN1 = #{txt1,jdbcType=VARCHAR},
+            </if>
+            <if test="txt2 != null" >
+                TXTN2 = #{txt2,jdbcType=VARCHAR},
+            </if>
+            <if test="txt3 != null" >
+                TXTN3 = #{txt3,jdbcType=VARCHAR},
+            </if>
+            <if test="returnCode != null" >
+                RETNCODE = #{returnCode,jdbcType=VARCHAR},
+            </if>
+            <if test="returnInfo != null" >
+                RETNINFO = #{returnInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="unifyId != null" >
+                UNIFYID = #{unifyId,jdbcType=VARCHAR},
+            </if>
+            <if test="businessCode != null" >
+                BUSICODE = #{businessCode,jdbcType=VARCHAR},
+            </if>
+            <if test="bankId != null" >
+                BANKID = #{bankId,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where 1 = 1
+        <if test="orderNo != null" >
+            AND ORDERSEQ = #{orderNo,jdbcType=VARCHAR}
+        </if>
+        <if test="orderReqTranSeq != null" >
+            AND ORDERREQTRANSEQ = #{orderReqTranSeq,jdbcType=VARCHAR}
+        </if>
+        <if test="subOrderReqTranSeq != null" >
+            AND SUBORDERREQTRANSEQ = #{subOrderReqTranSeq,jdbcType=VARCHAR}
+        </if>
+        <if test="level != null" >
+            AND LEVEL = #{level,jdbcType=VARCHAR}
+        </if>
+    </update>
+</mapper>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<!--所有CSS公用-->
+<link href="../css/index.css" rel="stylesheet" />
+<!--header-CSS-->
+<link href="../css/inside-header.css" rel="stylesheet" />
+<!--footer-CSS-->
+<link href="../css/footer.css" rel="stylesheet" />
+<!--应用中心left-CSS-->
+<link href="../css/inside-leftapp.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/an-change.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/shzf.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery-ui-1.10.3.custom.js"></script>
+<!--左边栏目条-->
+<script>
+  $(function(){
+	$(".ui-appleft-title").click(function(){
+		if($(this).parent().attr("class")!="ui-appleftselli")
+		{
+		$(".ui-appleft-main").slideUp(300);	
+		$(this).next(".ui-appleft-main").slideDown(300);
+		$(".ui-appleft-show li").removeClass("ui-appleftselli");
+		$(this).parent().addClass("ui-appleftselli");
+		}
+		else{
+		$(this).next(".ui-appleft-main").slideUp(300);
+		$(this).parent().removeClass("ui-appleftselli");
+		}
+	});
+});
+$(function(){
+	$(".ui-appleft-main li").hover(function(){
+		if($(this).attr("class")!="ui-appleft-sel")
+		{
+		$(this).addClass("ui-appleft-hover")
+		}
+
+	},function(){
+		$(this).removeClass("ui-appleft-hover")
+	});
+});
+</script>
+<title>翼支付</title>
+</head>
+<body>
+<div id="divBody">
+  <div class="inside-header"> <span class="ui-headerlogo"></span>
+    <div class="ui-nav"> <a >我的翼支付</a> <a >交易管理</a> <a class="nav-sel">应用中心</a> <a >账单支付</a> <a>翼充卡</a> <a>手机客户端</a> </div>
+  </div>
+  <div class="inside-main"> 
+    <!--内页left-->
+    <div class="ui-my-left">
+      <div id="accordion" class="ui-appleft-show">
+        <ul>
+          <li class="ui-appleftselli">
+            <div class="ui-appleft-title" ><span>生活支付(8)</span><i class="ui-iconleft "></i></div>
+            <div class="ui-appleft-main"  style="display:block;">
+              <ul>
+                <li ><a><i class="icon-leftwater"></i><span>缴水费</span></a></li>
+                <li ><a><i class="icon-leftElectricity"></i><span>缴电费</span></a></li>
+                <li ><a><i class="icon-leftGas"></i><span>缴燃气费</span></a></li>
+                <li ><a><i class="icon-lefttelephone"></i><span>缴固话/宽带费</span></a></li>
+                <li ><a><i class="icon-leftTV"></i><span>缴有线电视费</span></a></li>
+                <li ><a><i class="icon-leftHeater"></i><span>缴暖气费</span></a></li>
+                <li  class="ui-appleft-sel"><a><i class="icon-leftTraffic"></i><span>交通罚款代办</span></a></li>
+                <li ><a><i class="icon-leftSichuanTraffic"></i><span>四川交罚</span></a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li >
+            <div class="ui-appleft-title "><span>充值(6)</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main" >
+              <ul>
+                <li ><a><i class="icon-leftMobile"></i><span>手机充值</span></a></li>
+                <li ><a><i class="icon-left11888card"></i><span>11888卡充值</span></a></li>
+                <li ><a><i class="icon-leftYCcard"></i><span>翼充卡</span></a></li>
+                <li ><a><i class="icon-leftGame"></i><span>游戏充值</span></a></li>
+                <li ><a><i class="icon-leftQQ"></i><span>QQ充值</span></a></li>
+                <li ><a><i class="icon-left3G"></i><span>3G流量充值</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li >
+            <div class="ui-appleft-title "><span>转账(1)</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main">
+              <ul>
+                <li><a><i class="icon-leftNumber"></i><span>号码转账</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li >
+            <div class="ui-appleft-title "><span>理财(2)</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main">
+              <ul>
+                <li><a><i class="icon-leftLotteryTicket"></i><span>彩票</span></a></li>
+                <li><a><i class="icon-leftSafety"></i><span>保险</span></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--内页right-->
+    <div class="ui-my-right">
+      <div class="ui-apptitle"> <span class="ui-titleimg"><img src="../images/inside/Traffic-btimg.jpg"/></span> <span class="ui-titletxt"> <strong class="ui-p1">交通罚款代办</strong></br>
+        <font class="ui-p2">及时查询车辆交通违章信息</font> </span> <span class="ui-Servertime">服务器时间：22:01:40</span> <span class="ui-Share"> <a title="分享到新浪微博" class="fx01-cl"><i class="ui-sina"></i>新浪微博 </a> <a title="分享到开心网" class="fx01-cl"><i class="ui-hap"></i>开心网</a> <a title="分享到人人网"class="fx01-cl"><i class="ui-peo"></i>人人网</a> </span> </div>
+      <div class="ui-GreenNote"> <span class="ui-GreenNoteimg"></span>
+        <div class="ui-Greentxt">
+          <ul>
+            <li class="ui-title">小贴士:</li>
+            <li class="ui-main">违章查询免费，信息均来自各地交管网。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ui-appcenterform">
+        <div class="ui-form">
+          <div class="ui-form-txt01">车牌号码:</div>
+          <div class="ui-form-item">
+            <select  class="ui-lifepay-select01">
+            <option value="340000">皖</option>
+            <option value="110000">京</option>
+            <option value="500000">渝</option>
+            <option value="350000">闽</option>
+            <option value="620000">甘</option>
+            <option value="440000">粤</option>
+            <option value="520000">贵</option>
+            <option value="460000">琼</option>
+            <option value="130000">冀</option>
+            <option value="410000">豫</option>
+            <option value="230000">黑</option>
+            <option value="420000">鄂</option>
+            <option value="430000">湘</option>
+            <option value="220000">吉</option>
+            <option value="320000">苏</option>
+            <option value="210000">辽</option>
+            <option value="150000">蒙</option>
+            <option value="640000">宁</option>
+            <option value="370000">鲁</option>
+            <option value="140000">晋</option>
+            <option value="610000">陕</option>
+            <option value="310000">沪</option>
+            <option value="510000">川</option>
+            <option value="530000">云</option>
+            <option value="330000">浙</option>
+            </select>
+            <select class="ui-lifepay-select01">
+<option value="340100">A</option><option value="340200">B</option><option value="340300">C</option><option value="340400">D</option><option value="340500">E</option><option value="340600">F</option><option value="340700">G</option><option value="340800">H</option><option value="341000">J</option><option value="341200">K</option><option value="341300">L</option><option value="341100">M</option><option value="341500">N</option><option value="341800">P</option><option value="341400">Q</option><option value="341700">R</option><option value="341600">S</option>
+			</select>
+            <input name=""  type="text" class="ui-txtinput01" />
+
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">违章地点:</div>
+          <div class="ui-form-item">
+            <select class="ui-lifepay-select01">
+	 		<option value="notSelected">请选择</option>
+	 		
+				<option value="340000">安徽省</option>
+			
+				<option value="110000">北京市</option>
+			
+				<option value="500000">重庆市</option>
+			
+				<option value="350000">福建省</option>
+			
+				<option value="620000">甘肃省</option>
+			
+				<option value="440000">广东省</option>
+			
+				<option value="520000">贵州省</option>
+			
+				<option value="460000">海南省</option>
+			
+				<option value="130000">河北省</option>
+			
+				<option value="410000">河南省</option>
+			
+				<option value="230000">黑龙江省</option>
+			
+				<option value="420000">湖北省</option>
+			
+				<option value="430000">湖南省</option>
+			
+				<option value="220000">吉林省</option>
+			
+				<option value="320000">江苏省</option>
+			
+				<option value="210000">辽宁省</option>
+			
+				<option value="150000">内蒙古</option>
+			
+				<option value="640000">宁夏</option>
+			
+				<option value="370000">山东省</option>
+			
+				<option value="140000">山西省</option>
+			
+				<option value="610000">陕西省</option>
+			
+				<option value="310000">上海市</option>
+			
+				<option value="510000">四川省</option>
+				<option value="530000">云南省</option>
+				<option value="330000">浙江省</option>
+			
+	 	</select>
+        <select class="ui-lifepay-select01">
+	 		<option value="notSelected">请选择</option>
+	 	</select>
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">车架号:</div>
+          <div class="ui-form-item">             
+          <input name=""  type="text" class="ui-txtinput01" /><br />
+		<span class="ui-Gray-notes01">后6位车架号码</span>
+			
+		</div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">车牌类型	:</div>
+          <div class="ui-form-item">
+            <select class="ui-lifepay-select01">
+	 		<option value="01">小型车</option>
+	 		<option value="03">大型车</option>
+	 		<option value="04">外籍汽车</option>
+	 		<option value="05">两、三轮摩托车</option>
+	 		<option value="06">境外摩托车</option>
+	 		<option value="07">外籍摩托车</option>
+	 		<option value="08">挂车</option>
+	 		<option value="09">香港入出境车</option>
+	 		<option value="10">澳门入出境车</option>
+	 	</select>
+          </div>
+        </div>
+        
+        <div class="ui-form">
+          <div class="ui-form-txt01">校验码:</div>
+          <div class="ui-form-item ui-rel">
+            <input name=""  type="text" class="ui-txtinput01" style="width:80px;" />
+            <span class=" ui-Checkimg"><img src="../images/er.png" /></span> <span class=" ui-CheckControls"><img src="../images/yan.jpg" /></span> <span class=" ui-Exchange"><a href="" class="ui-txt-a">看不清，换一张</a></span>
+            <div class="ui-Agreement">
+              <input name="" type="checkbox" value="" class="ui-Check01" checked="checked" />
+              <span class=" ui-Exchange">我已阅读并同意《<a  class="ui-txt-a" id="open-txt">翼支付缴费协议</a>》</span> </div>
+          </div>
+        </div>
+        <div class="ui-form ui-txt18">
+          <div class="ui-form-txt01"></div>
+          <div class="ui-form-item"> <a title="查询" class="ui-button ui-button-morange " href="#">查询</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footerbg">
+      <div class="footer-main">
+        <div class="footer-link">
+          <div class="elselink">
+            <div class="elsetitlink"> <a style="cursor:default"><img src="../images/footer/dx.png" /></a> <a style="cursor:default"><img src="../images/footer/phone1.jpg"  /></a> <a style="cursor:default"><img src="../images/footer/phone.png"/></a> <a href="" target="_blank"><img src="../images/footer/youjian.png"/> <span class="t01">kefu@sutongpay.com.cn</span></a> </div>
+            <div class="elsebotlink">
+              <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+              <a href="
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu1.jpg"/></a> <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu2.jpg"/></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

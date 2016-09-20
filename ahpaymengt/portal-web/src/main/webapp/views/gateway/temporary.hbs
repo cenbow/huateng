@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="description" content='翼支付'>
+    <title>
+        翼支付-翼支付
+    </title>
+    <link rel="stylesheet" href="/assets/common.css">
+    <link rel="stylesheet" href="/assets/app.css">
+</head>
+
+<body id="divBody">
+<div class="inside-header">
+    <span class="ui-headerlogo"></span>
+
+    <div class="ui-nav">
+        <a class="nav-sel">我的翼支付</a>
+        <a>交易管理</a>
+        <a>应用中心</a>
+        <a>账单支付</a>
+        <a>翼充卡</a>
+        <a>手机客户端</a>
+    </div>
+</div>
+<div class="inside-main">
+
+
+    <form action="https://webpay.bestpay.com.cn/payOneNewUnify.do" name="formData" id="formData"
+          method="post">
+        <div class="account_div_2">
+            <div id="tab1" class="account_div4">
+                <form action="/" method="post">
+                    payClient<input type="text" name="PAYCLIENT" id="PAYCLIENT" value="{{payInfo.payClient}}"/><br/>
+                    merchantId<input type="text" name="MERCHANTID" id="MERCHANTID" value="{{payInfo.merchantId}}"/><br/>
+                    orderSeq<input type="text" name="ORDERSEQ" id="ORDERSEQ" value="{{payInfo.orderSeq}}"/><br/>
+                    orderReqTranSeq<input type="text" name="ORDERREQTRANSEQ" id="ORDERREQTRANSEQ"
+                           value="{{payInfo.orderReqTranSeq}}"/><br/>
+                    orderDate<input type="text" name="ORDERDATE" id="ORDERDATE" value="{{payInfo.orderDate}}"/><br/>
+                    orderAmount<input type="text" name="ORDERAMOUNT" id="ORDERAMOUNT" value="{{payInfo.orderAmount}}"/><br/>
+                    productAmount<input type="text" name="PRODUCTAMOUNT" id="PRODUCTAMOUNT"
+                           value="{{payInfo.productAmount}}"/><br/>
+                    attachAmount<input type="text" name="ATTACHAMOUNT" id="ATTACHAMOUNT"
+                           value="{{payInfo.attachAmount}}"/><br/>
+                    curType<input type="text" name="CURTYPE" id="CURTYPE" value="{{payInfo.curType}}"/><br/>
+                    encodeType<input type="text" name="ENCODETYPE" id="ENCODETYPE" value="{{payInfo.encodeType}}"/><br/>
+                    merchantUrl<input type="text" name="MERCHANTURL" id="MERCHANTURL" value="{{payInfo.merchantUrl}}"/><br/>
+                    backMerchantUrl<input type="text" name="BACKMERCHANTURL" id="BACKMERCHANTURL"
+                           value="{{payInfo.backMerchantUrl}}"/><br/>
+                    businessCode<input type="text" name="BUSICODE" id="BUSICODE" value="{{payInfo.businessCode}}"/><br/>
+                    productId<input type="text" name="PRODUCTID" id="PRODUCTID" value="{{payInfo.productId}}"/><br/>
+                    tmNum<input type="text" name="TMNUM" id="TMNUM" value="{{payInfo.tmNum}}"/><br/>
+                    customerId<input type="text" name="CUSTOMERID" id="CUSTOMERID" value="{{payInfo.customerId}}"/><br/>
+                    productDesc<input type="text" name="PRODUCTDESC" id="PRODUCTDESC" value="{{payInfo.productDesc}}"/><br/>
+                    productNo<input type="text" name="PRODUCTNO" id="PRODUCTNO" value="{{payInfo.productNo}}"/><br/>
+                    mac<input type="text" name="MAC" id="MAC" value="{{payInfo.mac}}"/><br/>
+                    clientIp<input type="text" name="CLIENTIP" id="CLIENTIP" value="{{payInfo.clientIp}}"/><br/>
+                    acCorGCode<input type="text" name="ACCORGCODE" id="ACCORGCODE" value="{{payInfo.acCorGCode}}"/><br/>
+                    attach<input type="text" name="ATTACH" id="ATTACH" value="{{payInfo.attach}}"/><br/>
+                    <input type="submit" value="提 交">
+                </form>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div id="footer">
+    <div class="footerbg">
+        <div class="footer-main">
+            <div class="footer-link">
+                <div class="elselink">
+                    <div class="elsetitlink"><a style="cursor:default"><img src="/assets/bestpay/footer/dx.png"></a> <a
+                            style="cursor:default"><img src="/assets/bestpay/footer/phone1.jpg"></a> <a
+                            style="cursor:default"><img src="/assets/bestpay/footer/phone.png"></a> <a href=""
+                                                                                                       target="_blank"><img
+                            src="/assets/bestpay/footer/youjian.png"> <span class="t01">kefu@bestpay.com.cn</span></a>
+                    </div>
+                    <div class="elsebotlink">
+                        <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+                        <a href="" class="img01" target="_blank"><img src="/assets/bestpay/footer/zhengshu1.jpg"></a>
+                        <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589" class="img01" target="_blank">
+                            <img src="/assets/bestpay/footer/zhengshu2.jpg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/common.js"></script>
+<script>require("common/init")</script>
+</body>
+</html>

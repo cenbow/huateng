@@ -1,0 +1,753 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<link href="../css/index.css" rel="stylesheet" />
+<link href="../css/inside-header.css" rel="stylesheet" />
+<link href="../css/footer.css" rel="stylesheet" />
+
+<link href="../css/mob-main.css" rel="stylesheet" />
+<SCRIPT type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></SCRIPT>
+<script>
+//选择鼠标经过按钮效果
+$(function(){
+	$('.brand-sel').hover(function(){
+		 $(this).css({"background-position":"0px -58px"});
+
+	},function(){
+		 $(this).css({"background-position":"0px 0px"});
+	});
+});	
+//品牌选择按钮效果-品牌
+$(document).ready(function(){
+ $("#br-sel").click(function(){
+	$(".mob-sel-tc").hide();
+	$("#br-imgdiv").show();
+  });
+ });
+$(document).ready(function(){
+ $(".br-img-a").click(function(){
+	var aa = $(this).attr("Series");
+	var bb = $(this).attr("system");
+	var cc = $(this).attr("title");
+	var dd = $(this).attr("imgid");
+	$(".mob-sel-tc").hide();
+  	$("#br-sel-txt").text(cc);
+	$(".xzdown-img01 span").hide();
+	$(".txt-sel").hide();
+	$(".b-down a").hide();
+	$(".br-txt ul li").hide();
+  	$("#xh-sel-txt").text("型号");
+	$("#"+dd).show();
+	$("#"+bb).css("display","inline-block");
+	$("#"+aa).show();
+  });
+ });
+//品牌选择按钮效果-型号
+$(document).ready(function(){
+ $("#xh-sel").click(function(){
+	$(".mob-sel-tc").hide();
+	$("#xh-imgdiv").show();
+  });
+ });
+$(document).ready(function(){
+ $(".br-txt-a").click(function(){
+	var bb = $(this).attr("system");
+	var ee = $(this).attr("name");
+	var ff = $(this).attr("imgid");
+	$(".mob-sel-tc").hide();
+  	$("#xh-sel-txt").text(ee);
+	$(".xzdown-img01 span").hide();
+	$(".txt-sel").hide();
+	$(".b-down a").hide();
+	$("#"+ff).show();
+	$("#"+bb).css("display","inline-block");
+  	$(".mob-p").text(ee);
+  });
+ });
+ //下载按钮变化
+ $(function(){
+	$('.mob-anniu01-h38').hover(function(){
+		$(this).css("background-position","0 -44px")
+		$(this).children("span").css("background-position","right -132px")
+
+	},function(){
+		$(this).css("background-position","0 -0px")
+		$(this).children("span").css("background-position","right -88px")
+	});
+});	
+
+ //点击按钮关闭
+ $(function(){
+  $(document).bind("click",function(e){
+   var target  = $(e.target);
+   if(target.closest(".sel-li-gb").length == 0){
+        $(".mob-sel-tc").hide();
+
+   }
+  })
+ })
+ $(document).ready(function(){
+  $(".mob-sel-tctop").click(function(){
+ 	$(".mob-sel-tc").hide();
+   });
+  });
+</script>
+
+<title>翼支付</title>
+</head>
+<body >
+<div id="divBody">
+<div class="topbar">
+	<div class="ui-topbarmain">
+    	<span class="ui-topleftlink"><a title="公司首页">公司首页</a><font>|</font><a title="网上营业厅">网上营业厅</a><font>|</font><a title="天翼积分商城">天翼积分商城</a><font>|</font><a title="官方微博">官方微博</a></span>
+        <div class="ui-toprightinfo">
+        <span>您好，欢迎来到翼支付！</span>   <a title="登录">登录</a><font>|</font><a title="注册">注册</a><font>|</font>
+        <div class="ui-helpselect">帮助中心<i></i>
+        <!--鼠标经过弹出DIV，改变箭头方向-->
+        <script>
+		$(function(){
+			$('.ui-helpselect').hover(function(){
+				$(this).children('div').show();
+				$(this).children('i').addClass("i-hover");
+			
+			},function(){
+				$(this).children('div').hide();
+				$(this).children('i').removeClass("i-hover");
+			});
+			});
+		</script>
+        <div class="ui-topbar-selectdiv">
+        	<ul>
+            	<li><a>常见问题</a></li>
+                <li><a>玩转翼支付</a></li>
+            </ul>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="ui-mobmain-header">
+<div class="inside-header"> <span class="ui-headerlogo"></span>
+  <div class="ui-nav"> <a >我的翼支付</a> <a >交易管理</a> <a >应用中心</a> <a >账单支付</a> <a>翼充卡</a> <a class="nav-sel">手机客户端</a> </div>
+</div>
+</div>
+<div class="mob-main02">
+    <div class="sub-menu">
+    	<ul>
+        	<li>
+            	<a target="_blank" href="https://itunes.apple.com/cn/app/sutongpay/id519952689?mt=8&ls=1">
+            	<div class="sub-ipone">
+                    <div class="sub-bar">
+                        <div class="s-ipone"></div>
+                        <div class="s-ipone-h"></div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+            	<a href="../tool/downloadClient.html">
+            	<div class="sub-android">
+                    <div class="sub-bar2">
+                        <div class="s-android"></div>
+                        <div class="s-android-h"></div>	
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+            	<div class="sub-wp">
+                    <div class="sub-bar3">
+                        <div class="s-wp"></div>
+                        <div class="s-wp-h"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="last" style="cursor:default">
+            	<div class="sub-hd">
+            	<div class="sub-bar4">
+            		<div class="s-hd"></div>
+               		<div class="s-hd-h"></div>	
+                </div>
+                </div>
+            </li>
+        </ul> 
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/submenu.js"></script>  
+	</div>
+	<div class="mob-xzdown">
+    	<div class="xzdown-bt01"><span>按手机型号选择</span></div>
+        <div class="xzdown-img01">
+        <!-- LOGO图片-->
+            <span ><img src="../images/mobileChannel/mob-down-mrimg01.jpg"/></span>
+            <span id="amoi" style="display:none;"><img src="../images/mobileChannel/amoi-logo.jpg"/></span>
+            <span id="apple" style="display:none;"><img src="../images/mobileChannel/apple-logo.jpg"/></span>
+            <span id="conor" style="display:none;"><img src="../images/mobileChannel/conor-logo.jpg"/></span>
+            <span id="coolpad" style="display:none;"><img src="../images/mobileChannel/coolpad-logo.jpg"/></span>
+            <span id="ephone" style="display:none;"><img src="../images/mobileChannel/ephone-logo.jpg"/></span>
+            <span id="feixun" style="display:none;"><img src="../images/mobileChannel/feixun-logo.jpg"/></span>
+            <span id="haier" style="display:none;"><img src="../images/mobileChannel/haier-logo.jpg"/></span>
+            <span id="hisense" style="display:none;"><img src="../images/mobileChannel/hisense-logo.jpg"/></span>
+            <span id="htc" style="display:none;"><img src="../images/mobileChannel/htc-logo.jpg"/></span>
+            <span id="hualu" style="display:none;"><img src="../images/mobileChannel/hualu-logo.jpg"/></span>
+            <span id="huawei" style="display:none;"><img src="../images/mobileChannel/huawei-logo.jpg"/></span>
+            <span id="jingci" style="display:none;"><img src="../images/mobileChannel/jingci-logo.jpg"/></span>
+            <span id="jinli" style="display:none;"><img src="../images/mobileChannel/jinli-logo.jpg"/></span>
+            <span id="ktouch" style="display:none;"><img src="../images/mobileChannel/ktouch-logo.jpg"/></span>
+            <span id="lenovo" style="display:none;"><img src="../images/mobileChannel/lenovo-logo.jpg"/></span>
+            <span id="mi" style="display:none;"><img src="../images/mobileChannel/mi-logo.jpg"/></span>
+            <span id="moto" style="display:none;"><img src="../images/mobileChannel/moto-logo.jpg"/></span>
+            <span id="philips" style="display:none;"><img src="../images/mobileChannel/philips-logo.jpg"/></span>
+            <span id="postcom" style="display:none;"><img src="../images/mobileChannel/postcom-logo.jpg"/></span>
+            <span id="sharp" style="display:none;"><img src="../images/mobileChannel/sharp-logo.jpg"/></span>
+            <span id="sonyericsson" style="display:none;"><img src="../images/mobileChannel/sonyericsson-logo.jpg"/></span>
+            <span id="sumsung" style="display:none;"><img src="../images/mobileChannel/sumsung-logo.jpg"/></span>
+            <span id="taifeng" style="display:none;"><img src="../images/mobileChannel/taifeng-logo.jpg"/></span>
+            <span id="tcl" style="display:none;"><img src="../images/mobileChannel/tcl-logo.jpg"/></span>
+            <span id="telt" style="display:none;"><img src="../images/mobileChannel/telt-logo.jpg"/></span>
+            <span id="tonewin" style="display:none;"><img src="../images/mobileChannel/tonewin-logo.jpg"/></span>
+            <span id="weirui" style="display:none;"><img src="../images/mobileChannel/weirui-logo.jpg"/></span>
+            <span id="youpai" style="display:none;"><img src="../images/mobileChannel/youpai-logo.jpg"/></span>
+            <span id="zte" style="display:none;"><img src="../images/mobileChannel/zte-logo.jpg"/></span>
+        <!-- 手机图片-夏新-->
+            <span id="amoi-E800C" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-apple-->
+            <span id="apple-IPHONE4" style="display:none;"><img src="../images/mobileChannel/apple-IPHONE4.jpg"/><p class="mob-p"></p></span>
+            <span id="apple-IPHONE4S" style="display:none;"><img src="../images/mobileChannel/apple-IPHONE4S.jpg"/><p class="mob-p"></p></span>
+            <span id="apple-IPHONE5" style="display:none;"><img src="../images/mobileChannel/apple-IPHONE5.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-酷诺-->
+            <span id="conor-E188" style="display:none;"><img src="../images/mobileChannel/conor-E188.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-酷派-->
+            <span id="coolpad-5216" style="display:none;"><img src="../images/mobileChannel/coolpad-5216.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-5600A520" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-5820" style="display:none;"><img src="../images/mobileChannel/coolpad-5820.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-5855" style="display:none;"><img src="../images/mobileChannel/coolpad-5855.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-58605862" style="display:none;"><img src="../images/mobileChannel/coolpad-5860+(5862).jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-5860S" style="display:none;"><img src="../images/mobileChannel/coolpad-5860S.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-5899" style="display:none;"><img src="../images/mobileChannel/coolpad-5899.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-5910" style="display:none;"><img src="../images/mobileChannel/coolpad-5910.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-5930" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-9070" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-9100" style="display:none;"><img src="../images/mobileChannel/coolpad-9100.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-9120" style="display:none;"><img src="../images/mobileChannel/coolpad-9120.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-91509120" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-9900" style="display:none;"><img src="../images/mobileChannel/coolpad-9900.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-9960" style="display:none;"><img src="../images/mobileChannel/coolpad-9960.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-Coolpad-5010" style="display:none;"><img src="../images/mobileChannel/coolpad-Coolpad-5010.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-Coolpad-5110" style="display:none;"><img src="../images/mobileChannel/coolpad-Coolpad-5110.jpg"/><p class="mob-p"></p></span>
+            <span id="coolpad-Coolpad-5870" style="display:none;"><img src="../images/mobileChannel/coolpad-Coolpad-5870.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-易丰-->
+            <span id="ephone-4S-EG5" style="display:none;"><img src="../images/mobileChannel/ephone-4S- EG5.jpg"/><p class="mob-p"></p></span>
+            <span id="ephone-E6AEG6" style="display:none;"><img src="../images/mobileChannel/ephone-E6A(EG6).jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-斐讯通信-->
+            <span id="feixun-PXX-i330v" style="display:none;"><img src="../images/mobileChannel/feixun-PXX-i330v.jpg"/><p class="mob-p"></p></span>
+            <span id="feixun-PXX-i700v" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="feixun-PXX-k210v" style="display:none;"><img src="../images/mobileChannel/feixun-PXX-k210v.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-海尔-->
+            <span id="haier-E899" style="display:none;"><img src="../images/mobileChannel/haier-E899.jpg"/><p class="mob-p"></p></span>
+            <span id="haier-HE-E617" style="display:none;"><img src="../images/mobileChannel/haier-HE-E617.jpg"/><p class="mob-p"></p></span>
+            <span id="haier-N620E" style="display:none;"><img src="../images/mobileChannel/haier-N620E.jpg"/><p class="mob-p"></p></span>
+            <span id="haier-N710E" style="display:none;"><img src="../images/mobileChannel/haier-N710E.jpg"/><p class="mob-p"></p></span>
+            <span id="haier-N720E" style="display:none;"><img src="../images/mobileChannel/haier-N720E.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-海信-->        
+            <span id="hisense-E910" style="display:none;"><img src="../images/mobileChannel/hisense-E910.jpg"/><p class="mob-p"></p></span>
+            <span id="hisense-EG900" style="display:none;"><img src="../images/mobileChannel/hisense-EG900.jpg"/><p class="mob-p"></p></span>
+            <span id="hisense-HS-E920" style="display:none;"><img src="../images/mobileChannel/hisense-HS-E920.jpg"/><p class="mob-p"></p></span>
+            <span id="hisense-HS-E956" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="hisense-HS-E956Q" style="display:none;"><img src="../images/mobileChannel/hisense-HS-E9560.jpg"/><p class="mob-p"></p></span>
+            <span id="hisense-HS-EG909" style="display:none;"><img src="../images/mobileChannel/hisense-HS-EG909.jpg"/><p class="mob-p"></p></span>
+            <span id="hisense-HS-EG950" style="display:none;"><img src="../images/mobileChannel/hisense-HS-EG950.jpg"/><p class="mob-p"></p></span>
+            <span id="hisense-HS-EG970" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-htc-->
+            <span id="htc-609dCP3" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-802dM7" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-T327d" style="display:none;"><img src="../images/mobileChannel/htc-T327d.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-T328d" style="display:none;"><img src="../images/mobileChannel/htc-T328d.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-T329d" style="display:none;"><img src="../images/mobileChannel/htc-T329d.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-T528d" style="display:none;"><img src="../images/mobileChannel/htc-T528d.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-X515d" style="display:none;"><img src="../images/mobileChannel/htc-X515d.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-X515dICS" style="display:none;"><img src="../images/mobileChannel/htc-X515d(ICS).jpg"/><p class="mob-p"></p></span>
+            <span id="htc-X720dX320D" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="htc-Z510d" style="display:none;"><img src="../images/mobileChannel/htc-Z510d.jpg"/><p class="mob-p"></p></span>            
+        <!-- 手机图片-华录-->
+            <span id="hualu-S3000" style="display:none;"><img src="../images/mobileChannel/hualu-S3000.jpg"/><p class="mob-p"></p></span>
+            <span id="hualu-S8300" style="display:none;"><img src="../images/mobileChannel/hualu-S8300.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-华为-->
+            <span id="huawei-C8655" style="display:none;"><img src="../images/mobileChannel/huawei-C8655.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8685D" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8810" style="display:none;"><img src="../images/mobileChannel/huawei-C8810.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8812" style="display:none;"><img src="../images/mobileChannel/huawei-C8812.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8813DG511C" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8825D" style="display:none;"><img src="../images/mobileChannel/huawei-C8825D.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8826D" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8850" style="display:none;"><img src="../images/mobileChannel/huawei-C8850.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-C8950D" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-G512CC8813Q" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="huawei-G610-C00G610C" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-京瓷-->
+        	<span id="jingci-KSP8000" style="display:none;"><img src="../images/mobileChannel/jingci-KSP8000.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-金立-->
+        	<span id="jinli-C500" style="display:none;"><img src="../images/mobileChannel/jinli-C500.jpg"/><p class="mob-p"></p></span>
+        	<span id="jinli-C600" style="display:none;"><img src="../images/mobileChannel/jinli-C600.jpg"/><p class="mob-p"></p></span>
+        	<span id="jinli-C700" style="display:none;"><img src="../images/mobileChannel/jinli-C700.jpg"/><p class="mob-p"></p></span>
+        	<span id="jinli-C800GN800E" style="display:none;"><img src="../images/mobileChannel/jinli-C800(GN800E).jpg"/><p class="mob-p"></p></span>
+            <span id="jinli-GN777E" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-天语-->
+            <span id="ktouch-E616" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-联想-->
+        	<span id="lenovo-A68e" style="display:none;"><img src="../images/mobileChannel/lenovo-A68e.jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-A390e" style="display:none;"><img src="../images/mobileChannel/lenovo-A390e.jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-A560e" style="display:none;"><img src="../images/mobileChannel/lenovo-A560e.jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-A700e-Angola" style="display:none;"><img src="../images/mobileChannel/lenovo-A700e-Angola.jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-A710eS800e" style="display:none;"><img src="../images/mobileChannel/lenovo-A710e(S800e).jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-A765eAlloa" style="display:none;"><img src="../images/mobileChannel/lenovo-A765e(Alloa).jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-A790e" style="display:none;"><img src="../images/mobileChannel/lenovo-A790e.jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-AmsterdamA600e" style="display:none;"><img src="../images/mobileChannel/lenovo-Amsterdam(A600e).jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-LNV-LenovoAbu" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-ParisS870e" style="display:none;"><img src="../images/mobileChannel/lenovo-Paris(S870e).jpg"/><p class="mob-p"></p></span>
+        	<span id="lenovo-S850eLNV-Sichuan" style="display:none;"><img src="../images/mobileChannel/lenovo-S850e(LNV-Sichuan).jpg"/><p class="mob-p"></p></span>        	
+        <!-- 手机图片-小米-->
+        	<span id="mi-MI-ONE-C1" style="display:none;"><img src="../images/mobileChannel/mi-MI-ONE-C1.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-摩托罗拉-->
+        	<span id="moto-MOT-Scorpion-Mini-WE" style="display:none;"><img src="../images/mobileChannel/moto-MOT-Scorpion-Mini-WE.jpg"/><p class="mob-p"></p></span>
+        	<span id="moto-XT553ArgonSpin-CG" style="display:none;"><img src="../images/mobileChannel/moto-XT553(ArgonSpin-CG).jpg"/><p class="mob-p"></p></span>
+        	<span id="moto-XT681" style="display:none;"><img src="../images/mobileChannel/moto-XT681.jpg"/><p class="mob-p"></p></span>
+        	<span id="moto-XT788IronPrime-CT" style="display:none;"><img src="../images/mobileChannel/moto-XT788(IronPrime-CT).jpg"/><p class="mob-p"></p></span>
+        	<span id="moto-XT889Yangze-we" style="display:none;"><img src="../images/mobileChannel/moto-XT889(Yangze-we).jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-飞利浦-->
+        	<span id="philips-D633" style="display:none;"><img src="../images/mobileChannel/philips-D633.jpg"/><p class="mob-p"></p></span>
+        	<span id="philips-D822" style="display:none;"><img src="../images/mobileChannel/philips-D822.jpg"/><p class="mob-p"></p></span>
+        	<span id="philips-D833" style="display:none;"><img src="../images/mobileChannel/philips-D833.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-新邮通-->
+            <span id="postcom-E606" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-夏普-->
+        	<span id="sharp-SH320T" style="display:none;"><img src="../images/mobileChannel/sharp-SH320T.jpg"/><p class="mob-p"></p></span>
+        	<span id="sharp-SH330T" style="display:none;"><img src="../images/mobileChannel/sharp-SH330T.jpg"/><p class="mob-p"></p></span>
+        	<span id="sharp-SH831T" style="display:none;"><img src="../images/mobileChannel/sharp-SH831T.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-索尼爱立信-->
+            <span id="sonyericsson-M35cM35h" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-三星-->
+        	<span id="sumsung-609i619" style="display:none;"><img src="../images/mobileChannel/sumsung-609(i619).jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-i929" style="display:none;"><img src="../images/mobileChannel/sumsung-i929.jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-i929ICS" style="display:none;"><img src="../images/mobileChannel/sumsung-i929(ICS).jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-i339Cori" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-i339(Cori).jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-i519Torino" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-i519(Torino).jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-i659" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-i659.jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-i699" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-i699.jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-i779" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-i779.jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-I829I859" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-I829(I859).jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-I869" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-I879" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-i939929U" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-i939(929U).jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-i939SCH-N719" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-i939(SCH-N719).jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-I939D" style="display:none;"><img src="../images/mobileChannel/sumsung-SCH-I939D.jpg"/><p class="mob-p"></p></span>
+        	<span id="sumsung-SCH-I959" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-泰丰-->
+        	<span id="taifeng-TF-C800" style="display:none;"><img src="../images/mobileChannel/taifeng-TF-C800.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-TCL-->        
+        	<span id="tcl-C993" style="display:none;"><img src="../images/mobileChannel/tcl-C993.jpg"/><p class="mob-p"></p></span>
+        	<span id="tcl-C995" style="display:none;"><img src="../images/mobileChannel/tcl-C995.jpg"/><p class="mob-p"></p></span>
+        	<span id="tcl-D662" style="display:none;"><img src="../images/mobileChannel/tcl-D662.jpg"/><p class="mob-p"></p></span>
+        	<span id="tcl-D668" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        	<span id="tcl-J320C" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-特灵通-->
+        	<span id="telt-TLT-LT-S980D" style="display:none;"><img src="../images/mobileChannel/telt-TLT-LT-S980D.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-同威-->
+        	<span id="tonewin-S8210" style="display:none;"><img src="../images/mobileChannel/tonewin-S8210.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-威睿-->
+        	<span id="weirui-S60" style="display:none;"><img src="../images/mobileChannel/weirui-S60.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-优派环宇-->
+        	<span id="youpai-ViewSonic-Q8" style="display:none;"><img src="../images/mobileChannel/youpai-ViewSonic-Q8.jpg"/><p class="mob-p"></p></span>
+        <!-- 手机图片-中兴-->
+            <span id="zte-N2013CN798" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="zte-N2013DN986" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="zte-N2013EN909" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="zte-N2013FN5" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            <span id="zte-N2013GN795" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+            
+        	<span id="zte-N788" style="display:none;"><img src="../images/mobileChannel/zte-N788.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N8010" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N8300" style="display:none;"><img src="../images/mobileChannel/nopic.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N855DN880D" style="display:none;"><img src="../images/mobileChannel/zte-N855D(N880D).jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N855D" style="display:none;"><img src="../images/mobileChannel/zte-N855D+.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N878" style="display:none;"><img src="../images/mobileChannel/zte-N878.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N880E" style="display:none;"><img src="../images/mobileChannel/zte-N880E.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N880FN8805" style="display:none;"><img src="../images/mobileChannel/zte-N880F(N8805).jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N880G" style="display:none;"><img src="../images/mobileChannel/zte-N880G.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N881E" style="display:none;"><img src="../images/mobileChannel/zte-N881E.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N881F" style="display:none;"><img src="../images/mobileChannel/zte-N881F.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N960" style="display:none;"><img src="../images/mobileChannel/zte-N960.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N970" style="display:none;"><img src="../images/mobileChannel/zte-N970.jpg"/><p class="mob-p"></p></span>
+        	<span id="zte-N983" style="display:none;"><img src="../images/mobileChannel/zte-N983.jpg"/><p class="mob-p"></p></span>
+        </div>
+        <div class="xzdown-main">
+        	<ul>
+            	<li class="xzdown-main-bt01" ><span>选择品牌与机型</span></li>
+            	<li  class="sel-li-gb">
+                <div id="br-sel-txt" >品牌</div>
+                <div class="brand-sel " id="br-sel"></div>
+                <div class="mob-sel-tc" id="br-imgdiv" style="display:none;">
+                	<div class="mob-sel-tctop"></div>
+                    <div class="mob-sel-tcmain br-img">
+                    	<ul>
+                    	    <li><a  class="br-img-a"  imgid="amoi" title="夏新" system="android-b" Series="amoi-s"><img src="../images/mobileChannel/amoi-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="apple" title="苹果" system="iphone-b" Series="iphone-s"><img src="../images/mobileChannel/apple-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="conor" title="酷诺" system="android-b" Series="conor-s"><img src="../images/mobileChannel/conor-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="coolpad" title="酷派" system="android-b" Series="coolpad-s"><img src="../images/mobileChannel/coolpad-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="ephone" title="易丰" system="android-b" Series="ephone-s"><img src="../images/mobileChannel/ephone-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="jinli" title="金立" system="android-b" Series="jinli-s"><img src="../images/mobileChannel/jinli-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="haier" title="海尔" system="android-b" Series="haier-s"><img src="../images/mobileChannel/haier-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="hisense" title="海信" system="android-b" Series="hisense-s"><img src="../images/mobileChannel/hisense-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="htc" title="HTC" system="android-b" Series="htc-s"><img src="../images/mobileChannel/htc-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="hualu" title="华录" system="android-b" Series="hualu-s"><img src="../images/mobileChannel/hualu-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="huawei" title="华为" system="android-b" Series="huawei-s"><img src="../images/mobileChannel/huawei-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="ktouch" title="天语" system="android-b" Series="ktouch-s"><img src="../images/mobileChannel/ktouch-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="jingci" title="京瓷" system="android-b" Series="jingci-s"><img src="../images/mobileChannel/jingci-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="lenovo" title="联想" system="android-b" Series="lenovo-s"><img src="../images/mobileChannel/lenovo-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="mi" title="小米" system="android-b" Series="mi-s"><img src="../images/mobileChannel/mi-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="moto" title="摩托罗拉" system="android-b" Series="moto-s"><img src="../images/mobileChannel/moto-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="feixun" title="斐讯通信" system="android-b" Series="feixun-s"><img src="../images/mobileChannel/feixun-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="philips" title="飞利浦" system="android-b" Series="philips-s"><img src="../images/mobileChannel/philips-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="postcom" title="新邮通" system="android-b" Series="postcom-s"><img src="../images/mobileChannel/postcom-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="sharp" title="夏普" system="android-b" Series="sharp-s"><img src="../images/mobileChannel/sharp-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="sonyericsson" title="索尼爱立信" system="android-b" Series="sonyericsson-s"><img src="../images/mobileChannel/sonyericsson-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="sumsung" title="三星" system="android-b" Series="sumsung-s"><img src="../images/mobileChannel/sumsung-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="tcl" title="TCL" system="android-b" Series="tcl-s"><img src="../images/mobileChannel/tcl-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="telt" title="特灵通" system="android-b" Series="telt-s"><img src="../images/mobileChannel/telt-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="taifeng" title="泰丰" system="android-b" Series="taifeng-s"><img src="../images/mobileChannel/taifeng-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="tonewin" title="同威" system="android-b" Series="tonewin-s"><img src="../images/mobileChannel/tonewin-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="weirui" title="威睿" system="android-b" Series="weirui-s"><img src="../images/mobileChannel/weirui-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="youpai" title="优派环宇" system="android-b" Series="youpai-s"><img src="../images/mobileChannel/youpai-logo.jpg"/></a></li>
+                        	<li><a  class="br-img-a"  imgid="zte" title="中兴" system="android-b" Series="zte-s"><img src="../images/mobileChannel/zte-logo.jpg"/></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                </li>
+            	<li class="xzdown-main-bt01"><span>选择型号</span></li>
+            	<li class="sel-li-gb">
+                <div id="xh-sel-txt">型号</div>
+                <div class="brand-sel sel02" id="xh-sel"></div>
+                <div class="mob-sel-tc" id="xh-imgdiv" style="display:none;">
+                	<div class="mob-sel-tctop"></div>
+                    <div class="mob-sel-tcmain br-txt">
+                    	<ul>
+                        	<li class="bt-txt-first">
+                            <span>请选择手机的品牌</span>
+                            </li>
+                            <li id="amoi-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="amoi-E800C" name="E800C" system="android-b">E800C</a>
+                            </li>
+                            <li id="iphone-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="apple-IPHONE4" name="IPHONE4" system="iphone-b">IPHONE4</a>
+                                <a  class="br-txt-a"  imgid="apple-IPHONE4S" name="IPHONE4S" system="iphone-b">IPHONE4S</a>
+                                <a  class="br-txt-a"  imgid="apple-IPHONE5" name="IPHONE5" system="iphone-b">IPHONE5</a>
+                            </li>
+                            <li id="conor-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="conor-E188" name="E188" system="android-b">E188</a>
+                            </li>
+                            <li id="coolpad-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="coolpad-5216" name="5216" system="android-b">5216</a>
+                                <a  class="br-txt-a"  imgid="coolpad-5600A520" name="5600(A520)" system="android-b">5600(A520)</a>
+                                <a  class="br-txt-a"  imgid="coolpad-5820" name="5820" system="android-b">5820</a>
+                                <a  class="br-txt-a"  imgid="coolpad-5855" name="5855" system="android-b">5855</a>
+                                <a  class="br-txt-a"  imgid="coolpad-58605862" name="5860+(5862)" system="android-b">5860+(5862)</a>
+                                <a  class="br-txt-a"  imgid="coolpad-5860S" name="5860S" system="android-b">5860S</a>
+                                <a  class="br-txt-a"  imgid="coolpad-5899" name="5899" system="android-b">5899</a>
+                                <a  class="br-txt-a"  imgid="coolpad-5910" name="5910" system="android-b">5910</a>
+                                <a  class="br-txt-a"  imgid="coolpad-5930" name="5930" system="android-b">5930</a>
+                                <a  class="br-txt-a"  imgid="coolpad-9070" name="9070" system="android-b">9070</a>
+                                <a  class="br-txt-a"  imgid="coolpad-9100" name="9100" system="android-b">9100</a>
+                                <a  class="br-txt-a"  imgid="coolpad-9120" name="9120" system="android-b">9120</a>
+                                <a  class="br-txt-a"  imgid="coolpad-91509120" name="9150(原9120+)" system="android-b">9150(原9120+)</a>
+                                <a  class="br-txt-a"  imgid="coolpad-9900" name="9900" system="android-b">9900</a>
+                                <a  class="br-txt-a"  imgid="coolpad-9960" name="9960" system="android-b">9960</a>
+                                <a  class="br-txt-a"  imgid="coolpad-Coolpad-5010" name="5010" system="android-b">5010</a>
+                                <a  class="br-txt-a"  imgid="coolpad-Coolpad-5110" name="5110" system="android-b">5110</a>
+                                <a  class="br-txt-a"  imgid="coolpad-Coolpad-5870" name="5870" system="android-b">5870</a>
+                            </li>
+                            <li id="ephone-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="ephone-4S-EG5" name="4S-EG5" system="android-b">4S-EG5</a>
+                                <a  class="br-txt-a"  imgid="ephone-E6AEG6" name="E6A(EG6)" system="android-b">E6A(EG6)</a>
+                            </li>
+                            <li id="feixun-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="feixun-PXX-i330v" name="PXX-i330v" system="android-b">PXX-i330v</a>
+                                <a  class="br-txt-a"  imgid="feixun-PXX-i700v" name="PXX-i700v" system="android-b">PXX-i700v</a>
+                                <a  class="br-txt-a"  imgid="feixun-PXX-k210v" name="PXX-k210v" system="android-b">PXX-k210v</a>
+                            </li>
+                            <li id="haier-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="haier-E899" name="E899" system="android-b">E899</a>
+                                <a  class="br-txt-a"  imgid="haier-HE-E617" name="HE-E617" system="android-b">HE-E617</a>
+                                <a  class="br-txt-a"  imgid="haier-N620E" name="N620E" system="android-b">N620E</a>
+                                <a  class="br-txt-a"  imgid="haier-N710E" name="N710E" system="android-b">N710E</a>
+                                <a  class="br-txt-a"  imgid="haier-N720E" name="N720E" system="android-b">N720E</a>
+                            </li>
+                            <li id="hisense-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="hisense-E910" name="E910" system="android-b">E910</a>
+                                <a  class="br-txt-a"  imgid="hisense-EG900" name="EG900" system="android-b">EG900</a>
+                                <a  class="br-txt-a"  imgid="hisense-HS-E920" name="HS-E920" system="android-b">HS-E920</a>
+                                <a  class="br-txt-a"  imgid="hisense-HS-E956" name="HS-E956" system="android-b">HS-E956</a>
+                                <a  class="br-txt-a"  imgid="hisense-HS-E956Q" name="HS-E956Q" system="android-b">HS-E956Q</a>
+                                <a  class="br-txt-a"  imgid="hisense-HS-EG909" name="HS-EG909" system="android-b">HS-EG909</a>
+                                <a  class="br-txt-a"  imgid="hisense-HS-EG950" name="HS-EG950" system="android-b">HS-EG950</a>
+                                <a  class="br-txt-a"  imgid="hisense-HS-EG970" name="HS-EG970" system="android-b">HS-EG970</a>
+                            </li>
+                            <li id="htc-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="htc-609dCP3" name="609d(CP3或者CPE/608d)" system="android-b">609d(CP3或者CPE/608d)</a>
+                                <a  class="br-txt-a"  imgid="htc-802dM7" name="802d(M7)" system="android-b">802d(M7)</a>
+                                <a  class="br-txt-a"  imgid="htc-T327d" name="T327d" system="android-b">T327d</a>
+                                <a  class="br-txt-a"  imgid="htc-T328d" name="T328d" system="android-b">T328d</a>
+                                <a  class="br-txt-a"  imgid="htc-T329d" name="T329d" system="android-b">T329d</a>
+                                <a  class="br-txt-a"  imgid="htc-T528d" name="T528d" system="android-b">T528d</a>
+                                <a  class="br-txt-a"  imgid="htc-X515d" name="X515d" system="android-b">X515d</a>
+                                <a  class="br-txt-a"  imgid="htc-X515dICS" name="X515d(ICS)" system="android-b">X515d(ICS)</a>                                
+                                <a  class="br-txt-a"  imgid="htc-X720dX320D" name="X720d(X320D)" system="android-b">X720d(X320D)</a>
+                                <a  class="br-txt-a"  imgid="htc-Z510d" name="Z510d" system="android-b">Z510d</a>
+                            </li>
+                            <li id="hualu-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="hualu-S3000" name="S3000" system="android-b">S3000</a>
+                                <a  class="br-txt-a"  imgid="hualu-S8300" name="S8300" system="android-b">S8300</a>
+                            </li>
+                            <li id="huawei-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="huawei-C8655" name="C8655" system="android-b">C8655</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8685D" name="C8685D" system="android-b">C8685D</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8810" name="C8810" system="android-b">C8810</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8812" name="C8812" system="android-b">C8812</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8813DG511C" name="C8813D(G511C)" system="android-b">C8813D(G511C)</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8825D" name="C8825D" system="android-b">C8825D</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8826D" name="C8826D" system="android-b">C8826D</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8850" name="C8850" system="android-b">C8850</a>
+                                <a  class="br-txt-a"  imgid="huawei-C8950D" name="C8850D" system="android-b">C8850D</a>
+                                <a  class="br-txt-a"  imgid="huawei-G610-C00G610C" name="G610-C00(G610C)" system="android-b">G610-C00(G610C)</a>
+                                <a  class="br-txt-a"  imgid="huawei-G512CC8813Q" name="G512C(C8813Q)" system="android-b">G512C(C8813Q)</a>                                
+                            </li>
+                            <li id="jingci-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="jingci-KSP8000" name="KSP8000" system="android-b">KSP8000</a>
+                            </li>
+                            <li id="jinli-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="jinli-C500" name="C500" system="android-b">C500</a>
+                                <a  class="br-txt-a"  imgid="jinli-C600" name="C600" system="android-b">C600</a>
+                                <a  class="br-txt-a"  imgid="jinli-C700" name="C700" system="android-b">C700</a>
+                                <a  class="br-txt-a"  imgid="jinli-C800GN800E" name="C800(GN800E)" system="android-b">C800(GN800E)</a>
+                                <a  class="br-txt-a"  imgid="jinli-GN777E" name="GN777E" system="android-b">GN777E</a>
+                            </li>
+                            <li id="ktouch-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="ktouch-E616" name="E616" system="android-b">E616</a>
+                            </li>
+                            <li id="lenovo-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="lenovo-A68e" name="A68e" system="android-b">A68e</a>
+                                <a  class="br-txt-a"  imgid="lenovo-A390e" name="A390e" system="android-b">A390e</a>
+                                <a  class="br-txt-a"  imgid="lenovo-A560e" name="A560e" system="android-b">A560e</a>
+                                <a  class="br-txt-a"  imgid="lenovo-A700e-Angola" name="A700e-Angola" system="android-b">A700e-Angola</a>
+                                <a  class="br-txt-a"  imgid="lenovo-A710eS800e" name="A710e(S800e)" system="android-b">A710e(S800e)</a>
+                                <a  class="br-txt-a"  imgid="lenovo-A765eAlloa" name="A765e(Alloa)" system="android-b">A765e(Alloa)</a>
+                                <a  class="br-txt-a"  imgid="lenovo-A790e" name="A790e" system="android-b">A790e</a>
+                                <a  class="br-txt-a"  imgid="lenovo-AmsterdamA600e" name="Amsterdam(A600e)" system="android-b">Amsterdam(A600e)</a>
+                                <a  class="br-txt-a"  imgid="lenovo-LNV-LenovoAbu" name="Lenovo S820e或Lenovo Apple-E" system="android-b">Lenovo S820e或Lenovo Apple-E</a>
+                                <a  class="br-txt-a"  imgid="lenovo-ParisS870e" name="Paris(S870e)" system="android-b">Paris(S870e)</a>
+                                <a  class="br-txt-a"  imgid="lenovo-S850eLNV-Sichuan" name="S850e(LNV-Sichuan)" system="android-b">S850e(LNV-Sichuan)</a>
+                            </li>
+                            <li id="mi-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="mi-MI-ONE-C1" name="MI-ONE-C1" system="android-b">MI-ONE-C1</a>
+                            </li>
+                            <li id="moto-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="moto-MOT-Scorpion-Mini-WE" name="MOT-Scorpion-Mini-WE" system="android-b">MOT-Scorpion-Mini-WE</a>
+                                <a  class="br-txt-a"  imgid="moto-XT553ArgonSpin-CG" name="XT553(ArgonSpin-CG)" system="android-b">XT553(ArgonSpin-CG)</a>
+                                <a  class="br-txt-a"  imgid="moto-XT681" name="XT681" system="android-b">XT681</a>
+                                <a  class="br-txt-a"  imgid="moto-XT788IronPrime-CT" name="XT788(IronPrime-CT)" system="android-b">XT788(IronPrime-CT)</a>
+                                <a  class="br-txt-a"  imgid="moto-XT889Yangze-we" name="XT889(Yangze-we)" system="android-b">XT889(Yangze-we)</a>
+                            </li>
+                            <li id="philips-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="philips-D633" name="D633" system="android-b">D633</a>
+                                <a  class="br-txt-a"  imgid="philips-D822" name="D822" system="android-b">D822</a>
+                                <a  class="br-txt-a"  imgid="philips-D833" name="D833" system="android-b">D833</a>
+                            </li>
+                            <li id="postcom-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="postcom-E606" name="E606" system="android-b">E606</a>
+                            </li>
+                            <li id="sharp-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="sharp-SH320T" name="SH320T" system="android-b">SH320T</a>
+                                <a  class="br-txt-a"  imgid="sharp-SH330T" name="SH330T" system="android-b">SH330T</a>
+                                <a  class="br-txt-a"  imgid="sharp-SH831T" name="SH831T" system="android-b">SH831T</a>
+                            </li>
+                            <li id="sonyericsson-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="sonyericsson-M35cM35h" name="M35c(M35h)" system="android-b">M35c(M35h)</a>
+                            </li>
+                            <li id="sumsung-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="sumsung-609i619" name="609(i619)" system="android-b">609(i619)</a>
+                                <a  class="br-txt-a"  imgid="sumsung-i929" name="i929" system="android-b">i929</a>
+                                <a  class="br-txt-a"  imgid="sumsung-i929ICS" name="i929(ICS)" system="android-b">i929(ICS)</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-i339Cori" name="SCH-i339(Cori)" system="android-b">SCH-i339(Cori)</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-i519Torino" name="SCH-i519(Torino)" system="android-b">SCH-i519(Torino)</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-i659" name="SCH-i659" system="android-b">SCH-i659</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-i699" name="SCH-i699" system="android-b">SCH-i699</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-i779" name="SCH-i779(i719(原i769))" system="android-b">SCH-i779(i719(原i769))</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-I829I859" name="SCH-I829(I859)" system="android-b">SCH-I829(I859)</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-I869" name="SCH-I869" system="android-b">SCH-I869</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-I879" name="SCH-I879" system="android-b">SCH-I879</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-i939929U" name="SCH-i939(929U)" system="android-b">SCH-i939(929U)</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-I939D" name="SCH-I939D" system="android-b">SCH-I939D</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-i939SCH-N719" name="SCH-i939(SCH-N719)" system="android-b">SCH-i939(SCH-N719)</a>
+                                <a  class="br-txt-a"  imgid="sumsung-SCH-I959" name="SCH-I959" system="android-b">SCH-I959</a>
+                            </li>
+                            <li id="taifeng-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="taifeng-TF-C800" name="TF-C800" system="android-b">TF-C800</a>
+                            </li>
+                            <li id="tcl-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="tcl-C993" name="C993" system="android-b">C993</a>
+                                <a  class="br-txt-a"  imgid="tcl-C995" name="C995" system="android-b">C995</a>
+                                <a  class="br-txt-a"  imgid="tcl-D662" name="D662" system="android-b">D662</a>
+                                <a  class="br-txt-a"  imgid="tcl-D668" name="D668" system="android-b">D668</a>
+                                <a  class="br-txt-a"  imgid="tcl-J320C" name="J320C" system="android-b">J320C</a>
+                            </li>
+                            <li id="iphone-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="apple-IPHONE4" name="IPHONE4" system="android-b">IPHONE4</a>
+                                <a  class="br-txt-a"  imgid="apple-IPHONE4S" name="IPHONE4S" system="android-b">IPHONE4S</a>
+                                <a  class="br-txt-a"  imgid="apple-IPHONE5" name="IPHONE5" system="android-b">IPHONE5</a>
+                            </li>
+                            <li id="telt-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="telt-TLT-LT-S980D" name="TLT-LT-S980D" system="android-b">TLT-LT-S980D</a>
+                            </li>
+                            <li id="tonewin-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="tonewin-S8210" name="S8210" system="android-b">S8210</a>
+                            </li>
+                            <li id="weirui-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="weirui-S60" name="S60" system="android-b">S60</a>
+                            </li>
+                            <li id="youpai-s"  style="display:none">
+                                <a  class="br-txt-a"  imgid="youpai-ViewSonic-Q8" name="ViewSonic-Q8" system="android-b">ViewSonic-Q8</a>
+                            </li>
+                        	<li id="zte-s"  style="display:none">
+                        	    <a  class="br-txt-a"  imgid="zte-N2013CN798" name="N2013C(N798)" system="android-b">N2013C(N798)</a>
+                        	    <a  class="br-txt-a"  imgid="zte-N2013DN986" name="N2013D(N986)" system="android-b">N2013D(N986)</a>
+                        	    <a  class="br-txt-a"  imgid="zte-N2013EN909" name="N2013E(N909)" system="android-b">N2013E(N909)</a>
+                        	    <a  class="br-txt-a"  imgid="zte-N2013FN5" name="N2013F(N5)" system="android-b">N2013F(N5)</a>
+                        	    <a  class="br-txt-a"  imgid="zte-N2013GN795" name="N2013G(N795)" system="android-b">N2013G(N795)</a>
+                                <a  class="br-txt-a"  imgid="zte-N788" name="N788" system="android-b">N788</a>
+                                <a  class="br-txt-a"  imgid="zte-N8010" name="N8010" system="android-b">N8010</a>
+                                <a  class="br-txt-a"  imgid="zte-N8300" name="N8300" system="android-b">N8300</a>
+                                <a  class="br-txt-a"  imgid="zte-N855DN880D" name="N855D(N880D)" system="android-b">N855D(N880D)</a>
+                                <a  class="br-txt-a"  imgid="zte-N855D" name="N855D+" system="android-b">N855D+</a>
+                                <a  class="br-txt-a"  imgid="zte-N878" name="N878" system="android-b">N878</a>
+                                <a  class="br-txt-a"  imgid="zte-N880E" name="N880E" system="android-b">N880E</a>
+                                <a  class="br-txt-a"  imgid="zte-N880FN8805" name="N880F(N8805)" system="android-b">N880F(N8805)</a>
+                                <a  class="br-txt-a"  imgid="zte-N880G" name="N880G" system="android-b">N880G</a>
+                                <a  class="br-txt-a"  imgid="zte-N881E" name="N881E" system="android-b">N881E</a>
+                                <a  class="br-txt-a"  imgid="zte-N881F" name="N881F" system="android-b">N881F</a>
+                                <a  class="br-txt-a"  imgid="zte-N960" name="N960" system="android-b">N960</a>
+                                <a  class="br-txt-a"  imgid="zte-N970" name="N970" system="android-b">N970</a>
+                                <a  class="br-txt-a"  imgid="zte-N983" name="N983" system="android-b">N983</a>                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </li>
+            	<li class="xzdown-main-bt01"><span>适用版本</span></li>
+            	<li >
+                <span class="txt-sel">请选择手机品牌与型号</span>
+				<div class="b-down">
+                <a class="mob-anniu01-h38" id="android-b"  style="display:none" href="../tool/downloadClient.html">
+                   <span class="mob-anniu02-h38">Android版</span></a>
+                <a class="mob-anniu01-h38" id="iphone-b"  style="display:none" target="_blank" href="https://itunes.apple.com/cn/app/sutongpay/id519952689?mt=8&ls=1">
+                   <span class="mob-anniu02-h38">iPhone版</span></a>
+                </div>               
+				</li>
+            </ul>
+        </div>
+    </div>
+    <div class="mob-wx">
+    	<ul>
+        	<li class="mob-codeli">
+            	<div class="mob-libt01"><span>手机拍摄二维码</span></div>
+            	<div class="mob-licodemain01">
+                	<span class="yzf-2w"></span>
+                	<span class="yzf-2w-note">用手机上的二维码扫描软件拍摄左侧二维码，即可下载。</span>
+                </div>
+                
+            </li>
+            <li class="mob-SMSli">
+            	<div class="mob-libt01"><span>通过短信获取下载地址</span></div>
+            	<div class="mob-lisms-sms01">
+                	<ul>
+                    	<li><span class="img-sms-d"></span>
+                           <span class="sms-txt-input"> 
+                           <input id="androidvalue" name="" type="text" class="mob-txt02" value="请输入手机号码" maxlength="11"
+                                  onmouseover=this.focus(); onclick="if(value==defaultValue){value='';this.style.color='#000'}" 
+                                  onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="width:165px;" />
+                           </span>
+                    	   <span class="sms-txt-a">
+                    	   <a class="mob-fs01"  id="open01"></a>
+                    	   <a class="thickbox"  id="tcan022" style="dispay:none;"
+                    	      href="../outview/downToPhone.jsp?view=true&keepThis=false&TB_iframe=true&height=210&width=405" title="下载到手机"></a>                   
+            <script>
+			$(function(){
+			$('#open01').click(function(){
+			$("#show01").show()
+			});
+			});
+			</script>     
+                           </span>
+                        </li>
+                    </ul>
+                </div>               
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="mob-bottom"></div>
+
+
+
+<div id="footer">
+    <div class="footerbg">
+      <div class="footer-main">
+        <div class="footer-link">
+          <div class="elselink">
+            <div class="elsetitlink"> <a style="cursor:default"><img src="../images/footer/dx.png" /></a> <a style="cursor:default"><img src="../images/footer/phone1.jpg"  /></a> <a style="cursor:default"><img src="../images/footer/phone.png"/></a> <a href="" target="_blank"><img src="../images/footer/youjian.png"/> <span class="t01">kefu@sutongpay.com.cn</span></a> </div>
+            <div class="elsebotlink">
+              <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+              <a href="
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu1.jpg"/></a> <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu2.jpg"/></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="show01" style="display:none;">
+  <div class="ui-show-main ui-mobshow">
+    <div class="ui-show-title"><span>下载到手机</span><a title="关闭" class="close" id="close01" >x</a> </div>
+    <script>
+		 $(function(){
+			$("#close01").click(function(){
+				$("#show01").hide();
+			});
+		});
+		</script>
+    <div class="ui-showdiv">
+        <div class="ui-form">
+            <div class="ui-form-txt01">手机号:</div>
+            <div class="ui-form-item"> <span class="ui-form-txt02">13411111111</span> </div>
+        </div>
+        <div class="ui-form">
+            <div class="ui-form-txt01">校验码:</div>
+            <div class="ui-form-item ui-rel">
+              <input name=""  type="text" class="ui-txtinput01" style="width:80px;" />
+              <span class=" ui-Checkimg"><img src="../images/er.png" /></span> <span class=" ui-CheckControls"><img src="../images/yan.jpg" /></span> <span class=" ui-Exchange"><a href="" class="ui-txt-a">看不清，换一张</a></span>
+               
+            </div>
+          </div>
+         <div class="ui-form">
+            <div class="ui-form-txt01">短信验证码:</div>
+            <div class="ui-form-item"> <input name=""  type="text" class="ui-txtinput01" style="width:80px;" /> <a class="ui-button ui-button-sermwhite" >发送验证码</a>  </div>
+        </div> 
+    </div>
+    <div class="ui-showdiv-close"> <span> <a title="确定" class="ui-button ui-button-morange " href="#">确定</a> <a title="取消" class="ui-button ui-button-mwhite " href="#">取消</a> </span> </div>
+  </div>
+  <div class="tan_bei"> </div>
+</div>
+</body>
+</html>

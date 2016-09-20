@@ -1,0 +1,65 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+<h3 xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">Component Edit</h3>
+<form accept-charset="UTF-8" action="/components/{{component.id}}" class="form-horizontal" id="edit_component"
+      method="post">
+
+    <input name="_method" type="hidden" value="put">
+
+    <div class="control-group">
+        <label class="control-label" for="component_comp_category_id">CompCategoryId</label>
+
+        <div class="controls">
+            <input class="text_field" id="component_comp_category_id" name="compCategoryId" size="30" type="text"
+                   value="{{component.compCategoryId}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="component_name">Name</label>
+
+        <div class="controls">
+            <input class="text_field" id="component_name" name="name" size="30" type="text" value="{{component.name}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="component_path">Path</label>
+
+        <div class="controls">
+            <input class="text_field" id="component_path" name="path" size="30" type="text"
+                   value="{{component.path}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="component_api">API</label>
+
+        <div class="controls">
+            <textarea class="input-xlarge" id="component_api" name="api">{{component.api}}</textarea>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="cachedBy">cachedBy</label> (0：不缓存；1：WidgetId，2：ComponentId)
+
+        <div class="controls">
+            <input class="text_field" id="cachedBy" name="cachedBy">{{component.cachedBy}}
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="cachedTime">cachedTime</label> (以分钟为单位)
+
+        <div class="controls">
+            <input class="text_field" id="cachedTime" name="cachedTime">{{component.cachedTime}}
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/components" class="btn"><span>Cancel</span></a>
+    </div>
+</form>
+{{/partial}}
+{{> admin/layout}}

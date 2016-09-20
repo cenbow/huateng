@@ -1,0 +1,30 @@
+{{#component "payment-reChargeCard"}}
+{{#each _DATA_.items}}
+    <div class="sph_box">
+        <div class="sp_pic">
+            <div class="sp_md_jz">
+	            <a href="/payment/reChargeCard/detail?itemId={{id}}">
+                <img src="{{mainImage}}"/>
+              </a> 
+            </div>
+        </div>
+        <div class="sp_con">
+            <div class="splb_tit">{{name}}</div>
+            <ul class="spxx_tex">
+              <li>产品状态 ： <span>有货</span>
+              </li>
+              <li>
+              </li>
+            </ul>
+            <div class="lb_but">
+              <input type="button" name="button" data-id="{{id}}"  value="立即购买" class="funds-org">
+            </div>
+        </div>
+    </div>
+{{/each}}
+        <div class="cl"></div>
+        {{#if _DATA_.items}}
+       <span id="js-list-total" style="display:none;">{{_DATA_.total}}</span>
+       <div class="pagination" id="js-list-pagination" style="float: right;"></div>
+       {{/if}}
+{{/component}}

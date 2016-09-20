@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="TTransferOrder">
+    <resultMap id="BaseResultMap" type="TTransferOrder">
+        <id column="ORDERSEQ" property="orderseq" jdbcType="VARCHAR"/>
+        <result column="PAYER" property="payer" jdbcType="VARCHAR"/>
+        <result column="AMOUNT" property="amount" jdbcType="DECIMAL"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+        <result column="FLAG" property="flag" jdbcType="VARCHAR"/>
+        <result column="IS_SEND_MSG" property="isSendMsg" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="TRANSACTION_TIME" property="transactionTime" jdbcType="TIMESTAMP"/>
+        <result column="BLACK_FLAG" property="blackFlag" jdbcType="VARCHAR"/>
+        <result column="TRANSFER_FEE" property="transferFee" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    ORDERSEQ,PAYER,AMOUNT,REMARK,FLAG,IS_SEND_MSG,CREATE_TIME,TRANSACTION_TIME,BLACK_FLAG,TRANSFER_FEE
+    </sql>
+
+    <insert id="insertTransferOrder" parameterType="TTransferOrder">
+        insert into CORE.T_TRANSFER_ORDER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+                ORDERSEQ,
+
+                PAYER,
+
+                AMOUNT,
+
+                REMARK,
+
+                FLAG,
+
+                IS_SEND_MSG,
+
+                CREATE_TIME,
+
+                TRANSACTION_TIME,
+
+                BLACK_FLAG,
+
+                TRANSFER_FEE,
+
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+
+
+                #{orderseq,jdbcType=VARCHAR},
+
+                #{payer,jdbcType=VARCHAR},
+
+                #{amount,jdbcType=VARCHAR},
+
+                #{remark,jdbcType=VARCHAR},
+
+                #{flag,jdbcType=VARCHAR},
+
+                #{isSendMsg,jdbcType=VARCHAR},
+
+                #{createTime,jdbcType=VARCHAR},
+
+                #{transactionTime,jdbcType=VARCHAR},
+
+                #{blackFlag,jdbcType=VARCHAR},
+
+                #{transferFee,jdbcType=VARCHAR},
+
+        </trim>
+    </insert>
+
+</mapper>

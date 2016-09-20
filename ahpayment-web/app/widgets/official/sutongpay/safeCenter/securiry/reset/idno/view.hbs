@@ -1,0 +1,100 @@
+{{#component "myinfo-security-paypwd-reset-idno"}}
+<div class="ui-Security-maindiv"> 
+  <span class="ui-securityimg">
+    <img src="/assets/sutongpay/mycenter/myyinghangka-d.jpg" width="104" height="100" />
+  </span>
+  <form id="resetPwdByIdno" name="resetPwdByIdno">
+  <div class="ui-form">
+    <div class="ui-form-txt01">真实姓名:</div>
+    <div class="ui-form-item">
+      <input name="userName" id="userName" type="text" class="ui-txtinput01 "
+      data-required="true" 
+      data-regexp="^[\u4E00-\u9FA5\uF900-\uFA2D]+$" 
+      data-error-message="亲，姓名不能为空且只能为汉字~"
+      data-error-container="#nameResult"/>
+      <ul class="parsley-error-list">
+          <li class="equalto"><span style="color:red;" id="nameResult"></span></li>
+        </ul>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">身份证号:</div>
+    <div class="ui-form-item">
+      <input name="idNo" id="idNo" type="text" class="ui-txtinput01 "
+      data-required="true" 
+      data-regexp="^[1-9]([0-9]{14}|[0-9|X|x]{17})$" 
+      data-error-message="亲，身份证号码格式有误~"
+      data-error-container="#idResult"/>
+      <ul class="parsley-error-list">
+          <li class="equalto"><span style="color:red;" id="idResult"></span></li>
+        </ul>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">新密码:</div>
+    <div class="ui-form-item">
+      <div class="js-security-input1"></div>
+      <span class="ui-Gray-notes03" style="color:red;">密码只能为6位数字</span>
+      <br>
+        <div id="newPwdMsg" name="newPwdMsg" class="ui-txtred"></div>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">确认密码:</div>
+    <div class="ui-form-item">
+      <div class="js-security-input2"></div>
+      <br>
+        <div id="comPwdMsg" name="comPwdMsg" class="ui-txtred"></div>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">校验码:</div>
+    <div class="ui-form-item ui-rel">
+      <input name="checkCode" id="checkCode" type="text" class="ui-txtinput01" style="width:80px;" 
+      />
+      <span class=" ui-Checkimg" id="checkImg"></span> 
+      <span class=" ui-CheckControls" id="imgCode"><img id="imageCode" src="" title="点击修改"/></span> 
+      <span class=" ui-Exchange">
+        <a id="changeCode" class="ui-txt-a">看不清，换一张</a>
+        <input type="hidden" id="imgCodeFlag" value="false"/>
+      </span>
+      <br>
+      <div id="checkCodMsg" name="checkCodMsg" class="ui-txtred"></div>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01">短信验证码:</div>
+    <div class="ui-form-item ui-rel">
+      <input name="verifyCode" id="verifyCode" type="text" class="ui-txtinput01" style="width:80px;" 
+      />
+      <a id="sendCode" class="ui-button ui-button-sermwhite" title="发送验证码" id="sendCode">发送验证码</a>
+      <br>
+        <div id="verifyCodeMsg" name="verifyCodeMsg" class="ui-txtred"></div>
+        <div class="ui-Downnote" style="width:240px;display:none;" name="shortMsg" id="shortMsg"> <span class="ui-aggimg01"></span> <span class="ui-noteimg01"></span> <span class="ui-txtnote" name="uitext" id="uitext">短信已发送到您的手机，请注意查收。</span> </div>
+    </div>
+   
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-txt01"></div>
+    <div class="ui-form-item">
+      <a id="submitButtn" class="ui-button ui-button-morange" title="确定">确定</a> 
+      <a id="resetButtn" class="ui-button ui-button-mwhite" title="取消" href="/mypay/security/paypwd/reset/way">取消</a>
+
+    </div>
+  </div>
+  </form>
+</div>
+<div class="ui-sepdased-line"></div>
+  <div class="ui-all-note">
+  <div class="ui-noteimg01" ></div>
+  <div class="ui-notetxt01">
+     真实姓名和身份证号码必须与申请实名认证时的信息一致
+   </div>
+   <div class="ui-notetxt01" style="display:none;" id="msgNote" name="msgNote"> 
+    <div class="ui-Promptdiv ui-Error"><i></i><span><strong>出错</strong><br />
+    <span id="errorMsg" name="errorMsg"></span></span> 
+    </div>
+   </div>
+ 
+  </div>
+{{/component}}

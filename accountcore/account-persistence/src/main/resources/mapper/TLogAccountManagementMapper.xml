@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogAccountManagementMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogAccountManagement" >
+    <id column="TRANS_SERIAL_NO" property="transSerialNo" jdbcType="VARCHAR" />
+    <result column="TRANS_TIME" property="transTime" jdbcType="TIMESTAMP" />
+    <result column="TRANS_MONTH" property="transMonth" jdbcType="DECIMAL" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TYPE" property="accountType" jdbcType="VARCHAR" />
+    <result column="INNER_CARD_NO" property="innerCardNo" jdbcType="VARCHAR" />
+    <result column="TRANS_TYPE" property="transType" jdbcType="VARCHAR" />
+    <result column="TRANS_MEMO" property="transMemo" jdbcType="VARCHAR" />
+    <result column="BEFORE_STATUS" property="beforeStatus" jdbcType="CHAR" />
+    <result column="AFTER_STATUS" property="afterStatus" jdbcType="CHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="VARCHAR" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="ACCEPT_CHANNEL" property="acceptChannel" jdbcType="VARCHAR" />
+    <result column="FEE_FLAG" property="feeFlag" jdbcType="CHAR" />
+    <result column="FEE_AMOUNT" property="feeAmount" jdbcType="DECIMAL" />
+    <result column="ACCEPT_DATE" property="acceptDate" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TIME" property="acceptTime" jdbcType="VARCHAR" />
+    <result column="ACCEPT_ORG_SERIAL_NO" property="acceptOrgSerialNo" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="INPUT_UID" property="inputUid" jdbcType="VARCHAR" />
+    <result column="INPUT_TIME" property="inputTime" jdbcType="TIMESTAMP" />
+    <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR" />
+    <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="RESV_FLD3" property="resvFld3" jdbcType="VARCHAR" />
+    <result column="RESV_FLD4" property="resvFld4" jdbcType="VARCHAR" />
+    <result column="RESV_FLD5" property="resvFld5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRANS_SERIAL_NO, TRANS_TIME, TRANS_MONTH, CUSTOMER_NO, ACCOUNT_NO, ACCOUNT_TYPE, INNER_CARD_NO, 
+    TRANS_TYPE, TRANS_MEMO, BEFORE_STATUS, AFTER_STATUS, AREA_CODE, CITY_CODE, ORG_CODE, 
+    ACCEPT_CHANNEL, FEE_FLAG, FEE_AMOUNT, ACCEPT_DATE, ACCEPT_TIME, ACCEPT_ORG_SERIAL_NO, 
+    REMARK, INPUT_UID, INPUT_TIME, CHECK_UID, CHECK_TIME, RESV_FLD1, RESV_FLD2, RESV_FLD3, 
+    RESV_FLD4, RESV_FLD5
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_LOG_ACCOUNT_MANAGEMENT
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_LOG_ACCOUNT_MANAGEMENT
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogAccountManagement" >
+    insert into CORE.T_LOG_ACCOUNT_MANAGEMENT (TRANS_SERIAL_NO, TRANS_TIME, TRANS_MONTH, 
+      CUSTOMER_NO, ACCOUNT_NO, ACCOUNT_TYPE, 
+      INNER_CARD_NO, TRANS_TYPE, TRANS_MEMO, 
+      BEFORE_STATUS, AFTER_STATUS, AREA_CODE, 
+      CITY_CODE, ORG_CODE, ACCEPT_CHANNEL, 
+      FEE_FLAG, FEE_AMOUNT, ACCEPT_DATE, 
+      ACCEPT_TIME, ACCEPT_ORG_SERIAL_NO, REMARK, 
+      INPUT_UID, INPUT_TIME, CHECK_UID, 
+      CHECK_TIME, RESV_FLD1, RESV_FLD2, 
+      RESV_FLD3, RESV_FLD4, RESV_FLD5
+      )
+    values (#{transSerialNo,jdbcType=VARCHAR}, #{transTime,jdbcType=TIMESTAMP}, #{transMonth,jdbcType=DECIMAL}, 
+      #{customerNo,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, #{accountType,jdbcType=VARCHAR}, 
+      #{innerCardNo,jdbcType=VARCHAR}, #{transType,jdbcType=VARCHAR}, #{transMemo,jdbcType=VARCHAR}, 
+      #{beforeStatus,jdbcType=CHAR}, #{afterStatus,jdbcType=CHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{cityCode,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{acceptChannel,jdbcType=VARCHAR}, 
+      #{feeFlag,jdbcType=CHAR}, #{feeAmount,jdbcType=DECIMAL}, #{acceptDate,jdbcType=VARCHAR}, 
+      #{acceptTime,jdbcType=VARCHAR}, #{acceptOrgSerialNo,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{inputUid,jdbcType=VARCHAR}, #{inputTime,jdbcType=TIMESTAMP}, #{checkUid,jdbcType=VARCHAR}, 
+      #{checkTime,jdbcType=TIMESTAMP}, #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, 
+      #{resvFld3,jdbcType=VARCHAR}, #{resvFld4,jdbcType=VARCHAR}, #{resvFld5,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountManagement" >
+    insert into CORE.T_LOG_ACCOUNT_MANAGEMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="transSerialNo != null" >
+        TRANS_SERIAL_NO,
+      </if>
+      <if test="transTime != null" >
+        TRANS_TIME,
+      </if>
+      <if test="transMonth != null" >
+        TRANS_MONTH,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE,
+      </if>
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO,
+      </if>
+      <if test="transType != null" >
+        TRANS_TYPE,
+      </if>
+      <if test="transMemo != null" >
+        TRANS_MEMO,
+      </if>
+      <if test="beforeStatus != null" >
+        BEFORE_STATUS,
+      </if>
+      <if test="afterStatus != null" >
+        AFTER_STATUS,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL,
+      </if>
+      <if test="feeFlag != null" >
+        FEE_FLAG,
+      </if>
+      <if test="feeAmount != null" >
+        FEE_AMOUNT,
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_DATE,
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_TIME,
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        ACCEPT_ORG_SERIAL_NO,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="inputUid != null" >
+        INPUT_UID,
+      </if>
+      <if test="inputTime != null" >
+        INPUT_TIME,
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID,
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3,
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4,
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="transSerialNo != null" >
+        #{transSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transTime != null" >
+        #{transTime,jdbcType=OTHER},
+      </if>
+      <if test="transMonth != null" >
+        #{transMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="innerCardNo != null" >
+        #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transMemo != null" >
+        #{transMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeStatus != null" >
+        #{beforeStatus,jdbcType=CHAR},
+      </if>
+      <if test="afterStatus != null" >
+        #{afterStatus,jdbcType=CHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="feeFlag != null" >
+        #{feeFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeAmount != null" >
+        #{feeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptDate != null" >
+        #{acceptDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        #{acceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUid != null" >
+        #{inputUid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null" >
+        #{inputTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUid != null" >
+        #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        #{resvFld5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogAccountManagement" >
+    update CORE.T_LOG_ACCOUNT_MANAGEMENT
+    <set >
+      <if test="transTime != null" >
+        TRANS_TIME = #{transTime,jdbcType=OTHER},
+      </if>
+      <if test="transMonth != null" >
+        TRANS_MONTH = #{transMonth,jdbcType=DECIMAL},
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="innerCardNo != null" >
+        INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null" >
+        TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transMemo != null" >
+        TRANS_MEMO = #{transMemo,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeStatus != null" >
+        BEFORE_STATUS = #{beforeStatus,jdbcType=CHAR},
+      </if>
+      <if test="afterStatus != null" >
+        AFTER_STATUS = #{afterStatus,jdbcType=CHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptChannel != null" >
+        ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="feeFlag != null" >
+        FEE_FLAG = #{feeFlag,jdbcType=CHAR},
+      </if>
+      <if test="feeAmount != null" >
+        FEE_AMOUNT = #{feeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="acceptDate != null" >
+        ACCEPT_DATE = #{acceptDate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_TIME = #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptOrgSerialNo != null" >
+        ACCEPT_ORG_SERIAL_NO = #{acceptOrgSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="inputUid != null" >
+        INPUT_UID = #{inputUid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null" >
+        INPUT_TIME = #{inputTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkUid != null" >
+        CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogAccountManagement" >
+    update CORE.T_LOG_ACCOUNT_MANAGEMENT
+    set TRANS_TIME = #{transTime,jdbcType=OTHER},
+      TRANS_MONTH = #{transMonth,jdbcType=DECIMAL},
+      CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR},
+      ACCOUNT_TYPE = #{accountType,jdbcType=VARCHAR},
+      INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+      TRANS_TYPE = #{transType,jdbcType=VARCHAR},
+      TRANS_MEMO = #{transMemo,jdbcType=VARCHAR},
+      BEFORE_STATUS = #{beforeStatus,jdbcType=CHAR},
+      AFTER_STATUS = #{afterStatus,jdbcType=CHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      CITY_CODE = #{cityCode,jdbcType=VARCHAR},
+      ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      ACCEPT_CHANNEL = #{acceptChannel,jdbcType=VARCHAR},
+      FEE_FLAG = #{feeFlag,jdbcType=CHAR},
+      FEE_AMOUNT = #{feeAmount,jdbcType=DECIMAL},
+      ACCEPT_DATE = #{acceptDate,jdbcType=VARCHAR},
+      ACCEPT_TIME = #{acceptTime,jdbcType=VARCHAR},
+      ACCEPT_ORG_SERIAL_NO = #{acceptOrgSeqNo,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      INPUT_UID = #{inputUid,jdbcType=VARCHAR},
+      INPUT_TIME = #{inputTime,jdbcType=TIMESTAMP},
+      CHECK_UID = #{checkUid,jdbcType=VARCHAR},
+      CHECK_TIME = #{checkTime,jdbcType=TIMESTAMP},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR}
+    where TRANS_SERIAL_NO = #{transSerialNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

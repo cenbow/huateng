@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SaleReturnApply">
+    <resultMap id="BaseResultMap" type="SaleReturnApply">
+        <id column="RECORD_NO" property="recordNo" jdbcType="VARCHAR"/>
+        <result column="ORDER_NO" property="orderNo" jdbcType="VARCHAR"/>
+        <result column="GOODS_NAME" property="goodsName" jdbcType="VARCHAR"/>
+        <result column="UNIFY_ID" property="unifyId" jdbcType="VARCHAR"/>
+        <result column="ELECTRONIC_NUMBER" property="electronicNumber" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="SKU_NO" property="skuNo" jdbcType="DECIMAL"/>
+        <result column="ORDER_AMT" property="refundAmt" jdbcType="DECIMAL"/>
+        <result column="TXN_TIME" property="txnTime" jdbcType="TIMESTAMP"/>
+        <result column="COUNT" property="count" jdbcType="DECIMAL"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="CHECK_FLAG" property="checkFlag" jdbcType="VARCHAR"/>
+        <result column="CHECK_UID" property="checkUid" jdbcType="VARCHAR"/>
+        <result column="CHECK_TIME" property="checkTime" jdbcType="TIMESTAMP"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="recordNo !=null">
+                AND   RECORD_NO = #{recordNo,jdbcType=VARCHAR}
+            </if>
+            <if test="orderNo !=null">
+                AND   ORDER_NO  = #{orderNo,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </sql>
+    <sql id="Base_Column_List">
+           RECORD_NO,ORDER_NO,GOODS_NAME,UNIFY_ID,ELECTRONIC_NUMBER,STATUS,SKU_NO,
+           ORDER_AMT,TXN_TIME, COUNT,CREATE_TIME,CHECK_FLAG,CHECK_UID,CHECK_TIME,REMARK
+    </sql>
+
+    <select id="selectSaleReturnApplyByOrderNo" parameterType="SaleReturnApply" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/> from  PORTAL.T_SALES_RETURN_APPLY
+        <include refid="Example_Where_Clause"/>
+    </select>
+
+    <insert id="insert" parameterType="SaleReturnApply">
+        insert into PORTAL.T_SALES_RETURN_APPLY
+             (<include refid="Base_Column_List"/>
+              )
+    values (#{recordNo,jdbcType=VARCHAR},
+             #{orderNo,jdbcType=VARCHAR},
+             #{goodsName,jdbcType=VARCHAR},
+             #{unifyId,jdbcType=VARCHAR},
+             #{electronicNumber,jdbcType=VARCHAR},
+             #{status,jdbcType=VARCHAR},
+             #{skuNo,jdbcType=DECIMAL},
+             #{refundAmt,jdbcType=DECIMAL},
+             #{txnTime,jdbcType=TIMESTAMP},
+             #{count,jdbcType=DECIMAL},
+             #{createTime,jdbcType=TIMESTAMP},
+             #{checkFlag,jdbcType=VARCHAR},
+             #{checkUid,jdbcType=VARCHAR},
+             #{checkTime,jdbcType=TIMESTAMP},
+             #{remark,jdbcType=VARCHAR}
+      )
+    </insert>
+</mapper>

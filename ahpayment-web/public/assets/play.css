@@ -1,0 +1,2352 @@
+#J-DowCataContent .fn_bnt{
+  width: 240px;
+  height: 20px;
+  line-height: 20px;
+  float: left;
+  display:block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, span, b, i, a, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  font: inherit;
+  vertical-align:middle;
+}
+@charset "utf-8";
+/* login */
+.fla-bg{ width:100%; height:400px; display:block; text-align:center;}
+.fla-m{ width:980px; height:400px; margin:0 auto;}
+
+.fla-login{ width:272px; height:335px;    background:url(/assets/sutongpay/play/login-bg01.png) left;z-index:2000; top:0px; position:absolute; float:right; right:0px; top:20px;}
+
+
+
+.log-title{ width:265px; position:relative; top:15px; margin:0 auto;}
+.log-title li{ float:left;  text-align:center; height:30px; display:block; text-align:center; }
+.log-title  .tit-dTel{ color:#172A88; font-size:14px; width:125px; font-weight:bold; cursor:pointer;}
+.log-title  .tit-fTel{ color:#172A88; font-size:14px; width:140px; font-weight:bold; cursor:pointer;}
+.log-main{ display:block; width:230px; position:relative; left:15px; top:35px; float:left;}
+
+.t-account { font-size:12px; color:#3E3A39; line-height:34px; }
+.txtbg-account{ width:184px; height:34px; line-height:34px; display:block; background-image:url(/assets/sutongpay/play/txt-acc01.png); float:left;}
+.txtbg-account02{ width:142px; height:34px; line-height:34px; display:block; background:url(/assets/sutongpay/play/txt-acc02.png); float:left;}
+.txtbg-account03{  height:34px; line-height:34px; display:block; background:url(/assets/sutongpay/play/txt-acc03.png) left no-repeat; float:left;}
+.log-account{ border: 0px ; background-color:transparent; width:145px; height:20px; line-height:20px; font-size:12px; color:#999; margin-top:6px; position:relative; left:10px;}
+*html .log-account {margin-top:5px; } /* ie6 fixed */
+*+html .log-account { margin-top:1px; } /* ie7 fixed */
+.log-account02{border: 0px ; background-color:transparent; width:110px; height:20px; line-height:20px; font-size:12px; color:#999; float:left; position:relative; left:10px; margin-top:5px;  }
+*html .log-account02 {margin-top:0px; } /* ie6 fixed */
+*+html .log-account02 { margin-top:0px; } /* ie7 fixed */
+.log-account03{border: 0px ; background-color:transparent; width:70px; height:20px; line-height:20px; font-size:12px; color:#999; float:left; position:relative; left:10px; margin-top:5px;  }
+*html .log-account03 {margin-top:0px; } /* ie6 fixed */
+*+html .log-account03 { margin-top:0px; } /* ie7 fixed */
+
+.passwordbg-account{  width:184px; height:34px; line-height:34px; display:block; background-image:url(/assets/sutongpay/play/passw-acc01.png)}
+*html .passwordbg-account {margin-top:5px; } /* ie6 fixed */
+*+html .passwordbg-account { margin-top:1px; } /* ie7 fixed */
+.k-account{line-height:14px;}
+.f-password{  color:#172A88; padding-left:125px;}
+.f-password02{  color:#172A88; padding-left:76px; }
+.log-button01{ width:230px; height:42px; float:left; border:0px; background:url(/assets/sutongpay/play/login-buttom.png); display:block; cursor:pointer;}
+.log-Register{  width:400px; height:35px; line-height:35px; position:absolute; float:left; left:0px; top:40px; z-index:15; display:inline-block;}
+.re01{ font-weight:bold; font-size:16px; color:#FF7F00;}
+.re02{ font-weight:bold; font-size:12px; color:#2A3496;}
+.txt-yan01{ position:relative; left:15px; top:3px;}
+*html .txt-yan01 {top:0px; } /* ie6 fixed */
+*+html .txt-yan01 { top:0px; } /* ie7 fixed */
+
+.login-zhuce01{ position:absolute;top:210px; float:left; left:37px;}
+
+
+
+
+/* 用户登陆后 */
+.fla-login-user{ width:272px; height:335px; background:url(/assets/sutongpay/play/kda.png) left;z-index:2000; top:0px; position:absolute; float:right; right:0px; top:20px; text-align:left;}
+.user-name{ width:200px; height:25px; line-height:25px;  left:30px; top:40px; position:relative;}
+.user-img{ position:relative; height:25px; width:10px; background:url(/assets/sutongpay/play/ren.png) no-repeat center; display:block; float:left;}
+.user-txt{ margin-left:5px; font-size:15px; font-weight:bold; color:#444;}
+.user-out{ color:#666; font-size:12px;}
+.user-out a{ color:#666;}
+.user-out a:hover{ text-decoration:underline;}
+.user-news{ width:231px; height:146px; display:block; background:url(/assets/sutongpay/play/kxiao.png); position:relative; top:55px; left:22px; text-align:center;}
+.user-Balance{ width:200px; margin:0 auto; height:65px;  line-height:25px; border-bottom:1px solid #CCC; top:5px; position:relative;}
+.user-Balance span{ font-size:14px; position:relative; top:5px; color:#413F40;}
+.user-Balance .font01{ color:#F00; font-weight:bold; font-size:16px;}
+.user-links{ width:200px; margin:0 auto;}
+.user-links span{ width:100px; height:25px; line-height:25px; float:left; display:block; position:relative; top:10px; color:#1B298C;}
+.user-links span a{ color:#1B298C;}
+.user-links span a:hover{ text-decoration:underline;}
+.user-login{ width:230px; height:43px; background:url(/assets/sutongpay/play/anniu.png) top; display:block; position:relative; top:75px; left:23px;}
+.user-login:hover{ background-position:bottom;}@charset "utf-8";
+/* CSS Document */
+.topbar{width: 100%; height:30px; position:relative;display:block; border-bottom: 1px solid gainsboro; _overflow: hidden; z-index:9999; }
+.topbar-wrap{width: 980px; margin:0 auto;   height:26px;}
+.topbar-wrap .top-links{float: left; position:relative;}
+.topbar-wrap .top-links a{ color:#666666; line-height:26px;  padding-left:10px; padding-right:10px; float:left; display:block; }
+.topbar-wrap .top-links a:hover{ background-image:url(../../images/top-linksbg.gif); color:#333; text-decoration:none;}
+.topbar-wrap .top-links .top-link-f{ line-height:26px; float:left; cursor:pointer; z-index:29999; padding-left:5px; padding-right:5px; cursor:pointer; margin-left:5px;}
+.top-link-f .nav-second02{  top:15px; left:370px;}
+.topbar-wrap .top-link-f .nav-second02 a{ background-image:none; color:#595757;}
+.topbar-wrap .top-link-f .nav-second02 a:hover{ color:#FF7F00;}
+.topminu{float:right;color: #666; position: relative; z-index: 1000; height:26px;}
+.topminu span{ float:left; line-height:26px;}
+.topminu-welcome{ padding-right:20px;}
+.topminu .topminu-link a{ color:#666666; line-height:26px;   padding-left:10px; padding-right:10px; float:left; display:block;}
+.topminu .topminu-link a:hover{ background-image:url(../../images/top-linksbg.gif); color:#333; text-decoration:none;}
+.topheader{ width:100%; height:85px; display:block; }
+.topheader-wrap{ width:980px; margin:0 auto; height:85px; repeat-x; position:relative; z-index:1000; }
+.topheader-logo{ width:340px; height:85px; display: inline-block; float:left; position:relative; left:0px;}
+.top-logo-sutongpay{ display:block; float:left;}
+.topheader-nav{ width:600px; height:85px; float:right; display:block; }
+.topheader-nav .nav{ position:relative; right:0px; float:right; position:relative; top:50px;}
+.topheader-nav .nav li{ float:left; margin-left:20px; }
+.nav-home{ width:32px; height:25px; display:block; background:url(../images/nav-home.jpg) top;}
+.nav-home:hover{background:url(../images/nav-home.jpg) bottom;}
+.nav-pay{ width:64px; height:25px; display:block; background:url(../images/nav-pay.jpg) top;}
+.nav-slog{ width:64px; height:25px; display:block; background:url(../images/nav-slog.jpg) top;}
+.nav-bill{ width:64px; height:25px; display:block; background:url(../images/nav-bill.jpg) top;}
+.nav-mobile{ width:80px; height:25px; display:block; background:url(../images/nav-mobile.jpg) top;}
+.nav-recharge{ width:48px; height:25px; display:block; background:url(../images/nav-recharge.jpg) top;}
+.nav-second{width:268px; position:absolute;  margin-left:-205px; top:18px; padding:10px; z-index:19999;}
+.nav-second02{position:absolute; width:260px;  height:55px;  margin-left:-260px; z-index:19999;}
+.nav-second02 .div-right{ height:53px; line-height:53px; right:-70px; background:url(../images/nav-kuang1.png) right; float:right;position:relative;}
+.div-right tr td{ padding-right:16px; }
+.div-left{ height:53px; width:16px; background:url(../images/nav-kuang2.png) left no-repeat; position:absolute;display:inline-block; float:left; left:-16px; top:0px; z-index:1999;}
+.right-a{ position:relative; top:5px; color:#595757; margin-left:5px;}
+.right-a:hover{ color:#FF7F00}
+.div-top{ width:268px; height:17px; line-height:17px; background-image:url(../images/nav-arrow.png); display:inline-block; position:relative;}
+.div-middle{ width:268px; min-height:30px; !important _height:30px; background-image:url(../images/nav-middle.png); display:inline-block; position:relative; text-align:center; padding-top:3px; padding-bottom:2px;}
+.div-bot{width:268px; height:7px; font-size:7px; background-image:url(../images/nav-divbot.png); display:inline-block; position:relative;}
+.div-middle a{ width:60px; height:30px; line-height:30px; display:block; float:left; text-align:center; position:relative; left:15px; color:#727171;}
+.div-middle a:hover{color:#FF7F00;}
+.aid-news-main{ width:980px; margin:0 auto;}
+.aid-bank{ width:170px; color:#595757; font-weight:bold;}
+.aid-bank ul{ width:170px;}
+.aid-bank ul li{ width:24px; height:20px; float:left;}
+.header-bot{ width:100%; position:relative; display:inline-block; top:0px; background:url(../images/header-botimg.png) repeat-x ;z-index:700; height:15px;}
+*+html .header-bot{ top:0px;}
+@charset "utf-8";
+/* CSS Document */
+
+.Advertising{ width:800px; height:240px; display:block; background-color:#060; position:relative; left:-20px;}
+.new-read-bt{ width:800px; height:26px; display:block; background-image:url(/assets/sutongpay/play/new-reader01.jpg); margin-top:30px;position:relative; left:-20px;}
+.new-read-main{width:800px; position:relative; left:-20px; margin-top:15px; }
+.new-read-main .div-l01{ width:220px; height:145px; display:inline-block;  margin-right:40px;  margin-bottom:20px;}
+*+html .div-l01{ float:left;}
+.div-l01 .img-left{ width:110px; float:left; display:block; height:145px;}
+.div-l01 .text-right{ width:100px; float:right;}
+.text-right .text-bt01{font-weight:bold; width:110px; height:25px; line-height:25px;}
+.text-right .text-main01{width:100px; height:80px; }
+.text-right .text-bot01{ width:100px; height:30px;}
+.shopping-read-bt{ width:800px; height:26px; display:block; background-image:url(/assets/sutongpay/play/shopping-reader01.jpg);position:relative; left:-20px;}
+.life-read-bt{ width:800px; height:26px; display:block; background-image:url(/assets/sutongpay/play/life-reader01.jpg); position:relative; left:-20px;}
+.xinshou01{ width:110px; height:134px; background:url(/assets/sutongpay/play/newcar.png) bottom; display:block;}
+.xinshou01:hover{ background-position:top;}
+.zhuce01{ width:110px; height:134px; background:url(/assets/sutongpay/play/zhucechangshi.png) bottom; display:block;}
+.zhuce01:hover{ background-position:top;}
+.anquan01{ width:110px; height:134px; background:url(/assets/sutongpay/play/anquanchanpin.png) bottom; display:block;}
+.anquan01:hover{ background-position:top;}
+.fukuan01{ width:110px; height:134px; background:url(/assets/sutongpay/play/fukuan.png) bottom; display:block;}
+.fukuan01:hover{ background-position:top;}
+.jiaofei01{ width:110px; height:134px; background:url(/assets/sutongpay/play/shenghuojiaofei.png) bottom; display:block;}
+.jiaofei01:hover{ background-position:top;}
+.about01{ width:110px; height:134px; background:url(/assets/sutongpay/play/tianyizhanghao.png) bottom; display:block;}
+.about01:hover{ background-position:top;}
+.wlanquan01{ width:110px; height:134px; background:url(/assets/sutongpay/play/wangluozhifu.png) bottom; display:block;}
+.wlanquan01:hover{ background-position:top;}@charset "utf-8";
+html {
+	color: #969696;
+	background: #fff
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button {
+	margin: 0;
+	padding: 0
+}
+body, button, input, select, textarea {
+	font: .75em/1.5 tahoma, arial, \5b8b\4f53
+}
+input, select, textarea {
+	font-size: 100%
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+th {
+	text-align: inherit
+}
+fieldset, img, a img {
+	border: 0
+}
+iframe {
+	display: block
+}
+abbr, acronym {
+	border: 0;
+	font-variant: normal
+}
+del {
+	text-decoration: line-through
+}
+address, caption, cite, code, dfn, em, th, var {
+	font-style: normal;
+	font-weight: 500
+}
+ol, ul {
+	list-style: none
+}
+caption, th {
+	text-align: left
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+h2 {
+	color: #4d4d4d
+}
+h3 {
+	color: #969696;
+	margin: 10px 0 0 0
+}
+.imgTitle {
+	text-indent: -9999em
+}
+q:before, q:after {
+	content: ''
+}
+sup {
+	vertical-align: text-top
+}
+sub {
+	vertical-align: text-bottom
+}
+a:hover {
+	text-decoration: underline
+}
+ins, a {
+	text-decoration: none;
+	color: #08c
+}
+.fn-clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0
+}
+.fn-clear {
+*zoom:1
+}
+.fn-hide {
+	display: none
+}
+.fn-left, .fn-right {
+	display: inline
+}
+.fn-left {
+	float: left
+}
+.fn-right {
+	float: right
+}
+.fn-font14 {
+	font-size: 14px
+}
+.fn_bnt {
+	cursor: pointer
+}
+.link {
+	color: #08c
+}
+.orange {
+	color: #ff8400
+}
+.ConColor {
+	color: #4d4d4d
+}
+body {
+	font-family: \5b8b\4f53
+}
+.tiphead {
+	min-width: 990px;
+	background-color: #f7f7f7;
+	border-bottom: solid 1px #ebebeb;
+	z-index: 9999;
+	position: relative
+}
+.tiphead .content {
+	margin: auto;
+	width: 990px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	color: #6c6c6c
+}
+.tiphead em {
+	color: #b3b3b3
+}
+.tiphead a {
+	color: #6c6c6c
+}
+
+.site-links {
+	margin-bottom: 15px;
+	padding-top: 20px;
+	text-align: center
+}
+.site-links .first {
+	border: medium none
+}
+.site-links li {
+	color: #bbb;
+	display: inline
+}
+.site-links li a {
+	color: #09c
+}
+.vip-ri-f .site-links li a, .vip-ri-f .smalipay a, .vip-ri-f .smalipay {
+	color: #946e4b
+}
+.smalipay a, .smalipay {
+	color: #999
+}
+.smalipay {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	padding-bottom: 30px;
+	text-align: center
+}
+.smalipay a {
+	padding-left: 15px
+}
+#loadeBg {
+	width: 185px;
+	height: 97px;
+	display: inline-block;
+	float: left;
+	background:url(/assets/sutongpay/play/tiao01.png) no-repeat left bottom
+}
+.loadron {
+	border-radius: 5px!important;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	webkit-border-radius: 5px
+}
+.loadsolid {
+	border: #dff2f6 solid 1px
+}
+#loadeTxt {
+	color: #fff;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	float: left;
+	line-height: 20px;
+	-moz-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-o-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-webkit-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	text-shadow: 0 1px 2px rgba(0,0,0,0.3)
+}
+.main {
+	width: 100%;
+	overflow: hidden;
+	z-index: 0
+}
+.main-body {
+	margin: auto;
+	width: 990px
+}
+.bg {
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	height: 720px
+}
+.Cloud {
+	background-image:url(/assets/sutongpay/play/yun01.png);
+	background-repeat: no-repeat;
+	background-position: right 5px;
+	display: inline-block;
+	width: 165px;
+	height: 80px;
+	position: absolute
+}
+
+.topContent {
+	width: 100%;
+	overflow: hidden
+}
+.logo {
+	background-image:url(/assets/sutongpay/play/logo.png);
+	width: 166px;
+	height: 59px;
+	z-index: 2;
+	margin: 30px auto auto auto;
+	position: relative;
+	cursor: pointer
+}
+.news {
+	position: relative;
+	float: left;
+	left: 580px;
+	margin-top: -50px;
+	cursor: pointer
+}
+.newsImg {
+	position: relative;
+	float: left
+}
+.newsTxt {
+	height: 20px;
+	line-height: 20px;
+	background-color: #fff;
+	position: relative;
+	margin-top: 20px;
+	margin-left: -25px;
+	float: left;
+	padding: 0 10px 0 10px;
+	-moz-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-o-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-webkit-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1)
+}
+.main-index, .main-index-nav {
+	text-align: center;
+	margin: auto;
+	width: 990px;
+	float: left;
+	position: relative
+}
+.main-index {
+	bottom: 10px
+}
+.content-main {
+	background-color: #fff;
+	border: 1px solid #CCC;
+	float: left;
+	margin: auto;
+	bottom: 30px;
+	position: relative
+}
+.main-index-nav {
+	margin-top: 30px;
+	height: 240px;
+	float: left;
+	z-index: 99;
+	position: relative;
+}
+.main-index-nav ul li {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/biaoti01-bg.png);
+	width: 235px;
+	height: 235px;
+	position: absolute;
+	float: left;
+	right: 0
+}
+.main-index-nav ul li span {
+	margin: 10px 15px 15px 10px;
+	display: inline-block;
+	width: 210px;
+	height: 210px;
+	cursor: pointer
+}
+.main-index-nav ul li em {
+	display: inline-block;
+	width: 52px;
+	height: 53px;
+	cursor: pointer;
+	background-image:url(/assets/sutongpay/play/btqiehuan01.png);
+	position: relative;
+}
+.t0 {
+	background-image:url(/assets/sutongpay/play/wenhao01.jpg)
+}
+.t1 {
+	background-image:url(/assets/sutongpay/play/chuan01.jpg)
+}
+
+.tt1 {
+	background-position: 0 -63px
+}
+.ttover1 {
+	background-position: 50px -63px
+}
+.tt2 {
+	background-position: 0 -126px
+}
+.ttover2 {
+	background-position: 50px -126px
+}
+.main-index-nav-name {
+	margin-top: 30px;
+	margin-left:135px;
+}
+.main-index-nav-name ul li {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/biaoti01.png);
+	background-repeat: no-repeat;
+	width: 260px;
+	height: 70px;
+	float: left
+}
+.n0 {
+	margin-left: 112px;
+	background-position: 0 0
+}
+.n1 {
+	margin-left: 0;
+	background-position: 0 -106px
+}
+.n2 {
+	margin-left: 0;
+	background-position: 0 -226px
+}
+.main-index-dow ul {
+	width: 660px;
+	position: relative;
+	overflow: hidden;
+	left: 165px;
+	float: left
+}
+.main-index-dow ul li {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/fenye01.png);
+	width: 220px;
+	height: 75px;
+	float: left;
+	cursor:pointer;
+}
+.do1 {
+	background-position: -220px 0
+}
+.do2 {
+	background-position: -440px 0
+}
+.Daojiao {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	float: right;
+	top: -1px;
+	right: -1px;
+	z-index: 999
+}
+.conRigYY {
+	position: absolute;
+	float: right;
+	top: 0;
+	right: -28px;
+	height: 100%;
+	overflow: hidden
+}
+.YYdow {
+	background-image:url(/assets/sutongpay/play/bglef01.png);
+	display: inline-block;
+	width: 28px;
+	height: 100%
+}
+.conDowYY {
+	position: absolute;
+	float: right;
+	bottom: -30px;
+	height: 30px;
+	width: 930px;
+	background-image:url(/assets/sutongpay/play/botbg01.png);
+	display: inline-block
+}
+#J-Content {
+*zoom:1
+}
+a img {border:none}
+img{border:0; vertical-align:top;}
+@charset "utf-8";
+html {
+	color: #969696;
+	background: #fff
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button {
+	margin: 0;
+	padding: 0
+}
+body, button, input, select, textarea {
+	font: .75em/1.5 tahoma, arial, \5b8b\4f53
+}
+input, select, textarea {
+	font-size: 100%
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+th {
+	text-align: inherit
+}
+fieldset, img, a img {
+	border: 0
+}
+iframe {
+	display: block
+}
+abbr, acronym {
+	border: 0;
+	font-variant: normal
+}
+del {
+	text-decoration: line-through
+}
+address, caption, cite, code, dfn, em, th, var {
+	font-style: normal;
+	font-weight: 500
+}
+ol, ul {
+	list-style: none
+}
+caption, th {
+	text-align: left
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+h2 {
+	color: #4d4d4d
+}
+h3 {
+	color: #969696;
+	margin: 10px 0 0 0
+}
+.imgTitle {
+	text-indent: -9999em
+}
+q:before, q:after {
+	content: ''
+}
+sup {
+	vertical-align: text-top
+}
+sub {
+	vertical-align: text-bottom
+}
+a:hover {
+	text-decoration: underline
+}
+ins, a {
+	text-decoration: none;
+	color: #08c
+}
+.fn-clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0
+}
+.fn-clear {
+*zoom:1
+}
+.fn-hide {
+	display: none
+}
+.fn-left, .fn-right {
+	display: inline
+}
+.fn-left {
+	float: left
+}
+.fn-right {
+	float: right
+}
+.fn-font14 {
+	font-size: 14px
+}
+.fn_bnt {
+	cursor: pointer
+}
+.link {
+	color: #08c
+}
+.orange {
+	color: #ff8400
+}
+.ConColor {
+	color: #4d4d4d
+}
+body {
+	font-family: \5b8b\4f53
+}
+.tiphead {
+	min-width: 990px;
+	background-color: #f7f7f7;
+	border-bottom: solid 1px #ebebeb;
+	z-index: 9999;
+	position: relative
+}
+.tiphead .content {
+	margin: auto;
+	width: 990px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	color: #6c6c6c
+}
+.tiphead em {
+	color: #b3b3b3
+}
+.tiphead a {
+	color: #6c6c6c
+}
+.vip-ri-f {
+	background: #eae2d8;
+	border-top: solid 1px #dfdfdf
+}
+.vip-ri-list {
+	width: 958px;
+	padding: 0 16px 0 16px;
+	border-bottom: solid 1px #c9a98b;
+	margin: 0 auto;
+	overflow: hidden
+}
+.vip-ri-list li {
+	width: 214px;
+	background:url(/assets/sutongpay/play/vip-ico1.png) no-repeat 40px 25px;
+	height: 100px;
+	float: left;
+	padding: 20px 0 0 105px;
+	color: #946e4b;
+	line-height: 18px
+}
+.vip-ri-list li b {
+	font: bold 14px/30px "SimSun"
+}
+.vip-ri-list li a {
+	color: #946e4b
+}
+.vip-ri-list .vip-ri-ico3 {
+	width: 184px;
+	background: url(/assets/sutongpay/play/vip-ico2.png) no-repeat 80px 25px;
+	height: 100px;
+	float: left;
+	padding: 20px 0 0 135px
+}
+.vip-ri-list .vip-ri-ico2 {
+	width: 194px;
+	height: 100px;
+	float: left;
+	padding: 20px 0 0 125px;
+	background: url(/assets/sutongpay/play/vip-ico3.png) no-repeat 65px 25px
+}
+.vip-ri-f .site-links {
+	margin-bottom: 0;
+	width: 958px;
+	padding: 20px 16px 0 16px;
+	border-top: solid 1px #fff;
+	margin: 0 auto;
+	clear: both
+}
+.site-links {
+	margin-bottom: 15px;
+	padding-top: 20px;
+	text-align: center
+}
+.site-links .first {
+	border: medium none
+}
+.site-links li {
+	color: #bbb;
+	display: inline
+}
+.site-links li a {
+	color: #09c
+}
+.vip-ri-f .site-links li a, .vip-ri-f .smalipay a, .vip-ri-f .smalipay {
+	color: #946e4b
+}
+.smalipay a, .smalipay {
+	color: #999
+}
+.smalipay {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	padding-bottom: 30px;
+	text-align: center
+}
+.smalipay a {
+	padding-left: 15px
+}
+#loadeBg {
+	width: 185px;
+	height: 97px;
+	display: inline-block;
+	float: left;
+	background:url(/assets/sutongpay/play/tiao01.png) no-repeat left bottom
+}
+.loadron {
+	border-radius: 5px!important;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	webkit-border-radius: 5px
+}
+.loadsolid {
+	border: #dff2f6 solid 1px
+}
+#loadeTxt {
+	color: #fff;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	float: left;
+	line-height: 20px;
+	-moz-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-o-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-webkit-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	text-shadow: 0 1px 2px rgba(0,0,0,0.3)
+}
+.main {
+	width: 100%;
+	background-color: #d5e9ed;
+	overflow: hidden;
+	z-index: 0
+}
+.main-body {
+	margin: auto;
+	width: 990px
+}
+.bg {
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	height: 720px
+}
+.Cloud {
+	background-image:url(/assets/sutongpay/play/yun01.png)
+	background-repeat: no-repeat;
+	background-position: right 5px;
+	display: inline-block;
+	width: 165px;
+	height: 80px;
+	position: absolute
+}
+.dowBg {
+	width: 100%;
+	height: 624px;
+	display: inline-block;
+	position: absolute;
+	background:url(/assets/sutongpay/play/shu01.png) center repeat-x;
+	left: 0;
+	top: 410px;
+	z-index: 0;
+	opacity: 0
+}
+.topContent {
+	width: 100%;
+	overflow: hidden
+}
+.logo {
+	background-image:url(/assets/sutongpay/play/logo.png);
+	width: 166px;
+	height: 59px;
+	z-index: 2;
+	margin: 30px auto auto auto;
+	position: relative;
+	cursor: pointer
+}
+.news {
+	position: relative;
+	float: left;
+	left: 580px;
+	margin-top: -50px;
+	cursor: pointer
+}
+.newsImg {
+	position: relative;
+	float: left
+}
+.newsTxt {
+	height: 20px;
+	line-height: 20px;
+	background-color: #fff;
+	position: relative;
+	margin-top: 20px;
+	margin-left: -25px;
+	float: left;
+	padding: 0 10px 0 10px;
+	-moz-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-o-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-webkit-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1)
+}
+.main-index, .main-index-nav {
+	text-align: center;
+	margin: auto;
+	width: 990px;
+	float: left;
+	position: relative
+}
+.main-index {
+	bottom: 10px
+}
+.content-main {
+	background-color: #fff;
+	border: 1px solid #CCC;
+	float: left;
+	margin: auto;
+	bottom: 30px;
+	position: relative
+}
+.main-index-nav {
+	margin-top: 30px;
+	height: 240px;
+	float: left;
+	z-index: 99;
+	position: relative
+}
+.main-index-nav ul li {
+	display: inline-block;
+	width: 235px;
+	height: 235px;
+	position: absolute;
+	float: left;
+	right: 0
+}
+.main-index-nav ul li span {
+	margin: 10px 15px 15px 10px;
+	display: inline-block;
+	width: 210px;
+	height: 210px;
+	cursor: pointer
+}
+.main-index-nav ul li em {
+	display: inline-block;
+	width: 52px;
+	height: 53px;
+	cursor: pointer;
+	background-image:url(/assets/sutongpay/play/btqiehuan01.png);
+	position: relative
+}
+.t0 {
+	background-image:url(/assets/sutongpay/play/wenhao01.jpg)
+}
+.t1 {
+	background-image:url(/assets/sutongpay/play/chuan01.jpg);
+}
+
+.tt1 {
+	background-position: 0 -63px
+}
+.ttover1 {
+	background-position: 50px -63px
+}
+.tt2 {
+	background-position: 0 -126px
+}
+.ttover2 {
+	background-position: 50px -126px
+}
+.main-index-nav-name {
+	margin-top: 30px
+}
+.main-index-nav-name ul li {
+	display: inline-block;
+	background-repeat: no-repeat;
+	width: 260px;
+	height: 70px;
+	float: left
+}
+.n0 {
+	margin-left: 112px;
+	background-position: 0 0
+}
+.n1 {
+	margin-left: 0;
+	background-position: 0 -106px
+}
+.n2 {
+	margin-left: 0;
+	background-position: 0 -226px
+}
+.main-index-dow ul {
+	width: 660px;
+	position: relative;
+	overflow: hidden;
+	left: 165px;
+	float: left
+}
+.main-index-dow ul li {
+	display: inline-block;
+	width: 220px;
+	height: 75px;
+	float: left
+}
+.do1 {
+	background-position: -220px 0
+}
+.do2 {
+	background-position: -440px 0
+}
+.Daojiao {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	float: right;
+	top: -1px;
+	right: -1px;
+	z-index: 999
+}
+.conRigYY {
+	position: absolute;
+	float: right;
+	top: 0;
+	right: -28px;
+	height: 100%;
+	overflow: hidden
+}
+.YYdow {
+	background-image:url(/assets/sutongpay/play/bian02.png);
+	display: inline-block;
+	width: 28px;
+	height: 100%
+}
+.conDowYY {
+	position: absolute;
+	float: right;
+	bottom: -30px;
+	height: 30px;
+	width: 930px;
+	background-image:url(/assets/sutongpay/play/botbg01.png);
+	display: inline-block;
+	float: left;
+	left: 0px
+}
+#J-Content {
+*zoom:1
+}
+.a_Content {
+	overflow: hidden;
+	display: inline-block;
+	width: 100%
+}
+.a_TitleImg {
+	background:url(/assets/sutongpay/play/zi01.png) no-repeat;
+	width: 100%;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 10px
+}
+.b_main {
+	width: 858px;
+	margin: 40px auto 40px auto;
+	text-align:left;
+}
+.b_ContNav ul {
+	width: 750px;
+	overflow: hidden
+}
+.b_ContNav ul li {
+	position: relative;
+	display: inline-block;
+	width: 187px;
+	height: 60px;
+	float: left
+}
+.b_NavImgOver {
+	display: inline-block;
+	width: 187px;
+	height: 60px;
+}
+.b_noNav {
+	background-position: -468px 0
+}
+.b_ibar {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	width: 750px
+}
+.b_ibarContent {
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	position: relative
+}
+.b_iconImg {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/bgdi01.png);
+}
+.b_NavBg {
+	height: 25px;
+	width: 100%;
+	position: relative;
+	margin-top: -8px;
+	z-index: -1;
+	background-position: 0 -82px
+}
+.b_Content {
+	margin: 25px 0 10px 0;
+	position: relative;
+	width: 3000px;
+	overflow: hidden
+}
+.b_ContentMask {
+	overflow: hidden;
+	width: 750px;
+	position: relative
+}
+.b_ibarTitleImg {
+	background:url(/assets/sutongpay/play/zi02.png);
+	width: 100%;
+	height: 20px;
+	display: inline-block
+}
+.b_ibarBZ {
+	width: 100%;
+	overflow: hidden;
+	display: inline-block
+}
+.b_ibarCZ {
+	line-height: 18px;
+	padding-left: 18px;
+	background-position: 0 -58px;
+	background-repeat: no-repeat
+}
+.b_dzfTitle {
+	margin: 40px 0 20px 0
+}
+.b_dzfContBg {
+	background:url(/assets/sutongpay/play/daifuimg01.jpg);
+}
+.b_dzfLandou {
+	display: inline-block;
+	height: 157px;
+	width: 748px
+}
+.b_dzfXiaolv {
+	display: inline-block;
+	height: 151px;
+	width: 748px;
+	background-position: 0 -239px
+}
+.b_dzfChuanT {
+	display: inline-block;
+	height: 157px;
+	width: 748px;
+	background-position: 0 -476px
+}
+.b_dzfKuang {
+	margin: 40px 20px 20px 130px;
+	line-height: 20px;
+	overflow: hidden
+}
+.b_dzfDowTxt {
+	font-size: 14px;
+	text-align: center;
+	margin-top: 20px
+}
+.b_baqContBg {
+	background:url(/assets/sutongpay/play/zhifu01.jpg) no-repeat
+}
+.b_baqSafeguard {
+	display: inline-block;
+	height: 233px;
+	width: 748px
+}
+.b_baqMoreSecure {
+	display: inline-block;
+	width: 748px;
+	background-position: 0 -308px;
+	height: 157px
+}
+.b_baqStrong {
+	display: inline-block;
+	height: 136px;
+	width: 748px;
+	background-position: 0 -543px
+}
+.b_baqKuang {
+	margin: 40px 20px 0 210px;
+	line-height: 20px
+}
+.b_AuthenTaboyMask {
+	overflow: hidden;
+	margin-top: 10px;
+	height: 0
+}
+.b_AuthenTaboyMask table {
+	border-top: 1px solid #a9c9d7
+}
+.b_AuthenTaboyMask table td {
+	height: 30px;
+	padding-left: 10px;
+	color: #808080
+}
+.b_leftSolid {
+	border-left: 1px solid #c9e1e9
+}
+.b_AuthenTitle {
+	color: #4d4d4d!important
+}
+#J-DowJt {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #89c1cc;
+	font-weight: bold;
+	height: 20px
+}
+.b_dowJtLeft {
+	width: 78px;
+	height: 20px;
+	float: left;
+	background-position: right -258px;
+	cursor: pointer
+}
+.b_dowJtRig {
+	width: 78px;
+	height: 20px;
+	float: right;
+	padding-left: 20px;
+	background-position: left -258px;
+	cursor: pointer
+}
+.shanjiao {
+	margin-left: 5px;
+	width: 7px;
+	height: 5px;
+	overflow: hidden;
+	background-position: 0 -76px
+}
+.ibar_btnBox {
+	margin-top: 20px;
+	text-align: center;
+	overflow: hidden
+}
+.ibar_bnt, .ibar_bnt span, .ibar-bzf_bnt {
+	font-size: 14px;
+	display: inline-block;
+	width: 168px;
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer
+}
+.ibar-bzf_bnt span, .ibar_bnt span {
+	position: relative;
+	width: 138px;
+	right: -30px;
+	padding-right: 30px;
+	background-position: right top
+}
+.ibar_bnt {
+	position: relative;
+	float: left;
+	left: 290px
+}
+.ibar-bzf_bnt {
+	position: relative;
+	float: left
+}
+.show-how_icon {
+	height: 16px;
+	padding-right: 20px;
+	background-position: 35px -38px;
+	margin-left: 20px
+}
+.show-how {
+	position: relative
+}
+.show-how_zc {
+	float: right;
+	top: 15px;
+	right: 200px
+}
+.hdfk_icon {
+	height: 15px;
+	width: 20px;
+	background-position: 0 -201px
+}
+#passBG {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	float: left;
+	left: 0;
+	top: 0;
+	background-color: #fff;
+	opacity: 0;
+	z-index: 9999
+}
+#J-ibar3 {
+	font-size: 12px
+}
+#nav-btn {
+	margin-top: 15px;
+	width: 750px;
+	height: auto;
+	font-size: 12px;
+	overflow: hidden
+}
+#nav-btn ul {
+	float: left;
+	margin-bottom: 50px;
+	width: 762px
+}
+#nav-btn ul li {
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+	width: 142px;
+	height: 150px;
+	overflow: hidden;
+	background:url(/assets/sutongpay/play/dikuang01.png) no-repeat
+}
+#nav-btn ul .ui-over {
+	background: url(/assets/sutongpay/play/dikuang01.png) no-repeat -145px 0
+}
+#nav-btn ul li .nav-tips {
+	height: 24px;
+	color: #f80;
+	text-align: center
+}
+#nav-btn ul li .nav-tips span.outer {
+	display: inline-block;
+	height: 24px;
+	padding-left: 7px;
+	background:url(/assets/sutongpay/play/huangk01.jpg) left top no-repeat
+}
+#nav-btn ul li .nav-tips span.inner {
+	display: block;
+	height: 24px;
+	line-height: 20px;
+	padding-right: 5px;
+	background: url(/assets/sutongpay/play/huangk02.jpg) right top no-repeat
+}
+#nav-btn ul li .nav-icon {
+	margin: 11px 36px 0;
+	width: 69px;
+	height: 107px
+}
+#nav-btn ul li .nav-icon img {
+	width: 69px;
+	height: 69px;
+	border: 0
+}
+#nav-btn ul li .nav-icon p {
+	height: 38px;
+	line-height: 38px;
+	font-weight: bold;
+	overflow: hidden;
+	text-align: center
+}
+#nav-btn a {
+	color: #575858
+}
+#J-ibar3 .boxCon {
+	width: 100%;
+	height: 442px;
+	border-top: 1px solid #e5e5e5;
+	overflow: hidden;
+	clear: both
+}
+#J-ibar3 .exp_desc {
+	width: 325px;
+	height: 442px;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .desc_top {
+	margin-top: 33px;
+	margin-bottom: 22px;
+	width: 325px;
+	height: 130px;
+	background:url(/assets/sutongpay/play/jiaofeizi01.jpg) 0 0 no-repeat;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .second {
+	background-position: 0 -130px
+}
+#J-ibar3 .exp_desc .third {
+	background-position: 0 -260px
+}
+#J-ibar3 .exp_desc .fourth {
+	background-position: 0 -390px
+}
+#J-ibar3 .exp_desc .fifth {
+	background-position: 0 -520px
+}
+#J-ibar3 .exp_desc .btnCon {
+	padding-left: 33px;
+	padding-top: 33px;
+	height: 115px;
+	background:url(/assets/sutongpay/play/lanbiao01.jpg) 1px 0 no-repeat;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .btnCon p {
+	font-size: 14px;
+	line-height: 33px;
+	color: #808080;
+	margin-bottom: 17px
+}
+#J-ibar3 .exp_desc .btnCon .btn {
+	height: 38px;
+	line-height: 38px;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .btnCon .btn a {
+	display: block;
+	float: left;
+	width: 155px;
+	height: 38px;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px
+}
+#J-ibar3 .exp_desc .btnCon .btn a.hover {
+	text-decoration: none
+}
+#J-ibar3 .exp_desc .btnCon .btn span {
+	color: #1eb6db;
+	margin-left: 22px
+}
+#J-ibar3 .exp_desc p.about {
+	margin-left: 37px;
+	margin-top: 45px;
+	padding-left: 15px;
+	text-align: left;
+}
+.about a {
+	color: #25b6da
+}
+#J-ibar3 .exp_pic {
+	width: 425px;
+	height: 442px;
+	overflow: hidden
+}
+#action {
+	width: 750px;
+	overflow: hidden
+}
+#action .title {
+	height: 36px;
+	margin-bottom: 50px
+}
+#action ul {
+	width: 765px
+}
+#action ul li {
+	float: left;
+	margin-right: 12px;
+	margin-bottom: 10px;
+	width: 242px;
+	height: 120px;
+	overflow: hidden
+}
+.b_gotoTop {
+	width: 30px;
+	height: 30px;
+	position: fixed;
+	bottom: 80px;
+	margin-left: 20px
+}
+#J-BookBoxMask {
+	overflow: hidden
+}
+#J-BookBox {
+	float: left;
+	white-space: nowrap;
+	position: relative;
+	width: 1608px
+}
+#J-BookshelfBox {
+	width: 750px;
+	float: left;
+	position: relative
+}
+#J-Book {
+	width: 858px;
+	float: left;
+	position: relative;
+	margin-top: 20px
+}
+.c_titleTxtImg {
+	width: 100%;
+	height: 20px;
+	display: inline-block
+}
+.c_txtTleLeft {
+	position: relative;
+	margin-top: 35px
+}
+.c_TxtLeft {
+	width: 20px;
+	height: 100%;
+	position: relative;
+	float: left
+}
+#J-Bookshelf {
+	margin-top: 30px
+}
+#J-Vertical {
+	width: 100%;
+	overflow: hidden
+}
+.c_VerLi {
+	height: 190px;
+	position: relative;
+	float: left
+}
+#J-BookRow {
+	float: left;
+	width: 718px;
+	height: 100%;
+	overflow: hidden;
+	margin-left: 10px
+}
+.c_VertBg {
+	width: 685px;
+	background-position: 0 106px;
+	height: 100%;
+	margin-left: 15px
+}
+.c_VertMask {
+	width: 92%;
+	height: 125px;
+	overflow: hidden;
+	margin: auto;
+	position: relative
+}
+.c_VertMask ul {
+	float: left;
+	position: absolute;
+	white-space: nowrap;
+	bottom: 0
+}
+.c_VertMask ul li {
+	float: left;
+	position: absolute;
+	display: inline-block;
+	bottom: 0
+}
+.c_LeftJt, .c_RigJt {
+	height: 50%;
+	width: 15px;
+	display: inline-block;
+	position: relative;
+	margin-top: 25px
+}
+.c_LeftJt span, .c_RigJt span {
+	position: relative;
+	width: 10px;
+	height: 20px;
+	top: 47px;
+	margin-top: -10px
+}
+.c_LeftJt span {
+	float: right;
+	background-position: 0 -290px
+}
+.c_RigJt span {
+	background-position: -325px -290px
+}
+#J-BookCon {
+	width: 806px;
+	margin: 0 26px 0 26px;
+	position: relative;
+	overflow: hidden
+}
+#J-BookDowIcon {
+	position: relative;
+	float: right;
+	margin-top: 4px;
+	right: 100px
+}
+.s_bookMask {
+	width: 403px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1
+}
+.s_Single {
+	width: 806px;
+	display: inline-block;
+	position: relative
+}
+.s_rigPag {
+	left: 403px
+}
+#J-DowNav {
+	background:url(/assets/sutongpay/play/yel-tiaobg01.png) no-repeat;
+	width: 924px;
+	height: 39px;
+	z-index: 1000;
+	bottom: 0;
+	margin-left: -33px
+}
+#J-DowNav tbody, #J-DowNav tbody a {
+	line-height: 36px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold
+}
+.s_dovNavFixed {
+	position: fixed
+}
+.s_dovNavRela {
+	position: relative
+}
+#J-DowNavLeftJt {
+	width: 20px;
+	height: 30px;
+	float: left;
+	margin-left: 20px;
+	background-position: 0 -360px
+}
+#J-DowNavRigJt {
+	width: 20px;
+	height: 30px;
+	float: right;
+	margin-right: 20px;
+	background-position: right -360px
+}
+#J-DowCataPage {
+	position: absolute;
+	bottom: 25px;
+	right: 0
+}
+#J-DowCataPageLeft {
+	width: 20px;
+	height: 30px;
+	float: right;
+	background-position: 0 -360px
+}
+#J-DowCataPageRig {
+	width: 20px;
+	height: 30px;
+	float: right;
+	background-position: right -360px;
+	margin-right: 20px
+}
+#J-DowCataPageTxt {
+	float: right;
+	margin: 0 10px 0 10px;
+	line-height: 30px
+}
+#J-DowCataClose {
+	background-position: 0 -395px;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	top: 10px
+}
+.c_dowTK {
+	position: relative
+}
+.c_Catalog {
+	background:url(/assets/sutongpay/play/yel-banbg01.png) no-repeat;
+	width: 282px;
+	height: 359px;
+	position: absolute;
+	top: 0;
+	left: 125px;
+	z-index: 999
+}
+.c_CataText {
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 4px;
+	line-height: 28px
+}
+.c_Share {
+	background:url(/assets/sutongpay/play/yel-banbg02.png) no-repeat;
+	width: 201px;
+	height: 53px;
+	position: absolute;
+	top: 0;
+	right: -10px;
+	padding-left: 8px
+}
+.c_Share ul li {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin: 11px 0 0 13px;
+	cursor: pointer;
+	text-indent: -9999em;
+	position: relative;
+	float: left
+}
+#J-shareClose {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	top: 5px
+}
+#ckepop a span {
+	margin-left: 3px
+}
+.bookBnt {
+	cursor: pointer;
+	position: absolute
+}
+.ibar-content, .ibar-content object {
+	float: left;
+	position: absolute
+}
+.ibar-btn2 {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	background: #ffa82c;
+	cursor: pointer;
+	border: 3px solid #fff;
+	border-radius: 6px;
+	box-shadow: 0 0 5px #999!important;
+	-moz-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 0 5px #999;
+	-khtml-box-shadow: 0 0 5px #999;
+	-webkit-box-shadow: 0 0 5px #999
+}
+.ibar-btn2 {
+	padding-right: 15px;
+	background-position: right top
+}
+.ibar-btn2 span {
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	padding-left: 15px
+}
+.ibar-btn2:hover {
+	text-decoration: none;
+	box-shadow: 0 0 5px #fff inset, 0px 0 5px #999!important;
+	-moz-box-shadow: 0 0 5px #fff inset, 0px 0 5px #999;
+	-khtml-box-shadow: 0 0 5px #fff inset, 0px 0 5px #999;
+	-webkit-box-shadow: 0 0 5px #fff inset, 0px 0 5px #999
+}
+.ui-widget-header {
+	border: 1px solid #87c9df!important;
+	background: #87c9df 50% 50% repeat-x!important;
+	color: #fff;
+	font-weight: bold
+}
+.ui-widget-overlay {
+	background: #666 50% 50% repeat!important;
+	opacity: .50;
+	filter: Alpha(Opacity=50)
+}
+.ui-widget-content {
+	border: 1px solid #87c9df!important;
+	background: #87c9df 50% top repeat-x!important;
+	color: #333
+}
+.ui-dialog {
+	-moz-box-shadow: 2px 2px 5px rgba(0,0,0,1);
+	-o-box-shadow: 0 0 8px rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 8px rgba(0,0,0,1);
+	box-shadow: 2px 2px 5px rgba(0,0,0,.3)
+}
+.ui-icon {
+	background-image:url(/assets/sutongpay/play/yel-biao01.png)!important;
+	background-position: 0 -395px!important;
+	width: 23px!important;
+	height: 23px!important
+}
+.ui-dialog-titlebar-close {
+	width: 23px!important;
+	height: 23px!important
+}
+.ui-state-hover {
+	background: #aae5f8!important;
+	border: 2px #aae5f8 solid!important
+}
+.ibar-banklist li a {
+	display: inline-block
+}
+.ibar-childtitle {
+	color: #595959;
+	font-family: Tahoma;
+	font-weight: 600
+}
+.ibar-banklist {
+	padding-top: 10px
+}
+.ibar-banklist li {
+	float: left;
+	width: 148px;
+	height: 58px;
+	overflow: hidden
+}
+.ibar-banklist li a {
+	float: left;
+	border: solid 1px #ddd;
+	width: 126px;
+	height: 36px;
+	overflow: hidden
+}
+.content-top ul li {
+	width: 100px;
+	height: 20px;
+	float: left;
+	text-align: center;
+	border: 1px #fff solid;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #fff
+}
+.tab-top-over {
+	color: #87c9df!important;
+	background: #fff
+}
+#J-banklist {
+	background: #fff;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px
+}
+.tkBox {
+	position: relative
+}
+.c_tab-title {
+	z-index: 15;
+	position: absolute;
+	right: 20px
+}
+.c_tab-title .current {
+	border-color: #ffc44c!important
+}
+.c_tab-title li {
+	float: left;
+	z-index: 1;
+	position: relative;
+	display: inline-block;
+	_display: inline;
+	overflow: hidden;
+	color: #87c9df;
+	line-height: 25px
+}
+.c_BookMask {
+	position: absolute;
+	background: #000;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	left: 0;
+	top: 0;
+	width: 445px;
+	z-index: 1
+}
+.c_tk_txtimg {
+}
+.TK-leftJt {
+	width: 25px;
+	height: 25px;
+	background-position: 0 -420px
+}
+.TK-rigJt {
+	width: 25px;
+	height: 25px;
+	background-position: right -420px
+}
+.clr:after {
+	content: '.';
+	height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both
+}
+.clr {
+	zoom: 1
+}
+.list_box {
+	margin-left: 25px;
+	position: relative
+}
+.list_info {
+	font-size: 12px;
+	text-align: center;
+	color: #605043
+}
+.list_info a {
+	color: #605043;
+	text-decoration: underline
+
+}
+.list_info td {
+	overflow: hidden
+}
+.list_info tr {
+	width: 740px;
+	height: 30px
+}
+.td1, .td3, .td5 {
+}
+.td2, .td4, .td6 {
+}
+.bg_white {
+}
+.td1 {
+	text-align: left;
+	color: #987c5b
+}
+.td1 {
+	width: 115px;
+	padding-left: 5px
+}
+.td2 {
+	width: 118px
+}
+.td3 {
+	width: 122px
+}
+.td4 {
+	width: 118px
+}
+.td5 {
+	width: 132px
+}
+.td6 {
+	width: 135px
+}
+.list_info .serve {
+	padding-left: 45px;
+	width: 70px
+}
+.fuwufei {
+	color: #987c5b;
+	width: 13px;
+	height: 52px;
+	padding: 10px 16px 0 10px;
+	position: absolute;
+	left: 0;
+	top: 105px
+}
+.shouming {
+	color: #987c5b;
+	margin: 0 20px;
+	padding: 10px 0
+}
+.tab_box {
+	width: 100%
+}
+.tab_nav li {
+	float: left;
+	background: #e7ddb9;
+	height: 38px;
+	width: 257px;
+	cursor: pointer;
+	line-height: 38px;
+	text-align: center;
+	font-size: 14px;
+	color: #8b7160
+}
+.tab_nav .tab_cur {
+	background: #baa286;
+	color: white;
+	font-weight: bold
+}
+.tab_nav2 li {
+	float: left;
+	height: 38px;
+	background: #c1d2db;
+	width: 257px;
+	cursor: pointer;
+	line-height: 38px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff
+}
+.tab_nav2 .tab_cur2 {
+	background: #a7b9ce;
+	color: white;
+	font-weight: bold
+}
+.tab_list {
+	background: white;
+	border: 1px solid #e0d9d3;
+	border-top: 0;
+	padding-top: 25px;
+	height: 360px;
+	overflow: hidden
+}
+.gongsi {
+	padding-bottom: 3px;
+	margin: 0 20px
+}
+.gongsi span {
+	display: block;
+	float: left;
+	margin-top: 10px;
+	color: #987c5b
+}
+.gongsi a {
+	float: left;
+	margin-left: 50px
+}
+.kuaijie a {
+	margin-left: 120px
+}
+.list_box2 .td1 {
+	width: 160px
+}
+.list_box2 .td2 {
+	width: 270px
+}
+.list_box2 .td3 {
+	width: 310px
+}
+.close-icon {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+	float: right;
+	right: 10px;
+	top: 15px;
+	background:url(/assets/sutongpay/play/yel-x.jpg)no-repeat left top;
+	cursor: pointer
+}
+.content-top2 {
+	padding: 10px 0 10px 20px;
+	background-color: #f7f7f7;
+	font-size: 14px;
+	color: #808080
+}
+.ibar-childtitle {
+	color: #595959;
+	font-family: Tahoma;
+	font-weight: 600
+}
+.ibar-banklist {
+	padding-top: 10px
+}
+.ibar-banklist li {
+	float: left;
+	width: 148px;
+	height: 58px;
+	overflow: hidden
+}
+.ibar-banklist li a {
+	float: left;
+	border: solid 1px #ddd;
+	width: 126px;
+	height: 36px;
+	overflow: hidden
+}
+.ibar-sm-t {
+	border-top: 1px solid #a7b9ce;
+	background-color: #f7f7f7
+}
+.ibar-sm-top {
+	background-color: #f0f0f0
+}
+.ibar-sm-t td {
+	font-size: 12px;
+	line-height: 30px;
+	color: #808080;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+	border-left: 1px solid #e8e8e8
+}
+.ibar-sm-t td em {
+	margin-top: 8px
+}
+.tkBox {
+	position: relative
+}
+.tab-title {
+	z-index: 15;
+	position: absolute;
+	right: 20px
+}
+.tab-title .current {
+	border-color: #ffc44c!important
+}
+.tab-title li {
+	border: 1px solid #ffc44c;
+	padding: 0;
+	float: left;
+	z-index: 1;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 16px;
+	margin-right: 0
+}
+.tab-title li {
+	width: auto;
+	margin: 0 0 0 5px;
+	_display: inline;
+	overflow: hidden;
+	padding: 0
+}
+.tab-title a {
+	text-indent: 0;
+	background: #fff;
+	color: #ffc44c;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	padding: 2px 5px
+}
+.tab-title .current a {
+	background: #ffc44c;
+	color: #fff
+}
+
+a img {border:none}
+img{border:0; vertical-align:top;}@charset "utf-8";
+
+.showhow-menu{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:18;
+}
+.showhow-pane{
+  width:910px;
+  float:left;
+}
+.side-pane {
+  margin: 33px 0 0 0;
+}
+
+.c-bread {
+  float: left;
+  position: relative;
+  z-index: 11;
+  margin: 0 0 -20px 0;
+}
+.c-bread li {
+
+}
+.c-bread .first {
+  padding: 0 0 0 0px;
+}
+
+
+#J_step {
+  position: relative;
+  z-index: 10;
+  clear: both;
+}
+
+.tab-flow{
+
+}
+.tab-flow .c-tab-ttl{
+  overflow: hidden;
+  zoom: 1;
+  height: 34px;
+  margin: 0;
+  background:url(/assets/sutongpay/play/ysbot01.png) no-repeat left 33px;
+}
+.tab-flow .c-tab-ttl li {
+  float: right;
+  height: 35px;
+  margin-right:0px;
+  background:url(/assets/sutongpay/play/ystiao01.png) no-repeat left top;
+}
+.tab-flow .c-tab-ttl li a {
+  display: block;
+  height:100%;
+  padding: 4px 20px 0 25px;
+  color: #4D4D4D;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -40px;
+}
+.tab-flow .c-tab-ttl .current,
+.tab-flow .c-tab-ttl .first-current,
+.tab-flow .c-tab-ttl .last-current {
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat left -80px;
+}
+.tab-flow .c-tab-ttl .current a,
+.tab-flow .c-tab-ttl .first-current a,
+.tab-flow .c-tab-ttl .last-current a {
+  font-weight: 700;
+  color: #427c9b;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -120px;
+}
+
+
+.tab-flow .c-tab-ctt{
+  display: none;
+  clear: both;
+}
+.tab-flow .c-tab-ctt h3 {
+  display: none;
+}
+.c-tab .current {
+  display: block;
+}
+
+.main-flow-wrap {
+}
+.main-flow{
+  overflow: hidden;
+  zoom: 1;
+  height: 28px;
+  background:url(/assets/sutongpay/play/ysbot01.png) no-repeat left -1px;
+}
+.main-flow a,
+.main-flow a:hover {
+  font-size:12px;
+  font-weight:600;
+  text-decoration:none;
+  color:#fff;
+}
+.main-flow li {
+  float:left;
+  position: relative; z-index: 9;
+  background: #FFA000 url(/assets/sutongpay/play/ystiao01.png) no-repeat left -320px;
+  line-height: 1.0;
+}
+.main-flow li.first {
+  background: #FFA000 url(/assets/sutongpay/play/ystiao01.png) no-repeat left -160px;
+}
+.main-flow li a {
+  display: block;
+  float: left;
+  position: relative; z-index: 10;
+  height: 21px;
+  margin: 0 -15px 0 0;
+  padding: 7px 25px 0;
+  line-height: 12px;
+  *+line-height: 16px;
+  *_line-height: 14px;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -360px;
+}
+.main-flow li.first a {
+  padding: 7px 25px 0 15px;
+}
+.main-flow li.last a {
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -240px;
+}
+.main-flow .current,
+.main-flow .first-current,
+.main-flow .last-current {
+  position: relative; z-index: 11;
+  background: #fff url(/assets/sutongpay/play/ystiao01.png) no-repeat left -400px;
+}
+.main-flow .first-current {
+  background: #fff url(/assets/sutongpay/play/ystiao01.png) no-repeat left -200px;
+}
+.main-flow .current a,
+.main-flow .current a:hover,
+.main-flow .first-current a,
+.main-flow .first-current a:hover,
+.main-flow .last-current a,
+.main-flow .last-current a:hover {
+  color: #427c9b;
+  position: relative; z-index: 12;
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -440px;
+}
+.main-flow .first-current a {
+  padding: 7px 25px 0 15px;
+}
+.main-flow .last-current a,
+.main-flow .last-current a:hover {
+  background: url(/assets/sutongpay/play/ystiao01.png) no-repeat right -280px;
+}
+
+
+.main-step{
+  clear:both;
+  display: none;
+}
+
+.main-step {
+  height: 28px;
+  background: url(url(/assets/sutongpay/play/ysbot01.png)) no-repeat left -29px;
+}
+.main-step li{
+  float:left;
+  padding:4px 5px 0 5px;
+  *padding:3px 5px 0 5px;
+}
+.main-step li a,
+.main-step li a:hover {
+  display: block;
+  float: left;
+  /* padding: 1px 6px 6px 6px; */
+  padding: 2px 6px 7px 6px;
+  text-decoration: none;
+}
+.main-step .current,
+.main-step .first-current,
+.main-step .last-current {
+}
+.main-step .current a,
+.main-step .first-current a,
+.main-step .last-current a {
+  font-weight: 700;
+  color:#fff;
+  background: #FF6600 url(/assets/sutongpay/play/ystiao01.png) no-repeat center -463px;
+
+}
+
+.main-image{
+  clear:both;
+  overflow: hidden;
+  width: 908px;
+  border: 1px #ccebf2 solid;
+  border-top: none;
+  text-align: center;
+}
+.main-image .loading {
+  width: 220px;
+  height: 19px;
+}
+.main-image div {
+  display: none;
+}
+.main-image div.current {
+  display: block;
+}
+
+
+
+.main{
+  min-width:990px;
+}
+.main-container{
+text-align:center;
+  margin:auto;
+  width:910px;
+  padding:20px 0 20px 0
+}
+.main-body{
+  margin:auto;
+  width:990px;
+  text-align:center;
+  -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px;
+}
+
+
+
+/* bread */
+
+.c-bread li{
+  display:inline;
+}
+.bread{
+  display: none;
+  padding:7px 0 0;
+}

@@ -1,0 +1,72 @@
+/* 交易分类 */
+.ui-Tranclass {
+	width: 100%;
+	float: left;
+	display: inline-block;
+	line-height: 25px;
+	margin-top:10px;
+}
+.ui-Tranclass span {
+	font-weight: bold;
+	margin-right: 5px;
+}
+.ui-Tranclass a {
+	padding: 0px 7px;
+	margin: 0px 5px 2px 5px;
+	display:inline-block;
+	*display:inline;
+	zoom:1;
+	color:#666;
+}
+.ui-Tranclass a:hover {
+	background-color: #FEF8EC;
+}
+.ui-Tranclass a.a-sel {
+	color: #EE9017;
+	background-color: #FFF5E0;
+	border-radius: 5px;
+}
+.ui-Tranclass a.a-sel:hover {
+	background-color: #FFF5E0;
+}
+/* 展开查询项目 */
+.ui-Tranclass .ui-Inquiryleftdiv01{
+	width:75px;
+	display:block;
+	float:left;
+}
+.ui-Tranclass .ui-Inquiryleftdiv02{
+	width:560px;
+	display:block;
+	float:left;
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+}
+.ui-Tranclass .ui-Inquirymore01{
+	display:block;
+	float:right;
+	background-repeat:no-repeat;
+	width:40px;
+	font-weight:100;
+	color:#2c9bd6;
+	height:25px;
+	line-height:25px;
+	cursor:pointer;
+	position:relative;
+}
+.ui-Tranclass .ui-Inquirymore01 i{
+	width:7px;
+	height:7px;
+	font-size:7px;
+	line-height:7px;
+	background:url(../images/inside-main/moreimg01.jpg) no-repeat;
+	background-position:0px -7px;
+	float:left;
+	top:8px;
+	left:28px;
+	position:absolute;
+}
+.ui-Tranclass .more01-sel i{
+	background-position:0px 0px;
+}

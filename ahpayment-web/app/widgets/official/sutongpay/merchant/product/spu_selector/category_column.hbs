@@ -1,0 +1,8 @@
+<div class="category-column" parent-id="{{data.0.parentId}}" level="{{data.0.level}}">
+  <h4>{{data.0.level}}级类目</h4>
+  <ul class="unstyled">
+    {{#each data}}
+      {{> category}}
+    {{/each}}
+  </ul>
+</div>

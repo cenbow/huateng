@@ -1,0 +1,10 @@
+新增个人信息修改页面
+增加图片images\mycenter\PersonalCenter.jpg
+修改CSS
+inside-SecurityCenter.css
+index.css
+部分表单样式修改
+
+交易管理一些表单和样式的添加，页面和CSS都有
+inside-Transaction.css
+index.css都有改动

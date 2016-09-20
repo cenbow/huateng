@@ -1,0 +1,14 @@
+<div id="{{_ID_}}" class="grid js-comp" style="{{_STYLE_}}" data-comp-path="{{_COMP_PATH_}}">
+    <table>
+    {{#each rows}}
+    <tr>
+        {{#each this}}
+        <td>
+           <label data-type="editable" data-for=".col">{{this}}</label>
+            <input class="col"/>
+        <td>
+        {{/each}}
+    </tr>
+    {{/each}}
+    </table>
+</div>

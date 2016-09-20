@@ -1,0 +1,69 @@
+<div class="modal w300" id="js-image-slider-config-panel">
+    <div class="modal-header">
+        <button type="button" class="close">&times;</button>
+        <h4>图片轮播设置</h4>
+    </div>
+    <div class="modal-body">
+        <form id="js-image-slider-config-form" action="javascript:void(0)">
+            <input type="hidden" name="mode">
+            <label>风格切换:</label>
+
+            <div class="row-fluid js-mode-switch">
+                <div class="span3"><img data-mode="image-slider js-comp" src="/assets/bg/touming.png"></div>
+                <div class="span3"><img data-mode="image-slider js-comp img-slider-sm" src="/assets/bg/beijingtu.png"></div>
+                <div class="span3"><img data-mode="image-slider js-comp img-slider-bootstrap" src="/assets/bg/beijingtu.png"></div>
+                <div class="span3"><img data-mode="image-slider js-comp img-slider-slim" src="/assets/bg/beijingtu.png"></div>
+            </div>
+            <button class="btn btn-primary btn-block" id="js-change-image">更换图片</button>
+            <label>显示模式:
+                <select name="display" class="input-text">
+                    <option value="1">裁剪</option>
+                    <option value="2">横向缩放</option>
+                    <option value="3">纵向缩放</option>
+                    <option value="4">整体缩放</option>
+                </select>
+            </label>
+            <label>动画效果:
+                <select name="effect" class="input-text">
+                    <option value="none">NONE</option>
+                    <option value="fade">FADE</option>
+                </select>
+            </label>
+
+            <div class="row-fluid">
+                <div class="span4">
+                    <label class="checkbox">
+                        <input type="checkbox" name="autoplay">自动播放
+                    </label>
+                </div>
+                <div class="span4">
+                    <label class="checkbox">
+                        <input type="checkbox" name="circle">平滑循环
+                    </label>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2">时长:</div>
+                <div class="span8">
+                    <span class="slider js-slider"></span>
+                </div>
+                <div class="span2">
+                    <input type="text" name="duration" class="input-min" data-min="0" data-max="20" value="2">
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2">间隔:</div>
+                <div class="span8">
+                    <span class="slider js-slider"></span>
+                </div>
+                <div class="span2">
+                    <input type="text" name="interval" class="input-min" data-min="0" data-max="20" value="2">
+                </div>
+            </div>
+        </form>
+        <a class="btn btn-primary btn-block" id="js-change-style">自定义样式</a>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary" id="js-ok">确定</a>
+    </div>
+</div>

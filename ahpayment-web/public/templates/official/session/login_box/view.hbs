@@ -1,0 +1,107 @@
+{{#component "session-login-box"}}
+{{#unless _USER_}}
+<div class="login-header">
+  <div class="login-header-title active" data-ref="#signin-form">翼支付账户登录</div>
+  <div class="login-header-title" data-ref="#signin-card-form">翼充卡登录</div>
+</div>
+<form id="signin-form" class="ui-cardaccount-form">
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <input name="productNo" type="text" class="ui-txtinput01" placeHolder="请输入手机号">
+      <label class="quick-login" for="quick-login"><input id="quick-login" type="checkbox">&nbsp;快捷登录</label>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <input name="password" type="text" class="ui-txtinput01" placeHolder="登录密码">
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <a title="登录" id="signin-submit" class="ui-button ui-button-morange ui-button-large">
+        登&nbsp;&nbsp;录
+      </a>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item login-more">
+      <label class="remember-me" for="rememberMe"><input name="rememberMe" id="rememberMe" type="checkbox">&nbsp;记住账号</label>
+      <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <label class="forgot-password"><a href="">忘记密码?</a></label>
+    </div>
+    <div class="division">
+      <hr>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <a title="免费注册" class="ui-button ui-button-mwhite">
+        免费注册
+      </a>
+      <a>什么是天翼账号?</a>
+    </div>
+  </div>
+</form>
+{{else}}
+<div class="session-after-login">
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <p>欢迎来到翼支付</p>
+      <p>您当前的账号为: {{_USER_.principal}}</p>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <a title="进入" class="ui-button ui-button-morange" href="/mypay/home">
+        进&nbsp;&nbsp;入
+      </a>
+      <a title="退出" class="ui-button ui-button-mwhite" href="/api/user/logout">
+        退&nbsp;&nbsp;出
+      </a>
+    </div>
+  </div>
+</div>
+{{/unless}}
+
+{{#unless _USER_}}
+<form id="signin-card-form" class="ui-cardaccount-form" style="display:none;">
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <input name="cardNo" type="text" class="ui-txtinput01" placeHolder="请输入卡号">
+      <label class="quick-login" for="quick-login"><input id="quick-login" type="checkbox">&nbsp;快捷登录</label>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <input name="password" type="password" class="ui-txtinput01" placeHolder="登录密码">
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <a title="登录" id="signin-card-submit" class="ui-button ui-button-morange ui-button-large">
+        登&nbsp;&nbsp;录
+      </a>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item login-more">
+      <label class="remember-me" for="rememberMe"><input name="rememberMe" id="rememberMe" type="checkbox">&nbsp;记住账号</label>
+      <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <label class="forgot-password"><a href="">忘记密码?</a></label>
+    </div>
+    <div class="division">
+      <hr>
+    </div>
+  </div>
+  <div class="ui-form">
+    <div class="ui-form-item">
+      <a title="免费注册" class="ui-button ui-button-mwhite">
+        免费注册
+      </a>
+      <a>什么是天翼账号?</a>
+    </div>
+  </div>
+</form>
+
+{{/unless}}
+{{/component}}

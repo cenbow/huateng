@@ -1,0 +1,15 @@
+{{#component "news-left"}}
+   <div class="left">
+               <ul class="menu">
+                  <h2><em>资讯中心</em><i></i></h2>
+                  <li class="m1 
+                  {{#match "news" _PAGE_.path}}
+                  {{#match "announce" _PAGE_.path}}
+                  current
+                  {{/match}}
+                  {{/match}}
+                  ">
+                  	<a href="/news/announce/announce"><i></i>公告资讯</a></li>             
+               </ul>
+    </div>
+{{/component}}

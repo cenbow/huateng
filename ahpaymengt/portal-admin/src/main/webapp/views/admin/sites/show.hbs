@@ -1,0 +1,69 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<h1>Site</h1>
+
+<p>
+    <strong>Id:</strong><br>
+    {{site.id}}
+</p>
+<p>
+  <strong>Name:</strong><br>
+  {{{site.name}}}
+</p>
+
+<p>
+    <strong>Type:</strong><br>
+    {{site.type}}
+</p>
+
+<p>
+    <strong>Status:</strong><br>
+    {{site.status}}
+</p>
+
+<p>
+    <strong>Forkable:</strong><br>
+    {{site.forkable}}
+</p>
+
+<p>
+  <strong>UserId:</strong><br>
+  {{site.userId}}
+</p>
+<p>
+  <strong>Domain:</strong><br>
+  {{site.domain}}
+</p>
+<p>
+  <strong>SubDomain:</strong><br>
+  {{site.subDomain}}
+</p>
+<p>
+    <strong>HrefBase:</strong><br>
+    {{site.hrefBase}}
+</p>
+<p>
+    <strong>RootPath:</strong><br>
+    {{site.rootPath}}
+</p>
+<p>
+  <strong>DefaultSiteInstanceId:</strong><br>
+  {{site.defaultSiteInstanceId}}
+</p>
+<p>
+  <strong>CreatedAt:</strong><br>
+  {{site.createdAt}}
+</p>
+<p>
+  <strong>UpdatedAt:</strong><br>
+  {{site.updatedAt}}
+</p>
+<div class="form-actions">
+  <a href="/sites" class="btn"><span>Back</span></a>
+  <a href="/sites/{{site.id}}/edit" class="btn"><span>Edit</span></a>
+</div>
+{{/partial}}
+{{> admin/layout}}

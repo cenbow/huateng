@@ -1,0 +1,20 @@
+<div id="{{_ID_}}" class="{{#if _MODE_}}{{_MODE_}}{{else}}image-slider js-comp{{/if}}" style="{{_STYLE_}}" data-behavior="{{_BEHAVIOR_}}" data-comp-path="{{_COMP_PATH_}}">
+    <ol class="able-switchable-content unstyled">
+        {{#if images}}
+            {{#each images}}
+            <li {{#unless @first}}style="display:none"{{/unless}}>{{#if href}}<a href="{{href}}" target="_blank">{{/if}}<img alt="{{title}}" src="{{src}}"/>{{#if href}}</a>{{/if}}</li>
+            {{/each}}
+        {{else}}
+            <li style="display: block; opacity: 1; position: absolute; z-index: 1;"><img alt="title" src="/assets/images/default-site-logo.png"></li>
+        {{/if}}
+    </ol>
+    <ul class="able-switchable-nav unstyled">
+        {{#each images}}
+        <li {{#if @first}}class="active"{{/if}}>{{@index}}</li>
+        {{/each}}
+    </ul>
+    <div class="control">
+        <a class="left carousel-control">‹</a>
+        <a class="right carousel-control">›</a>
+    </div>
+</div>

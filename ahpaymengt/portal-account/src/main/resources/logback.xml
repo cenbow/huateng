@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="RootLogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logRoot}/root.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${logRoot}/root-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>512MB</maxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="UserLogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logRoot}/user.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${logRoot}/user-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>512MB</maxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="DubboLogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logRoot}/dubbo.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${logRoot}/dubbo.%i.log</fileNamePattern>
+            <minIndex>0</minIndex>
+            <maxIndex>10</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>128MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!-- Only log level INFO and above -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${logLevel}</level>
+        </filter>
+    </appender>
+
+    <logger name="cn.com.huateng.account" level="${logLevel}" additivity="${logAdditivity}">
+        <appender-ref ref="UserLogFile"/>
+    </logger>
+
+    <logger name="com.alibaba.dubbo" level="${dubboLogLevel}" additivity="${logAdditivity}">
+        <appender-ref ref="DubboLogFile"/>
+    </logger>
+
+    <!-- Strictly speaking, the level attribute is not necessary since -->
+    <!-- the level of the root level is set to DEBUG by default.       -->
+    <root level="${logLevel}">
+        <appender-ref ref="${logDefaultFile}"/>
+    </root>
+
+</configuration>

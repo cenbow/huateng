@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TPortOrderBaseMapper">
+  <resultMap id="BaseResultMap" type="TPortOrderBase">
+    <result column="ORDERSEQ" jdbcType="VARCHAR" property="orderSeq" />
+    <result column="ORDERREQTRANSEQ" jdbcType="VARCHAR" property="orderReqTranSeq" />
+    <result column="MERCHANTID" jdbcType="VARCHAR" property="merchantId" />
+    <result column="UPTRANSEQ" jdbcType="VARCHAR" property="upTranSeq" />
+    <result column="ORDERAMOUNT" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="PRODUCTAMOUNT" jdbcType="DECIMAL" property="productAmount" />
+    <result column="ATTACHAMOUNT" jdbcType="DECIMAL" property="attachAmount" />
+    <result column="TRANDATE" jdbcType="TIMESTAMP" property="tranDate" />
+    <result column="CURTYPE" jdbcType="VARCHAR" property="curType" />
+    <result column="ENCODETYPE" jdbcType="CHAR" property="encodeType" />
+    <result column="RETNCODE" jdbcType="VARCHAR" property="retnCode" />
+    <result column="RETNINFO" jdbcType="VARCHAR" property="retnInfo" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="FEETYPE" jdbcType="VARCHAR" property="feeType" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="TXN_TYPE" jdbcType="VARCHAR" property="txnType" />
+    <result column="TXTN1" jdbcType="VARCHAR" property="txtn1" />
+    <result column="TXTN2" jdbcType="VARCHAR" property="txtn2" />
+    <result column="TXTN3" jdbcType="VARCHAR" property="txtn3" />
+    <result column="UNIFYID" jdbcType="VARCHAR" property="unifyId" />
+    <result column="BANKID" jdbcType="VARCHAR" property="bankId" />
+  </resultMap>
+   <sql id="Example_Where_Clause">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="orderSeq !=null">
+                AND   ORDERSEQ = #{orderSeq,jdbcType=VARCHAR}
+            </if>
+            <if test="orderReqTranSeq !=null">
+                AND   ORDERREQTRANSEQ  = #{orderReqTranSeq,jdbcType=VARCHAR}
+            </if>
+            <if test="unifyId !=null">
+                AND UNIFYID = #{unifyId}
+            </if>
+            <if test="feeType != null">
+                AND INSTR(',' || #{feeType} || ','  ,  ',' || FEETYPE|| ',') >0
+            </if>
+            <if test="startDate != null">
+                <![CDATA[ AND CREATE_TIME  >=   #{startDate}]]>
+            </if>
+            <if test="endDate   != null">
+                <![CDATA[   AND CREATE_TIME  <  #{endDate} ]]>
+            </if>
+        </trim>
+    </sql>
+    <sql id="Base_Column_List">
+    ORDERSEQ, ORDERREQTRANSEQ, MERCHANTID, UPTRANSEQ, ORDERAMOUNT, PRODUCTAMOUNT,
+    ATTACHAMOUNT, TRANDATE, CURTYPE, ENCODETYPE, RETNCODE, RETNINFO, STATUS, FEETYPE,
+    CREATE_TIME,  TXN_TYPE, TXTN1, TXTN2, TXTN3, UNIFYID,  BANKID
+  </sql>
+  <insert id="insert" parameterType="TPortOrderBase">
+    insert into PORTAL.T_PORT_ORDER_BASE (ORDERSEQ, ORDERREQTRANSEQ, MERCHANTID, 
+      UPTRANSEQ, ORDERAMOUNT, PRODUCTAMOUNT, 
+      ATTACHAMOUNT, TRANDATE, CURTYPE, 
+      ENCODETYPE, RETNCODE, RETNINFO, 
+      STATUS, FEETYPE, CREATE_TIME, 
+      TXN_TYPE, TXTN1, TXTN2, 
+      TXTN3, UNIFYID, BANKID
+      )
+    values (#{orderSeq,jdbcType=VARCHAR}, #{orderReqTranSeq,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, 
+      #{upTranSeq,jdbcType=VARCHAR}, #{orderAmount,jdbcType=DECIMAL}, #{productAmount,jdbcType=DECIMAL},
+      #{attachAmount,jdbcType=DECIMAL}, #{tranDate,jdbcType=TIMESTAMP}, #{curType,jdbcType=VARCHAR}, 
+      #{encodeType,jdbcType=CHAR}, #{retnCode,jdbcType=VARCHAR}, #{retnInfo,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{feeType,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{txnType,jdbcType=VARCHAR}, #{txtn1,jdbcType=VARCHAR}, #{txtn2,jdbcType=VARCHAR}, 
+      #{txtn3,jdbcType=VARCHAR}, #{unifyId,jdbcType=VARCHAR}, #{bankId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="TPortOrderBase">
+    insert into PORTAL.T_PORT_ORDER_BASE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderSeq != null">
+        ORDERSEQ,
+      </if>
+      <if test="orderReqTranSeq != null">
+        ORDERREQTRANSEQ,
+      </if>
+      <if test="merchantId != null">
+        MERCHANTID,
+      </if>
+      <if test="upTranSeq != null">
+        UPTRANSEQ,
+      </if>
+      <if test="orderAmount != null">
+        ORDERAMOUNT,
+      </if>
+      <if test="productAmount != null">
+        PRODUCTAMOUNT,
+      </if>
+      <if test="attachAmount != null">
+        ATTACHAMOUNT,
+      </if>
+      <if test="tranDate != null">
+        TRANDATE,
+      </if>
+      <if test="curType != null">
+        CURTYPE,
+      </if>
+      <if test="encodeType != null">
+        ENCODETYPE,
+      </if>
+      <if test="retnCode != null">
+        RETNCODE,
+      </if>
+      <if test="retnInfo != null">
+        RETNINFO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="feeType != null">
+        FEETYPE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="txnType != null">
+        TXN_TYPE,
+      </if>
+      <if test="txtn1 != null">
+        TXTN1,
+      </if>
+      <if test="txtn2 != null">
+        TXTN2,
+      </if>
+      <if test="txtn3 != null">
+        TXTN3,
+      </if>
+      <if test="unifyId != null">
+        UNIFYID,
+      </if>
+      <if test="bankId != null">
+        BANKID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderSeq != null">
+        #{orderSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="orderReqTranSeq != null">
+        #{orderReqTranSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="upTranSeq != null">
+        #{upTranSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmount != null">
+        #{orderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="productAmount != null">
+        #{productAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="attachAmount != null">
+        #{attachAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tranDate != null">
+        #{tranDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="curType != null">
+        #{curType,jdbcType=VARCHAR},
+      </if>
+      <if test="encodeType != null">
+        #{encodeType,jdbcType=CHAR},
+      </if>
+      <if test="retnCode != null">
+        #{retnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="retnInfo != null">
+        #{retnInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="feeType != null">
+        #{feeType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="txnType != null">
+        #{txnType,jdbcType=VARCHAR},
+      </if>
+      <if test="txtn1 != null">
+        #{txtn1,jdbcType=VARCHAR},
+      </if>
+      <if test="txtn2 != null">
+        #{txtn2,jdbcType=VARCHAR},
+      </if>
+      <if test="txtn3 != null">
+        #{txtn3,jdbcType=VARCHAR},
+      </if>
+      <if test="unifyId != null">
+        #{unifyId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankId != null">
+        #{bankId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="findTPortOrderBase" resultMap="BaseResultMap" parameterType="TPortOrderBase">
+        <include refid="common.Pagination_Head"/>
+        select
+        <include refid="Base_Column_List"/>
+        from PORTAL.T_PORT_ORDER_BASE
+        <include refid="Example_Where_Clause"/>
+        order by create_time desc
+        <include refid="common.Pagination_Foot"/>
+    </select>
+
+    <select id="findCountTPortOrderBase" resultType="long" parameterType="TPortOrderBase">
+        select count(1)
+        from PORTAL.T_PORT_ORDER_BASE
+        <include refid="Example_Where_Clause"/>
+    </select>
+    <select id="findTPortOrderBaseByOrderTranReq" resultMap="BaseResultMap" parameterType="TPortOrderBase">
+        select
+        <include refid="Base_Column_List"/>
+        from PORTAL.T_PORT_ORDER_BASE
+        <include refid="Example_Where_Clause"/>
+        order by create_time desc
+    </select>
+    <update id="updateTPortOrderBaseVo" parameterType="TPortOrderBase">
+        update PORTAL.T_PORT_ORDER_BASE
+        <set>
+            <if test="merchantId != null">
+                MERCHANTID = #{merchantId,jdbcType=VARCHAR},
+            </if>
+            <if test="upTranSeq != null">
+                UPTRANSEQ = #{upTranSeq,jdbcType=VARCHAR},
+            </if>
+            <if test="orderAmount != null">
+                ORDERAMOUNT = #{orderAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="productAmount != null">
+                PRODUCTAMOUNT = #{productAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="attachAmount != null">
+                ATTACHAMOUNT = #{attachAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="tranDate != null">
+                TRANDATE = #{tranDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="curType != null">
+                CURTYPE = #{curType,jdbcType=VARCHAR},
+            </if>
+            <if test="encodeType != null">
+                ENCODETYPE = #{encodeType,jdbcType=VARCHAR},
+            </if>
+            <if test="retnCode != null">
+                RETNCODE = #{retnCode,jdbcType=VARCHAR},
+            </if>
+            <if test="retnInfo != null">
+                RETNINFO = #{retnInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="txnType != null">
+                TXN_TYPE = #{txnType,jdbcType=VARCHAR},
+            </if>
+            <if test="txtn1 != null">
+                TXTN1 = #{txtn1,jdbcType=VARCHAR},
+            </if>
+            <if test="txtn2 != null">
+                TXTN2 = #{txtn2,jdbcType=VARCHAR},
+            </if>
+            <if test="txtn3 != null">
+                TXTN3 = #{txtn3,jdbcType=VARCHAR},
+            </if>
+            <if test="bankId != null">
+                BANKID = #{bankId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="orderSeq != null">
+                and  ORDERSEQ = #{orderSeq,jdbcType=VARCHAR}
+            </if>
+            <if test="orderReqTranSeq != null">
+                and  ORDERREQTRANSEQ = #{orderReqTranSeq,jdbcType=VARCHAR}
+            </if>
+        </trim>
+
+    </update>
+</mapper>

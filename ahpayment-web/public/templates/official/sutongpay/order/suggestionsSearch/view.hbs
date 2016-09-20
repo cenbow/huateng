@@ -1,0 +1,67 @@
+{{#component "order-sugsear"}}
+                
+              <div class="cl"></div>
+<form id="formMobile" action="" method="post"  target="_blank">
+  <input name="orderSeq" type="hidden" value="" id="orderSeq" />
+  <input name="feeType" type="hidden" value="" id="feeType1" />
+  <input name="orderBaseNo" type="hidden" value="" id="orderBaseNo" />
+</form>
+<div class="order-m">
+  <form method="get" action="/order/suggestionsSearch" id="searchform">
+    <input type='hidden' name='feeType' value="{{feeType}}" id="feeType">
+    <input type='hidden' name='deploy' value="{{deploy}}" id="deploy">
+    <span class="order-cola order-cola-wa fl">起止日期：</span> 
+    <span class="order-colb order-colb-wa fl">
+      <input name="startDate" id="startDate" type="text"  value="{{startDate}}" 
+      class="input-w5 ui-timeinput portal-datepicker fl" readOnly  style="cursor:pointer">
+      <span class="sp-plr8 fl">-</span>
+      <input name="endDate" id="endDate" type="text"  value="{{endDate}}" 
+      class="input-w5 ui-timeinput portal-datepicker fl" readOnly  style="cursor:pointer">
+      <input type="submit" name="button2" id="button" 
+      value="查 询" class=" inqu-btn fl">
+    </span>
+    <form> 
+     <span class="cl"></span> 
+     <div class="cl" style="padding-top:30px;"></div>
+
+
+  <table cellpadding="0" cellspacing="0">
+       <tr>
+        <th>创建时间</th>
+         <th>订单号</th>
+         <th>内容</th>
+         <th>详情</th>
+       </tr>
+       
+
+       {{#if _DATA_.data}} 
+       {{#each _DATA_.data}}
+       <tr class="white">
+          <td align="center">{{formatDate createTime "day"}}</td>
+         <td align="center">{{orderNo}}</td>
+         <td align="center">{{transformat context}}</td>
+           <td align="center"> 
+    <a class="ui-txt-a" href="/api/suggestions/detail?id={{id}}&orderNo={{orderNo}}&createTime={{formatDate createTime "day"}}">详情</a>&nbsp;&nbsp;
+        </td>
+
+
+      </tr>
+      {{/each}}
+      {{/if}}
+
+    </table>
+
+  {{#equals _DATA_.total 0}}
+    <div class="ui-Transaction-none">
+      <span class="ui-noneimg"></span>
+      <span class="ui-nonetxt">亲，没有投诉记录~</span>
+    </div>
+    {{/equals}}
+
+    {{#if _DATA_.data}}
+       <span id="js-list-total" style="display:none;">{{_DATA_.total}}</span>
+       <div class="pagination" id="js-list-pagination" style="float: right;"></div>
+    {{/if}}
+ </div>
+ 
+{{/component}}

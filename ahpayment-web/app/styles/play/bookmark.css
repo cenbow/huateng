@@ -1,0 +1,14 @@
+#J-DowCataContent .fn_bnt{
+  width: 240px;
+  height: 20px;
+  line-height: 20px;
+  float: left;
+  display:block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, span, b, i, a, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  font: inherit;
+  vertical-align:middle;
+}

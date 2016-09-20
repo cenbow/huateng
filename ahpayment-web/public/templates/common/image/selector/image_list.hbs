@@ -1,0 +1,11 @@
+<div class="row-fluid">
+    {{#each data.data}}
+    <div class="span2">
+        <img src="{{url}}">
+    </div>
+    {{#mod @index 6}}
+</div>
+<div class="row-fluid ">
+    {{/mod}}
+    {{/each}}
+</div>

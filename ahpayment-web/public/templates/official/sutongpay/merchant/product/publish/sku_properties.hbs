@@ -1,0 +1,15 @@
+{{#each entries}}
+<div class="attr">
+  <label class="attr-label" data-name="{{attributeKey.name}}">{{attributeKey.name}}：</label>
+
+  <div class="attr-box  sku-color">
+    <ul class="sku-list unstyled sku-property">
+        {{#each attributeValues}}
+          <li class="sku-item">
+            <label class="labelname"><input class="sku-value" data-id="{{id}}" data-value="{{value}}" type="checkbox">{{value}}</label>
+          </li>
+        {{/each}}
+    </ul>
+  </div>
+</div>
+{{/each}}

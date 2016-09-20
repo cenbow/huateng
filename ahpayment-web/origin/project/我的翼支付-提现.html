@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--所有CSS公用-->
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<link href="../css/index.css" rel="stylesheet" />
+<!--header-CSS-->
+<link href="../css/inside-header.css" rel="stylesheet" />
+<!--left-CSS-->
+<link href="../css/inside-myleft.css" rel="stylesheet" />
+<!--提现页面-CSS-->
+<link href="../css/inside-Withdraw.css" rel="stylesheet" />
+<!--footer-CSS-->
+<link href="../css/footer.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></script>
+<title>翼支付</title>
+</head>
+<body>
+<div id="divBody">
+  <div class="inside-header"> <span class="ui-headerlogo"></span>
+    <div class="ui-nav"> <a class="nav-sel">我的翼支付</a> <a>交易管理</a> <a>应用中心</a> <a>账单支付</a> <a>翼充卡</a> <a>手机客户端</a> </div>
+  </div>
+  <div class="inside-main ui-noleft">
+    <div class="ui-noleftdiv">
+      <div class="ui-920main">
+        <div class="ui-title"><span>提现</span></div>
+        <div class="ui-info"> <span class="ui-txt01">余额:&nbsp;10.00元&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;可提现额度:&nbsp;&nbsp;<font class="ui-txtbig">6.52</font>&nbsp;&nbsp;元</span> <span class="ui-a01"><a class="ui-txt-a">查看充值记录</a></span> </div>
+        <div class="ui-main">
+          <div class="ui-form ui-40h">
+            <div class="ui-form-txt01">选择银行卡:</div>
+            <div class="ui-form-item "> <span class="ui-form-txt02">目前已添加&nbsp;0&nbsp;张银行卡</span> <span class="ui-add"><a class="ui-button ui-button-morange" id="open01">添加提现银行卡</a></span> </div>
+            <script>
+			$(function(){
+			$('#open01').click(function(){
+			$("#show01").show()
+			});
+			});
+			</script>
+          </div>
+          <div class="ui-form">
+            <div class="ui-form-txt01">提现金额:</div>
+            <div class="ui-form-item">
+              <input name="" type="text" style="width:165px; color:#999" value="输入金额"onclick="if(value==defaultValue){value='';this.style.color='#222'}"class="ui-txtinput01" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+              <span class="ui-form-txt02">元</span> </span> </div>
+          </div>
+          <div class="ui-form">
+            <div class="ui-form-txt01"></div>
+            <div class="ui-form-item"> <a class="ui-button ui-button-hwhite">下一步</a> </div>
+          </div>
+        </div>
+        <div class="ui-sepdased-line"></div>
+        <div class="ui-all-note">
+          <div class="ui-noteimg01" style="margin-left:80px;"></div>
+          <div class="ui-notetxt01"> 本卡不记名、不挂失、不透支、不计息、不可兑换现金、请妥善保管。</br>
+            持本卡可在天翼积分商城jf.ct10000.com使用，使用本卡消费不另行提供发票。</br>
+            本卡设有有效期，请在有效期内使用。</br>
+            本卡不可退还，余额用完即止。卡内余额可在本网站上转存。</br>
+            刮开初始密码后，可在本网站上进行修改，以防密码泄漏。因个人密码保管不当造成的损失，责任自负。</br>
+            本卡使用规定在本网站上公布，持卡人应按规定使用，如有变更恕不另行通知。</br>
+            中国电信天翼电子商务有限公司拥有对此卡的最终解释权及变更权。 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footerbg">
+      <div class="footer-main">
+        <div class="footer-link">
+          <div class="elselink">
+            <div class="elsetitlink"> <a style="cursor:default"><img src="../images/footer/dx.png" /></a> <a style="cursor:default"><img src="../images/footer/phone1.jpg"  /></a> <a style="cursor:default"><img src="../images/footer/phone.png"/></a> <a href="" target="_blank"><img src="../images/footer/youjian.png"/> <span class="t01">kefu@sutongpay.com.cn</span></a> </div>
+            <div class="elsebotlink">
+              <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+              <a href="
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu1.jpg"/></a> <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu2.jpg"/></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="show01" style="display:none;">
+    <div class="ui-show-main">
+        <div class="ui-show-title"><span>新增缴费项目</span><a title="关闭" class="close" id="close01" >x</a>
+        </div>
+        <script>
+		 $(function(){
+			$("#close01").click(function(){
+				$("#show01").hide();
+			});
+		});
+		</script>
+        <div class="ui-showdiv">
+        <iframe scrolling="no" frameborder="0" src="Withdraw.html" style="width:100%; height:380px;  top:0px; left:0px; background-color:transparent;"></iframe>        	
+        </div>
+        <div class="ui-showdiv-close">
+        <span>
+        <a title="确定" class="ui-button ui-button-morange " href="#">确定</a>
+        <a title="取消" class="ui-button ui-button-mwhite " href="#">取消</a>
+        </span>
+        </div>
+    </div>
+<div class="tan_bei">
+</div>
+</div>
+</body>
+</html>

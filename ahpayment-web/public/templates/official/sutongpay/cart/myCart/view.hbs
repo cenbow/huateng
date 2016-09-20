@@ -1,0 +1,90 @@
+{{#component "myCart"}}
+<img src="/assets/sutongpay/air.png" width="1" height="35" />
+<div class="txtac"><img src="/assets/sutongpay/state1.png" width="705" height="79" /></div>
+<img src="/assets/sutongpay/air.png" width="1" height="20" />
+
+<!--list-->
+<div class="bor1">
+<!--list title-->
+<ul class="cartlist">
+<dl class="listt">
+<dd><input  name="allCheck" type="checkbox"  class="check" />全选</dd>
+<dd>商品信息</dd>
+<dd class="ac">单价</dd>
+<dd class="ac">数量</dd>
+<dd class="ac">金额</dd>
+<dd class="ac wid110">删除</dd><div class="cl"></div>
+</dl>
+
+
+<!--/list title-->
+<!--循环1-->
+{{#each _DATA_.data}}
+<dl class="listc">
+<dd class="cartCheck">
+	<input name="cartNo" id="check_{{cart.cartNo}}" value="{{cart.cartNo}}" type="checkbox" class="check" />
+    <input type="hidden" name="cartTotalPrice" id="cartTotalPrice_{{cart.cartNo}}" value="{{formatAmount cart.totalPrice}}">
+    <input type="hidden" id="cartSkuPrice_{{cart.cartNo}}" value="{{formatAmount sku.price}}">
+</dd>
+<dd><img src="{{item.mainImage}}" width="125"  />
+	<span class="pctip"><a href="/payment/reChargeCard/detail?itemId={{item.id}}">{{item.name}}</a></span></dd>
+<dd class="ac"><strong>{{formatAmount sku.price}}</strong></dd>
+<dd class="ac">
+	<div class="count">
+		<div class="tr">
+			  {{#equals cart.goods_sum 1}}
+		      <div class="fl cuntover" id="cuntover_{{cart.cartNo}}">
+		      </div>
+		      <div class="fl cunt" style="display:none" id="cunt_{{cart.cartNo}}">
+		      	  <img name="reduce_sum" data-cartno="{{cart.cartNo}}" 
+		      	  src="/assets/sutongpay/sub1.png"  alt="-1" />
+		      </div>	
+		      {{else}}
+		      <div class="fl cuntover" style="display:none" id="cuntover_{{cart.cartNo}}">
+		      </div>
+		      <div class="fl cunt"  id="cunt_{{cart.cartNo}}">
+		      	  <img name="reduce_sum" data-cartno="{{cart.cartNo}}" 
+		      	  src="/assets/sutongpay/sub1.png"  alt="-1" />
+		      </div>
+		     {{/equals}}
+		  	  
+	  	       <input id="goods_sum_{{cart.cartNo}}" 
+	  	         type="text" value="{{cart.goods_sum}}" class="fl" maxlength="3" data-cartno="{{cart.cartNo}}"/>
+		  	 <div class="fr cunt">
+		  	 	 <img name="add_sum" data-cartno="{{cart.cartNo}}"  
+		  	 	 src="/assets/sutongpay/and1.png"  alt="+1" />
+		  	 </div>
+		  	 <div class="cl">
+		  	 </div>	
+	  	</div>
+    </div>
+</dd>
+<dd  class="ac">
+	<div class="sale_{{cart.cartNo}}">
+		{{formatAmount cart.totalPrice}}
+    </div>
+</dd>
+<dd class="ac del" data-cartno="{{cart.cartNo}}" data-name="{{item.name}}">
+	<img src="/assets/sutongpay/del_nomal.png" width="14" height="12" />
+</dd>
+</dl>
+{{/each}}
+   {{#equals _DATA_.total 0}}
+    <div class="ui-Transaction-none">
+      <span class="ui-noneimg"></span>
+      <span class="ui-nonetxt">亲，没有记录，赶快去添加商品吧~</span>
+    </div>
+    {{/equals}}
+<dl class="listf">
+<dd><input name="allCheck" type="checkbox" class="check"  />全选</dd>
+<dd><a id="deleteCart" >删除</a></dd><dd></dd>
+<dd>已选商品&nbsp;<font name="allNum" class="value">0</font>&nbsp;件</dd>
+
+<dd >合计&nbsp;&nbsp;<font name="allAmt" class="value">￥0</font></dd>
+<dd class="ac"><input class="countsub" type="button" value="结算" /></dd>
+</dl>
+</ul>
+<img src="/assets/sutongpay/air.png" width="1" height="25" />
+</div>
+<!--/list-->
+{{/component}}

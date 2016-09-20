@@ -1,0 +1,19 @@
+/*左侧菜单*/
+.payment-left .left_nav{width:190px;overflow:hidden; display:block;}
+.payment-left .left_nav h2{font-size:16px; padding-left:35px; padding-bottom:10px; overflow:hidden; display:block;}
+.payment-left .left_nav h2 i{background-image:url(/assets/sutongpay/common.png); background-position:0 -78px; float:left; display:block; width:14px; height:14px; margin-top:8px; margin-left:20px;}
+.payment-left .left_nav h2 em{ color:#6d6d6d; font-style:normal; display:block; float:left;}
+.payment-left .left_nav li{clear:both; color:#6d6d6d; font-size:14px; height:37px; line-height:37px;overflow:hidden;display:block; margin:5px 0;}
+.payment-left .left_nav li a{color:#6d6d6d; text-decoration:none;}
+.payment-left .left_nav li a:hover{color:#6d6d6d; text-decoration:underline;}
+.payment-left .left_nav li.current{background:#dcdcdc; height:37px;}
+.payment-left .left_nav i{background-image:url(/assets/sutongpay/menu-icon_1.png); float:left; display:block; width:25px; height:25px; margin:6px 12px 0 35px!important;margin:6px 12px 0 15px}
+.payment-left .left_nav p{float:left; display:block; width:25px; height:25px; margin:6px 12px 0 35px!important;margin:6px 12px 0 15px}
+.payment-left .l1 i{background-position:0 0;}
+.payment-left .l2 i{background-position:0 -48px;}
+.payment-left .l3 i{background-position:0 -96px;}
+.payment-left .l4 i{background-position:0 -144px;}
+.payment-left .l5 i{background-position:0 -192px;}
+.payment-left .l6 i{background-position:0 -240px;}
+.payment-left .l7 i{background-position:0 -288px;}
+.payment-left .l8 i{background-position:0 -336px;}

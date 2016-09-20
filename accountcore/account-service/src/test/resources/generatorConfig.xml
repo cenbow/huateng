@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- <properties resource="db.properties" /> -->
+	<classPathEntry location="D:\mavenrespority\maven\ojdbc\ojdbc\6\ojdbc-6.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 删除代码中带有 代码生成器的注释信息 -->
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@116.228.55.185:21521:test" userId="btupayprod"
+			password="1234" />
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.huateng.p3.account.persistence.models"
+			targetProject="account-persistence/src/main/java" />
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="account-persistence/src/main/resources" />
+		<javaClientGenerator targetPackage="com.huateng.p3.account.persistence"
+			targetProject="account-persistence/src/main/java" type="XMLMAPPER" />
+		<!--无论字段是什么类型，生成的类属性都是varchar -->
+		<!-- <table schema="btupayprod" tableName="T_INFO_MARKETING_CFG" enableSelectByExample="false" 
+			enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle"> 
+			</table> -->
+		<!-- <columnOverride column="AFTER_AMT" jdbcType="VARCHAR" /> -->
+		<!-- <table schema="btupayprod" tableName="t_log_online_payment" enableSelectByExample="false" 
+			enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle"> 
+			无论字段是什么类型，生成的类属性都是varchar <columnOverride column="AFTER_AMT" jdbcType="VARCHAR" 
+			/> </table> -->
+		<!-- <table schema="btupayprod" tableName="MARKET_CFG" enableSelectByExample="false" 
+			enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle"></table> -->
+		<!-- <table schema="btupayprod" tableName="T_INFO_CUSTOMER" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="T_INFO_ACCOUNT_CARD" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> <table 
+			schema="btupayprod" tableName="T_INFO_OTAPWD_TRANSFER" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="T_RISK_CUSTOMER_COMMON_RULE" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> <table 
+			schema="btupayprod" tableName="T_INFO_ACCOUNT_AUTHCODE" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="T_LOG_ACCOUNT_ALTER" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> <table 
+			schema="btupayprod" tableName="t_info_subaccount" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="t_log_account_txn_payment" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> -->
+		<!-- <table schema="btupayprod" tableName="T_PARA_ACCOUNT_BAL" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="T_ACCOUNT_BANKTRANS_AMT_CNT" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> <table 
+			schema="btupayprod" tableName="T_INFO_ACCOUNT_BOND" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="T_LOG_ACCOUNT_CARD_TXNSUM" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> <table 
+			schema="btupayprod" tableName="T_LOG_ACCOUNT_MANAGEMENT" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="T_LOG_OFFLINE_PAYMENT" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> <table 
+			schema="btupayprod" tableName="T_LOG_ONLINE_PAYMENT" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> <table schema="btupayprod" tableName="T_LOG_ACCOUNT_PAYMENT" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false"> </table> <table 
+			schema="btupayprod" tableName="T_INFO_BANKCARD" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false"> </table> -->
+<!-- 		<table schema="btupayprod" tableName="T_INFO_BOND_MERCHANT"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_INFO_CARD"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_RISK_CARD_COMMON_RULE"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="core.T_LOG_CASH_APPLY "
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_LOG_DUBIOUS_TXN"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="t_dict_txn_errcode"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_PARA_ACCOUNT_EXTEND_FEE"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="t_info_org"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_LOG_MERCHANT_DAY_TXN"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_RISK_MERCHANT_COMMON_RULE"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_RISK_BLACK_MERCHANT"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_LOG_PAYORG_REFUND"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_LOG_PREAUTH_APPLY"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_LOG_RECONCILIATION"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_LOG_REFUND_APPLY"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_INFO_HANBIND"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="btupayprod" tableName="T_LOG_TXN_REQUEST"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table> -->
+		<!-- <table schema="btupayprod" tableName="T_SMS_TEMP_SEND"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table> -->
+		<!-- <table schema="btupayprod" tableName="t_dict_new_old_relation"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		-->
+	<!-- 	<table schema="btupayprod" tableName="T_LOG_ONLINE_PAYMENT_HIS"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table> 
+		<table schema="btupayprod" tableName="T_LOG_TXN_REQUEST"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>  -->
+<!-- 		<table schema="btupayprod" tableName="T_LOG_CHANNEL_REFUND_APPLY"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>  -->
+		
+<!-- 		<table schema="btupayprod" tableName="T_INFO_CUSTOMER"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>  -->
+<!-- 				<table schema="btupayprod" tableName="t_INFO_PRODUCT_PROPERTY"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enablesSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>  -->
+	<!-- 	<table schema="btupayprod" tableName="T_PARA_MERCHANT_REFUND_RULE"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>  -->
+<!-- 		<table schema="btupayprod" tableName="T_REALNAME_APPLY"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"> -->
+<!-- 			<table schema="btupayprod" tableName="T_RISK_MERCHANT_CUSTOMER_RULE"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"> -->
+<!-- 			<table schema="btupayprod" tableName="t_dict_area_city"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"> -->
+	<!-- 		<table schema="btupayprod" tableName="T_INFO_PRODUCT_PROPERTY_HIS"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"> -->
+<!-- 	    <table schema="btupayprod" tableName="T_INFO_CARD_BINDING"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">  -->
+			<table schema="btupayprod" tableName="t_dict_txn_code"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"> 
+		</table>
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,11 @@
+.registe .reg{background:#fff;width:840px; margin:18px auto 30px; padding:36px 0 58px 0; border:1px solid #ebebeb; overflow:hidden;}
+.registe .cola{width:220px; padding-right:8px; font-size:14px; color:#555; height:34px; text-align:right; line-height:34px; display:block;}
+.registe .colc{padding-left:228px; height:34px;color:#555; font-size:14px; display:block; line-height:34px; }
+.registe .colc a{color:#555; padding:0 12px; text-decoration:underline;line-height:38px;}
+.registe .colc a:hover{text-decoration:none;}
+.registe .yzm{width:95px; height:34px; line-height:34px; display:block;}
+.registe .yzm a{font-size:12px; color:#0169b8; text-decoration:underline;}
+.registe .yzm a:hover{text-decoration:none;}
+.registe .keyboard{background-image:url(/assets/sutongpay/common.png); background-position:-432px -64px; width:32px; height:28px; float:left; display:block; position: relative; top:20px; right:36px;}
+.registe .ui-Securityimage{ position: absolute; left: 580px; top:639px;}
+.registe .sp-mtop16{margin-top:16px;}

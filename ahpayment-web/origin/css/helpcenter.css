@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* header休整 */
+i{ background:url(../images/helpcenter/helpimg01.jpg) no-repeat; display:block;}
+
+.helpcenter-header{ border-bottom:none;}
+.helpcenter-header .ui-helptxt-img01{ width:100px; height:36px;  position:absolute; left:180px; top:30px; float:left; background-position:-113px 0px;}
+.helpcenter-header .ui-newstxt-img01{ width:100px; height:36px;  position:absolute; left:180px; top:30px; float:left; background-position:0px 0px;}
+.helpcenter-header .ui-helpmob{ width:133px; height:36px;  position:absolute; float:right; right:0px; top:30px; background-position:-344px 0px; }
+.helpcenter-header .ui-helptxt-txt01{ position:absolute; float:right; font-size:14px; top:40px;  top:42px\0; *top:41px; right:145px;}
+
+.ui-helpbanner{ width:1000px; height:120px; display:inline-block; margin:0 auto; margin-bottom:20px;}
+.ui-newsbanner{ margin-bottom:0px;}
+/* 最小高度 */
+.ui-my-right {min-height: 600px;
+!important _height:600px;}
+/* 标题定位 */
+.ui-protitle{ margin-top:15px; margin-bottom:10px;}
+/* 主体信息休整 */
+
+.ui-helpinfo{ width:100%; *width:99%; display:inline-block;}
+.ui-helpinfo ul{}
+.ui-helpinfo ul li{  width:100%; display:inline-block; vertical-align:top; border-bottom:1px dashed #CCCCCC; padding-top:9px; float:left;}
+.ui-helpinfo .ui-helpinfo-title{ display:inline-block; position:relative; width:100%; height:28px;}
+.ui-helpinfosel .ui-newstime{ float:right; position:absolute; right:10px; color:#9A9A9A;}
+.ui-helpask-icon{ width:17px; height:17px; background-position:-229px -14px; display:inline-block; position:absolute; float:left; left:0px; top:2px;}
+.ui-helpagg-icon{ width:20px; height:20px;   background-position:-311px -13px; position:absolute; right:0px; top:2px;}
+.ui-helpinfo li .ui-txt-a{ position:absolute; left:25px; }
+.ui-helpinfo li a.news{  left:15px; }
+
+.ui-helpinfo .ui-helpAnswerdiv{ width:100%; width:95%; margin-top:5px; margin-left:25px; line-height:21px;  display:none; }
+.ui-helpanswer-icon{ width:17px; height:17px; background-position:-255px -14px; display:inline-block; float:left; margin-top:2px;}
+.ui-helpinfo .ui-helpAnswerdiv .ui-helpanser-txt{ margin-left:5px; width:710px; display:inline-block; *display:inline; zoom:1; float:left; padding-bottom:15px;}
+.ui-helpinfosel .ui-helpAnswerdiv{ display:inline-block;}
+.ui-helpinfosel .ui-helpagg-icon{ background-position:-286px -13px;}
+/* 资讯中心页面调整 */
+.ui-newsmain{ background-color:#F0F6F6; padding-top:20px; padding-bottom:20px; background-image:none;}
+.ui-newsleft{ border-bottom:none;}
+.ui-newsright{ width:760px;}
+.ui-newsright .ui-helpinfo .ui-helpAnswerdiv .ui-helpanser-txt{ width:690px;}
+/* 资讯中心详情 */
+.ui-newstitle01{ border-bottom:1px solid #CCC; width:99%; line-height:35px; height:35px; display:block; position:relative; margin-top:15px;}
+.ui-newstitle01 span{ font-size:16px; font-weight:bold; position:relative; left:25px; color:#2589CF; font-family:"微软雅黑"}
+.ui-newstitle01 .ui-newstime{ float:right; position:absolute; right:10px; top:0px;}
+.ui-newsDetail{ width:99%; margin:20px auto 0px auto; border-bottom:1px dashed #CCC; padding-bottom:20px; }
+.ui-newsDetail span{ line-height:35px; margin-left:25px; margin-right:25px; display:inline-block;}

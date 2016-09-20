@@ -1,0 +1,246 @@
+.payment-reChargeCard-detail .spxx_box { height: 310px; width: 740px; margin:40px auto 40px auto; margin-left: auto; }
+.payment-reChargeCard-detail .spxq_card{ height: auto; width: auto; border:1px solid #DCDCDC; float:left; padding:20px;}
+.payment-reChargeCard-detail .spxq_con { height:auto; width: auto; overflow: hidden;float:left; margin:0 0 0 30px; }
+.payment-reChargeCard-detail .spxq_con h1{ font-size:14px; font-weight:bold;}
+.payment-reChargeCard-detail .xx{ height:5px; width:440px; border-top:1px solid #dcdcdc; margin:5px 0 0 0}
+.payment-reChargeCard-detail .m10{ height:30px; width:460px; margin:20px 0 0 0}
+.payment-reChargeCard-detail .spxq_con li{ line-height:32px;}
+.payment-reChargeCard-detail .spxq_con li .paid{ padding:0 20px;margin:0 5px; border:1px #cccccc solid; text-align:center; cursor:pointer}
+.payment-reChargeCard-detail .spxq_con li .paid:hover{ padding:0 20px;margin:0 5px; border:1px #f39e10 solid; color:#f39e10; text-align:center}
+.payment-reChargeCard-detail .spxq_con li .paid_over{ padding:0 20px;margin:0 5px; border:2px #f39e10 solid; color:#f39e10; text-align:center}
+.payment-reChargeCard-detail .slsrk{ width:30px; height:20px; line-height:20px;border:1px solid #ddd; margin:0 0 0 5px; float:left; text-indent:10px}
+.payment-reChargeCard-detail .sel_box{ height:26px; width:16px;float:left; margin:0 86px 0 4px}
+.payment-reChargeCard-detail .sel_t{ height:12px; height:12px; border:1px solid #DCDCDC; background:url(/assets/sutongpay/slxz.jpg)}
+.payment-reChargeCard-detail .sel_t a:hover{ height:12px; height:12px; border:1px solid #ccc; background:url(/assets/sutongpay/slxz.jpg)}
+.payment-reChargeCard-detail .sel_b{ height:12px; height:12px; border:1px solid #DCDCDC; background:url(/assets/sutongpay/slxz.jpg) 0 12px; margin:2px 0 0 0;}
+.payment-reChargeCard-detail .slxz_box li{ float:left;}
+.payment-reChargeCard-detail .spxq_tit{ height:40px; line-height:40px; width: auto; border-bottom:2px solid #E4E4E4; background:#F8F8F8; font-size:14px; font-weight:bold; text-indent:30px; margin:0 0 20px 0}
+.payment-reChargeCard-detail .spxq_tex{ width:95%; line-height:25px; margin:0 auto;}
+.payment-reChargeCard-detail .jg_r{ color:#E90117; font-size:20px; font-weight:bold;}
+
+.payment-reChargeCard-detail  .product-intro-noitem #choose:hover, .product-intro-itemover #choose:hover {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+.payment-reChargeCard-detail  .product-intro-noitem #choose {
+    background: #f5f5f5;
+    border-color: #ddd;
+    margin-bottom: 0;
+  }
+
+.payment-reChargeCard-detail  .product-intro-noitem, .product-intro-itemover {
+    margin-bottom: 15px;
+  }
+
+.payment-reChargeCard-detail  #choose li {
+	margin-left: 5px;
+    overflow: hidden;
+    zoom: 1;
+  }
+
+.payment-reChargeCard-detail  .product-intro-noitem #choose li {
+    border-color: #ddd;
+  }
+
+.payment-reChargeCard-detail  #choose-noresult {
+    padding-left: 10px;
+  }
+
+.payment-reChargeCard-detail  #choose a {
+    display: block;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+.payment-reChargeCard-detail  #choose #choose-btns {
+    border-bottom: none;
+  }
+
+.payment-reChargeCard-detail  #choose .dt {
+    
+  }
+
+.payment-reChargeCard-detail   #choose .smdd {
+    overflow: hidden;
+
+  }
+.payment-reChargeCard-detail   #choose .smdd1 {
+    overflow: hidden;
+
+  }
+
+.payment-reChargeCard-detail   .product-intro-noitem #choose .smdd {
+    border-color: #f5f5f5;
+  }
+
+.payment-reChargeCard-detail   #choose .item {
+    float: left;
+    position: relative;
+
+   
+    
+   
+  }
+
+.payment-reChargeCard-detail   #choose .item img {
+    float: left;
+  }
+.payment-reChargeCard-detail   #choose .item a{
+    border:2px solid #ccc;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding:0px 10px;
+    display: block;
+    position: relative;
+    line-height: 25px;
+    height: 25px;
+    background-color: #fff;
+    *display: inline;
+    *zoom:1;
+  }
+.payment-reChargeCard-detail   #choose .selected a{
+    border: 2px solid #F7381B;
+   
+  }
+.payment-reChargeCard-detail   #choose .selected b{
+    width: 12px;
+    height: 13px;
+    background: url(/assets/sutongpay/inside-main/box-agg01.png) no-repeat;
+    position: absolute;
+    top: 24px;
+    float: right;
+    right:12px;
+    z-index: 2;
+    font-size: 12px;
+    line-height: 12px;
+    *right:11px;
+  }
+.payment-reChargeCard-detail   #choose .item a:link, #choose .item a:visited {
+    
+  }
+
+.payment-reChargeCard-detail   #choose .item a:hover, #choose .item a:active, #choose .selected a:link, #choose .selected a:visited {
+    border: 2px solid #EC2200;
+    height: 25px; overflow: hidden;
+
+  }
+
+.payment-reChargeCard-detail   #choose .selected, #choose .disabled {
+    position: relative;
+    zoom: 1;
+  }
+
+.payment-reChargeCard-detail   #choose .disabled i {
+    display: none;
+  }
+
+.payment-reChargeCard-detail   #choose #choose-color .disabled a {
+    border: 1px dashed #ccc;
+    padding: 1px;
+  }
+
+.payment-reChargeCard-detail   #choose #choose-version .disabled a, #choose #choose-type .disabled a {
+    border: 1px dashed #ccc;
+  }
+
+.payment-reChargeCard-detail   #choose #choose-version .disabled a, #choose #choose-version .disabled a:visited, #choose #choose-type .disabled a, #choose #choose-type .disabled a:visited {
+    color: #999;
+  }
+
+.payment-reChargeCard-detail   #choose .selected b {
+    
+  }
+
+.payment-reChargeCard-detail   #choose-color .dt {
+  }
+
+.payment-reChargeCard-detail   #choose-color .smdd a {
+    float: left;
+  }
+
+.payment-reChargeCard-detail   #choose-version .dt {
+    margin-top: 14px;
+  }
+
+.payment-reChargeCard-detail   #choose-version .item a:link, #choose-version .item a:visited {
+    float: left;
+    padding: 4px 6px;
+    background: #fff;
+  }
+
+.payment-reChargeCard-detail   #choose-version .item a:hover, #choose-version .item a:active, #choose-version .selected a:link, #choose-version .selected a:visited {
+  }
+
+.payment-reChargeCard-detail   #choose-type .dt {
+    margin-top: 15px;
+  }
+
+.payment-reChargeCard-detail   #choose-type .item a:link, #choose-type .item a:visited {
+    float: left;
+    padding: 4px 6px;
+    background: #fff;
+  }
+
+.payment-reChargeCard-detail   #choose-type .item a:hover, #choose-type .item a:active, #choose-type .selected a:link, #choose-type .selected a:visited {
+  }
+
+.payment-reChargeCard-detail   #choose-amount {
+    padding: 4px 0;
+  }
+.payment-reChargeCard-detail   #choose-result{ font-size: 14px; font-family: "微软雅黑"}
+.payment-reChargeCard-detail   #choose-amount .dt, #choose-result .dt {
+    line-height: 30px;
+  }
+
+.payment-reChargeCard-detail   #choose-amount .wrap-input {
+    position: relative;
+    width: 40px;
+    padding: 0 18px 0px 0px;
+    margin-top:5px;
+    display: block;
+    height: 40px;
+
+  }
+
+.payment-reChargeCard-detail   #choose-amount .wrap-input a {
+	margin-top: 5px;
+    position: absolute;
+    float:right;
+    
+  }
+.payment-reChargeCard-detail   #choose-amount .btn-add {
+    right: 0;
+    top: 0px;
+    background-position: 0px 0px;
+    background-image:url(/assets/sutongpay/mall/eMallicon.png);
+    width: 16px; height: 12px; line-height: 12px; font-size: 12px;
+  }
+
+.payment-reChargeCard-detail   #choose-amount .btn-reduce {
+    right: 0;
+    top: 12px;
+    background-position: 0px -13px;
+    background-image:url(/assets/sutongpay/mall/eMallicon.png);
+    width: 16px; height: 12px; line-height: 12px; font-size: 12px;
+  }
+
+.payment-reChargeCard-detail   #choose-amount .btn-reduce:hover {
+  }
+
+.payment-reChargeCard-detail   #choose-amount .btn-add:hover {
+  }
+
+.payment-reChargeCard-detail   #choose-amount .text {
+    width: 35px;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 2px;
+    position: inherit;
+    text-align: center;
+  }
+
+/*按纽*/
+.payment-reChargeCard-detail .inqu-btn{background:#fff; background-image:url(/assets/sutongpay/common.png); background-position: -238px -180px; width:97px; height:36px; border:0; font-size:14px; font-weight:bold; color:#666; display:block; margin-left:12px;}
+.payment-reChargeCard-detail .funds-org{background:#f6f6f6;background-image:url(/assets/sutongpay/common.png); background-position:-369px -182px; float:left; display:block; width:98px; height:35px; text-align:center;font-size:14px; font-weight:bold; color:#fff; line-height:35px; border:0; cursor:pointer;margin-right:8px;}

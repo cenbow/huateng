@@ -1,0 +1,1546 @@
+@charset "utf-8";
+html {
+	color: #969696;
+	background: #fff
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button {
+	margin: 0;
+	padding: 0
+}
+body, button, input, select, textarea {
+	font: .75em/1.5 tahoma, arial, \5b8b\4f53
+}
+input, select, textarea {
+	font-size: 100%
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+th {
+	text-align: inherit
+}
+fieldset, img, a img {
+	border: 0
+}
+iframe {
+	display: block
+}
+abbr, acronym {
+	border: 0;
+	font-variant: normal
+}
+del {
+	text-decoration: line-through
+}
+address, caption, cite, code, dfn, em, th, var {
+	font-style: normal;
+	font-weight: 500
+}
+ol, ul {
+	list-style: none
+}
+caption, th {
+	text-align: left
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+h2 {
+	color: #4d4d4d
+}
+h3 {
+	color: #969696;
+	margin: 10px 0 0 0
+}
+.imgTitle {
+	text-indent: -9999em
+}
+q:before, q:after {
+	content: ''
+}
+sup {
+	vertical-align: text-top
+}
+sub {
+	vertical-align: text-bottom
+}
+a:hover {
+	text-decoration: underline
+}
+ins, a {
+	text-decoration: none;
+	color: #08c
+}
+.fn-clear:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0
+}
+.fn-clear {
+*zoom:1
+}
+.fn-hide {
+	display: none
+}
+.fn-left, .fn-right {
+	display: inline
+}
+.fn-left {
+	float: left
+}
+.fn-right {
+	float: right
+}
+.fn-font14 {
+	font-size: 14px
+}
+.fn_bnt {
+	cursor: pointer
+}
+.link {
+	color: #08c
+}
+.orange {
+	color: #ff8400
+}
+.ConColor {
+	color: #4d4d4d
+}
+body {
+	font-family: \5b8b\4f53
+}
+.tiphead {
+	min-width: 990px;
+	background-color: #f7f7f7;
+	border-bottom: solid 1px #ebebeb;
+	z-index: 9999;
+	position: relative
+}
+.tiphead .content {
+	margin: auto;
+	width: 990px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	color: #6c6c6c
+}
+.tiphead em {
+	color: #b3b3b3
+}
+.tiphead a {
+	color: #6c6c6c
+}
+.vip-ri-f {
+	background: #eae2d8;
+	border-top: solid 1px #dfdfdf
+}
+.vip-ri-list {
+	width: 958px;
+	padding: 0 16px 0 16px;
+	border-bottom: solid 1px #c9a98b;
+	margin: 0 auto;
+	overflow: hidden
+}
+.vip-ri-list li {
+	width: 214px;
+	background:url(/assets/sutongpay/play/vip-ico1.png) no-repeat 40px 25px;
+	height: 100px;
+	float: left;
+	padding: 20px 0 0 105px;
+	color: #946e4b;
+	line-height: 18px
+}
+.vip-ri-list li b {
+	font: bold 14px/30px "SimSun"
+}
+.vip-ri-list li a {
+	color: #946e4b
+}
+.vip-ri-list .vip-ri-ico3 {
+	width: 184px;
+	background: url(/assets/sutongpay/play/vip-ico2.png) no-repeat 80px 25px;
+	height: 100px;
+	float: left;
+	padding: 20px 0 0 135px
+}
+.vip-ri-list .vip-ri-ico2 {
+	width: 194px;
+	height: 100px;
+	float: left;
+	padding: 20px 0 0 125px;
+	background: url(/assets/sutongpay/play/vip-ico3.png) no-repeat 65px 25px
+}
+.vip-ri-f .site-links {
+	margin-bottom: 0;
+	width: 958px;
+	padding: 20px 16px 0 16px;
+	border-top: solid 1px #fff;
+	margin: 0 auto;
+	clear: both
+}
+.site-links {
+	margin-bottom: 15px;
+	padding-top: 20px;
+	text-align: center
+}
+.site-links .first {
+	border: medium none
+}
+.site-links li {
+	color: #bbb;
+	display: inline
+}
+.site-links li a {
+	color: #09c
+}
+.vip-ri-f .site-links li a, .vip-ri-f .smalipay a, .vip-ri-f .smalipay {
+	color: #946e4b
+}
+.smalipay a, .smalipay {
+	color: #999
+}
+.smalipay {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	padding-bottom: 30px;
+	text-align: center
+}
+.smalipay a {
+	padding-left: 15px
+}
+#loadeBg {
+	width: 185px;
+	height: 97px;
+	display: inline-block;
+	float: left;
+	background:url(/assets/sutongpay/play/tiao01.png) no-repeat left bottom
+}
+.loadron {
+	border-radius: 5px!important;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	webkit-border-radius: 5px
+}
+.loadsolid {
+	border: #dff2f6 solid 1px
+}
+#loadeTxt {
+	color: #fff;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	float: left;
+	line-height: 20px;
+	-moz-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-o-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	-webkit-text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	text-shadow: 0 1px 2px rgba(0,0,0,0.3)
+}
+.main {
+	width: 100%;
+	background-color: #d5e9ed;
+	overflow: hidden;
+	z-index: 0
+}
+.main-body {
+	margin: auto;
+	width: 990px
+}
+.bg {
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	height: 720px
+}
+.Cloud {
+	background-image:url(/assets/sutongpay/play/yun01.png)
+	background-repeat: no-repeat;
+	background-position: right 5px;
+	display: inline-block;
+	width: 165px;
+	height: 80px;
+	position: absolute
+}
+.dowBg {
+	width: 100%;
+	height: 624px;
+	display: inline-block;
+	position: absolute;
+	background:url(/assets/sutongpay/play/shu01.png) center repeat-x;
+	left: 0;
+	top: 410px;
+	z-index: 0;
+	opacity: 0
+}
+.topContent {
+	width: 100%;
+	overflow: hidden
+}
+.logo {
+	background-image:url(/assets/sutongpay/play/logo.png);
+	width: 166px;
+	height: 59px;
+	z-index: 2;
+	margin: 30px auto auto auto;
+	position: relative;
+	cursor: pointer
+}
+.news {
+	position: relative;
+	float: left;
+	left: 580px;
+	margin-top: -50px;
+	cursor: pointer
+}
+.newsImg {
+	position: relative;
+	float: left
+}
+.newsTxt {
+	height: 20px;
+	line-height: 20px;
+	background-color: #fff;
+	position: relative;
+	margin-top: 20px;
+	margin-left: -25px;
+	float: left;
+	padding: 0 10px 0 10px;
+	-moz-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-o-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	-webkit-box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1);
+	box-golw: 0 0 8px rgba(255,255,255,1), 0px 0 8px rgba(255,255,255,1)
+}
+.main-index, .main-index-nav {
+	text-align: center;
+	margin: auto;
+	width: 990px;
+	float: left;
+	position: relative
+}
+.main-index {
+	bottom: 10px
+}
+.content-main {
+	background-color: #fff;
+	border: 1px solid #CCC;
+	float: left;
+	margin: auto;
+	bottom: 30px;
+	position: relative
+}
+.main-index-nav {
+	margin-top: 30px;
+	height: 240px;
+	float: left;
+	z-index: 99;
+	position: relative
+}
+.main-index-nav ul li {
+	display: inline-block;
+	width: 235px;
+	height: 235px;
+	position: absolute;
+	float: left;
+	right: 0
+}
+.main-index-nav ul li span {
+	margin: 10px 15px 15px 10px;
+	display: inline-block;
+	width: 210px;
+	height: 210px;
+	cursor: pointer
+}
+.main-index-nav ul li em {
+	display: inline-block;
+	width: 52px;
+	height: 53px;
+	cursor: pointer;
+	background-image:url(/assets/sutongpay/play/btqiehuan01.png);
+	position: relative
+}
+.t0 {
+	background-image:url(/assets/sutongpay/play/wenhao01.jpg)
+}
+.t1 {
+	background-image:url(/assets/sutongpay/play/chuan01.jpg);
+}
+
+.tt1 {
+	background-position: 0 -63px
+}
+.ttover1 {
+	background-position: 50px -63px
+}
+.tt2 {
+	background-position: 0 -126px
+}
+.ttover2 {
+	background-position: 50px -126px
+}
+.main-index-nav-name {
+	margin-top: 30px
+}
+.main-index-nav-name ul li {
+	display: inline-block;
+	background-repeat: no-repeat;
+	width: 260px;
+	height: 70px;
+	float: left
+}
+.n0 {
+	margin-left: 112px;
+	background-position: 0 0
+}
+.n1 {
+	margin-left: 0;
+	background-position: 0 -106px
+}
+.n2 {
+	margin-left: 0;
+	background-position: 0 -226px
+}
+.main-index-dow ul {
+	width: 660px;
+	position: relative;
+	overflow: hidden;
+	left: 165px;
+	float: left
+}
+.main-index-dow ul li {
+	display: inline-block;
+	width: 220px;
+	height: 75px;
+	float: left
+}
+.do1 {
+	background-position: -220px 0
+}
+.do2 {
+	background-position: -440px 0
+}
+.Daojiao {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	float: right;
+	top: -1px;
+	right: -1px;
+	z-index: 999
+}
+.conRigYY {
+	position: absolute;
+	float: right;
+	top: 0;
+	right: -28px;
+	height: 100%;
+	overflow: hidden
+}
+.YYdow {
+	background-image:url(/assets/sutongpay/play/bian02.png);
+	display: inline-block;
+	width: 28px;
+	height: 100%
+}
+.conDowYY {
+	position: absolute;
+	float: right;
+	bottom: -30px;
+	height: 30px;
+	width: 930px;
+	background-image:url(/assets/sutongpay/play/botbg01.png);
+	display: inline-block;
+	float: left;
+	left: 0px
+}
+#J-Content {
+*zoom:1
+}
+.a_Content {
+	overflow: hidden;
+	display: inline-block;
+	width: 100%
+}
+.a_TitleImg {
+	background:url(/assets/sutongpay/play/zi01.png) no-repeat;
+	width: 100%;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 10px
+}
+.b_main {
+	width: 858px;
+	margin: 40px auto 40px auto;
+	text-align:left;
+}
+.b_ContNav ul {
+	width: 750px;
+	overflow: hidden
+}
+.b_ContNav ul li {
+	position: relative;
+	display: inline-block;
+	width: 187px;
+	height: 60px;
+	float: left
+}
+.b_NavImgOver {
+	display: inline-block;
+	width: 187px;
+	height: 60px;
+}
+.b_noNav {
+	background-position: -468px 0
+}
+.b_ibar {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	width: 750px
+}
+.b_ibarContent {
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	position: relative
+}
+.b_iconImg {
+	display: inline-block;
+	background-image:url(/assets/sutongpay/play/bgdi01.png);
+}
+.b_NavBg {
+	height: 25px;
+	width: 100%;
+	position: relative;
+	margin-top: -8px;
+	z-index: -1;
+	background-position: 0 -82px
+}
+.b_Content {
+	margin: 25px 0 10px 0;
+	position: relative;
+	width: 3000px;
+	overflow: hidden
+}
+.b_ContentMask {
+	overflow: hidden;
+	width: 750px;
+	position: relative
+}
+.b_ibarTitleImg {
+	background:url(/assets/sutongpay/play/zi02.png);
+	width: 100%;
+	height: 20px;
+	display: inline-block
+}
+.b_ibarBZ {
+	width: 100%;
+	overflow: hidden;
+	display: inline-block
+}
+.b_ibarCZ {
+	line-height: 18px;
+	padding-left: 18px;
+	background-position: 0 -58px;
+	background-repeat: no-repeat
+}
+.b_dzfTitle {
+	margin: 40px 0 20px 0
+}
+.b_dzfContBg {
+	background:url(/assets/sutongpay/play/daifuimg01.jpg);
+}
+.b_dzfLandou {
+	display: inline-block;
+	height: 157px;
+	width: 748px
+}
+.b_dzfXiaolv {
+	display: inline-block;
+	height: 151px;
+	width: 748px;
+	background-position: 0 -239px
+}
+.b_dzfChuanT {
+	display: inline-block;
+	height: 157px;
+	width: 748px;
+	background-position: 0 -476px
+}
+.b_dzfKuang {
+	margin: 40px 20px 20px 130px;
+	line-height: 20px;
+	overflow: hidden
+}
+.b_dzfDowTxt {
+	font-size: 14px;
+	text-align: center;
+	margin-top: 20px
+}
+.b_baqContBg {
+	background:url(/assets/sutongpay/play/zhifu01.jpg) no-repeat
+}
+.b_baqSafeguard {
+	display: inline-block;
+	height: 233px;
+	width: 748px
+}
+.b_baqMoreSecure {
+	display: inline-block;
+	width: 748px;
+	background-position: 0 -308px;
+	height: 157px
+}
+.b_baqStrong {
+	display: inline-block;
+	height: 136px;
+	width: 748px;
+	background-position: 0 -543px
+}
+.b_baqKuang {
+	margin: 40px 20px 0 210px;
+	line-height: 20px
+}
+.b_AuthenTaboyMask {
+	overflow: hidden;
+	margin-top: 10px;
+	height: 0
+}
+.b_AuthenTaboyMask table {
+	border-top: 1px solid #a9c9d7
+}
+.b_AuthenTaboyMask table td {
+	height: 30px;
+	padding-left: 10px;
+	color: #808080
+}
+.b_leftSolid {
+	border-left: 1px solid #c9e1e9
+}
+.b_AuthenTitle {
+	color: #4d4d4d!important
+}
+#J-DowJt {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #89c1cc;
+	font-weight: bold;
+	height: 20px
+}
+.b_dowJtLeft {
+	width: 78px;
+	height: 20px;
+	float: left;
+	background-position: right -258px;
+	cursor: pointer
+}
+.b_dowJtRig {
+	width: 78px;
+	height: 20px;
+	float: right;
+	padding-left: 20px;
+	background-position: left -258px;
+	cursor: pointer
+}
+.shanjiao {
+	margin-left: 5px;
+	width: 7px;
+	height: 5px;
+	overflow: hidden;
+	background-position: 0 -76px
+}
+.ibar_btnBox {
+	margin-top: 20px;
+	text-align: center;
+	overflow: hidden
+}
+.ibar_bnt, .ibar_bnt span, .ibar-bzf_bnt {
+	font-size: 14px;
+	display: inline-block;
+	width: 168px;
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer
+}
+.ibar-bzf_bnt span, .ibar_bnt span {
+	position: relative;
+	width: 138px;
+	right: -30px;
+	padding-right: 30px;
+	background-position: right top
+}
+.ibar_bnt {
+	position: relative;
+	float: left;
+	left: 290px
+}
+.ibar-bzf_bnt {
+	position: relative;
+	float: left
+}
+.show-how_icon {
+	height: 16px;
+	padding-right: 20px;
+	background-position: 35px -38px;
+	margin-left: 20px
+}
+.show-how {
+	position: relative
+}
+.show-how_zc {
+	float: right;
+	top: 15px;
+	right: 200px
+}
+.hdfk_icon {
+	height: 15px;
+	width: 20px;
+	background-position: 0 -201px
+}
+#passBG {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	float: left;
+	left: 0;
+	top: 0;
+	background-color: #fff;
+	opacity: 0;
+	z-index: 9999
+}
+#J-ibar3 {
+	font-size: 12px
+}
+#nav-btn {
+	margin-top: 15px;
+	width: 750px;
+	height: auto;
+	font-size: 12px;
+	overflow: hidden
+}
+#nav-btn ul {
+	float: left;
+	margin-bottom: 50px;
+	width: 762px
+}
+#nav-btn ul li {
+	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
+	width: 142px;
+	height: 150px;
+	overflow: hidden;
+	background:url(/assets/sutongpay/play/dikuang01.png) no-repeat
+}
+#nav-btn ul .ui-over {
+	background: url(/assets/sutongpay/play/dikuang01.png) no-repeat -145px 0
+}
+#nav-btn ul li .nav-tips {
+	height: 24px;
+	color: #f80;
+	text-align: center
+}
+#nav-btn ul li .nav-tips span.outer {
+	display: inline-block;
+	height: 24px;
+	padding-left: 7px;
+	background:url(/assets/sutongpay/play/huangk01.jpg) left top no-repeat
+}
+#nav-btn ul li .nav-tips span.inner {
+	display: block;
+	height: 24px;
+	line-height: 20px;
+	padding-right: 5px;
+	background: url(/assets/sutongpay/play/huangk02.jpg) right top no-repeat
+}
+#nav-btn ul li .nav-icon {
+	margin: 11px 36px 0;
+	width: 69px;
+	height: 107px
+}
+#nav-btn ul li .nav-icon img {
+	width: 69px;
+	height: 69px;
+	border: 0
+}
+#nav-btn ul li .nav-icon p {
+	height: 38px;
+	line-height: 38px;
+	font-weight: bold;
+	overflow: hidden;
+	text-align: center
+}
+#nav-btn a {
+	color: #575858
+}
+#J-ibar3 .boxCon {
+	width: 100%;
+	height: 442px;
+	border-top: 1px solid #e5e5e5;
+	overflow: hidden;
+	clear: both
+}
+#J-ibar3 .exp_desc {
+	width: 325px;
+	height: 442px;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .desc_top {
+	margin-top: 33px;
+	margin-bottom: 22px;
+	width: 325px;
+	height: 130px;
+	background:url(/assets/sutongpay/play/jiaofeizi01.jpg) 0 0 no-repeat;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .second {
+	background-position: 0 -130px
+}
+#J-ibar3 .exp_desc .third {
+	background-position: 0 -260px
+}
+#J-ibar3 .exp_desc .fourth {
+	background-position: 0 -390px
+}
+#J-ibar3 .exp_desc .fifth {
+	background-position: 0 -520px
+}
+#J-ibar3 .exp_desc .btnCon {
+	padding-left: 33px;
+	padding-top: 33px;
+	height: 115px;
+	background:url(/assets/sutongpay/play/lanbiao01.jpg) 1px 0 no-repeat;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .btnCon p {
+	font-size: 14px;
+	line-height: 33px;
+	color: #808080;
+	margin-bottom: 17px
+}
+#J-ibar3 .exp_desc .btnCon .btn {
+	height: 38px;
+	line-height: 38px;
+	overflow: hidden
+}
+#J-ibar3 .exp_desc .btnCon .btn a {
+	display: block;
+	float: left;
+	width: 155px;
+	height: 38px;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px
+}
+#J-ibar3 .exp_desc .btnCon .btn a.hover {
+	text-decoration: none
+}
+#J-ibar3 .exp_desc .btnCon .btn span {
+	color: #1eb6db;
+	margin-left: 22px
+}
+#J-ibar3 .exp_desc p.about {
+	margin-left: 37px;
+	margin-top: 45px;
+	padding-left: 15px;
+	text-align: left;
+}
+.about a {
+	color: #25b6da
+}
+#J-ibar3 .exp_pic {
+	width: 425px;
+	height: 442px;
+	overflow: hidden
+}
+#action {
+	width: 750px;
+	overflow: hidden
+}
+#action .title {
+	height: 36px;
+	margin-bottom: 50px
+}
+#action ul {
+	width: 765px
+}
+#action ul li {
+	float: left;
+	margin-right: 12px;
+	margin-bottom: 10px;
+	width: 242px;
+	height: 120px;
+	overflow: hidden
+}
+.b_gotoTop {
+	width: 30px;
+	height: 30px;
+	position: fixed;
+	bottom: 80px;
+	margin-left: 20px
+}
+#J-BookBoxMask {
+	overflow: hidden
+}
+#J-BookBox {
+	float: left;
+	white-space: nowrap;
+	position: relative;
+	width: 1608px
+}
+#J-BookshelfBox {
+	width: 750px;
+	float: left;
+	position: relative
+}
+#J-Book {
+	width: 858px;
+	float: left;
+	position: relative;
+	margin-top: 20px
+}
+.c_titleTxtImg {
+	width: 100%;
+	height: 20px;
+	display: inline-block
+}
+.c_txtTleLeft {
+	position: relative;
+	margin-top: 35px
+}
+.c_TxtLeft {
+	width: 20px;
+	height: 100%;
+	position: relative;
+	float: left
+}
+#J-Bookshelf {
+	margin-top: 30px
+}
+#J-Vertical {
+	width: 100%;
+	overflow: hidden
+}
+.c_VerLi {
+	height: 190px;
+	position: relative;
+	float: left
+}
+#J-BookRow {
+	float: left;
+	width: 718px;
+	height: 100%;
+	overflow: hidden;
+	margin-left: 10px
+}
+.c_VertBg {
+	width: 685px;
+	background-position: 0 106px;
+	height: 100%;
+	margin-left: 15px
+}
+.c_VertMask {
+	width: 92%;
+	height: 125px;
+	overflow: hidden;
+	margin: auto;
+	position: relative
+}
+.c_VertMask ul {
+	float: left;
+	position: absolute;
+	white-space: nowrap;
+	bottom: 0
+}
+.c_VertMask ul li {
+	float: left;
+	position: absolute;
+	display: inline-block;
+	bottom: 0
+}
+.c_LeftJt, .c_RigJt {
+	height: 50%;
+	width: 15px;
+	display: inline-block;
+	position: relative;
+	margin-top: 25px
+}
+.c_LeftJt span, .c_RigJt span {
+	position: relative;
+	width: 10px;
+	height: 20px;
+	top: 47px;
+	margin-top: -10px
+}
+.c_LeftJt span {
+	float: right;
+	background-position: 0 -290px
+}
+.c_RigJt span {
+	background-position: -325px -290px
+}
+#J-BookCon {
+	width: 806px;
+	margin: 0 26px 0 26px;
+	position: relative;
+	overflow: hidden
+}
+#J-BookDowIcon {
+	position: relative;
+	float: right;
+	margin-top: 4px;
+	right: 100px
+}
+.s_bookMask {
+	width: 403px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1
+}
+.s_Single {
+	width: 806px;
+	display: inline-block;
+	position: relative
+}
+.s_rigPag {
+	left: 403px
+}
+#J-DowNav {
+	background:url(/assets/sutongpay/play/yel-tiaobg01.png) no-repeat;
+	width: 924px;
+	height: 39px;
+	z-index: 1000;
+	bottom: 0;
+	margin-left: -33px
+}
+#J-DowNav tbody, #J-DowNav tbody a {
+	line-height: 36px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold
+}
+.s_dovNavFixed {
+	position: fixed
+}
+.s_dovNavRela {
+	position: relative
+}
+#J-DowNavLeftJt {
+	width: 20px;
+	height: 30px;
+	float: left;
+	margin-left: 20px;
+	background-position: 0 -360px
+}
+#J-DowNavRigJt {
+	width: 20px;
+	height: 30px;
+	float: right;
+	margin-right: 20px;
+	background-position: right -360px
+}
+#J-DowCataPage {
+	position: absolute;
+	bottom: 25px;
+	right: 0
+}
+#J-DowCataPageLeft {
+	width: 20px;
+	height: 30px;
+	float: right;
+	background-position: 0 -360px
+}
+#J-DowCataPageRig {
+	width: 20px;
+	height: 30px;
+	float: right;
+	background-position: right -360px;
+	margin-right: 20px
+}
+#J-DowCataPageTxt {
+	float: right;
+	margin: 0 10px 0 10px;
+	line-height: 30px
+}
+#J-DowCataClose {
+	background-position: 0 -395px;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	top: 10px
+}
+.c_dowTK {
+	position: relative
+}
+.c_Catalog {
+	background:url(/assets/sutongpay/play/yel-banbg01.png) no-repeat;
+	width: 282px;
+	height: 359px;
+	position: absolute;
+	top: 0;
+	left: 125px;
+	z-index: 999
+}
+.c_CataText {
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 4px;
+	line-height: 28px
+}
+.c_Share {
+	background:url(/assets/sutongpay/play/yel-banbg02.png) no-repeat;
+	width: 201px;
+	height: 53px;
+	position: absolute;
+	top: 0;
+	right: -10px;
+	padding-left: 8px
+}
+.c_Share ul li {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin: 11px 0 0 13px;
+	cursor: pointer;
+	text-indent: -9999em;
+	position: relative;
+	float: left
+}
+#J-shareClose {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	top: 5px
+}
+#ckepop a span {
+	margin-left: 3px
+}
+.bookBnt {
+	cursor: pointer;
+	position: absolute
+}
+.ibar-content, .ibar-content object {
+	float: left;
+	position: absolute
+}
+.ibar-btn2 {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	background: #ffa82c;
+	cursor: pointer;
+	border: 3px solid #fff;
+	border-radius: 6px;
+	box-shadow: 0 0 5px #999!important;
+	-moz-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 0 5px #999;
+	-khtml-box-shadow: 0 0 5px #999;
+	-webkit-box-shadow: 0 0 5px #999
+}
+.ibar-btn2 {
+	padding-right: 15px;
+	background-position: right top
+}
+.ibar-btn2 span {
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	padding-left: 15px
+}
+.ibar-btn2:hover {
+	text-decoration: none;
+	box-shadow: 0 0 5px #fff inset, 0px 0 5px #999!important;
+	-moz-box-shadow: 0 0 5px #fff inset, 0px 0 5px #999;
+	-khtml-box-shadow: 0 0 5px #fff inset, 0px 0 5px #999;
+	-webkit-box-shadow: 0 0 5px #fff inset, 0px 0 5px #999
+}
+.ui-widget-header {
+	border: 1px solid #87c9df!important;
+	background: #87c9df 50% 50% repeat-x!important;
+	color: #fff;
+	font-weight: bold
+}
+.ui-widget-overlay {
+	background: #666 50% 50% repeat!important;
+	opacity: .50;
+	filter: Alpha(Opacity=50)
+}
+.ui-widget-content {
+	border: 1px solid #87c9df!important;
+	background: #87c9df 50% top repeat-x!important;
+	color: #333
+}
+.ui-dialog {
+	-moz-box-shadow: 2px 2px 5px rgba(0,0,0,1);
+	-o-box-shadow: 0 0 8px rgba(0,0,0,1);
+	-webkit-box-shadow: 0 0 8px rgba(0,0,0,1);
+	box-shadow: 2px 2px 5px rgba(0,0,0,.3)
+}
+.ui-icon {
+	background-image:url(/assets/sutongpay/play/yel-biao01.png)!important;
+	background-position: 0 -395px!important;
+	width: 23px!important;
+	height: 23px!important
+}
+.ui-dialog-titlebar-close {
+	width: 23px!important;
+	height: 23px!important
+}
+.ui-state-hover {
+	background: #aae5f8!important;
+	border: 2px #aae5f8 solid!important
+}
+.ibar-banklist li a {
+	display: inline-block
+}
+.ibar-childtitle {
+	color: #595959;
+	font-family: Tahoma;
+	font-weight: 600
+}
+.ibar-banklist {
+	padding-top: 10px
+}
+.ibar-banklist li {
+	float: left;
+	width: 148px;
+	height: 58px;
+	overflow: hidden
+}
+.ibar-banklist li a {
+	float: left;
+	border: solid 1px #ddd;
+	width: 126px;
+	height: 36px;
+	overflow: hidden
+}
+.content-top ul li {
+	width: 100px;
+	height: 20px;
+	float: left;
+	text-align: center;
+	border: 1px #fff solid;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #fff
+}
+.tab-top-over {
+	color: #87c9df!important;
+	background: #fff
+}
+#J-banklist {
+	background: #fff;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px
+}
+.tkBox {
+	position: relative
+}
+.c_tab-title {
+	z-index: 15;
+	position: absolute;
+	right: 20px
+}
+.c_tab-title .current {
+	border-color: #ffc44c!important
+}
+.c_tab-title li {
+	float: left;
+	z-index: 1;
+	position: relative;
+	display: inline-block;
+	_display: inline;
+	overflow: hidden;
+	color: #87c9df;
+	line-height: 25px
+}
+.c_BookMask {
+	position: absolute;
+	background: #000;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	left: 0;
+	top: 0;
+	width: 445px;
+	z-index: 1
+}
+.c_tk_txtimg {
+}
+.TK-leftJt {
+	width: 25px;
+	height: 25px;
+	background-position: 0 -420px
+}
+.TK-rigJt {
+	width: 25px;
+	height: 25px;
+	background-position: right -420px
+}
+.clr:after {
+	content: '.';
+	height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both
+}
+.clr {
+	zoom: 1
+}
+.list_box {
+	margin-left: 25px;
+	position: relative
+}
+.list_info {
+	font-size: 12px;
+	text-align: center;
+	color: #605043
+}
+.list_info a {
+	color: #605043;
+	text-decoration: underline
+
+}
+.list_info td {
+	overflow: hidden
+}
+.list_info tr {
+	width: 740px;
+	height: 30px
+}
+.td1, .td3, .td5 {
+}
+.td2, .td4, .td6 {
+}
+.bg_white {
+}
+.td1 {
+	text-align: left;
+	color: #987c5b
+}
+.td1 {
+	width: 115px;
+	padding-left: 5px
+}
+.td2 {
+	width: 118px
+}
+.td3 {
+	width: 122px
+}
+.td4 {
+	width: 118px
+}
+.td5 {
+	width: 132px
+}
+.td6 {
+	width: 135px
+}
+.list_info .serve {
+	padding-left: 45px;
+	width: 70px
+}
+.fuwufei {
+	color: #987c5b;
+	width: 13px;
+	height: 52px;
+	padding: 10px 16px 0 10px;
+	position: absolute;
+	left: 0;
+	top: 105px
+}
+.shouming {
+	color: #987c5b;
+	margin: 0 20px;
+	padding: 10px 0
+}
+.tab_box {
+	width: 100%
+}
+.tab_nav li {
+	float: left;
+	background: #e7ddb9;
+	height: 38px;
+	width: 257px;
+	cursor: pointer;
+	line-height: 38px;
+	text-align: center;
+	font-size: 14px;
+	color: #8b7160
+}
+.tab_nav .tab_cur {
+	background: #baa286;
+	color: white;
+	font-weight: bold
+}
+.tab_nav2 li {
+	float: left;
+	height: 38px;
+	background: #c1d2db;
+	width: 257px;
+	cursor: pointer;
+	line-height: 38px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff
+}
+.tab_nav2 .tab_cur2 {
+	background: #a7b9ce;
+	color: white;
+	font-weight: bold
+}
+.tab_list {
+	background: white;
+	border: 1px solid #e0d9d3;
+	border-top: 0;
+	padding-top: 25px;
+	height: 360px;
+	overflow: hidden
+}
+.gongsi {
+	padding-bottom: 3px;
+	margin: 0 20px
+}
+.gongsi span {
+	display: block;
+	float: left;
+	margin-top: 10px;
+	color: #987c5b
+}
+.gongsi a {
+	float: left;
+	margin-left: 50px
+}
+.kuaijie a {
+	margin-left: 120px
+}
+.list_box2 .td1 {
+	width: 160px
+}
+.list_box2 .td2 {
+	width: 270px
+}
+.list_box2 .td3 {
+	width: 310px
+}
+.close-icon {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+	float: right;
+	right: 10px;
+	top: 15px;
+	background:url(/assets/sutongpay/play/yel-x.jpg)no-repeat left top;
+	cursor: pointer
+}
+.content-top2 {
+	padding: 10px 0 10px 20px;
+	background-color: #f7f7f7;
+	font-size: 14px;
+	color: #808080
+}
+.ibar-childtitle {
+	color: #595959;
+	font-family: Tahoma;
+	font-weight: 600
+}
+.ibar-banklist {
+	padding-top: 10px
+}
+.ibar-banklist li {
+	float: left;
+	width: 148px;
+	height: 58px;
+	overflow: hidden
+}
+.ibar-banklist li a {
+	float: left;
+	border: solid 1px #ddd;
+	width: 126px;
+	height: 36px;
+	overflow: hidden
+}
+.ibar-sm-t {
+	border-top: 1px solid #a7b9ce;
+	background-color: #f7f7f7
+}
+.ibar-sm-top {
+	background-color: #f0f0f0
+}
+.ibar-sm-t td {
+	font-size: 12px;
+	line-height: 30px;
+	color: #808080;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+	border-left: 1px solid #e8e8e8
+}
+.ibar-sm-t td em {
+	margin-top: 8px
+}
+.tkBox {
+	position: relative
+}
+.tab-title {
+	z-index: 15;
+	position: absolute;
+	right: 20px
+}
+.tab-title .current {
+	border-color: #ffc44c!important
+}
+.tab-title li {
+	border: 1px solid #ffc44c;
+	padding: 0;
+	float: left;
+	z-index: 1;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 16px;
+	margin-right: 0
+}
+.tab-title li {
+	width: auto;
+	margin: 0 0 0 5px;
+	_display: inline;
+	overflow: hidden;
+	padding: 0
+}
+.tab-title a {
+	text-indent: 0;
+	background: #fff;
+	color: #ffc44c;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	padding: 2px 5px
+}
+.tab-title .current a {
+	background: #ffc44c;
+	color: #fff
+}
+
+a img {border:none}
+img{border:0; vertical-align:top;}

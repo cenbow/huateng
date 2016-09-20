@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TRiskAreaOtaMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TRiskAreaOta" >
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="OTA_FLAG" property="otaFlag" jdbcType="CHAR" />
+    <result column="INPUT_UID" property="inputUid" jdbcType="VARCHAR" />
+    <result column="INPUT_TIME" property="inputTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    AREA_CODE,OTA_FLAG,INPUT_UID,INPUT_TIME
+  </sql>
+  <select id="findAreaOtaByAreacode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_RISK_AREA_OTA
+    where AREA_CODE = #{areaCode,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TRiskAreaOta" >
+    insert into T_RISK_AREA_OTA (AREA_CODE, OTA_FLAG, INPUT_UID, 
+      INPUT_TIME)
+    values (#{areaCode,jdbcType=VARCHAR}, #{otaFlag,jdbcType=CHAR}, #{inputUid,jdbcType=VARCHAR}, 
+      #{inputTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TRiskAreaOta" >
+    insert into T_RISK_AREA_OTA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="otaFlag != null" >
+        OTA_FLAG,
+      </if>
+      <if test="inputUid != null" >
+        INPUT_UID,
+      </if>
+      <if test="inputTime != null" >
+        INPUT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="otaFlag != null" >
+        #{otaFlag,jdbcType=CHAR},
+      </if>
+      <if test="inputUid != null" >
+        #{inputUid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputTime != null" >
+        #{inputTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

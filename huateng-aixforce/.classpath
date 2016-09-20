@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="aixforce-category/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-category-api/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-category-api/src/test/java"/>
+	<classpathentry kind="src" path="aixforce-common/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-item/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-item-api/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-search/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-session/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-site/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-site/src/test/java"/>
+	<classpathentry kind="src" path="aixforce-site-api/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-user/src/main/java"/>
+	<classpathentry kind="src" path="aixforce-user-api/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

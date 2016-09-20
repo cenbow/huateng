@@ -1,0 +1,126 @@
+{{#component "myinfo-security-paypwd-reset-question"}}
+  <div class="ui-Security-maindiv">
+    <form id="rstpwdByQForm" name="rstpwdByQForm">
+         <input id="unifyId" type="hidden" value="{{_USER_.unifyId}}">
+       
+    <span class="ui-securityimg">
+      
+    </span>
+    <div class="ui-form">
+      <div class="ui-form-txt01">密保问题:</div>
+      <div class="ui-form-item">
+        <select id="question" name="question" class="select-h">
+          
+        </select>
+      </div>
+    </div>
+    <div class="ui-form">
+      <div class="ui-form-txt01">密保答案:</div>
+      <div class="ui-form-item">
+        <input name="answer" id="answer" type="text" maxlength="20"  class="input-w3"
+        data-required="true"
+        data-required-message="亲，密保答案不能为空~"
+        data-error-container="#answerResult"/>
+        <div id="errAnswer" name="errAnswer" class="ui-txtred"></div>
+        <ul class="parsley-error-list">
+          <li class="equalto"><span style="color:red;" id="answerResult"></span></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="ui-form">
+      <div class="ui-form-txt01">新密码:</div>
+      <div class="ui-form-item"> 
+        <input type="password" name="newPasswd" onkeyup="$(this).value=this.value.replace(/\D/g,'');" 
+      onafterpaste="$(this).value=this.value.replace(/\D/g,'')" maxlength="6" id="newPasswd" class="input-w3" readonly="readonly">
+        <span class="ui-Gray-notes03" style="color:red;">密码为6位数字</span>
+        <br>
+        <div id="newPwdMsg" name="newPwdMsg" class="ui-txtred"></div>
+      </div>
+    </div>
+
+
+
+
+    <div class="ui-form">
+      <div class="ui-form-txt01">确认密码:</div>
+      <div class="ui-form-item">
+        <input type="password" name="confirmPasswd" onkeyup="$(this).value=this.value.replace(/\D/g,'');" 
+      onafterpaste="$(this).value=this.value.replace(/\D/g,'')" maxlength="6" id="confirmPasswd" class="input-w3" readonly="readonly">
+        <br>
+        <div id="comPwdMsg" name="comPwdMsg" class="ui-txtred"></div>
+      </div>
+
+     </div>
+
+
+<div class="ui-form">
+  
+  <div class="ui-form-txt01">验证码:</div>
+   <div class="ui-form-item">
+     <div style="float:left;">
+       <input type="text" name="vcode" id="vcode" class="yzm-w2 input-w4" maxlength=4>
+
+       <span name="codeflagSpan" id="codeFlagSpan" 
+       style="display:none;margin-left:-17px;">
+       <img id="codeFlag" src="/assets/sutongpay/er.png">
+        <input type="hidden" id="imgCodeFlag" value="false"/>
+     </span>
+     <br>
+     <div id="checkCodMsg" name="checkCodMsg" class="ui-txtred"></div>
+
+   </div>
+   <div style="float:left;">
+
+     <span class="yzm fl sp-mtop14">
+      <img id="codeImg" style="display:none" width="54" height="30">
+      <a name="flushCode">换一张</a></span>
+     
+    </div>
+  </div>
+  <span>
+</div>
+
+    <div class="ui-form">
+      <div class="ui-form-txt01"></div>
+      <div class="ui-form-item">
+        <a id="submitButtn" class="ui-button ui-button-morange" title="确定">确定</a> 
+        <a id="resetButtn" class="ui-button ui-button-mwhite" title="取消" href="/safeCenter/paypwd/reset/way">取消</a>
+      </div>
+    </div>
+    </form>
+    <div class="ui-sepdased-line"></div>
+    <div class="ui-all-note">
+      <div class="ui-noteimg01" ></div>
+      <div class="ui-notetxt01"> 请输入您的安全保护问题答案。<br />
+        如果您忘了安全保护问题答案，请联系客服提交申请。 
+      </div>
+      <div class="ui-notetxt01" style="display:none;" id="msgNote" name="msgNote"> 
+    <div class="ui-Promptdiv ui-Error"><i></i><span><strong>出错</strong><br />
+    <span id="errorMsg" name="errorMsg"></span></span> </div>
+   </div>
+    </div>
+  </div>
+
+
+
+  <div id="dfbKey" style="position:absolute;visibility:hidden;">
+      <img src="/api/softKeyBoard/pwGeneration" border="0" usemap="#Map2"/>
+      <map name="Map2">
+          <area shape="rect" coords="15,26,42,54" href="javascript:clickKeyboard('0')">
+          <area shape="rect" coords="44,26,73,54" href="javascript:clickKeyboard('1')">
+          <area shape="rect" coords="77,26,104,54" href="javascript:clickKeyboard('2')">
+          <area shape="rect" coords="107,26,135,54" href="javascript:clickKeyboard('3')">
+          <area shape="rect" coords="15,58,42,85" href="javascript:clickKeyboard('4')">
+          <area shape="rect" coords="44,58,73,85" href="javascript:clickKeyboard('5')">
+          <area shape="rect" coords="77,58,104,85" href="javascript:clickKeyboard('6')">
+          <area shape="rect" coords="107,58,135,85" href="javascript:clickKeyboard('7')">
+          <area shape="rect" coords="15,89,42,116" href="javascript:clickKeyboard('8')">
+          <area shape="rect" coords="44,89,73,116" href="javascript:clickKeyboard('9')">
+        <area shape="rect" coords="77,89,135,116" href="javascript:clickKeyboard('bak')">
+          <area shape="rect" coords="130,5,142,19" href="javascript:closeKeyboard()">
+          <area shape="rect" coords="15,120,135,147" href="javascript:closeKeyboard()">
+      </map>
+</div>
+{{/component}}

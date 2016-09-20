@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx
+		 http://www.springframework.org/schema/tx/spring-tx.xsd
+		 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:properties id="app" location="classpath:app.properties"/>
+
+    <!-- 自动扫描bean，把作了注解的类转换为bean -->
+    <context:component-scan base-package="cn.com.huateng.payment"/>
+
+    <!-- 数据源配置, 使用应用中的DBCP数据库连接池 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <!-- Connection Info -->
+        <property name="driverClassName" value="#{app.jdbcDriver}"/>
+        <property name="url" value="#{app.jdbcUrl}"/>
+        <property name="username" value="#{app.jdbcUsername}"/>
+        <property name="password" value="#{app.jdbcPassword}"/>
+
+        <!-- Connection Pooling Info -->
+        <property name="maxActive" value="#{app.dbcpMaxActive}"/>
+        <property name="defaultAutoCommit" value="false"/>
+        <property name="initialSize" value="#{app.dbcpMaxActive}"/>
+        <!-- 空闲连接检测 -->
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="validationQuery" value="SELECT 1 FROM SYSIBM.SYSDUMMY1"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="120000"/>
+    </bean>
+
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:/spring/mybatis.xml" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:mapper/*Mapper.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+</beans>

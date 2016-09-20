@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/bootstrap.css" rel="stylesheet" />
+
+<!--所有CSS公用-->
+<link href="../css/index.css" rel="stylesheet" />
+<!--header-CSS-->
+<link href="../css/inside-header.css" rel="stylesheet" />
+<!--footer-CSS-->
+<link href="../css/footer.css" rel="stylesheet" />
+<!--应用中心left-CSS-->
+<link href="../css/inside-leftapp.css" rel="stylesheet" />
+<!--11888卡-CSS-->
+<link href="../css/inside-11888card.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/an-change.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/shzf.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery-ui-1.10.3.custom.js"></script>
+<!--左边栏目条-->
+<script>
+  $(function(){
+	$(".ui-appleft-title").click(function(){
+		if($(this).parent().attr("class")!="ui-appleftselli")
+		{
+		$(".ui-appleft-main").slideUp(300);	
+		$(this).next(".ui-appleft-main").slideDown(300);
+		$(".ui-appleft-show li").removeClass("ui-appleftselli");
+		$(this).parent().addClass("ui-appleftselli");
+		}
+		else{
+		$(this).next(".ui-appleft-main").slideUp(300);
+		$(this).parent().removeClass("ui-appleftselli");
+		}
+	});
+});
+$(function(){
+	$(".ui-appleft-main li").hover(function(){
+		if($(this).attr("class")!="ui-appleft-sel")
+		{
+		$(this).addClass("ui-appleft-hover")
+		}
+
+	},function(){
+		$(this).removeClass("ui-appleft-hover")
+	});
+});
+</script>
+<title>翼支付</title>
+</head>
+<body>
+<div id="divBody">
+  <div class="inside-header"> <span class="ui-headerlogo"></span>
+    <div class="ui-nav"> <a >我的翼支付</a> <a >交易管理</a> <a class="nav-sel">应用中心</a> <a >账单支付</a> <a>翼充卡</a> <a>手机客户端</a> </div>
+  </div>
+  <div class="inside-main"> 
+    <!--内页left-->
+    <div class="ui-my-left">
+      <div id="accordion" class="ui-appleft-show">
+        <ul>
+          <li >
+            <div class="ui-appleft-title" ><span>生活支付(8)</span><i class="ui-iconleft "></i></div>
+            <div class="ui-appleft-main" >
+              <ul>
+                <li ><a><i class="icon-leftwater"></i><span>缴水费</span></a></li>
+                <li ><a><i class="icon-leftElectricity"></i><span>缴电费</span></a></li>
+                <li ><a><i class="icon-leftGas"></i><span>缴燃气费</span></a></li>
+                <li ><a><i class="icon-lefttelephone"></i><span>缴固话/宽带费</span></a></li>
+                <li ><a><i class="icon-leftTV"></i><span>缴有线电视费</span></a></li>
+                <li ><a><i class="icon-leftHeater"></i><span>缴暖气费</span></a></li>
+                <li ><a><i class="icon-leftTraffic"></i><span>交通罚款代办</span></a></li>
+                <li ><a><i class="icon-leftSichuanTraffic"></i><span>四川交罚</span></a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="ui-appleftselli">
+            <div class="ui-appleft-title "><span>充值(6)</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main" style="display:block;">
+              <ul>
+                <li ><a><i class="icon-leftMobile"></i><span>手机充值</span></a></li>
+                <li ><a><i class="icon-left11888card"></i><span>11888卡充值</span></a></li>
+                <li ><a><i class="icon-leftYCcard"></i><span>翼充卡</span></a></li>
+                <li ><a><i class="icon-leftGame"></i><span>游戏充值</span></a></li>
+                <li ><a><i class="icon-leftQQ"></i><span>QQ充值</span></a></li>
+                <li class="ui-appleft-sel"><a><i class="icon-left3G"></i><span>3G流量充值</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li >
+            <div class="ui-appleft-title "><span>转账(1)</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main">
+              <ul>
+                <li><a><i class="icon-leftNumber"></i><span>号码转账</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li >
+            <div class="ui-appleft-title "><span>理财(2)</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main">
+              <ul>
+                <li><a><i class="icon-leftLotteryTicket"></i><span>彩票</span></a></li>
+                <li><a><i class="icon-leftSafety"></i><span>保险</span></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--内页right-->
+    <div class="ui-my-right">
+      <div class="ui-apptitle"> <span class="ui-titleimg"><img src="../images/inside/3g01-btimg.jpg"/></span> <span class="ui-titletxt"> <strong class="ui-p1">3G流量充值</strong></br>
+        <font class="ui-p2">上网流量更充足，微博随你刷，无限流量无限精彩。</font> </span> <span class="ui-Servertime">服务器时间：22:01:40</span> <span class="ui-Share"> <a title="分享到新浪微博" class="fx01-cl"><i class="ui-sina"></i>新浪微博 </a> <a title="分享到开心网" class="fx01-cl"><i class="ui-hap"></i>开心网</a> <a title="分享到人人网"class="fx01-cl"><i class="ui-peo"></i>人人网</a> </span> </div>
+       <script>
+		$(function(){
+			$('#card li').click(function(){
+			if($(this).attr("class")!="ui-TranSw-sel")
+			{
+			var showid=$(this).attr("name")
+			$('.ui-tabcard').hide();
+			$('#card li').removeClass("ui-TranSw-sel");
+			$(this).addClass("ui-TranSw-sel");
+			$('#'+showid).show();
+			}
+			});
+		});
+
+	   </script>
+      <div class="ui-TransactionSwitch02" id="card">
+        <ul>
+          <li class="ui-TranSw-sel" name="3Gcard">3G流量卡充值</li>
+          <li name="Recharge">流量直充</li>
+        </ul>
+      </div>
+      <div id="3Gcard" class="ui-tabcard">
+      <div class="ui-appBuyCard"> <span class="ui-appBuyCardimg"><img src="../images/sdm/3g01-img02.jpg"  /></span>
+        <div class="ui-form">
+          <div class="ui-form-txt01">手机号:</div>
+          <div class="ui-form-item">
+            <input name=""  type="text" class="ui-txtinput01" style="color:#666;" value="12332123123" onclick="if(value==defaultValue){value='';this.style.color='#666'}" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">确认手机号:</div>
+          <div class="ui-form-item">
+            <input name=""  type="text" class="ui-txtinput01" />
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">流量卡密码:</div>
+          <div class="ui-form-item">
+            <input name=""  type="text" class="ui-txtinput01" />
+            <select class="ui-lifepay-select01" >
+              <option value="11" selected="selected">常规卡</option>
+            </select>
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">校验码:</div>
+          <div class="ui-form-item ui-rel">
+            <input name=""  type="text" class="ui-txtinput01" style="width:80px;" />
+            <span class=" ui-Checkimg"><img src="../images/er.png" /></span> <span class=" ui-CheckControls"><img src="../images/yan.jpg" /></span> <span class=" ui-Exchange"><a href="" class="ui-txt-a">看不清，换一张</a></span>
+            <div class="ui-Agreement" >
+              <input name="" type="checkbox" value="" class="ui-Check01" checked="checked" />
+              <span class=" ui-Exchange">我已阅读并同意《<a  class="ui-txt-a" id="open-txt">翼支付缴费协议</a>》</span> </div>
+          </div>
+        </div>
+        <div class="ui-form ">
+          <div class="ui-form-txt01"></div>
+          <div class="ui-form-item"> <a title="下一步" class="ui-button ui-button-morange " href="#">下一步</a> </div>
+        </div>
+        </div>
+      </div>
+      <div id="Recharge" style="display:none" class="ui-tabcard">
+      <div class="ui-appBuyCard"> <span class="ui-appBuyCardimg"><img src="../images/sdm/3g01-img02.jpg"  /></span>
+        <div class="ui-form">
+          <div class="ui-form-txt01">手机号:</div>
+          <div class="ui-form-item">
+            <input name=""  type="text" class="ui-txtinput01" style="color:#666;" value="12332123123" onclick="if(value==defaultValue){value='';this.style.color='#666'}" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">确认手机号:</div>
+          <div class="ui-form-item">
+            <input name=""  type="text" class="ui-txtinput01" />
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">支付金额:</div>
+          <div class="ui-form-item">
+            <span class="ui-form-txt02"><strong class="ui-redfont">10</strong>&nbsp;元</span>
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">选择充值流量:</div>
+          <div class="ui-form-item">
+          	<script>
+			$(function(){
+			$('.ui-appshowli02 li').click(function(){
+			if($(this).attr("class")!="showli-sel")
+			{
+			$('.ui-appshowli02 li').removeClass("showli-sel");
+			$(this).addClass("showli-sel");
+			}
+			});
+		});
+			</script>
+            <div class="ui-appshowli02" style="width:300px;">
+              <ul>
+                <li class="showli-sel">60M</li>
+                <li >150M</li>
+                <li >300M</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">校验码:</div>
+          <div class="ui-form-item ui-rel">
+            <input name=""  type="text" class="ui-txtinput01" style="width:80px;" />
+            <span class=" ui-Checkimg"><img src="../images/er.png" /></span> <span class=" ui-CheckControls"><img src="../images/yan.jpg" /></span> <span class=" ui-Exchange"><a href="" class="ui-txt-a">看不清，换一张</a></span>
+            <div class="ui-Agreement" >
+              <input name="" type="checkbox" value="" class="ui-Check01" checked="checked" />
+              <span class=" ui-Exchange">我已阅读并同意《<a  class="ui-txt-a" id="open-txt">翼支付缴费协议</a>》</span> </div>
+          </div>
+        </div>
+        <div class="ui-form ">
+          <div class="ui-form-txt01"></div>
+          <div class="ui-form-item"> <a title="下一步" class="ui-button ui-button-morange " href="#">下一步</a> </div>
+        </div>
+        </div>
+      </div>
+      <div class="ui-3gcard">
+      	<ul>
+        	<li>
+                <div class="ui-protitle"> <span>3G流量卡验证</span> </div>
+                    <div class="ui-form">
+                    <div class="ui-form-item">
+                       验证手机号码是否可以使用3G流量卡
+                    </div>
+                </div>
+                 <div class="ui-form ">
+                	<div class="ui-form-item"> <a title="验证" class="ui-button ui-button-mwhite" href="#">验证</a> </div>
+                    </div>
+            </li>
+        	<li style="margin-left:20px;">
+                <div class="ui-protitle"> <span>3G流量卡信息查询</span> </div>
+                <div class="ui-form">
+                    <div class="ui-form-item">
+                    使用流量卡密码进行卡的信息查询	
+                    </div>
+                </div>
+                <div class="ui-form ">
+                <div class="ui-form-item"> <a title="查询" class="ui-button ui-button-mwhite" id="open01" href="#">查询</a> </div>
+                 <script>
+			$(function(){
+			$('#open01').click(function(){
+			$("#show01").show()
+			});
+			});
+			</script> 
+                </div>
+            </li>
+        </ul>
+      </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footerbg">
+      <div class="footer-main">
+        <div class="footer-link">
+          <div class="elselink">
+            <div class="elsetitlink"> <a style="cursor:default"><img src="../images/footer/dx.png" /></a> <a style="cursor:default"><img src="../images/footer/phone1.jpg"  /></a> <a style="cursor:default"><img src="../images/footer/phone.png"/></a> <a href="" target="_blank"><img src="../images/footer/youjian.png"/> <span class="t01">kefu@sutongpay.com.cn</span></a> </div>
+            <div class="elsebotlink">
+              <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+              <a href="
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu1.jpg"/></a> <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu2.jpg"/></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="show01" style="display:none">
+  <div class="ui-show-main">
+    <div class="ui-show-title"><span>使用流量卡密码进行卡的信息查询</span><a title="关闭" class="close" id="close01" >x</a> </div>
+    <script>
+		 $(function(){
+			$("#close01").click(function(){
+				$("#show01").hide();
+			});
+		});
+		</script>
+    <div class="ui-showdiv">
+      <div class="ui-form">
+          <div class="ui-form-txt01">手机号:</div>
+          <div class="ui-form-item">
+            <input name=""  type="text" class="ui-txtinput01" style="color:#666;" value="12332123123" onclick="if(value==defaultValue){value='';this.style.color='#666'}" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+          </div>
+        </div>
+        <div class="ui-form">
+          <div class="ui-form-txt01">手机号:</div>
+          <div class="ui-form-item">
+            <input name=""  type="text" class="ui-txtinput01" style="color:#666;" value="12332123123" onclick="if(value==defaultValue){value='';this.style.color='#666'}" onblur="if(!value){value=defaultValue;this.style.color='#fff'}"/>
+          </div>
+        </div>
+        <div class="ui-Promptdiv ui-Correct" style="width:90%; margin-bottom:25px; margin-top:15px;"><i></i><span><strong>出错</strong><br />
+    你的操作有问题，请<a>点此修复</a></span> </div>
+    </div>
+    <div class="ui-showdiv-close"> <span> <a title="关闭" class="ui-button ui-button-mwhite " href="#">关闭</a> </span> </div>
+  </div>
+  <div class="tan_bei"> </div>
+</div>
+</body>
+</html>

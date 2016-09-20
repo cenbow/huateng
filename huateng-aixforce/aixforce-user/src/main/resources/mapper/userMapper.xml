@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2013 杭州端点网络科技有限公司
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+    <resultMap id="userMap" type="User">
+        <id property="id" column="id" />
+        <result property="email" column="email" />
+        <result property="name" column="name" />
+        <result property="mobile" column="mobile" />
+        <result property="encryptedPassword" column="encrypted_password"/>
+        <result property="type" column="type"/>
+        <result property="avatar" column="avatar" />
+        <result property="status" column="status" />
+        <result property="parent" column="parent" />
+        <result property="tags" column="tags"/>
+        <result property="thirdPartId" column="third_part_id" />
+        <result property="thirdPartType" column="third_part_type" />
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <sql id="columns">
+        email,name,mobile,encrypted_password, type,avatar,status,parent,tags,third_part_id,third_part_type,created_at,updated_at
+    </sql>
+
+    <select id="findById" parameterType="long" resultMap="userMap">
+        select id,<include refid="columns"/> from PORTAL.users where id=#{id}
+    </select>
+
+    <select id="findByEmail" parameterType="string" resultMap="userMap">
+        select id,<include refid="columns"/> from PORTAL.users where email=#{email}
+    </select>
+
+    <select id="findByName" parameterType="string" resultMap="userMap">
+        select id,<include refid="columns"/> from PORTAL.users where name=#{name}
+    </select>
+
+    <select id="findByMobile" parameterType="string" resultMap="userMap">
+        select id,<include refid="columns"/> from PORTAL.users where mobile=#{mobile}
+    </select>
+
+    <select id="findByThirdPartTypeAndId" resultMap="userMap">
+        select id,<include refid="columns"/> from PORTAL.users where third_part_id=#{thirdPartId} and third_part_type=#{thirdPartType}
+    </select>
+
+    <!-- 插入用户： 1.由数据库生成id并赋值到user对象  -->
+    <insert id="create" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into users ( <include refid="columns"/> )
+        values (#{email},#{name},#{mobile}, #{encryptedPassword}, #{type},
+        #{avatar},#{status},#{parent},#{tags},#{thirdPartId},#{thirdPartType},CURRENT DATE,CURRENT DATE)
+    </insert>
+
+    <update id="update" parameterType="User">
+        update users
+        <set>
+            updated_at= CURRENT DATE,
+            <if test="email!=null">email = #{email},</if>
+            <if test="encryptedPassword!= null">encrypted_password=#{encryptedPassword},</if>
+            <if test="type != null">type=#{type},</if>
+            <if test="name != null">name=#{name},</if>
+            <if test="mobile != null">mobile=#{mobile},</if>
+            <if test="avatar != null">avatar=#{avatar},</if>
+            <if test="status !=null">status=#{status},</if>
+            <if test="parent !=null">parent=#{parent},</if>
+            <if test="tags !=null">tags=#{tags},</if>
+            <if test="thirdPartId!=null">third_part_id=#{thirdPartId},</if>
+            <if test="thirdPartType!=null">third_part_type=#{thirdPartType}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        delete from PORTAL.users where id=#{id}
+    </delete>
+
+    <!--pagination-->
+    <select id="count" resultType="long">
+        select count(1) from PORTAL.users where status = #{status}
+    </select>
+    <sql id="Pagination_Head" >
+        <if test="startIndex != null and endIndex != null" >
+            <![CDATA[ select * from ( select row_.*, rownum rn from ( ]]>
+        </if>
+    </sql>
+    <sql id="Pagination_Foot" >
+        <if test="startIndex != null and endIndex != null" >
+            <![CDATA[ ) row_ where rownum <= (#{offset})*limit ) where rn > (#{offset}-1)*limit ]]>
+        </if>
+    </sql>
+    <select id="pagination" resultMap="userMap">
+        <include refid="Pagination_Head"/>
+        select id,<include refid="columns"/> from PORTAL.users where status=#{status} order by id desc
+        <include refid="Pagination_Foot"/>
+    </select>
+</mapper>

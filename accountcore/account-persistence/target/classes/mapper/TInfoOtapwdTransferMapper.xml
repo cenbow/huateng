@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoOtapwdTransferMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoOtapwdTransfer" >
+    <id column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+    <result column="OTA_PASSWD" property="otaPasswd" jdbcType="VARCHAR" />
+    <result column="OCX_PASSWD" property="ocxPasswd" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT1" property="rsvdText1" jdbcType="VARCHAR" />
+    <result column="RSVD_TEXT2" property="rsvdText2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CARD_NO, OTA_PASSWD, OCX_PASSWD, RSVD_TEXT1, RSVD_TEXT2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_INFO_OTAPWD_TRANSFER
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_INFO_OTAPWD_TRANSFER
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoOtapwdTransfer" >
+    insert into T_INFO_OTAPWD_TRANSFER (CARD_NO, OTA_PASSWD, OCX_PASSWD, 
+      RSVD_TEXT1, RSVD_TEXT2)
+    values (#{cardNo,jdbcType=VARCHAR}, #{otaPasswd,jdbcType=VARCHAR}, #{ocxPasswd,jdbcType=VARCHAR}, 
+      #{rsvdText1,jdbcType=VARCHAR}, #{rsvdText2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoOtapwdTransfer" >
+    insert into T_INFO_OTAPWD_TRANSFER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="otaPasswd != null" >
+        OTA_PASSWD,
+      </if>
+      <if test="ocxPasswd != null" >
+        OCX_PASSWD,
+      </if>
+      <if test="rsvdText1 != null" >
+        RSVD_TEXT1,
+      </if>
+      <if test="rsvdText2 != null" >
+        RSVD_TEXT2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="otaPasswd != null" >
+        #{otaPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="ocxPasswd != null" >
+        #{ocxPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText1 != null" >
+        #{rsvdText1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText2 != null" >
+        #{rsvdText2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoOtapwdTransfer" >
+    update T_INFO_OTAPWD_TRANSFER
+    <set >
+      <if test="otaPasswd != null" >
+        OTA_PASSWD = #{otaPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="ocxPasswd != null" >
+        OCX_PASSWD = #{ocxPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText1 != null" >
+        RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsvdText2 != null" >
+        RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoOtapwdTransfer" >
+    update T_INFO_OTAPWD_TRANSFER
+    set OTA_PASSWD = #{otaPasswd,jdbcType=VARCHAR},
+      OCX_PASSWD = #{ocxPasswd,jdbcType=VARCHAR},
+      RSVD_TEXT1 = #{rsvdText1,jdbcType=VARCHAR},
+      RSVD_TEXT2 = #{rsvdText2,jdbcType=VARCHAR}
+    where CARD_NO = #{cardNo,jdbcType=VARCHAR}
+  </update>
+    <update id="updateOtaPasswdCardNoCloseStatus" parameterType="java.lang.String">
+        update
+        T_INFO_OTAPWD_TRANSFER
+        set
+        CARD_NO='X_'||CARD_NO||'_'||to_char(sysdate,'yyyyMMdd')
+        where
+        card_no=(select card_no from t_info_account_card
+        where offline_account_no= #{value,jdbcType=VARCHAR}
+         and BINDING_FLAG='1')
+    </update>
+</mapper>

@@ -1,0 +1,135 @@
+.mall-admin-list {
+  .my-onsell-tab {
+    li {
+      display: inline-block;
+    }
+
+    a {
+      display: block;
+      padding: 10px 20px;
+
+      &.current {
+        background-color: #f0f5f5;
+      }
+    }
+  }
+
+  .my-onsell {
+    th {
+      text-align: center;
+    }
+
+    .title {
+      .inner-title {
+        color: #666;
+        font-size: 16px;
+      }
+
+      span {
+        font-size: 12px;
+        padding-left: 10px;
+        b {
+          color: #cc3300;
+          font-weight: bold;
+        }
+      }
+    }
+    .filter {
+      height: 53px;
+      line-height: 50px;
+      background: #f6f6f6;
+      border: 1px solid #eee;
+      .item {
+        float: left;
+        display: inline;
+        margin-left: 20px;
+        height: 50px;
+        line-height: 50px;
+      }
+      .input-text {
+        width: 155px;
+        vertical-align: bottom;
+      }
+      .short-text {
+        width: 60px;
+      }
+    }
+    table {
+      margin-top: 20px;
+      th {
+        height: 30px;
+        line-height: 30px;
+        color: #666;
+        font-weight: normal;
+      }
+      .h-title {
+        text-align: left;
+        a {
+          margin-right: 55px;
+          margin-left: 10px;
+        }
+      }
+      td {
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        height: 64px;
+        vertical-align: top;
+        padding-top: 10px;
+        color: #333;
+      }
+      .d-title {
+        text-align: left;
+        a {
+          font-size: 12px;
+          padding-left: 10px;
+
+        }
+        img {
+          width: 55px;
+          height: 55px;
+        }
+        .goods-title {
+          vertical-align: top;
+          em {
+            vertical-align: top;
+          }
+        }
+      }
+      .d-price {
+        b {
+          font-weight: bold;
+          color: #cc3300;
+        }
+      }
+      .d-check {
+        text-align: center;
+      }
+      .edit {
+        background: url(../images/sell-edit.png) no-repeat;
+        display: inline-block;
+        width: 20px;
+        height: 22px;
+        cursor: pointer;
+        vertical-align: middle;
+        margin-left: 3px;
+      }
+      .d-title {
+        .edit {
+          vertical-align: top;
+        }
+      }
+    }
+    .pagination {
+      .action {
+        float: left;
+        a {
+          margin-right: 10px;
+        }
+        input {
+          margin-right: 10px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoBondMerchantMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoBondMerchantKey" >
+    <id column="BOND_RECORD_NO" property="bondRecordNo" jdbcType="DECIMAL" />
+    <id column="RANGE_TYPE" property="rangeType" jdbcType="CHAR" />
+    <id column="USE_RANGE" property="useRange" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoBondMerchantKey" >
+    delete from T_INFO_BOND_MERCHANT
+    where BOND_RECORD_NO = #{bondRecordNo,jdbcType=DECIMAL}
+      and RANGE_TYPE = #{rangeType,jdbcType=CHAR}
+      and USE_RANGE = #{useRange,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoBondMerchantKey" >
+    insert into T_INFO_BOND_MERCHANT (BOND_RECORD_NO, RANGE_TYPE, USE_RANGE
+      )
+    values (#{bondRecordNo,jdbcType=DECIMAL}, #{rangeType,jdbcType=CHAR}, #{useRange,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoBondMerchantKey" >
+    insert into T_INFO_BOND_MERCHANT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bondRecordNo != null" >
+        BOND_RECORD_NO,
+      </if>
+      <if test="rangeType != null" >
+        RANGE_TYPE,
+      </if>
+      <if test="useRange != null" >
+        USE_RANGE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bondRecordNo != null" >
+        #{bondRecordNo,jdbcType=DECIMAL},
+      </if>
+      <if test="rangeType != null" >
+        #{rangeType,jdbcType=CHAR},
+      </if>
+      <if test="useRange != null" >
+        #{useRange,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

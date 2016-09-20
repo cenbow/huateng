@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/rabbit
+        http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd">
+    <!-- 连接服务配置  -->
+    <rabbit:connection-factory id="connectionFactory" host="116.228.55.185" username="accountcenter"
+                                password="bestpay" port="5672" virtual-host="accounthost" connection-factory="refConnectionFactory" />
+    <bean id="refConnectionFactory" class="com.rabbitmq.client.ConnectionFactory">
+		<!-- 设置心跳时间，防止长时间未活动被防火墙杀死,默认600秒,单位：秒 -->
+		<property name="requestedHeartbeat" value="240"></property>
+		<!-- 连接超时时间,单位：毫秒 -->
+		<property name="connectionTimeout" value="2000"></property>
+	</bean>
+	<rabbit:admin connection-factory="connectionFactory"   />
+    <!-- queue 队列声明-->
+    <rabbit:queue id="q_sms_quekey" durable="true" auto-delete="false" exclusive="false" name="q_sms_quekey"/>
+    <rabbit:queue id="q_risk_biz" durable="true" auto-delete="false" exclusive="false" name="q_risk_biz"/>
+    <rabbit:queue id="q_tyb_financing" durable="true" auto-delete="false" exclusive="false" name="q_tyb_financing"/>
+    <!-- exchange queue binging key 绑定 -->
+    <rabbit:direct-exchange name="e_account_mq" durable="true" auto-delete="false" id="e_account_mq">
+        <rabbit:bindings>
+            <rabbit:binding queue="q_sms_quekey" key="q_sms_quekey_key"/>
+            <rabbit:binding queue="q_risk_biz" key="q_risk_biz_key"/>
+            <rabbit:binding queue="q_tyb_financing" key="q_tyb_financing_key"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+    <!-- spring amqp默认的是jackson 的一个插件,目的将生产者生产的数据转换为json存入消息队列，这里替换为fastjson的一个实现 -->
+    <bean id="jsonMessageConverter" class="com.huateng.p3.account.ServiceHelper.JsonMessageConverter"></bean>
+    <!-- spring template声明-->
+    <rabbit:template reply-timeout="20"  exchange="e_account_mq" id="amqpTemplate"
+                     connection-factory="connectionFactory" message-converter="jsonMessageConverter"/>
+
+</beans>

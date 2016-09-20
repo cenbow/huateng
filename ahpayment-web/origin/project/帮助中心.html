@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/bootstrap.css" rel="stylesheet" />
+<!--所有CSS公用-->
+<link href="../css/index.css" rel="stylesheet" />
+<!--所有header公用-->
+<link href="../css/inside-header.css" rel="stylesheet" />
+
+<!--footer-CSS-->
+<link href="../css/footer.css" rel="stylesheet" />
+<!--应用中心left-CSS-->
+<link href="../css/inside-leftapp.css" rel="stylesheet" />
+<!--帮助中心-新闻中心-CSS-->
+<link href="../css/helpcenter.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.js"></script>
+<script>
+<!--左边栏目条-->
+
+$(function(){
+	$(".ui-appleft-title").click(function(){
+		if($(this).parent().attr("class")!="ui-appleftselli")
+		{
+		$(".ui-appleft-main").slideUp(300);	
+		$(this).next(".ui-appleft-main").slideDown(300);
+		$(".ui-appleft-show li").removeClass("ui-appleftselli");
+		$(this).parent().addClass("ui-appleftselli");
+		}
+		else{
+		$(this).next(".ui-appleft-main").slideUp(300);
+		$(this).parent().removeClass("ui-appleftselli");
+		}
+	});
+});
+$(function(){
+	$(".ui-appleft-main li").hover(function(){
+		if($(this).attr("class")!="ui-appleft-sel")
+		{
+		$(this).addClass("ui-appleft-hover")
+		}
+
+	},function(){
+		$(this).removeClass("ui-appleft-hover")
+	});
+});
+<!--帮助中心信息切换-->
+$(function(){
+	$(".ui-helpinfo .ui-txt-a").click(function(){
+		if($(this).parents("li").attr("class")!="ui-helpinfosel")
+		{
+		$(".ui-helpAnswerdiv").slideUp(300);	
+		$(this).parent().next(".ui-helpAnswerdiv").slideDown(300);
+		$(".ui-helpinfo li").removeClass("ui-helpinfosel");
+		$(this).parents("li").addClass("ui-helpinfosel");
+		}
+		
+	});
+});
+</script>
+<title>翼支付</title>
+</head>
+<body>
+<div id="divBody">
+  <div class="topbar">
+    <div class="ui-topbarmain"> <span class="ui-topleftlink"><a title="公司首页">公司首页</a><font>|</font><a title="网上营业厅">网上营业厅</a><font>|</font><a title="天翼积分商城">天翼积分商城</a><font>|</font><a title="官方微博">官方微博</a></span>
+      <div class="ui-toprightinfo"> <span>您好，欢迎来到翼支付！</span> <a title="登录">登录</a><font>|</font><a title="注册">注册</a><font>|</font>
+        <div class="ui-helpselect">帮助中心<i></i> 
+          <!--鼠标经过弹出DIV，改变箭头方向--> 
+          <script>
+		$(function(){
+			$('.ui-helpselect').hover(function(){
+				$(this).children('div').show();
+				$(this).children('i').addClass("i-hover");
+			
+			},function(){
+				$(this).children('div').hide();
+				$(this).children('i').removeClass("i-hover");
+			});
+			});
+		</script>
+          <div class="ui-topbar-selectdiv">
+            <ul>
+              <li><a>常见问题</a></li>
+              <li><a>玩转翼支付</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inside-header helpcenter-header"> <span class="ui-headerlogo"></span> <i class="ui-helptxt-img01"></i> <i class="ui-helpmob"></i> 
+  <span class="ui-helptxt-txt01">客服热线</span>
+  </div>
+  <div class="ui-helpbanner"> <img src="../images/helpcenter/helpbanner.jpg"/> </div>
+  <div class="inside-main"> 
+    <!--内页left-->
+    <div class="ui-my-left">
+      <div id="accordion" class="ui-appleft-show">
+        <ul>
+          <li>
+            <div class="ui-appleft-title" ><span>个人帮助</span><i class="ui-iconleft "></i></div>
+            <div class="ui-appleft-main" >
+              <ul>
+                <li ><a><span>新手指南</span></a></li>
+                <li ><a><span>注册开户</span></a></li>
+                <li ><a><span>登陆</span></a></li>
+                <li ><a><span>支付密码</span></a></li>
+                <li ><a><span>充值</span></a></li>
+                <li ><a><span>消费</span></a></li>
+                <li ><a><span>提现</span></a></li>
+                <li ><a><span>余额/交易查询 </span></a></li>
+                <li ><a><span>代金劵</span></a></li>
+                <li ><a><span>安全管理</span></a></li>
+                <li ><a><span>退出</span></a></li>
+                <li ><a><span>附件</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="ui-appleftselli">
+            <div class="ui-appleft-title "><span>商户帮助</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main" style="display:block;">
+              <ul>
+                <li class="ui-appleft-sel"><a><span>商户合作</span></a></li>
+                <li ><a><span>账户操作</span></a></li>
+                <li ><a><span>清结算问题</span></a></li>
+                <li ><a><span>营销工具</span></a></li>
+                <li ><a><span>IPOS商户服务</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="ui-appleft-title"><span>百事购卡</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main">
+              <ul>
+                <li ><a><span>产品特点</span></a></li>
+                <li ><a><span>如何使用</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="ui-appleft-title"><span>手机客户端</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main">
+              <ul>
+                <li ><a><span>常见问题</span></a></li>
+                <li ><a><span>手机购彩</span></a></li>
+                <li ><a><span>游戏快充</span></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="ui-appleft-title"><span>翼充卡</span><i class="ui-iconleft"></i></div>
+            <div class="ui-appleft-main">
+              <ul>
+                <li ><a><span>翼充卡介绍</span></a></li>
+                <li ><a><span>如何使用</span></a></li>
+                <li ><a><span>常见问题</span></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--内页right-->
+    <div class="ui-my-right"> 
+      <div class="ui-protitle"> <span>新手指南</span> </div>
+      <div class="ui-helpinfo">
+      	<ul>
+        	<li class="ui-helpinfosel">
+            	<span class="ui-helpinfo-title"><i class="ui-helpask-icon"></i><a class="ui-txt-a">什么是翼支付</a><i class="ui-helpagg-icon"></i></span>
+                <div class="ui-helpAnswerdiv">
+                	<i class="ui-helpanswer-icon"></i><div class="ui-helpanser-txt">翼支付产品是中国电信的移动支付产品，用户开通中国电信翼支付账户并储值后，即可在中国电信联盟商家和合作商户使用该账户通过网站、短信、语音等方式进行远程支付，办理翼支付卡（RFID-UIM卡）后还可通过手机刷POS机方式进行现场支付。</div>
+                </div>	
+            </li>
+            <li>
+            	<span class="ui-helpinfo-title"><i class="ui-helpask-icon"></i><a class="ui-txt-a">什么是翼支付</a><i class="ui-helpagg-icon"></i></span>
+                <div class="ui-helpAnswerdiv">
+                	<i class="ui-helpanswer-icon"></i><div class="ui-helpanser-txt">翼支付产品是中国电信的移动支付产品，用户开通中国电信翼支付账户并储值后，即可在中国电信联盟商家和合作商户使用该账户通过网站、短信、语音等方式进行远程支付，办理翼支付卡（RFID-UIM卡）后还可通过手机刷POS机方式进行现场支付。</div>
+                </div>	
+            </li>
+            <li>
+            	<span class="ui-helpinfo-title"><i class="ui-helpask-icon"></i><a class="ui-txt-a">什么是翼支付</a><i class="ui-helpagg-icon"></i></span>
+                <div class="ui-helpAnswerdiv">
+                	<i class="ui-helpanswer-icon"></i><div class="ui-helpanser-txt">翼支付产品是中国电信的移动支付产品，用户开通中国电信翼支付账户并储值后，即可在中国电信联盟商家和合作商户使用该账户通过网站、短信、语音等方式进行远程支付，办理翼支付卡（RFID-UIM卡）后还可通过手机刷POS机方式进行现场支付。</div>
+                </div>	
+            </li>
+        </ul>
+      </div>
+	<div class="ui-Nextpagestyle" style="float:right; margin-top:25px; *margin-right:5px;">
+  <ul>
+    <li class="selnone"><span>上一页</span></li>
+    <li class="selli"><span>1</span></li>
+    <li><span>2</span></li>
+    <li><span>3</span></li>
+    <li><span>4</span></li>
+    <li><span>5</span></li>
+    <li class="lastli"><span>下一页</span></li>
+  </ul>
+</div>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="footerbg">
+    <div class="footer-main">
+      <div class="footer-link">
+        <div class="elselink">
+          <div class="elsetitlink"> <a style="cursor:default"><img src="../images/footer/dx.png" /></a> <a style="cursor:default"><img src="../images/footer/phone1.jpg"  /></a> <a style="cursor:default"><img src="../images/footer/phone.png"/></a> <a href="" target="_blank"><img src="../images/footer/youjian.png"/> <span class="t01">kefu@sutongpay.com.cn</span></a> </div>
+          <div class="elsebotlink">
+            <div class="txt01">版权所有(C)中国电信集团公司&nbsp;&nbsp;沪ICP备08103358号</div>
+            <a href="
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu1.jpg"/></a> <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1569452589
+    " class="img01" target="_blank"><img src="../images/footer/zhengshu2.jpg"/></a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

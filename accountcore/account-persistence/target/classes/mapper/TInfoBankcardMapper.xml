@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoBankcardMapper">
+    <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoBankcard">
+        <id column="BANK_CARD_NO" property="bankCardNo" jdbcType="VARCHAR"/>
+        <result column="INNER_CARD_NO" property="innerCardNo" jdbcType="VARCHAR"/>
+        <result column="BANK_ACCOUNT_NO" property="bankAccountNo" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="CHAR"/>
+        <result column="IDENTITY_NO" property="identityNo" jdbcType="VARCHAR"/>
+        <result column="REAL_NAME" property="realName" jdbcType="VARCHAR"/>
+        <result column="IDENTITY_TYPE" property="identityType" jdbcType="CHAR"/>
+        <result column="BANK_CODE" property="bankCode" jdbcType="VARCHAR"/>
+        <result column="OPEN_BANK_ID" property="openBankId" jdbcType="VARCHAR"/>
+        <result column="PROVINCE" property="province" jdbcType="VARCHAR"/>
+        <result column="CITY" property="city" jdbcType="VARCHAR"/>
+        <result column="SUBBANK" property="subbank" jdbcType="VARCHAR"/>
+        <result column="CREDITLOGO" property="creditlogo" jdbcType="CHAR"/>
+        <result column="PUB_FLAG" property="pubFlag" jdbcType="CHAR"/>
+        <result column="CARD_VERSION" property="cardVersion" jdbcType="DECIMAL"/>
+        <result column="CARD_VALID_TIME" property="cardValidTime" jdbcType="TIMESTAMP"/>
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="LAST_UPDATE_TIME" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="DIGEST" property="digest" jdbcType="VARCHAR"/>
+        <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR"/>
+        <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR"/>
+        <result column="RESV_FLD3" property="resvFld3" jdbcType="VARCHAR"/>
+        <result column="CARD_TYPE" property="cardType" jdbcType="VARCHAR"/>
+        <result column="SINGID" property="singid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+       BANK_CARD_NO, INNER_CARD_NO, BANK_ACCOUNT_NO, STATUS, IDENTITY_NO, REAL_NAME, IDENTITY_TYPE,
+       BANK_CODE, OPEN_BANK_ID, PROVINCE, CITY, SUBBANK, CREDITLOGO, PUB_FLAG, CARD_VERSION,
+       CARD_VALID_TIME, CREATE_TIME, LAST_UPDATE_TIME, DIGEST, RESV_FLD1, RESV_FLD2, RESV_FLD3,
+       CARD_TYPE, SINGID
+  </sql>
+  
+  <select id="findBankCardBinding" resultMap="BaseResultMap" parameterType="com.huateng.p3.account.persistence.models.TInfoBankcard">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_BANKCARD
+        where IDENTITY_NO  = #{identityNo,jdbcType=VARCHAR}
+         <if test="bankCode != null">
+          and BANK_CODE =#{bankCode,jdbcType=VARCHAR}
+             </if>
+             <if test="openBankId != null">
+          and OPEN_BANK_ID =#{openBankId,jdbcType=VARCHAR}
+             </if>
+              <if test="bankCardNo != null">
+          and BANK_CARD_NO =#{bankCardNo,jdbcType=VARCHAR}
+             </if>
+             
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from CORE.T_INFO_BANKCARD
+        where BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+           delete from CORE.T_INFO_BANKCARD
+            where BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR}
+            
+    </delete>
+    <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoBankcard">
+     insert into CORE.T_INFO_BANKCARD (BANK_CARD_NO, INNER_CARD_NO, BANK_ACCOUNT_NO,
+      STATUS, IDENTITY_NO, REAL_NAME, 
+      IDENTITY_TYPE, BANK_CODE, OPEN_BANK_ID, 
+      PROVINCE, CITY, SUBBANK, 
+      CREDITLOGO, PUB_FLAG, CARD_VERSION, 
+      CARD_VALID_TIME, CREATE_TIME, LAST_UPDATE_TIME, 
+      DIGEST, RESV_FLD1, RESV_FLD2, 
+      RESV_FLD3, CARD_TYPE, SINGID
+      )
+    values (#{bankCardNo,jdbcType=VARCHAR}, #{innerCardNo,jdbcType=VARCHAR}, #{bankAccountNo,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{identityNo,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{identityType,jdbcType=CHAR}, #{bankCode,jdbcType=VARCHAR}, #{openBankId,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{subbank,jdbcType=VARCHAR}, 
+      #{creditlogo,jdbcType=CHAR}, #{pubFlag,jdbcType=CHAR}, #{cardVersion,jdbcType=DECIMAL}, 
+      #{cardValidTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
+      #{digest,jdbcType=VARCHAR}, #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, 
+      #{resvFld3,jdbcType=VARCHAR}, #{cardType,jdbcType=VARCHAR}, #{singid,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoBankcard">
+        insert into CORE.T_INFO_BANKCARD
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="bankCardNo != null">
+                BANK_CARD_NO,
+            </if>
+            <if test="innerCardNo != null">
+                INNER_CARD_NO,
+            </if>
+            <if test="bankAccountNo != null">
+                BANK_ACCOUNT_NO,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="identityNo != null">
+                IDENTITY_NO,
+            </if>
+            <if test="realName != null">
+                REAL_NAME,
+            </if>
+            <if test="identityType != null">
+                IDENTITY_TYPE,
+            </if>
+            <if test="bankCode != null">
+                BANK_CODE,
+            </if>
+            <if test="openBankId != null">
+                OPEN_BANK_ID,
+            </if>
+            <if test="province != null">
+                PROVINCE,
+            </if>
+            <if test="city != null">
+                CITY,
+            </if>
+            <if test="subbank != null">
+                SUBBANK,
+            </if>
+            <if test="creditlogo != null">
+                CREDITLOGO,
+            </if>
+            <if test="pubFlag != null">
+                PUB_FLAG,
+            </if>
+            <if test="cardVersion != null">
+                CARD_VERSION,
+            </if>
+            <if test="cardValidTime != null">
+                CARD_VALID_TIME,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME,
+            </if>
+            <if test="digest != null">
+                DIGEST,
+            </if>
+            <if test="resvFld1 != null">
+                RESV_FLD1,
+            </if>
+            <if test="resvFld2 != null">
+                RESV_FLD2,
+            </if>
+            <if test="resvFld3 != null">
+                RESV_FLD3,
+            </if>
+            <if test="cardType != null">
+                CARD_TYPE,
+            </if>
+            <if test="singid != null">
+                SINGID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="bankCardNo != null">
+                #{bankCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="innerCardNo != null">
+                #{innerCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="bankAccountNo != null">
+                #{bankAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=CHAR},
+            </if>
+            <if test="identityNo != null">
+                #{identityNo,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null">
+                #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="identityType != null">
+                #{identityType,jdbcType=CHAR},
+            </if>
+            <if test="bankCode != null">
+                #{bankCode,jdbcType=VARCHAR},
+            </if>
+            <if test="openBankId != null">
+                #{openBankId,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="subbank != null">
+                #{subbank,jdbcType=VARCHAR},
+            </if>
+            <if test="creditlogo != null">
+                #{creditlogo,jdbcType=CHAR},
+            </if>
+            <if test="pubFlag != null">
+                #{pubFlag,jdbcType=CHAR},
+            </if>
+            <if test="cardVersion != null">
+                #{cardVersion,jdbcType=DECIMAL},
+            </if>
+            <if test="cardValidTime != null">
+                #{cardValidTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateTime != null">
+                #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="digest != null">
+                #{digest,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld1 != null">
+                #{resvFld1,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld2 != null">
+                #{resvFld2,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld3 != null">
+                #{resvFld3,jdbcType=VARCHAR},
+            </if>
+            <if test="cardType != null">
+                #{cardType,jdbcType=VARCHAR},
+            </if>
+            <if test="singid != null">
+                #{singid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoBankcard">
+        update CORE.T_INFO_BANKCARD
+        <set>
+            <if test="innerCardNo != null">
+                INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="bankAccountNo != null">
+                BANK_ACCOUNT_NO = #{bankAccountNo,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=CHAR},
+            </if>
+            <if test="identityNo != null">
+                IDENTITY_NO = #{identityNo,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null">
+                REAL_NAME = #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="identityType != null">
+                IDENTITY_TYPE = #{identityType,jdbcType=CHAR},
+            </if>
+            <if test="bankCode != null">
+                BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+            </if>
+            <if test="openBankId != null">
+                OPEN_BANK_ID = #{openBankId,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                PROVINCE = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                CITY = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="subbank != null">
+                SUBBANK = #{subbank,jdbcType=VARCHAR},
+            </if>
+            <if test="creditlogo != null">
+                CREDITLOGO = #{creditlogo,jdbcType=CHAR},
+            </if>
+            <if test="pubFlag != null">
+                PUB_FLAG = #{pubFlag,jdbcType=CHAR},
+            </if>
+            <if test="cardVersion != null">
+                CARD_VERSION = #{cardVersion,jdbcType=DECIMAL},
+            </if>
+            <if test="cardValidTime != null">
+                CARD_VALID_TIME = #{cardValidTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="digest != null">
+                DIGEST = #{digest,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld1 != null">
+                RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld2 != null">
+                RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+            </if>
+            <if test="resvFld3 != null">
+                RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+            </if>
+            <if test="cardType != null">
+                CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+            </if>
+            <if test="singid != null">
+                SINGID = #{singid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoBankcard">
+    update CORE.T_INFO_BANKCARD
+    set INNER_CARD_NO = #{innerCardNo,jdbcType=VARCHAR},
+      BANK_ACCOUNT_NO = #{bankAccountNo,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      IDENTITY_NO = #{identityNo,jdbcType=VARCHAR},
+      REAL_NAME = #{realName,jdbcType=VARCHAR},
+      IDENTITY_TYPE = #{identityType,jdbcType=CHAR},
+      BANK_CODE = #{bankCode,jdbcType=VARCHAR},
+      OPEN_BANK_ID = #{openBankId,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      SUBBANK = #{subbank,jdbcType=VARCHAR},
+      CREDITLOGO = #{creditlogo,jdbcType=CHAR},
+      PUB_FLAG = #{pubFlag,jdbcType=CHAR},
+      CARD_VERSION = #{cardVersion,jdbcType=DECIMAL},
+      CARD_VALID_TIME = #{cardValidTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      DIGEST = #{digest,jdbcType=VARCHAR},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      CARD_TYPE = #{cardType,jdbcType=VARCHAR},
+      SINGID = #{singid,jdbcType=VARCHAR}
+    where BANK_CARD_NO = #{bankCardNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

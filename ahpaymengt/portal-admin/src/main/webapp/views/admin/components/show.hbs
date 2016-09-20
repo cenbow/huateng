@@ -1,0 +1,33 @@
+{{#partial "main"}}
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<h1>Component {{component.id}}</h1>
+
+<dl>
+    <dt>categoryId:</dt>
+    <dd>{{component.compCategoryId}}</dd>
+
+    <dt>Name:</dt>
+    <dd>{{component.name}}</dd>
+
+    <dt>Path:</dt>
+    <dd>{{component.path}}</dd>
+
+    <dt>API:</dt>
+    <dd>{{component.api}}</dd>
+
+    <dt>CreatedAt:</dt>
+    <dd>{{component.createdAt}}</dd>
+
+    <dt>UpdatedAt:</dt>
+    <dd>{{component.updatedAt}}</dd>
+</dl>
+
+<div class="form-actions">
+    <a href="/components" class="btn"><span>Back</span></a>
+    <a href="/components/{{id}}/edit" class="btn"><span>Edit</span></a>
+</div>
+{{/partial}}
+{{> admin/layout}}

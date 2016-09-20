@@ -1,0 +1,78 @@
+{{#component "myinfo-security-real-result"}}
+  <div class="ui-Security-maindiv"> 
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-inside-tab01 ui-tabcenter" style="margin-bottom:25px;">
+	    <tr class="ui-instab-tm">
+	      <td  width="15%" align="center">账号</td>
+	      <td  width="10%" align="center">客户姓名</td>
+	      <td  width="10%" align="center">证件类型</td>
+	      <td  width="15%" align="center">证件号码</td>
+	      <td  width="15%" align="center">申请时间</td>
+	      <td  width="8%" align="center">申请渠道</td>
+	      <td  width="8%" align="center">审核状态</td>
+	    </tr>
+	    {{#each realNameApplyList}}
+	    <tr>
+	      <td align="center">{{productNo}}</td>
+	      <td align="center">{{name}}</td>
+	      <td align="center">{{#equals idType "1"}} 
+	           身份证 
+	           {{else}} 
+	           其它证件
+	           {{/equals}}
+	      </td>
+	      <td align="center">{{idNo}}</td>
+	      <td align="center">{{formatDate createTime "minute"}}</td>
+	      <td align="center">{{#equals acceptChannel "02"}}
+	            门户网站
+	            {{else}}
+	            其它
+	            {{/equals}}
+	            </td>
+	      
+	      <td align="center">{{#equals checkFlag "1"}}
+	             审核中
+               {{else}}
+               {{#equals checkFlag "2"}}
+                审核通过
+               {{else}}
+                审核未通过
+               {{/equals}}
+               {{/equals}}
+
+	      </td>
+	    </tr>
+	    {{/each}}
+	  </table>
+	  <div class="ui-form">
+	    <div class="ui-form-txt01"></div>
+	    <div class="ui-form-item">
+	      {{#equals  isNext  "A"}}
+            <a class="ui-button ui-button-hwhite" style="cursor:default">审核失败</a> 
+	      {{/equals}}
+	      {{#equals  isNext  "B"}}
+            <a class="ui-button ui-button-hwhite" style="cursor:default" >审核中</a> 
+	      {{/equals}}
+	      {{#equals  isNext  "C"}}
+            <a class="ui-button ui-button-hwhite" style="cursor:default">审核成功</a> 
+	      {{/equals}}
+	      {{#equals  isNext  "Y"}}
+            <a class="ui-button ui-button-morange" id="applay" >再次申请</a> 
+	      {{/equals}}
+	      <a class="ui-button ui-button-mwhite" href="/safeCenter/home">返回</a>
+	    </div>
+	  </div>
+	</div>
+  <div class="ui-sepdased-line"></div>
+  <div class="ui-all-note">
+    <div class="ui-noteimg01" ></div>
+    <div class="ui-notetxt01"> 温馨提示:<br />
+			1. 速通账户实名等级分为未验证、高级实名认证两级，其中：<br />
+      1). 未验证：客户填写的身份信息未经验证<br />
+      2). 高级实名认证：客户在速通支付网站申请进行高级实名认证，且通过速通客服审核<br />
+      2. 您在提交证件信息后，速通客服会在3~5个工作日内完成审核处理。<br />
+      3. 实名信息仅用于客户身份鉴别，不对外泄露，请放心提交。<br />
+      4. 连续两次实名认证申请审核失败的用户，将无法再次提交实名认证申请。<br />
+      5. 同一个身份证最多只能申请3个高级实名认证账户。 </div>
+  </div>
+</div>
+{{/component}}

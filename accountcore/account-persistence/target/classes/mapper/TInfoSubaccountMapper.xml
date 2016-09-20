@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TInfoSubaccountMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TInfoSubaccount" >
+    <id column="ACCOUNT_NO" property="accountNo" jdbcType="VARCHAR" />
+    <result column="MAINACCOUNT_NO" property="mainaccountNo" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_NAME" property="accountName" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_NAME" property="customerName" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_CARD" property="accountCard" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ACCOUNT_NO, MAINACCOUNT_NO, ACCOUNT_NAME, CUSTOMER_NO, CUSTOMER_NAME, ACCOUNT_CARD
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from CORE.T_INFO_SUBACCOUNT
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </select>
+    <select id="getSubaccountinfoByMainaccno" parameterType="java.lang.String"
+            resultMap="BaseResultMap">
+		select a.* ,c.balance from core.t_info_subaccount a join
+		core.t_info_account c
+		on
+		   a.account_no=c.account_no
+		where
+		   a.mainaccount_no= #{mainaccountNo,jdbcType=VARCHAR}
+	</select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from CORE.T_INFO_SUBACCOUNT
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TInfoSubaccount" >
+    insert into CORE.T_INFO_SUBACCOUNT (ACCOUNT_NO, MAINACCOUNT_NO, ACCOUNT_NAME, 
+      CUSTOMER_NO, CUSTOMER_NAME, ACCOUNT_CARD
+      )
+    values (#{accountNo,jdbcType=VARCHAR}, #{mainaccountNo,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, #{accountCard,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TInfoSubaccount" >
+    insert into CORE.T_INFO_SUBACCOUNT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountNo != null" >
+        ACCOUNT_NO,
+      </if>
+      <if test="mainaccountNo != null" >
+        MAINACCOUNT_NO,
+      </if>
+      <if test="accountName != null" >
+        ACCOUNT_NAME,
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO,
+      </if>
+      <if test="customerName != null" >
+        CUSTOMER_NAME,
+      </if>
+      <if test="accountCard != null" >
+        ACCOUNT_CARD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mainaccountNo != null" >
+        #{mainaccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCard != null" >
+        #{accountCard,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TInfoSubaccount" >
+    update CORE.T_INFO_SUBACCOUNT
+    <set >
+      <if test="mainaccountNo != null" >
+        MAINACCOUNT_NO = #{mainaccountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerNo != null" >
+        CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null" >
+        CUSTOMER_NAME = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCard != null" >
+        ACCOUNT_CARD = #{accountCard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TInfoSubaccount" >
+    update CORE.T_INFO_SUBACCOUNT
+    set MAINACCOUNT_NO = #{mainaccountNo,jdbcType=VARCHAR},
+      ACCOUNT_NAME = #{accountName,jdbcType=VARCHAR},
+      CUSTOMER_NO = #{customerNo,jdbcType=VARCHAR},
+      CUSTOMER_NAME = #{customerName,jdbcType=VARCHAR},
+      ACCOUNT_CARD = #{accountCard,jdbcType=VARCHAR}
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

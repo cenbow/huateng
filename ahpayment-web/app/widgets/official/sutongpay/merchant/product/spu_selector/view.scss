@@ -1,0 +1,71 @@
+@import "common";
+.spu-selector-box {
+  text-align: center;
+  background-color: #FFFFFF;
+  border-top: 1px solid #eee;
+
+  .spu-selector {
+    @include clearfloat;
+    min-height: 200px;
+
+    .category-column {
+      float: left;
+      width: 199px;
+      border-right: 1px solid #eee;
+
+      .name {
+        float: left;
+        width: 70%;
+      }
+
+      .child {
+        float: right;
+        padding-right: 20px;
+      }
+
+      .hover-active {
+        background-color: #f0f5f5;
+      }
+
+      .click-active {
+        background-color: #E6EFEF;
+      }
+    }
+
+    .spu-column {
+      background-color: #EEEEEE;
+      float: left;
+      width: 199px;
+
+      .hover-active {
+        background-color: #f0f5f5;
+      }
+
+      .click-active {
+        background-color: #E6EFEF;
+      }
+    }
+
+    li {
+      text-align: left;
+      padding: 4px 0 4px 12px;
+      height: 20px;
+      cursor: pointer;
+      line-height: 20px;
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  .control {
+    text-align: right;
+    margin-top: 5px;
+
+    .btn {
+      margin-right: 10px;
+    }
+  }
+}

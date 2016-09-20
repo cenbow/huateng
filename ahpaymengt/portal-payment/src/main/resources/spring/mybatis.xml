@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true"/>  
+		<setting name="lazyLoadingEnabled" value="true"/>  
+		<setting name="multipleResultSetsEnabled" value="true"/>  
+		<setting name="useColumnLabel" value="true"/>  
+		<setting name="useGeneratedKeys" value="true"/>  
+		<setting name="defaultExecutorType" value="SIMPLE"/>  
+		<setting name="defaultStatementTimeout" value="25000"/>  
+	</settings>
+    <typeAliases>
+        <typeAlias type="cn.com.huateng.payment.model.TPortOrderBase" alias="TPortOrderBase"/>
+      
+        <typeAlias type="cn.com.huateng.payment.model.PublicFee" alias="PublicFee"/>
+        <typeAlias type="cn.com.huateng.payment.model.TDictAreaCity" alias="TDictAreaCity"/>
+        <typeAlias type="cn.com.huateng.payment.model.WebGatePay" alias="WebGatePay"/>
+
+        <typeAlias type="cn.com.huateng.payment.model.InfoSmsCheckCode" alias="InfoMobileCheckCode"/>
+
+        <typeAlias type="cn.com.huateng.payment.model.Cart" alias="Cart"/>
+
+        <typeAlias type="cn.com.huateng.payment.model.VirtualGoods" alias="VirtualGoods"/>
+        
+        <typeAlias type="cn.com.huateng.payment.model.SaleReturnApply" alias="SaleReturnApply"/>
+        <typeAlias type="cn.com.huateng.payment.model.TTransferOrder" alias="TTransferOrder"/>
+        <typeAlias type="cn.com.huateng.payment.model.TTransferRecord" alias="TTransferRecord"/>
+       
+    </typeAliases>
+</configuration>

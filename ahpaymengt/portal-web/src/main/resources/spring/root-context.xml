@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012 杭州端点网络科技有限公司
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <util:properties id="app" location="classpath:app.properties"/>
+    <import resource="classpath*:spring/dubbo-service-consumer.xml"/>
+    <import resource="classpath*:site-service-context.xml"/>
+    <import resource="classpath*:/spring/redis-persistence-context.xml"/>
+    <import resource="classpath*:/spring/db2-persistence-context.xml"/>
+
+    <bean id="resultResolver" class="cn.com.huateng.web.container.ResultResolveImpl"/>
+
+
+    <bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <bean id="exceptionHandler" class="cn.com.huateng.web.interceptor.ExceptionInterceptor"/>
+
+    <context:component-scan
+            base-package="com.aixforce.common,com.aixforce.storage,com.aixforce.site.container,cn.com.huateng.web.container"/>
+
+
+
+
+    <aop:config>
+        <aop:aspect ref="storageAdvice" id="getAspect">
+            <aop:pointcut id="getPointcut" expression="execution(* com.aixforce.site.service.*.findById(..))"/>
+            <aop:around method="storageGetAround" pointcut-ref="getPointcut"/>
+        </aop:aspect>
+        <aop:aspect ref="storageAdvice" id="updateAspect">
+            <aop:pointcut id="updatePointcut" expression="execution(* com.aixforce.site.service.*.update(..))"/>
+            <aop:around method="storageUpdateAround" pointcut-ref="updatePointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean name="storagePolicy" class="com.aixforce.storage.StoragePolicy">
+        <constructor-arg index="0">
+            <list>
+                <value>com.aixforce.site.model.redis.Component</value>
+                <value>com.aixforce.site.model.redis.Site</value>
+                <value>com.aixforce.site.model.redis.Page</value>
+                <value>com.aixforce.site.model.redis.SiteInstance</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <list>
+                <value>30</value>
+                <value>30</value>
+                <value>30</value>
+                <value>30</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="2">
+            <list>
+                <ref bean="inMemoryStore"/>
+                <ref bean="inMemoryStore"/>
+                <ref bean="inMemoryStore"/>
+                <ref bean="inMemoryStore"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!--
+      Including this aspectj-autoproxy element will cause spring to automatically
+      create proxies around any beans defined in this file that match the pointcuts
+      of any aspects defined in this file.
+    -->
+    <aop:aspectj-autoproxy/>
+
+</beans>

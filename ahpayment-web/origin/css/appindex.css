@@ -1,0 +1,34 @@
+﻿/****切换焦点图*****/
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, blockquote, pre, form, fieldset, table, th, td, span{padding:0;margin:0;}
+#full-screen-slider { width:780px; height:240px; float:left; position:relative; margin-top:20px; margin-bottom:15px;}
+#slides { display:block; width:780px; height:240px; list-style:none; padding:0; margin:0; position:relative}
+#slides li { display:block; width:780px; height:100%; list-style:none; padding:0; margin:0; position:absolute}
+#slides li a { display:block; width:780px; height:100%; text-indent:-9999px}
+#pagination { display:block; list-style:none; position:absolute; left:5px; float:left; top:215px; z-index:9900;  padding:5px 15px 5px 0; margin:0}
+#pagination li { display:block; list-style:none; width:10px; height:10px; float:left; margin-left:10px; border-radius:5px; background:#666666; }
+#pagination li a { display:block; width:100%; height:100%; padding:0; margin:0;  text-indent:-9999px; overflow:hidden;}
+#pagination li.current { background:#FFAA00}
+
+/****应用中心主题信息*****/
+.ui-appmain{ width:540px; display:inline-block; float:left; position:relative; text-align:left;}
+#ui-appcenterMenu { width:530px; height:445px; float:left; position:relative; margin-bottom:15px; text-align:center; }
+#slides02 { display:inline-block; width:100%; height:445px; float:left; list-style:none; padding:0; margin:0; overflow:hidden;}
+#slides02 li { display:inline-block; left:0px; width:530px; height:445px; float:left; list-style:none; padding:0; margin:0; position:absolute; text-align:left;}
+#pagination02 {  list-style:none; display:inline-block; margin:0 auto; *display:inline; zoom:1;  z-index:9900;  padding:5px 15px 5px 0; margin:0;  float:left; position:relative; left:225px; top:20px;}
+#pagination02 li { display:block; list-style:none; width:10px; height:10px; float:left; margin-left:10px; border-radius:5px; background:#666666; cursor:pointer;}
+#pagination02 li span{ display:none}
+#pagination02 li.current { background:#FFAA00}
+#slides02 .ui-appMenudiv{ width:530px; display:inline-block; float:left;}
+#slides02 .ui-appMenudiv .ui-appMenudiv-main{ width:50%; float:left; position:relative; height:70px; display:block; margin-bottom:25px;}
+#slides02 .ui-appMenudiv .ui-appMenudiv-main .ui-txtapp{ position:absolute; left:60px; top:0px; width:170px; text-align:left; height:55px; }
+#slides02 .ui-appMenudiv .ui-appMenudiv-main .ui-txtapp .ui-appicontxt1{ font-size:14px; font-weight:bold; color:#666; line-height:18px;}
+#slides02 .ui-appMenudiv .ui-appMenudiv-main .ui-txtapp .ui-appicontxt2{ font-size:12px; color:#999; line-height:18px;}
+#slides02 .ui-appMenudiv .ui-appMenudiv-main .ui-txtapp .ui-appicontxt2 font{ overflow:hidden;  -o-text-overflow: ellipsis;white-space: nowrap;text-overflow: ellipsis; font-family:"arial"; width:170px; height:20px; display:block; font-size:12px;}
+#slides02 .ui-appMenudiv .ui-appMenudiv-main .ui-txtapp a:hover{ text-decoration:underline;}
+#slides02 .ui-appMenudiv .ui-appMenudiv-main .ui-appicon53{ position:absolute; left:0px; top:0px;}
+
+/****应用中心主页公告其他*****/
+.ui-appinfo{ width:230px; float:right; display:inline-block;}
+.ui-appinfo .ui-news .ui-news-title{ height:38px;}
+.ui-appAdvertising{ width:100%; display:inline-block; margin-top:10px}
+

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huateng.p3.account.persistence.TLogChannelRefundApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.huateng.p3.account.persistence.models.TLogChannelRefundApply" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="THIRD_ORDER_NO" property="thirdOrderNo" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+    <result column="REFUNDE_FILE" property="refundeFile" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="REFUNDE_FILE_TIME" property="refundeFileTime" jdbcType="VARCHAR" />
+    <result column="TOTAL_AMT" property="totalAmt" jdbcType="VARCHAR" />
+    <result column="TXN_AMT" property="txnAmt" jdbcType="VARCHAR" />
+    <result column="NO" property="no" jdbcType="VARCHAR" />
+    <result column="TOTAL_NO" property="totalNo" jdbcType="VARCHAR" />
+    <result column="REFUNDE_FLAG" property="refundeFlag" jdbcType="VARCHAR" />
+    <result column="TRANS_DATE" property="transDate" jdbcType="VARCHAR" />
+    <result column="RESV_FLD1" property="resvFld1" jdbcType="VARCHAR" />
+    <result column="RESV_FLD2" property="resvFld2" jdbcType="VARCHAR" />
+    <result column="RESV_FLD3" property="resvFld3" jdbcType="VARCHAR" />
+    <result column="RESV_FLD4" property="resvFld4" jdbcType="VARCHAR" />
+    <result column="RESV_FLD5" property="resvFld5" jdbcType="VARCHAR" />
+    <result column="OLD_TXN_SEQ_NO" property="oldTxnSeqNo" jdbcType="VARCHAR" />
+    <result column="REFUND_SEQ_NO" property="refundSeqNo" jdbcType="VARCHAR" />
+    <result column="PAY_ORG_CODE" property="payOrgCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, THIRD_ORDER_NO, CREATE_TIME, REFUNDE_FILE, STATE, REFUNDE_FILE_TIME, TOTAL_AMT, 
+    TXN_AMT, NO, TOTAL_NO, REFUNDE_FLAG, TRANS_DATE, RESV_FLD1, RESV_FLD2, RESV_FLD3, 
+    RESV_FLD4, RESV_FLD5, OLD_TXN_SEQ_NO, REFUND_SEQ_NO, PAY_ORG_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_LOG_CHANNEL_REFUND_APPLY
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_LOG_CHANNEL_REFUND_APPLY
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.huateng.p3.account.persistence.models.TLogChannelRefundApply" >
+    insert into T_LOG_CHANNEL_REFUND_APPLY (ID, THIRD_ORDER_NO, CREATE_TIME, 
+      REFUNDE_FILE, STATE, REFUNDE_FILE_TIME, 
+      TOTAL_AMT, TXN_AMT, NO, 
+      TOTAL_NO, REFUNDE_FLAG, TRANS_DATE, 
+      RESV_FLD1, RESV_FLD2, RESV_FLD3, 
+      RESV_FLD4, RESV_FLD5, OLD_TXN_SEQ_NO, 
+      REFUND_SEQ_NO, PAY_ORG_CODE)
+    values (#{id,jdbcType=VARCHAR}, #{thirdOrderNo,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{refundeFile,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{refundeFileTime,jdbcType=VARCHAR}, 
+      #{totalAmt,jdbcType=VARCHAR}, #{txnAmt,jdbcType=VARCHAR}, #{no,jdbcType=VARCHAR}, 
+      #{totalNo,jdbcType=VARCHAR}, #{refundeFlag,jdbcType=VARCHAR}, #{transDate,jdbcType=VARCHAR}, 
+      #{resvFld1,jdbcType=VARCHAR}, #{resvFld2,jdbcType=VARCHAR}, #{resvFld3,jdbcType=VARCHAR}, 
+      #{resvFld4,jdbcType=VARCHAR}, #{resvFld5,jdbcType=VARCHAR}, #{oldTxnSeqNo,jdbcType=VARCHAR}, 
+      #{refundSeqNo,jdbcType=VARCHAR}, #{payOrgCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huateng.p3.account.persistence.models.TLogChannelRefundApply" >
+    insert into T_LOG_CHANNEL_REFUND_APPLY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="thirdOrderNo != null" >
+        THIRD_ORDER_NO,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="refundeFile != null" >
+        REFUNDE_FILE,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="refundeFileTime != null" >
+        REFUNDE_FILE_TIME,
+      </if>
+      <if test="totalAmt != null" >
+        TOTAL_AMT,
+      </if>
+      <if test="txnAmt != null" >
+        TXN_AMT,
+      </if>
+      <if test="no != null" >
+        NO,
+      </if>
+      <if test="totalNo != null" >
+        TOTAL_NO,
+      </if>
+      <if test="refundeFlag != null" >
+        REFUNDE_FLAG,
+      </if>
+      <if test="transDate != null" >
+        TRANS_DATE,
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1,
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2,
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3,
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4,
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5,
+      </if>
+      <if test="oldTxnSeqNo != null" >
+        OLD_TXN_SEQ_NO,
+      </if>
+      <if test="refundSeqNo != null" >
+        REFUND_SEQ_NO,
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdOrderNo != null" >
+        #{thirdOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refundeFile != null" >
+        #{refundeFile,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="refundeFileTime != null" >
+        #{refundeFileTime,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        #{totalAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmt != null" >
+        #{txnAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="no != null" >
+        #{no,jdbcType=VARCHAR},
+      </if>
+      <if test="totalNo != null" >
+        #{totalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundeFlag != null" >
+        #{refundeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="transDate != null" >
+        #{transDate,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        #{resvFld5,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTxnSeqNo != null" >
+        #{oldTxnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundSeqNo != null" >
+        #{refundSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huateng.p3.account.persistence.models.TLogChannelRefundApply" >
+    update T_LOG_CHANNEL_REFUND_APPLY
+    <set >
+      <if test="thirdOrderNo != null" >
+        THIRD_ORDER_NO = #{thirdOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refundeFile != null" >
+        REFUNDE_FILE = #{refundeFile,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="refundeFileTime != null" >
+        REFUNDE_FILE_TIME = #{refundeFileTime,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmt != null" >
+        TOTAL_AMT = #{totalAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="txnAmt != null" >
+        TXN_AMT = #{txnAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="no != null" >
+        NO = #{no,jdbcType=VARCHAR},
+      </if>
+      <if test="totalNo != null" >
+        TOTAL_NO = #{totalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundeFlag != null" >
+        REFUNDE_FLAG = #{refundeFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="transDate != null" >
+        TRANS_DATE = #{transDate,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld1 != null" >
+        RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld2 != null" >
+        RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld3 != null" >
+        RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld4 != null" >
+        RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      </if>
+      <if test="resvFld5 != null" >
+        RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR},
+      </if>
+      <if test="oldTxnSeqNo != null" >
+        OLD_TXN_SEQ_NO = #{oldTxnSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundSeqNo != null" >
+        REFUND_SEQ_NO = #{refundSeqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payOrgCode != null" >
+        PAY_ORG_CODE = #{payOrgCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huateng.p3.account.persistence.models.TLogChannelRefundApply" >
+    update T_LOG_CHANNEL_REFUND_APPLY
+    set THIRD_ORDER_NO = #{thirdOrderNo,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      REFUNDE_FILE = #{refundeFile,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      REFUNDE_FILE_TIME = #{refundeFileTime,jdbcType=VARCHAR},
+      TOTAL_AMT = #{totalAmt,jdbcType=VARCHAR},
+      TXN_AMT = #{txnAmt,jdbcType=VARCHAR},
+      NO = #{no,jdbcType=VARCHAR},
+      TOTAL_NO = #{totalNo,jdbcType=VARCHAR},
+      REFUNDE_FLAG = #{refundeFlag,jdbcType=VARCHAR},
+      TRANS_DATE = #{transDate,jdbcType=VARCHAR},
+      RESV_FLD1 = #{resvFld1,jdbcType=VARCHAR},
+      RESV_FLD2 = #{resvFld2,jdbcType=VARCHAR},
+      RESV_FLD3 = #{resvFld3,jdbcType=VARCHAR},
+      RESV_FLD4 = #{resvFld4,jdbcType=VARCHAR},
+      RESV_FLD5 = #{resvFld5,jdbcType=VARCHAR},
+      OLD_TXN_SEQ_NO = #{oldTxnSeqNo,jdbcType=VARCHAR},
+      REFUND_SEQ_NO = #{refundSeqNo,jdbcType=VARCHAR},
+      PAY_ORG_CODE = #{payOrgCode,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

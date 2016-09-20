@@ -1,0 +1,5 @@
+.forget-success { width: 100%; display: inline-block; text-align: center; background-color: #f6f6f6; min-height: 370px;!important _height:370px;}
+.forget-success .ui-Promptdiv{ width: 770px; margin: 30px auto; padding-bottom: 25px; height: 200px;}
+.forget-success .ui-Promptdiv i{ left: 290px; top: 70px;}
+.forget-success .ui-Promptdiv span{ width: auto; margin-left: 330px; margin-top: 50px;}
+.forget-success .ui-Promptdiv strong{ font-size: 18px; line-height: 40px;}

@@ -1,0 +1,34 @@
+{{#component "individualCenter"}}
+<div class="fund-body">
+    <ul class="mycard">
+        <dl>
+            <input id="bankCardNo" type="hidden" value="">
+        	{{#if _DATA_.data}}
+         {{#each _DATA_.data}}
+         <dd>
+            <li>
+            <div class="ar">储蓄卡{{#equals cardType 1}} 信用卡{{/equals}}{{#equals cardType 2}}储蓄卡{{/equals}}</div>
+            <div class="from"><img src="/assets/sutongpay/{{#equals bankCode "60"}}_yinhang{{/equals}}{{#equals bankCode "70"}}zhaoshang{{/equals}}.png" width="110" height="30"></div>
+            <div class="numer">{{bankCardNo}}</div>
+            </li>
+            <div class="cl"></div>
+            <div class="txtfr"><a class="font-blue" id="del">解除绑定</a></div>
+         </dd>
+         {{/each}}
+
+         {{#equals _DATA_.total 3}}
+
+         {{else}}
+         <dd><li class="add" id="laddCard"></li><div class="txtfr"><a class="font-blue" href="/myCard/addCard">添加银行卡</a></div></dd>
+         {{/equals}}
+         {{else}}
+         <dd><li class="add" id="laddCard"></li><div class="txtfr"><a class="font-blue" href="/myCard/addCard">添加银行卡</a></div></dd>
+         {{/if}}
+
+
+     </dl>
+ </ul>
+</div>
+
+
+{{/component}}

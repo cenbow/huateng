@@ -1,0 +1,30 @@
+
+.login-main .banner{width:708px; overflow:hidden; float:left;}
+.login-main .org-btn{background:#f19a2b; border:1px solid #d96d00; color:#fff; font-size:16px; font-weight:bold; width:239px; margin:17px auto 20px; height:32px; line-height:32px;}
+.login-main .login{width:245px; height:255px; padding:15px 20px 20px 20px; background:#fff; border:1px solid #ccc; float:right;}
+.login-main .login h5{color:#666; font-size:14px; height:20px; display:block;}
+.login-main .login em{ padding-top:10px; padding-bottom:7px; font-style:normal; font-size:14px; display:block; width:50px; float:left; height:30px; line-height:30px;}
+.login-main .login h6{ font-size:12px; font-weight:normal;}
+.login-main .login h6 a{color:#176faa; text-decoration:none;}
+.login-main .login h6 a:hover{color:#176faa; text-decoration:underline;}
+.login-main .nav .logo{ margin-left:8px;width:205px; height:66px; background-image:url(/assets/sutongpay/common.png); background-position:0 0; display:block;}
+.login-main .sp-mtop20{margin-top:20px;}
+.login-main .sp-mtop10{margin-top:10px;}
+.login-main .sp-mtop14{margin-top:14px;}
+.login-main .yzm{width:100px; height:30px;text-align: center; line-height:30px; display:block;}
+.login-main .yzm a{font-size:12px; color:#0169b8; text-decoration:underline;}
+.login-main .yzm a:hover{text-decoration:none;}
+.login-main .yzm-w2{ width:80px; height:30px; padding-left:7px; font-size:16px; color:#555; font-weight:bold; border:1px solid #ccc; background:url(/assets/sutongpay/inputbg.png) repeat-x; line-height:30px;}
+.login-main .ui-Securityimage{ position: absolute; left: 1025px; top:293px;}
+.login-main .icon-p{background:url(/assets/sutongpay/icon-p.png) no-repeat 0 1px; padding-left:22px; color:#777; font-size:14px;display:block;}
+.login-main .icon-p a{font-size:12px; padding-left:10px; color:#777; text-decoration:none;}
+.login-main .icon-p a:hover{text-decoration:underline;}
+.login-main .user{ padding-top:15px; padding-bottom:10px;}
+.login-main .user-info{ background:#f6f6f6; padding:18px 8px; overflow:hidden;}
+.login-main .user-info  h4{ color:#888; font-size:14px; text-align:center;}
+.login-main .user-info p{font-size:14px; text-align:center; color:#888; display:block;}
+.login-main .blue12{color:#1771ad; font-size:12px;}
+.login-main .user-info p a{ padding:0 10px; color:#1771ad; text-decoration:none;}
+.login-main .user-info p a:hover{text-decoration:underline;}
+.login-main .org24{color:#ff7f00; font-size:24px; font-family:Arial, Helvetica, sans-serif;}
+.login-main .sp-tb{padding-top:6px; padding-bottom:20px; }

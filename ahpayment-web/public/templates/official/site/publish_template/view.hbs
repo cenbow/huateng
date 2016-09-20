@@ -1,0 +1,87 @@
+<div id="js-publish-site" class="publish-template w600 dh-modal-next js-comp" data-comp-id="{{_COMP_ID_}}" data-comp-path="{{_COMP_PATH_}}">
+    <div class="modal-header">
+        <button type="button" id="js-close-dh-modal" class="close">&times;</button>
+        <h4>发布模板</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" id="publish-site-form">
+            <input type="hidden" name="id" value="{{_DATA_.site.id}}">
+
+            <div class="control-group">
+                <label class="control-label">模板名称:</label>
+
+                <div class="controls">
+                    <input type="text" name="name" value={{_DATA_.site.name}}>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">价格:</label>
+
+                <div class="controls">
+                    <div class="input-prepend">
+                      <span class="add-on">¥</span>
+                        <input type="text" class="input-small" name="price" value="{{_DATA_.site.price}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">缩略图:</label>
+
+                <div class="controls">
+                    <img id="param-image-url" class="image-preview"
+                         src="{{#if _DATA_.site.image}}{{_DATA_.site.image}}{{else}}/assets/bg.gif{{/if}}">
+                    <button class="btn btn-small btn-change-image" id="js-change-image">选择图片</button>
+                    <input type="hidden" name="image" value="{{_DATA_.site.image}}">
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label">类目:</label>
+
+                <div class="controls">
+                    <select name="siteCategory">
+
+                        {{#each _DATA_.categories}}
+                        {{#each this.value}}
+                           <option  value="{{id}}" {{#equals _DATA_.site.siteCategory id}} selected {{/equals}}>{{name}}</option>
+                        {{/each}}
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <input type="hidden" name="color" value="{{_DATA_.site.color}}">
+                <label class="control-label">颜色:</label>
+
+                <div class="row color-pick small">
+                    <div class="span1" data-id="1" style="background-color:black;"></div>
+                    <div class="span1" data-id="2" style="background-color:azure;"></div>
+                    <div class="span1" data-id="3" style="background-color:aquamarine;"></div>
+                    <div class="span1" data-id="4" style="background-color:hotpink;"></div>
+                    <div class="span1" data-id="5" style="background-color:forestgreen;"></div>
+                    <div class="span1" data-id="6" style="background-color:cornsilk;"></div>
+                    <div class="span1" data-id="7" style="background-color:yellow;"></div>
+                    <div class="span1" data-id="8" style="background-color:blue;"></div>
+                    <div class="span1" data-id="9" style="background-color:red;"></div>
+                    <div class="span1" data-id="10" style="background-color:gray;"></div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">描述:</label>
+
+                <div class="controls">
+                    <textarea name="description">{{_DATA_.site.description}}</textarea>
+                </div>
+            </div>
+            <div class="control-group control-row">
+                <label class="control-label"></label>
+                <a class="btn btn-success" id="publish-site-submit">发布</a>
+                <a id="publish-site-cancel">取消</a>
+            </div>
+        </form>
+    </div>
+</div>

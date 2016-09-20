@@ -1,0 +1,26 @@
+.official-session-menu {
+  font-size: 14px;
+  margin-top: 3px;
+  position: absolute;
+
+  a {
+    color: #000000;
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #cc3300;
+  }
+  .selected {
+    height: 16px;
+    width: 32px;
+    position: absolute;
+    top: 14px;
+    margin-left: 25px;
+    background: url(/assets/icon.png) no-repeat -100px -96px;
+    a {
+      font-weight: bold;
+      color: #cc3300;
+    }
+  }
+}
